@@ -1,0 +1,97 @@
+====== Semestrální práce ======
+
+Úkolem je vytvořit křižovatku pro tři trubky na vodu. Každá trubka má určitý profil a průměr. Křižovatka sama o sobě nesmí zpomalit průtok vody z dvou libovolných trubek do třetí (či z jedné do dvou).
+
+===== Program =====
+
+Doporučeným programem pro tvorbu modelu pro semestrální úlohu je OpenSCAD, je to zároveň jediný program, ke kterému budeme schopni zodpovědět dotazy.
+
+Je možné zvolit libovolný program, který umožňuje tvorbu 3D modelů pomocí zdrojového kódu. Po konzultaci je možné zvolit i jiný způsob tvorby objektu, program však musí umožňovat parametrickou změnu požadovaných rozměrů.
+
+V případě použití jiného programu musí být student při odevzdání schopen předvést "kompilaci" výsledného modelu na vlastním počítači.
+
+===== Profily trubek =====
+
+profiles.png Profily
+
+Konkrétní typ tvaru a vnitřní průměr tří trubek bude vygenerován pseudonáhodně. Na otočení profilu záleží! Profily jsou znázorněny tak, že spodní strana leží dole (v rámci následnicích obrázků), jsou vždy kolmo na osu trubky a znázorňují pohled zevnitř ven.
+
+===== Vzájemná pozice =====
+
+Při pohledu shora svírají trubky se sousedícími trubkami úhel 120°.
+
+top-view.png Pohled z vrchu
+
+Při pohledu z boku svírá jedna z trubek s podložkou úhel α z intervalu (-30°,30°), dvě další trubky jsou rovnoběžné z podložkou. Jejich středové osy jsou ve stejné výšce.
+
+front-view.png Pohled z boku
+
+Konkrétní délka trubek a úhel, který svírá jedna trubka s podložkou bude vygenerován pseudonáhodně.
+
+Vnější zakřivení trubek může být libovolné, zvolte jej ale tak, aby dávalo smyl a nesnižovalo průchodnost trubkou. Myslete na to, že váš model musí být parametrický.
+
+===== Rozměry a úhly =====
+
+Následující tabulka pokrývá rozměry a úhly, které váš model musí reflektovat. Sloupec **interval** udává, v jakém rozsahu je možné dostat zadání (z tohoto rozsahu bude pseudonáhodně vybráno). Sloupec **přístup** udává jakým způsobem je k tomuto údaji třeba přistupovat při tvorbě modelu - buďto parametricky v daném intervalu, nebo fixně, podle zadání.
+
+^ ^ rozměr/úhel ^ interval ^ přístup ^
+| la | délka trubky A od středu spojení | 2 až 5 cm | param. |
+| lb | délka trubky B od středu spojení | 2 až 5 cm | param. |
+| lc | délka trubky C od středu spojení | 2 až 5 cm | param. |
+| da | vnitřní průměr trubky A (dle zvoleného profilu) | 1 až 4 cm | param. |
+| db | vnitřní průměr trubky B (dle zvoleného profilu) | 1 až 4 cm | param. |
+| dc | vnitřní průměr trubky C (dle zvoleného profilu) | 1 až 4 cm | param. |
+| α | úhel, jenž svírá trubka A s vodorovnou podložkou | -30° až 30° | fix. |
+| | úhel, jenž svírají trubky B i C s vodorovnou podložkou | vždy 0° | fix. |
+| | úhel, jenž vzájemně svírají trubky A, B i C (při pohledu z vrchu) | vždy 120° | fix. |
+| | tloušťka stěny | volíte vhodně sami | param. |
+
+Pozor, pokud bude vzdálenost od středu příliš krátká a konce trubek by se překrývali, smíte (musíte) je patřičně prodloužit, nikoli však více, než je potřeba. Tuto skutečnost řádně okomentujete. Není nutné tento stav ošetřovat v parametrickém modelu!
+
+===== Zadání =====
+
+Konkrétní zadání vygenerujeme po druhém týdnu v semestru, naleznete ho zde a v aktualitách.
+
+===== Odevzdání =====
+
+Elektronickou část práce odevzdávejte do **27.11.2013** včetně do svého namespace zde na Eduxu. Přesná forma není předepsána. Nahrát musíte následující:
+
+  * zdrojový kód modelu v jednom nebo více souborech
+  * pokud je to potřeba tak případný vysvětlující text
+  * vygenerovaný STL soubor s výchozími parametry
+  * vygenerovaný gcode (parametry tiskárny a materiálu se včas dozvíte)
+  * profil slicovacího programu
+
+Je možné, že Edux nebude některé formáty akceptovat. Nejjednodušší je tedy všechny soubory prostě zabalit do archivu (např. zip).
+
+V posledních čtyřech týdnech semestru (a případně ve zkouškovém období) budou v čase cvičení v KOSu vypsány termíny klasifikovaných zápočtů. Na těchto speciálních cvičeních svůj model vytisknete. Po termínu elektronického odevzdávání můžete svůj model nadále vylepšovat za účelem lepšího výtisku, ale hodnocení elektronické části proběhne na odevzdaných datech.
+
+V případě zmeškání řádného termínu bude možné odevzdat s bodovým postihem později. Konkrétní bodový postih bude určen na základě množství takových prací.
+
+===== Hodnocení =====
+
+^ Model ^ 20 ^ ^
+| Jedná se o model křižovatky tří trubek | 1 | povinný |
+| Vzájemná pozice (svíraný úhel) odpovídají zadaní | 1 | |
+| Trubka A svírá s "podložkou" zadaný úhel | 2 | |
+| Osy trubek C a B leží v jedné rovině | 2 | |
+| Je možné měnit parametrem délky trubek | 1 | povinný |
+| Je možné měnit parametrem průměry trubek | 1 | povinný |
+| Je možné měnit parametrem tloušťku stěny celého objektu | 1 | |
+| Vygenerovaný model s výchozími parametry je v pořádku (z hlediska meshe) | 1 | povinný |
+| Vygenerovaný model s pozměněnými parametry je v pořádku | 2 | |
+| Profily trubek odpovídají zadání | 1 | povinný |
+| Při výchozích parametrech křižovatka nezmenšuje průchodnost | 1 | |
+| Při pozměněných parametrech křižovatka nezmenšuje průchodnost | 2 | |
+| Při výchozích parametrech z křižovatky nic netrčí, ani neobsahuje díry | 1 | povinný |
+| Při pozměněných parametrech z křižovatky nic netrčí, ani neobsahuje díry | 2 | |
+| Zdrojový kód je vhodně členěn a komentován | 1 | povinný |
+^ Příprava na tisk ^ 20 ^ ^
+| Vhodně nastavená tloušťka stěny trubky a adekvátně zvolený počet obvodových vrstev | 5 | povinný v rámci části |
+| Vhodné umístění objektu na tiskovou plochu | 5 | |
+| Popory (nejsou potřeba, vhodné užití, zbytečné užití) | 5 | |
+| Vhodné nastavení parametrů tisku (perimtery, výplň) | 5 | |
+^ Tisk ^ 20 ^ ^
+| Jedná se o výtisk modelu s výchozími parametry, výtisk je opracovaný (např. bez podpor) | 5 | povinný v rámci části |
+| Rozměry a úhly odpovídají zadání | 5 | |
+| Výtisk neobsahuje vady zjevně způsobené nevhodnou přípravou modelu | 10 | |
