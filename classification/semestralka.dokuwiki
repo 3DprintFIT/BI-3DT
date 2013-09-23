@@ -12,7 +12,7 @@ V případě použití jiného programu musí být student při odevzdání scho
 
 ===== Profily trubek =====
 
-profiles.png Profily
+{{:classification:profiles.png|Profily}}
 
 Konkrétní typ tvaru a vnitřní průměr tří trubek bude vygenerován pseudonáhodně. Na otočení profilu záleží! Profily jsou znázorněny tak, že spodní strana leží dole (v rámci následnicích obrázků), jsou vždy kolmo na osu trubky a znázorňují pohled zevnitř ven.
 
@@ -20,11 +20,11 @@ Konkrétní typ tvaru a vnitřní průměr tří trubek bude vygenerován pseudo
 
 Při pohledu shora svírají trubky se sousedícími trubkami úhel 120°.
 
-top-view.png Pohled z vrchu
+{{:classification:top-view.png|Pohled z vrchu}}
 
 Při pohledu z boku svírá jedna z trubek s podložkou úhel α z intervalu (-30°,30°), dvě další trubky jsou rovnoběžné z podložkou. Jejich středové osy jsou ve stejné výšce.
 
-front-view.png Pohled z boku
+{{:classification:front-view.png|Pohled z boku}}
 
 Konkrétní délka trubek a úhel, který svírá jedna trubka s podložkou bude vygenerován pseudonáhodně.
 
