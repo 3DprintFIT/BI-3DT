@@ -10,6 +10,10 @@ Je možné zvolit libovolný program, který umožňuje tvorbu 3D modelů pomoc�
 
 V případě použití jiného programu musí být student při odevzdání schopen předvést "kompilaci" výsledného modelu na vlastním počítači.
 
+Slicovat je možné jakýmkoli dostupným programem, u kterého je technicky možné odevzdat slicovací profil. Konzultace poskytujeme k programům Slic3r a Skeinforge.
+
+Tisknout můžete z jakéhokoli programu, kterým dokážete ovládat tiskárnu. Konzultace poskytujeme k programům Pronterface a Pronsole z balíčku Printrun.
+
 ===== Profily trubek =====
 
 {{:classification:profiles.png|Profily}}
@@ -61,6 +65,8 @@ Elektronickou část práce odevzdávejte do **27.11.2013** včetně do svého n
   * vygenerovaný STL soubor s výchozími parametry
   * vygenerovaný gcode (parametry tiskárny a materiálu se včas dozvíte)
   * profil slicovacího programu
+    * Slic3r umožňuje export profilu do souboru ini
+    * Skeinforge ukládá informace do .csv souborů ve složce ~/.skeinforge
 
 V případě zmeškání řádného termínu bude možné odevzdat s bodovým postihem později. Konkrétní bodový postih bude určen na základě množství takových prací.
 
