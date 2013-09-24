@@ -1,6 +1,6 @@
 ====== OpenSCAD: Domácí úkol ======
 ===== Pouzdro na telefon =====
-Úkolem je vytvořit v programu OpenSCAD pouzdro na mobilní telefon, které kryje zadní stěnu a hrany telefonu. Je však nutné nechat v zadní stěně díru na fotoaparát a na spodní hraně díru na konektor. Telefon má tvar kvádru se zaoblenými rohy podstavy ([[http://commons.wikimedia.org/wiki/File:Iphone_4G.jpg|podobně jako iPhone]]).
+Úkolem je vytvořit v programu OpenSCAD pouzdro na mobilní telefon, které kryje zadní stěnu a hrany telefonu. Je však nutné nechat v zadní stěně díru na fotoaparát a na spodní hraně díru na konektor. Pouzdro na přední straně mírně přesahuje, nemusíte ale řešit, jak pak telefon do pouzdra dostat, předpokládejte například, že pouzdro je z gumy. Telefon má tvar kvádru se zaoblenými rohy podstavy ([[http://commons.wikimedia.org/wiki/File:Iphone_4G.jpg|podobně jako iPhone]]).
 
 {{:classification:smartphone.png|Schéma}}
 
