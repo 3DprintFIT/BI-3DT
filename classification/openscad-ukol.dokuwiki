@@ -34,4 +34,6 @@ Vaše implementace bude umožňovat změnu následujících parametrů:
  Neošetřujte nevalidní vstup (záporné nebo nečíselné hodnoty nebo např. díru na fotoaparát větší než telefon samotný).
 
 ===== Odevzdání =====
+**Pozor, zatím neodevzdávejte, řešíme technické problémy s Eduxem!**
+
 Úkol odevzdávejte do svého namespacu na Eduxu do konce října. Soubor(y) scad uložte do zipu pojmenovaného username-openscad.zip, např hroncmir-openscad.zip. Nahrávejte pouze zdrojový kód, vygenerované STL nahrávat nemusíte. Ve výchozí stránce vašeho namespacu na soubor uveďte odkaz.
