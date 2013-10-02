@@ -13,6 +13,7 @@ Vaše implementace bude umožňovat změnu následujících parametrů:
   * poloměr zaoblení rohu
   * tloušťka stěny pouzdra
     * všude stejná
+    * není nutné meřit ji i v rozích mezi přední*zadní stěnou a bokem telefonu
   * pozice a velikost díry na fotoaparát
     * pozice se udává dvěma čísly
       * vzdálenost středu díry od horního okraje telefonu
@@ -35,3 +36,8 @@ Vaše implementace bude umožňovat změnu následujících parametrů:
 
 ===== Odevzdání =====
 Úkol odevzdávejte do svého namespacu na Eduxu do konce října. Soubor(y) scad uložte do zipu pojmenovaného username-openscad.zip, např hroncmir-openscad.zip. Nahrávejte pouze zdrojový kód, vygenerované STL nahrávat nemusíte. Ve výchozí stránce vašeho namespacu na soubor uveďte odkaz.
+
+===== Update =====
+Na následujícím obrázku průřezu je vidět několik možná nejasných věcí. Různou barvou je označeno, co je tloušťka pouzdra a co je přesah na přední straně. Zároveň je naznačeno, že v průhlednějších oblastech nehodnotíme, jestli jsou zaoblené, nebo pravoúhlé.
+
+{{:classification:g10220.png|}}
