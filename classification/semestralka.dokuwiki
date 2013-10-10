@@ -54,7 +54,57 @@ Pozor, pokud bude vzdálenost od středu příliš krátká a konce trubek by se
 
 ===== Zadání =====
 
-Konkrétní zadání vygenerujeme po druhém týdnu v semestru, naleznete ho zde a v aktualitách.
+<code>
+username	Aprofile		Bprofile		Cprofile			Alen	Blen	Clen	alpha
+bartito1	Pentagon(14mm)	Square(29mm)	RippedSquare(14mm)	36mm	49mm	23mm	+12°
+bremondr	Pentagon(18mm)	Circle(37mm)	Star(39mm)			30mm	44mm	34mm	+19°
+camfrond	Pentagon(20mm)	Square(22mm)	RippedSquare(10mm)	50mm	42mm	47mm	+26°
+cejhojan	Pentagon(15mm)	Circle(31mm)	RippedSquare(18mm)	32mm	29mm	29mm	+13°
+dragodom	Square(15mm)	Circle(28mm)	RippedSquare(20mm)	47mm	50mm	30mm	+17°
+elexapet	Square(11mm)	Circle(17mm)	Star(38mm)			38mm	30mm	31mm	+20°
+formape6	Pentagon(31mm)	Circle(34mm)	RippedSquare(31mm)	45mm	41mm	32mm	-14°
+freyiboh	Square(19mm)	Square(18mm)	Star(22mm)			38mm	44mm	33mm	+13°
+hejlfran	Pentagon(35mm)	Square(35mm)	RippedSquare(33mm)	41mm	33mm	46mm	+28°
+herycjan	Pentagon(38mm)	Square(12mm)	Star(24mm)			24mm	42mm	25mm	+13°
+husakja4	Square(19mm)	Circle(21mm)	RippedSquare(38mm)	26mm	29mm	36mm	-18°
+kakosluk	Pentagon(32mm)	Circle(30mm)	RippedSquare(14mm)	27mm	26mm	45mm	-27°
+kalinmi2	Square(30mm)	Square(40mm)	RippedSquare(26mm)	49mm	28mm	27mm	-26°
+kasalto1	Square(35mm)	Circle(25mm)	Star(29mm)			34mm	42mm	38mm	-21°
+kholdavi	Pentagon(16mm)	Square(37mm)	RippedSquare(39mm)	28mm	25mm	26mm	-12°
+kobezjan	Square(39mm)	Circle(32mm)	RippedSquare(28mm)	42mm	24mm	44mm	+28°
+kolarto5	Pentagon(16mm)	Square(21mm)	RippedSquare(14mm)	28mm	41mm	27mm	+23°
+kolarvin	Pentagon(38mm)	Square(14mm)	RippedSquare(27mm)	46mm	35mm	37mm	-16°
+kukacji1	Pentagon(16mm)	Circle(36mm)	Star(17mm)			38mm	37mm	32mm	+12°
+lukeshan	Square(17mm)	Circle(40mm)	Star(27mm)			31mm	41mm	43mm	-27°
+malikdus	Square(10mm)	Square(26mm)	RippedSquare(31mm)	24mm	24mm	33mm	-24°
+mertijir	Square(28mm)	Circle(39mm)	RippedSquare(36mm)	45mm	45mm	26mm	+26°
+najdoolg	Square(23mm)	Circle(35mm)	RippedSquare(21mm)	24mm	48mm	41mm	+22°
+novakj98	Pentagon(33mm)	Circle(30mm)	RippedSquare(19mm)	43mm	37mm	31mm	-27°
+oppldavi	Square(25mm)	Circle(32mm)	RippedSquare(13mm)	28mm	28mm	23mm	-19°
+pekarja5	Square(24mm)	Square(30mm)	Star(31mm)			49mm	49mm	44mm	-16°
+pelanma4	Pentagon(34mm)	Square(20mm)	RippedSquare(12mm)	26mm	31mm	24mm	-23°
+pestape1	Pentagon(33mm)	Circle(11mm)	Star(39mm)			47mm	33mm	39mm	+27°
+petrope1	Square(33mm)	Square(31mm)	RippedSquare(24mm)	34mm	50mm	37mm	+30°
+pilatcen	Pentagon(39mm)	Circle(38mm)	Star(25mm)			35mm	38mm	47mm	-28°
+priknjak	Pentagon(37mm)	Square(25mm)	RippedSquare(35mm)	25mm	21mm	30mm	-12°
+prusaja3	Pentagon(20mm)	Square(34mm)	RippedSquare(18mm)	41mm	44mm	48mm	-22°
+prihoda1	Square(22mm)	Circle(26mm)	RippedSquare(35mm)	40mm	30mm	25mm	+14°
+richtmat	Square(36mm)	Square(16mm)	RippedSquare(15mm)	48mm	49mm	42mm	-16°
+rytirnik	Pentagon(12mm)	Circle(39mm)	RippedSquare(20mm)	41mm	37mm	24mm	+14°
+skorevra	Pentagon(28mm)	Circle(31mm)	Star(37mm)			48mm	21mm	34mm	-26°
+sochuale	Square(30mm)	Square(12mm)	Star(15mm)			43mm	38mm	24mm	+18°
+svobol25	Pentagon(28mm)	Circle(10mm)	Star(16mm)			23mm	30mm	43mm	-23°
+sembejir	Square(15mm)	Square(19mm)	RippedSquare(16mm)	36mm	34mm	21mm	-14°
+stastm11	Pentagon(20mm)	Circle(16mm)	Star(24mm)			37mm	24mm	24mm	+14°
+tkadljak	Square(23mm)	Square(18mm)	RippedSquare(18mm)	28mm	45mm	50mm	+16°
+trusijan	Square(17mm)	Square(31mm)	Star(10mm)			24mm	35mm	30mm	+14°
+tvrdipa1	Pentagon(18mm)	Square(31mm)	Star(13mm)			38mm	43mm	40mm	+21°
+vanazde1	Pentagon(34mm)	Square(23mm)	RippedSquare(16mm)	22mm	34mm	38mm	-18°
+vopatrad	Square(33mm)	Square(40mm)	Star(14mm)			39mm	41mm	38mm	+19°
+vyvledav	Pentagon(26mm)	Square(17mm)	RippedSquare(40mm)	44mm	31mm	49mm	+17°
+zalouja4	Pentagon(23mm)	Square(25mm)	RippedSquare(27mm)	32mm	36mm	45mm	-24°
+zaludjak	Square(20mm)	Circle(25mm)	Star(39mm)			21mm	34mm	23mm	-22°
+</code>
 
 ===== Odevzdání =====
 Elektronickou část práce odevzdávejte do **27.11.2013** včetně do svého namespace zde na Eduxu. Soubory uložte do zipu pojmenovaného username-semestralka.zip, např hroncmir-semestralka.zip. Do svého namespacu na tento soubor uveďte odkaz. Nahrát musíte následující:
