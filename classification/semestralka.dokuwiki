@@ -48,7 +48,9 @@ Následující tabulka pokrývá rozměry a úhly, které váš model musí refl
 | α | úhel, jenž svírá trubka A s vodorovnou podložkou | -30° až 30° | fix. |
 | | úhel, jenž svírají trubky B i C s vodorovnou podložkou | vždy 0° | fix. |
 | | úhel, jenž vzájemně svírají trubky A, B i C (při pohledu z vrchu) | vždy 120° | fix. |
-| | tloušťka stěny | volíte vhodně sami | param. |
+| | tloušťka stěny | volíte vhodně sami* | param. |
+
+Tloušťku stěny vhodně zvolíte sami, ale musí být parametrická. Pokud tedy parametr bude 2, tloušťka musí být v **celém objektu** 2 (drobné deviace v oblouku jsou přípustné).
 
 Pozor, pokud bude vzdálenost od středu příliš krátká a konce trubek by se překrývali, smíte (musíte) je patřičně prodloužit, nikoli však více, než je potřeba. Tuto skutečnost řádně okomentujete. Není nutné tento stav ošetřovat v parametrickém modelu!
 
