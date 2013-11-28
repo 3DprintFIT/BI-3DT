@@ -134,7 +134,7 @@ Podle potřeby budou vypsány opravné termíny.
 | Je možné měnit parametrem tloušťku stěny celého objektu | 1 | |
 | Vygenerovaný model s výchozími parametry je v pořádku (z hlediska meshe) | 1 | povinný |
 | Vygenerovaný model s pozměněnými parametry je v pořádku | 2 | |
-| Profily trubek odpovídají zadání | 1 | povinný |
+| Profily a délky trubek odpovídají zadání | 1 | povinný |
 | Při výchozích parametrech křižovatka nezmenšuje průchodnost | 1 | |
 | Při pozměněných parametrech křižovatka nezmenšuje průchodnost | 2 | |
 | Při výchozích parametrech z křižovatky nic netrčí, ani neobsahuje díry | 1 | povinný |
@@ -143,7 +143,7 @@ Podle potřeby budou vypsány opravné termíny.
 ^ Příprava na tisk ^ 20 ^ ^
 | Vhodně nastavená tloušťka stěny trubky a adekvátně zvolený počet obvodových vrstev | 5 | povinný v rámci části |
 | Vhodné umístění objektu na tiskovou plochu | 5 | |
-| Popory (nejsou potřeba, vhodné užití, zbytečné užití) | 5 | |
+| Popory (nejsou potřeba - 5, vhodné užití - 2.5, zbytečné užití - 0) | 5 | |
 | Vhodné nastavení parametrů tisku (perimtery, výplň) | 5 | |
 ^ Tisk ^ 20 ^ ^
 | Jedná se o výtisk modelu s výchozími parametry, výtisk je opracovaný (např. bez podpor) | 5 | povinný v rámci části |
