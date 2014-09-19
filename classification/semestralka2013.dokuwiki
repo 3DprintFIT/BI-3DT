@@ -1,5 +1,7 @@
 ====== Semestrální práce ZS 2013/2014 ======
 
+<note warning>Toto není aktuální zadání práce. Je zde pouze k účelům archivace.</note>
+
 Úkolem je vytvořit křižovatku pro tři trubky na vodu. Každá trubka má určitý profil a průměr. Křižovatka sama o sobě nesmí zpomalit průtok vody z dvou libovolných trubek do třetí (či z jedné do dvou).
 
 ===== Program =====
