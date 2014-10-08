@@ -1,3 +1,69 @@
 ====== OpenSCAD: Domácí úkol ZS 2014/2015 ======
 
-Zadání domácího úkolu bude upřesněno. Pro představu o komplexnosti se můžete podívat na [[classification:archive:openscad-ukol2013|loňské zadání]].
+Vaším úkolem je vytvořit parametrický model krabičky. Krabička má podstavu tvaru obdélníku se zaoblenými rohy, spodní část a víčko.
+
+<note important>V případě jakýchkoli nejasností v zadání se ihned ptejte na nejbližším cvičení.</note>
+
+====== Půdorys ======
+
+{{:classification:pudoris.png?400}}
+
+Použité argumenty: ''x'' a ''y'' jsou vnitřní rozměry, ''rad'' je poloměr zaoblení rohu (také vnitřní). V případě hodnot ''x'' nebo ''y'' <= 0 se krabička nevykreslí. V případě hodnoty ''rad'' <= 0 je vnitřní roh pravoúhlý.
+
+===== wall_thick =====
+
+{{:classification:roh.png?400}}
+
+{{:classification:roh_bad.png?400}}
+
+{{:classification:roh_bad2.png?400}}
+
+Pro ''rad'' <= 0:
+
+{{:classification:roh90.png}}
+
+{{:classification:roh90_bad.png}}
+
+Použité argumenty: ''wall_thick'' je tloušťka stěny. Musí být všude stejná, včetně rohu. Pro hodnoty <= 0 se krabička nevykreslí.
+
+====== Bokorys ======
+
+{{:classification:bokorys-vrsek.png?400}}
+
+{{:classification:bokorys-spodek.png?400}}
+
+Použité argumenty: ''z1'' a ''z2'' jsou výšky jednotlivých částí včetně podstav. ''wall_thick'' je stejný jako u půdorysu, jen se v rohu chová jinak, viz obrázek. Pro hodnoty ''z1'' nebo ''z2'' <= ''wall_thick'' (respektive ''wall_thick'' + ''lock_z'' pro ''z1'', viz níže) se krabička vykreslí pouze na výšku dna/stropu a spojovacího mechanismu.
+
+===== Detail spojení =====
+
+{{:classification:lock.png}}
+
+Použité argumenty: ''wall_thick'' je stejný jako výše. ''lock_z'' je výše zubu, pozor na různý vztah k ''z1'' a ''z2''. ''reserve'' je rozměr mezery mezi jednotlivými díly krabičky. Pro hodnoty < 0 se ''reserve'' a ''lock_z'' nastaví na 0. Pokud je ''reserve'' větší než ''wall_thick'', zuby mechanismu se nevykreslí. ''*'' není argument, ale vyznačuje, že oba vyznačené rozměry jsou stejné.
+
+====== Interafce ======
+
+<code>module box(x=30, y=30, z1=10, z2=5, rad=15, wall_thick=2, lock_z=2, reserve=1.5, to_print=true, print_space=5)</code>
+
+Dříve nedefinované argumenty ovlivňují rozmístění krabičky v prostoru.
+
+Pokud je ''to_print'' vypnutý (''false''), krabička musí stát na XY rovině (spodek krabičky v z=0), vycentrovaná tak, aby osa Z procházela jejím středem. Víčko se vykreslí na krabičce, tak aby reflektovalo argument ''reserve''. Hodnota ''print_space'' se ignoruje.
+
+Pokud je ''to_print'' zapnutý (''true''), vykreslí se oba díly na ploché straně (víčko vzhůru nohama) na XY rovině (spodek i vršek krabičky v z=0) vedle sebe vycentrované na ose X, vzdálené od sebe o hodnotu ''print_space'', která se počítá od venkovní stěny k venkovní stěně, se středem mezery v počátku souřadném. Zachovejte směr rozměrů x a y podle prvního obrázku nahoře (logicky podle pojmenování).
+
+Vykreslení na správné místo je pro hodnocení úlohy naprosto zásadní, kvůli poloautomatickým testům.
+
+Modul musí jít použít z externího souboru pomocí direktivy ''use'' - nesmí tedy uchovávat žádné konstanty mimo modul.
+
+====== Kód ======
+
+Kód musí splňovat určitou kvalitu, jednou z podmínek je logické dodržení odsazení (v celém souboru stejné). Opakované konstrukce musí být implementovány vlastními moduly a forcykly. Magické konstanty musí být samovysvětlující, nebo doplněné o komentář. Není možné použít žádné externí knihovny pro OpenSCAD, ani knihovnu MCAD. Manipulace s ''$fn'', ''$fs'' a ''$fa'' je zakázána.
+
+====== Odevzdávání a hodnocení ======
+
+Soubor pojmenujte box.scad, uložte do archivu box.zip (přímo do kořenového adresáře archivu) a nahrajte přímo do svého osobního namespacu na Eduxu. Musí jít stáhnout z odkazu ''https://edux.fit.cvut.cz/courses/BI-3DT/_media/student/username/box.zip'' Na soubor do namespacu umístěte odkaz.
+
+Termín odevzdání je **9.11.2014** včetně. Pozdní odevzdání je možné do 23.11.2014 včetně a to za polovinu bodů, které by jinak student obdržel, kdyby odevzdal včas. V případě doložené dlouhodobé vážné nemoci je možné domluvit se na speciálním termínu. Nemoc či nehoda těsně před odevzdáním neomlouvá.
+
+Po ohodnocení nelze úlohu opravit. Před termínem odevzdání je ji však možno konzultovat.
+
+Při hodnocení se bude poloautomaticky testovat sada připravených argumentů obsahující především krajní případy. Doporučujeme proto modul vyzkoušet pro všemožné vstupy (nečíselné vstupy testovány nebudou). Na základě výsledku z testu a kvality kódu student může získat 0 až 20 bodů. V případě, že vyhodnotíme, že student úlohu opsal, případně vlastnímu kódu vůbec nerozumí, a ten neprokáže opak, bude úloha hodnocena -100 body, což znamená klasifikaci známkou F.
