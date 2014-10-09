@@ -1,6 +1,6 @@
 ====== OpenSCAD: Domácí úkol ZS 2014/2015 ======
 
-Vaším úkolem je vytvořit parametrický model krabičky. Krabička má podstavu tvaru obdélníku se zaoblenými rohy, spodní část a víčko.
+Vaším úkolem je vytvořit parametrický model krabičky. Krabička má podstavu tvaru obdélníku se zaoblenými rohy. Obsahuje spodní část a víčko.
 
 <note important>V případě jakýchkoli nejasností v zadání se ihned ptejte na nejbližším cvičení.</note>
 
@@ -8,7 +8,7 @@ Vaším úkolem je vytvořit parametrický model krabičky. Krabička má podsta
 
 {{:classification:pudoris.png?400}}
 
-Použité argumenty: ''x'' a ''y'' jsou vnitřní rozměry, ''rad'' je poloměr zaoblení rohu (také vnitřní). V případě hodnot ''x'' nebo ''y'' <= 0 se krabička nevykreslí. V případě hodnoty ''rad'' <= 0 je vnitřní roh pravoúhlý.
+Použité argumenty: ''x'' a ''y'' jsou vnitřní rozměry, ''rad'' je poloměr zaoblení rohu (také vnitřní). V případě hodnot ''x'' nebo ''y'' <= 0 se krabička nevykreslí. V případě hodnoty ''rad'' <= 0 je vnitřní roh pravoúhlý. V případě, že se do rohů kružnice s poloměrem ''rad'' nevejde, zmenší se poloměr na mezní hodnotu.
 
 ===== wall_thick =====
 
@@ -46,9 +46,9 @@ Použité argumenty: ''wall_thick'' je stejný jako výše. ''lock_z'' je výše
 
 Dříve nedefinované argumenty ovlivňují rozmístění krabičky v prostoru.
 
-Pokud je ''to_print'' vypnutý (''false''), krabička musí stát na XY rovině (spodek krabičky v z=0), vycentrovaná tak, aby osa Z procházela jejím středem. Víčko se vykreslí na krabičce, tak aby reflektovalo argument ''reserve''. Hodnota ''print_space'' se ignoruje.
+Pokud je ''to_print'' vypnutý (''false''), krabička musí stát na XY rovině (spodek krabičky v z=0), vycentrovaná tak, aby osa Z procházela jejím středem. Víčko se vykreslí na krabičce, tak aby reflektovalo argument ''reserve''. Hodnota ''print_space'' se ignoruje. Zachovejte směr rozměrů x a y podle prvního obrázku nahoře (logicky podle pojmenování).
 
-Pokud je ''to_print'' zapnutý (''true''), vykreslí se oba díly na ploché straně (víčko vzhůru nohama) na XY rovině (spodek i vršek krabičky v z=0) vedle sebe vycentrované na ose X, vzdálené od sebe o hodnotu ''print_space'', která se počítá od venkovní stěny k venkovní stěně, se středem mezery v počátku souřadném. Zachovejte směr rozměrů x a y podle prvního obrázku nahoře (logicky podle pojmenování).
+Pokud je ''to_print'' zapnutý (''true''), vykreslí se oba díly na ploché straně (víčko vzhůru nohama) na XY rovině (spodek i vršek krabičky v z=0) vedle sebe vycentrované na ose X, vzdálené od sebe o hodnotu ''print_space'', která se počítá od venkovní stěny k venkovní stěně, se středem mezery v počátku souřadném. Zachovejte směr rozměrů x a y podle prvního obrázku nahoře (logicky podle pojmenování). **Update:** Spodní část krabičky má být posunuta kladným směrem po ose X, víčko záporným.
 
 Vykreslení na správné místo je pro hodnocení úlohy naprosto zásadní, kvůli poloautomatickým testům.
 
@@ -60,10 +60,28 @@ Kód musí splňovat určitou kvalitu, jednou z podmínek je logické dodržení
 
 ====== Odevzdávání a hodnocení ======
 
-Soubor pojmenujte box.scad, uložte do archivu box.zip (přímo do kořenového adresáře archivu) a nahrajte přímo do svého osobního namespacu na Eduxu. Musí jít stáhnout z odkazu ''https://edux.fit.cvut.cz/courses/BI-3DT/_media/student/username/box.zip'' Na soubor do namespacu umístěte odkaz.
+Soubor pojmenujte box.scad, uložte do archivu box.zip (přímo do kořenového adresáře archivu) a nahrajte přímo do svého osobního namespacu na Eduxu. Musí jít stáhnout z odkazu ''https://edux.fit.cvut.cz/courses/BI-3DT/_media/student/username/box.zip'' Na soubor do namespacu umístěte odkaz. V archivu kromě souboru box.scad musí být pouze potřebné soubory (další vaše scad soubory s moduly, případné DXF nebo STL soubory k importování), do archivu nepatří vygenerované STL soubory krabičky.
 
 Termín odevzdání je **9.11.2014** včetně. Pozdní odevzdání je možné do 23.11.2014 včetně a to za polovinu bodů, které by jinak student obdržel, kdyby odevzdal včas. V případě doložené dlouhodobé vážné nemoci je možné domluvit se na speciálním termínu. Nemoc či nehoda těsně před odevzdáním neomlouvá.
 
 Po ohodnocení nelze úlohu opravit. Před termínem odevzdání je ji však možno konzultovat.
 
 Při hodnocení se bude poloautomaticky testovat sada připravených argumentů obsahující především krajní případy. Doporučujeme proto modul vyzkoušet pro všemožné vstupy (nečíselné vstupy testovány nebudou). Na základě výsledku z testu a kvality kódu student může získat 0 až 20 bodů. V případě, že vyhodnotíme, že student úlohu opsal, případně vlastnímu kódu vůbec nerozumí, a ten neprokáže opak, bude úloha hodnocena -100 body, což znamená klasifikaci známkou F.
+
+====== Otázky od studentů ======
+
+**Jak se má krabička chovat, pokud ''rad'' > ''x/2'' nebo ''y/2''?**
+
+Viz text "V případě, že se do rohů kružnice s poloměrem ''rad'' nevejde, zmenší se poloměr na mezní hodnotu" v zadání.
+
+**"Pokud je ''reserve'' větší než ''wall_thick'', zuby mechanismu se nevykreslí." Znamená to, že se zuby nevykreslí, ale vzdálenost krabiček zůstane ''reserve'' + ''lock_z'', nebo se má krabička chovat jako kdyby ''lock_z'' == 0?**
+
+Znamená to to první, vzdálenost zůstane ''reserve'' + ''lock_z''.
+
+**"oba díly vycentrované na ose X" Chápu správně, že oba díly mají ležet na ose X a osa Y bude procházet mezerou mezi nimi, tudíž budou díly sousedit stranami o délce y?**
+
+Ano.
+
+**Jak se má krabička chovat, pokud ''print_space'' < 0?**
+
+Má se kreslit "přes sebe", v případě velkého ''print_space'' se krabičky prohodí (do zadání jsme doplnili na které straně má být jaká část). Vstup tedy de facto není třeba ošetřovat, pokud se posun nebude dělat nějakým absurdním způsobem.
