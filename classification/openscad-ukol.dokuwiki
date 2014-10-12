@@ -38,7 +38,7 @@ Použité argumenty: ''z1'' a ''z2'' jsou výšky jednotlivých částí včetn�
 
 {{:classification:lock.png}}
 
-Použité argumenty: ''wall_thick'' je stejný jako výše. ''lock_z'' je výše zubu, pozor na různý vztah k ''z1'' a ''z2''. ''reserve'' je rozměr mezery mezi jednotlivými díly krabičky. Pro hodnoty < 0 se ''reserve'' a ''lock_z'' nastaví na 0. Pokud je ''reserve'' větší než ''wall_thick'', zuby mechanismu se nevykreslí. ''*'' není argument, ale vyznačuje, že oba vyznačené rozměry jsou stejné.
+Použité argumenty: ''wall_thick'' je stejný jako výše. ''lock_z'' je výše zubu, pozor na různý vztah k ''z1'' a ''z2''. ''reserve'' je rozměr mezery mezi jednotlivými díly krabičky. Pro hodnoty < 0 se ''reserve'' a ''lock_z'' nastaví na 0. Pokud je ''reserve'' větší než ''wall_thick'', zuby mechanismu se nevykreslí. ''*'' není argument, ale vyznačuje, že oba vyznačené rozměry jsou stejné (a to po celém obvodu krabičky/délce spoje).
 
 ====== Interafce ======
 
@@ -85,3 +85,7 @@ Ano.
 **Jak se má krabička chovat, pokud ''print_space'' < 0?**
 
 Má se kreslit "přes sebe", v případě velkého ''print_space'' se krabičky prohodí (do zadání jsme doplnili na které straně má být jaká část). Vstup tedy de facto není třeba ošetřovat, pokud se posun nebude dělat nějakým absurdním způsobem.
+
+**Je třeba ošetřovat, pokud je ''lock_z'' větší než ''z1''?**
+
+Viz text "Pro hodnoty ''z1'' nebo ''z2'' <= ''wall_thick'' (respektive ''wall_thick'' + ''lock_z'' pro ''z1'', viz níže) se krabička vykreslí pouze na výšku dna/stropu a spojovacího mechanismu."
