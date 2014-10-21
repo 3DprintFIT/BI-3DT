@@ -54,6 +54,8 @@ Vykreslení na správné místo je pro hodnocení úlohy naprosto zásadní, kv�
 
 Modul musí jít použít z externího souboru pomocí direktivy ''use'' - nesmí tedy uchovávat žádné konstanty mimo modul.
 
+**Update:** Zachovejte výchozí hodnoty argumentů tak, jak jsou zadané!
+
 ====== Kód ======
 
 Kód musí splňovat určitou kvalitu, jednou z podmínek je logické dodržení odsazení (v celém souboru stejné). Opakované konstrukce musí být implementovány vlastními moduly a forcykly. Magické konstanty musí být samovysvětlující, nebo doplněné o komentář. Není možné použít žádné externí knihovny pro OpenSCAD, ani knihovnu MCAD. Manipulace s ''$fn'', ''$fs'' a ''$fa'' je zakázána.
