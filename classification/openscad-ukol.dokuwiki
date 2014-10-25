@@ -91,3 +91,9 @@ Má se kreslit "přes sebe", v případě velkého ''print_space'' se krabičky 
 **Je třeba ošetřovat, pokud je ''lock_z'' větší než ''z1''?**
 
 Viz text "Pro hodnoty ''z1'' nebo ''z2'' <= ''wall_thick'' (respektive ''wall_thick'' + ''lock_z'' pro ''z1'', viz níže) se krabička vykreslí pouze na výšku dna/stropu a spojovacího mechanismu."
+
+**Vypadá řez krabičkou asi takhle?**
+
+{{:classification:box.jpg?400}}
+
+Ano. Pro vhodně zvolené parametry.
