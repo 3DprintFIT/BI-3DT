@@ -115,3 +115,7 @@ A u spodní části bude tloušťka dna ''z1-lock_z''? Tudíž v extrémním př
 se vykreslí pouze zámek?**
 
 Ne, naopak. Tloušťka dna i stropu bude vždy ''wall_thick''. Zámek se vykreslí. Pokud se tam zámek nevleze, tak se musí výška krabičky upravit, aby se to tam vlezlo.
+
+**Jak je myšlena věta v zadání pod obrázkem s mechanismem zámku "Pro hodnoty < 0 se ''reserve'' a ''lock_z'' nastaví na 0."? Bere se to pro ''reserve'' < 0 nebo ''lock_z'' < 0 se obě mají nastavit na 0? A nebo jenom hodnota, která je < 0 má být = 0?**
+
+Jenom ta proměnná, která je záporná, se má nastavit na 0. Nezávisle na té druhé.
