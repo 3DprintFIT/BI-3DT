@@ -4,6 +4,8 @@ Vaším úkolem je vytvořit parametrický model krabičky. Krabička má podsta
 
 <note important>V případě jakýchkoli nejasností v zadání se ihned ptejte na nejbližším cvičení.</note>
 
+<note tip>Naše automatické testy používají plný render (v apliakci zkratka F6). Netestujte váš kód pouze s F5. Pozor také na modifikátor % - v režimu plného renderu se takto prefixovaný kód neobjeví.</note>
+
 ====== Půdorys ======
 
 {{:classification:pudoris.png?400}}
@@ -97,3 +99,19 @@ Viz text "Pro hodnoty ''z1'' nebo ''z2'' <= ''wall_thick'' (respektive ''wall_th
 {{:classification:box.jpg?400}}
 
 Ano. Pro vhodně zvolené parametry.
+
+**Potřeboval bych upřesnit větu ze zadání:
+
+"Pro hodnoty ''z1'' nebo ''z2'' <='' wall_thick'' (respektive ''wall_thick + lock_z''
+pro ''z1'', viz níže) se krabička vykreslí pouze na výšku dna/stropu a
+spojovacího mechanismu."
+
+Jak je myšlena výška dna/stropu?
+
+Myslí se tím, že u vrchní části bude tloušťka stropu ''z2'' + se vykreslí
+zámek?
+
+A u spodní části bude tloušťka dna ''z1-lock_z''? Tudíž v extrémním případě
+se vykreslí pouze zámek?**
+
+Ne, naopak. Tloušťka dna i stropu bude vždy ''wall_thick''. Zámek se vykreslí. Pokud se tam zámek nevleze, tak se musí výška krabičky upravit, aby se to tam vlezlo.
