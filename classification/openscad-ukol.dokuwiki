@@ -88,7 +88,7 @@ Ano.
 
 **Jak se má krabička chovat, pokud ''print_space'' < 0?**
 
-Má se kreslit "přes sebe", v případě velkého ''print_space'' se krabičky prohodí (do zadání jsme doplnili na které straně má být jaká část). Vstup tedy de facto není třeba ošetřovat, pokud se posun nebude dělat nějakým absurdním způsobem.
+Má se kreslit "přes sebe", v případě velkého záporného ''print_space'' se krabičky prohodí (do zadání jsme doplnili na které straně má být jaká část). Vstup tedy de facto není třeba ošetřovat, pokud se posun nebude dělat nějakým absurdním způsobem.
 
 **Je třeba ošetřovat, pokud je ''lock_z'' větší než ''z1''?**
 
