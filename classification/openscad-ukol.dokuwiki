@@ -68,7 +68,7 @@ Soubor pojmenujte box.scad, uložte do archivu box.zip (přímo do kořenového 
 
 Termín odevzdání je **9.11.2014** včetně. Pozdní odevzdání je možné do 23.11.2014 včetně a to za polovinu bodů, které by jinak student obdržel, kdyby odevzdal včas. V případě doložené dlouhodobé vážné nemoci je možné domluvit se na speciálním termínu. Nemoc či nehoda těsně před odevzdáním neomlouvá.
 
-Po ohodnocení nelze úlohu opravit. Před termínem odevzdání je ji však možno konzultovat.
+Po ohodnocení (které proběhne až po termínu odevzdání) nelze úlohu opravit. Před termínem odevzdání je ji však možno konzultovat i nahrávat na Edux v rozpracovaném stavu. Pokud chcete úlohu odevzdávat až v pozdějším termínu, ujistěte se, že na přelomu 9. a 10.11. na Eduxu není žádná rozpracovaná verze (je třeba smazat soubor, nejen odkaz).
 
 Při hodnocení se bude poloautomaticky testovat sada připravených argumentů obsahující především krajní případy. Doporučujeme proto modul vyzkoušet pro všemožné vstupy (nečíselné vstupy testovány nebudou). Na základě výsledku z testu a kvality kódu student může získat 0 až 20 bodů. V případě, že vyhodnotíme, že student úlohu opsal, případně vlastnímu kódu vůbec nerozumí, a ten neprokáže opak, bude úloha hodnocena -100 body, což znamená klasifikaci známkou F.
 
@@ -119,3 +119,7 @@ Ne, naopak. Tloušťka dna i stropu bude vždy ''wall_thick''. Zámek se vykresl
 **Jak je myšlena věta v zadání pod obrázkem s mechanismem zámku "Pro hodnoty < 0 se ''reserve'' a ''lock_z'' nastaví na 0."? Bere se to pro ''reserve'' < 0 nebo ''lock_z'' < 0 se obě mají nastavit na 0? A nebo jenom hodnota, která je < 0 má být = 0?**
 
 Jenom ta proměnná, která je záporná, se má nastavit na 0. Nezávisle na té druhé.
+
+**"Pro hodnoty z1 nebo z2 ⇐ wall_thick (respektive wall_thick + lock_z pro z1, viz níže) se krabička vykreslí pouze na výšku dna/stropu a spojovacího mechanismu." Znamená to, že pokud  <= wall_thick, tak upravím výšku dna a udělám dno+zuby a z2 nechám původní (pokud je větší než wall_thick) nebo pokud je nesplněna alespoň jedna část, tak se automaticky krabička upraví pro obě hodnoty?**
+
+Výška dna a ni stropu se nikdy neupravuje. Upravuje (normalizuje) se pouze hodnota z1 a z2, nezávisle na té druhé.
