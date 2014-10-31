@@ -1,3 +1,204 @@
 ====== Semestrální práce ZS 2014/2015======
 
-Zadání semestrální práce bude upřesněno. Pro představu o komplexnosti se můžete podívat na [[classification:archive:semestralka2013|loňské zadání]].
+  * [[classification:archive:semestralka2013|Loňské zadání je tady]]
+
+<note important>Zadání budeme ještě upravovat na základě vašich připomínek a nejasností, rámcově se ale měnit nebude.</note>
+
+===== Proteiny =====
+
+Tématem semestrální práce jsou proteiny. Vaším úkolem je v programu OpenSCAD napsat modul, který umí generovat modely proteinů na základě vstupních dat, vhodně připravit jeden z vám přidělených proteinů k tisku, vytisknout ho a provést případné dodatečné úpravy.
+
+==== Generátor proteinů ====
+
+Napište OpenSCAD modul ''protein'' dodržující předepsané rozhraní, který na základě vstupních dat zobrazí protein.
+
+<code>module protein(aminos=[],bindings=[]) { ... }</code>
+
+Vektor (pole) ''aminos'' obsahuje definice jednotlivých aminokyselin. Jednu aminokyselinu představuje koule se zadanou lokací středu a poloměrem. Data jsou uchovány v čtyřprvkových vektorech ''[x,y,z,r]'', kde první tři číslice udávají pozici středu koule a čtvrtá poloměr. Vektor ''aminos'' je tedy vektor vektorů:
+
+<code>aminos = [[x1, y1, z1, r1], [x2, y2, z2, r2], ...];</code>
+
+Vektor ''bindings'' obsahuje dvouprvkové vektory (dvojice) indexů vektoru ''aminos''. Tyto dvojice aminokyselin mají být spojeny vazbou, která bude popsána dále.
+
+<code>bindings = [[0, 1], [1, 8], ...]; // příklad</code>
+
+Vazba dvou aminokyselin je provedena pomocí středové koule, umístěné středem přesně doprostřed středů dvou aminokyselin, o poloměru ''avg(ra,rb)/2'', kde ''avg'' je aritmetický průměr a ''ra'' (respektive ''rb'') je poloměr první (respektive druhé) koule (aminokyseliny) figurující ve spojení. Se středovou koulí se provede ''hull()'' s oběma koulemi ve spojení - s každou ale **zvlášť**. Pro pochopení obrázek znázorněný ve 2D:
+
+{{:classification:protein.png?600}}
+
+A a B jsou středy dvou koulí ve spojení. Bod S leží ve středu úsečky AB. Poloměr středové koule je půl aritmetického průměru krajních koulí. Obě krajní koule se //ohullí// s tou prostřední, každá zvlášť.
+
+Jednotlivé aminokyseliny a vazby se pochopitelně mohou libovolně překrývat. Vstupní data není potřeba nijak ošetřovat. Můžete předpokládat, že všechny aminokyseliny figurují v alespoň jedné vazbě. V odevzdaném kódu je **zakázáno** manipulovat s proměnnými ''$fn'', ''$fs'' apod, pro vaše potřeby ale při testování doporučujeme $fn dočasně snížit - nezapomeňte jej před odevzdáním odmazat.
+
+Příklad modulu zpracovávajícího vstupy z vektorů:
+
+<code>module echoprotein(aminos=[],bindings=[]) {
+    for (binding = bindings) {
+        echo("Koule A:");
+        echo("x", aminos[binding[0]][0]);
+        echo("y", aminos[binding[0]][1]);
+        echo("z", aminos[binding[0]][2]);
+        echo("r", aminos[binding[0]][3]);
+        echo("Koule B:");
+        echo("x", aminos[binding[1]][0]);
+        echo("y", aminos[binding[1]][1]);
+        echo("z", aminos[binding[1]][2]);
+        echo("r", aminos[binding[1]][3]);
+    }
+}</code>
+
+
+Příklad vstupních dat:
+
+<code>protein([
+        [0,0,0,3],
+        [12,0,5,4],
+        [14,-2,0,3.5],
+        [-3,0,-3,1],
+        [0,8,0,2],
+    ],
+    [
+        [0,2],
+        [1,3],
+        [1,4],
+        [3,4],
+    ]
+);</code>
+
+{{:classification:protein_sample.png?400}}
+{{:classification:printed_protein.jpg?400}}
+
+==== Vaše proteiny ====
+
+Každému z vás byly přiděleny tři náhodně vygenerované proteiny. Máte je k dispozici jak ve formě dat pro modul ''protein()'', tak ve formě STL souboru. S velkou pravděpodobností nebudete schopni v rozumném čase renderovat pomocí vašeho modulu své vlastní proteiny, obsahující stovky vazeb a aminokyselin. To je v pořádku, proto máte k dispozici i model ve formátu STL. Pro otestování funkčnosti modulu můžete použít podmnožinu vašich dat - ověřte, že se modul chová dle zadání.
+
+Pokud přecejen chcete testovat váš modul nad vámi zadanými daty, testujte ho pouze v režimu Compile (F5) a v nastavení OpenSCADu řádově navyšte hodnotu //Turn of rendering at//.
+
+Vaše proteiny najdete na adresách:
+
+  * https://edux.fit.cvut.cz/courses/BI-3DT/_media/classification/proteins/proteinXXX.scad
+  * https://edux.fit.cvut.cz/courses/BI-3DT/_media/classification/proteins/proteinXXX.stl
+
+Kde místo XXX dosadíte číslice z tohoto seznamu:
+
+<code>
+alexaluk 000 001 002
+antospe1 003 004 005
+bambaja2 006 007 008
+bartape2 009 010 011
+blahahy1 012 013 014
+blahami2 015 016 017
+cernama9 018 019 020
+cerveada 021 022 023
+cervej28 024 025 026
+chobomic 027 028 029
+dlouhma3 030 031 032
+doubema2 033 034 035
+dragoala 036 037 038
+duchaja2 039 040 041
+halecivo 042 043 044
+hercklub 045 046 047
+janatma2 048 049 050
+knizerad 051 052 053
+kociluk1 054 055 056
+koppmic2 057 058 059
+koprima3 060 061 062
+kozajaku 063 064 065
+kozajan 066 067 068
+kozakha1 069 070 071
+kozusjir 072 073 074
+kraljak4 075 076 077
+kralto12 078 079 080
+krestfi1 081 082 083
+kugleada 084 085 086
+kusystan 087 088 089
+lariover 090 091 092
+laubedan 093 094 095
+lessnpet 096 097 098
+lhotamir 099 100 101
+lormudan 102 103 104
+majermi6 105 106 107
+meloujir 108 109 110
+mikatom1 111 112 113
+mikesma6 114 115 116
+mikusmi1 117 118 119
+misarja1 120 121 122
+miskovoj 123 124 125
+novacja7 126 127 128
+peroupav 129 130 131
+petram14 132 133 134
+petrovad 135 136 137
+radvamic 138 139 140
+rakosjir 141 142 143
+rehorma4 144 145 146
+reznimi1 147 148 149
+rypacjos 150 151 152
+sebekrob 153 154 155
+sedajir2 156 157 158
+sedlalu2 159 160 161
+skorpste 162 163 164
+smrzjose 165 166 167
+stambpav 168 169 170
+stefami7 171 172 173
+stiplsta 174 175 176
+striton1 177 178 179
+suchama4 180 181 182
+talacrud 183 184 185
+troupmar 186 187 188
+truneja2 189 190 191
+turonjan 192 193 194
+vachamic 195 196 197
+valasja7 198 199 200
+vilimluk 201 202 203
+zdaraada 204 205 206
+zdrubvit 207 208 209
+zuzamiko 210 211 212
+</code>
+
+==== Předzpracování ====
+
+Vyberte si libovolný (podle vás nejednodušší) z vašich tří proteinů a připravte ho pro tisk. Můžete s ním dělat prakticky cokoliv (opravovat, otáčet, krájet, přidávat podpůrné struktury), ale je třeba zachovat při tisku rozměry proteinu. Výstupem je jeden nebo více STL souborů připravených na slicing a velmi stručný popis toho, **co** jste udělali a **proč** (ne nutně písemně, ale při odevzdávání je třeba postup vysvětlit a to i několik týdnů po vykonání vašich změn).
+
+==== Slicing ====
+
+Naslicujte libovolným programem vámi připravená tisková STLka s použitím vhodných nastavení. Parametry tiskárny budou dodány po jejich dostavění. Výstupem je použitý slicovací profil vyexportovaný z programu a jeden nebo více GCODE souborů. Pokud je to možné, vtěsnejte celý protein na jednu tiskovou plochu a odevzdávejte pouze jeden GCODE soubor.
+
+==== Tisk a postprocessing ====
+
+V zápočtových akcích vypsaných v KOSu, probíhajících ve zkouškovém období, budete v laboratoři tisknout proteiny z vámi připravených GCODE souborů. Po dotisknutí je třeba výtisk náležitě opracovat - oddělat podpory, slepit atp. Výsledný protein by měl vypadat co nejpodobněji zadanému modelu.
+
+V případě absolutního selhání při tisku je možné tisk opakovat s novým GCODEm, ale pouze jednou. V případě technického problému na naší straně se samozřejmě o promarněný pokus nejedná.
+
+==== Odevzdání, hodnocení a termíny ====
+
+Do svého namespace na Eduxu nahrajte zip soubor libovolného vhodného jména, na který z vašeho namespacu povede odkaz. Veškeré slovní popisy uveďte přímo do svého namespace na Eduxu.
+
+V souboru odevzdávejte:
+
+  * scad soubor s modulem ''protein''
+  * scad soubor volající modul ''protein'' s vašimi vybranými daty (který jste si stáhli z Eduxu)
+  * STL soubor s vaším vybraným proteinem z Eduxu
+  * Tiskové STL soubory
+  * Tiskové GCODE soubory
+  * Profil pro slicovací program
+  * Případné další potřebné soubory
+
+Termín odevzdání je rok 2014. V roce 2015 již semestrální práci nelze odevzdat (a student nemůže získat žádné body), kromě oprávněných případů dlouhodobé doložené indispozice. Nepřehrávejte odevzdaný soubor v roce 2015 nějakou novější verzí, v takovém případě bude vyhodnoceno, že jste práci odevzdali pozdě a nepůjde dohledat, jestli byla alespoň dílčí část odevzdána v termínu. Rozhodující je datum nahrání na Edux.
+
+Hodnocení dle následující tabulky:
+
+^ Modul pro OpenSCAD ^ 10 ^ ^
+| Modul funguje podle zadání | 7 | povinný v rámci části |
+| Zdrojový kód je vhodně členěn a komentován | 3 | |
+^ Příprava na tisk ^ 10 ^ ^
+| Vhodně připravená tisková STLka | 5 | povinný v rámci části |
+| Mesh ve všech tiskových STL je v pořádku | 5 | |
+^ Slicing ^ 10 ^ ^
+| Podpory (nejsou potřeba (5 b.), vhodné užití (2.5 b.), zbytečné užití (0 b.)) | 5 | |
+| Vhodné nastavení parametrů tisku (perimetry, výplň, výška vrstvy) | 5 | |
+^ Tisk ^ 20 ^ ^
+| Jedná se o výtisk modelu dle zadání, výtisk je opracovaný (např. bez podpor, slepený atp.) | 5 | povinný v rámci části |
+| Výtisk neobsahuje vady zjevně způsobené nevhodnou přípravou modelu | 10 | |
+| Výtisk neobsahuje vady zjevně způsobené nevhodnou přípravou tiskárny (příprava tiskové plochy, nevhodné teploty) | 5 | |
+
+Hodnocení je rozděleno na 4 dílčí části. //Povinný v rámci části// znamená, že bez splnění tohoto úkolu student za danou část nedostane žádné body. V případě opravného tisku se již neopravují hodnoty bodů v ostatních dílčích částech. Pokud tedy například nezvládnete slicing, dostanete z něj nula bodů a (celkem logicky) fatálně selže i tisk, můžete v náhradním termínu dostat body za tisk, za slicing už ale žádné body nedostanete.
