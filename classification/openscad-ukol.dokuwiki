@@ -123,3 +123,11 @@ Jenom ta proměnná, která je záporná, se má nastavit na 0. Nezávisle na t�
 **"Pro hodnoty z1 nebo z2 ⇐ wall_thick (respektive wall_thick + lock_z pro z1, viz níže) se krabička vykreslí pouze na výšku dna/stropu a spojovacího mechanismu." Znamená to, že pokud  <= wall_thick, tak upravím výšku dna a udělám dno+zuby a z2 nechám původní (pokud je větší než wall_thick) nebo pokud je nesplněna alespoň jedna část, tak se automaticky krabička upraví pro obě hodnoty?**
 
 Výška dna a ni stropu se nikdy neupravuje. Upravuje (normalizuje) se pouze hodnota z1 a z2, nezávisle na té druhé.
+
+**Když je rad > x/2 nebo y/2, tak se má rad nastavit na mezní hodnotu, tj. 0?**
+
+Ne, mezní hodnotou je myšlena maximální možná.
+
+**Když je rad == x/2 nebo y/2, má se vykreslit kolečko?**
+
+Když je rad roven x/2 a zároveň y/2, má krabička profil kolečka.
