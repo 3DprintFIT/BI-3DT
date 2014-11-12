@@ -72,7 +72,7 @@ Příklad vstupních dat:
 
 Každému z vás byly přiděleny tři náhodně vygenerované proteiny. Máte je k dispozici jak ve formě dat pro modul ''protein()'', tak ve formě STL souboru. S velkou pravděpodobností nebudete schopni v rozumném čase renderovat pomocí vašeho modulu své vlastní proteiny, obsahující stovky vazeb a aminokyselin. To je v pořádku, proto máte k dispozici i model ve formátu STL. Pro otestování funkčnosti modulu můžete použít podmnožinu vašich dat - ověřte, že se modul chová dle zadání.
 
-Pokud přecejen chcete testovat váš modul nad vámi zadanými daty, testujte ho pouze v režimu Compile (F5) a v nastavení OpenSCADu řádově navyšte hodnotu //Turn of rendering at//.
+Pokud přecejen chcete testovat váš modul nad vámi zadanými daty, testujte ho pouze v režimu Compile (F5) a v nastavení OpenSCADu řádově navyšte hodnotu //Turn of rendering at//. Také doporučujeme použít [[http://www.openscad.org/downloads.html#snapshots|development snapshot OpenSCADu]], náhled jednoho proteinu pomocí F5 trvá pouze několik vteřin.
 
 Vaše proteiny najdete na adresách:
 
