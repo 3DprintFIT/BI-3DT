@@ -198,7 +198,7 @@ Hodnocení dle následující tabulky:
 | Vhodné nastavení parametrů tisku (perimetry, výplň, výška vrstvy) | 5 | |
 ^ Tisk ^ 20 ^ ^
 | Jedná se o výtisk modelu dle zadání, výtisk je opracovaný (např. bez podpor, slepený atp.) | 5 | povinný v rámci části |
-| Výtisk neobsahuje vady zjevně způsobené nevhodnou přípravou modelu | 10 | |
-| Výtisk neobsahuje vady zjevně způsobené nevhodnou přípravou tiskárny (příprava tiskové plochy, nevhodné teploty) | 5 | |
+| Výtisk neobsahuje vady zjevně způsobené nevhodnou přípravou modelu | 7.5 | |
+| Výtisk neobsahuje vady zjevně způsobené nevhodnou přípravou tiskárny (příprava tiskové plochy, nevhodné teploty) | 7.5 | |
 
 Hodnocení je rozděleno na 4 dílčí části. //Povinný v rámci části// znamená, že bez splnění tohoto úkolu student za danou část nedostane žádné body. V případě opravného tisku se již neopravují hodnoty bodů v ostatních dílčích částech. Pokud tedy například nezvládnete slicing, dostanete z něj nula bodů a (celkem logicky) fatálně selže i tisk, můžete v náhradním termínu dostat body za tisk, za slicing už ale žádné body nedostanete.
