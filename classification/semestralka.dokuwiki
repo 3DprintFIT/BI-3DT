@@ -159,6 +159,8 @@ zuzamiko 210 211 212
 
 Vyberte si libovolný (podle vás nejednodušší) z vašich tří proteinů a připravte ho pro tisk. Můžete s ním dělat prakticky cokoliv (opravovat, otáčet, krájet, přidávat podpůrné struktury), ale je třeba zachovat při tisku rozměry proteinu. Výstupem je jeden nebo více STL souborů připravených na slicing a velmi stručný popis toho, **co** jste udělali a **proč** (ne nutně písemně, ale při odevzdávání je třeba postup vysvětlit a to i několik týdnů po vykonání vašich změn).
 
+<note tip>Jak řezat STL soubory? Jde to jistě i v OpenSCADu, ale to je zbytečně komplikované. Připravili jsme proto [[tutorials:meshmixer:start|krátký návod pro program MeshMixer]] - doporučují čtyři ze tří cvičících.</note>
+
 ==== Slicing ====
 
 Naslicujte libovolným programem vámi připravená tisková STLka s použitím vhodných nastavení. Parametry tiskárny budou dodány po jejich dostavění. Výstupem je použitý slicovací profil vyexportovaný z programu a jeden nebo více GCODE souborů. Pokud je to možné, vtěsnejte celý protein na jednu tiskovou plochu a odevzdávejte pouze jeden GCODE soubor.
