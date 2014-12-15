@@ -2,8 +2,6 @@
 
   * [[classification:archive:semestralka2013|Loňské zadání je tady]]
 
-<note important>Zadání budeme ještě upravovat na základě vašich připomínek a nejasností, rámcově se ale měnit nebude.</note>
-
 ===== Proteiny =====
 
 Tématem semestrální práce jsou proteiny. Vaším úkolem je v programu OpenSCAD napsat modul, který umí generovat modely proteinů na základě vstupních dat, vhodně připravit jeden z vám přidělených proteinů k tisku, vytisknout ho a provést případné dodatečné úpravy.
