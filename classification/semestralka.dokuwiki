@@ -163,7 +163,7 @@ Vyberte si libovolný (podle vás nejednodušší) z vašich tří proteinů a p
 
 ==== Slicing ====
 
-Naslicujte libovolným programem vámi připravená tisková STLka s použitím vhodných nastavení. Pro Slic3r vyjděte z {{:tutorials:tisk:slic3r_config_bundle.ini.zip|}} (tryska 3dráty, filament 1.75 ABS), pro KISSlicer budou dodány. Výstupem je použitý slicovací profil vyexportovaný z programu a jeden nebo více GCODE souborů. Pokud je to možné, vtěsnejte celý protein na jednu tiskovou plochu a odevzdávejte pouze jeden GCODE soubor.
+Naslicujte libovolným programem vámi připravená tisková STLka s použitím vhodných nastavení. Pro Slic3r vyjděte z {{:tutorials:tisk:slic3r_config_bundle.ini.zip|}} (tryska 3dráty, filament 1.75 ABS), pro KISSlicer [[tutorials:tisk:start#nastaveni_pro_kisslicer|jsou tady]]. Výstupem je použitý slicovací profil vyexportovaný z programu a jeden nebo více GCODE souborů. Pokud je to možné, vtěsnejte celý protein na jednu tiskovou plochu a odevzdávejte pouze jeden GCODE soubor.
 
 ==== Tisk a postprocessing ====
 
