@@ -159,6 +159,8 @@ Vyberte si libovolný (podle vás nejednodušší) z vašich tří proteinů a p
 
 <note tip>Jak řezat STL soubory? Jde to jistě i v OpenSCADu, ale to je zbytečně komplikované. Připravili jsme proto [[tutorials:meshmixer:start|krátký návod pro program MeshMixer]] - doporučují čtyři ze tří cvičících.</note>
 
+<note tip>Nejde vám v Meshmixeru dobře alignovat? Zkuste program [[http://software.ultimaker.com/|Cura]]. Obsahuje funkci //Lay flat//.</note>
+
 ==== Slicing ====
 
 Naslicujte libovolným programem vámi připravená tisková STLka s použitím vhodných nastavení. Pro Slic3r vyjděte z {{:tutorials:tisk:slic3r_config_bundle.ini.zip|}} (tryska 3dráty, filament 1.75 ABS), pro KISSlicer budou dodány. Výstupem je použitý slicovací profil vyexportovaný z programu a jeden nebo více GCODE souborů. Pokud je to možné, vtěsnejte celý protein na jednu tiskovou plochu a odevzdávejte pouze jeden GCODE soubor.
@@ -194,11 +196,13 @@ Hodnocení dle následující tabulky:
 | Vhodně připravená tisková STLka | 5 | povinný v rámci části |
 | Mesh ve všech tiskových STL je v pořádku | 5 | |
 ^ Slicing ^ 10 ^ ^
-| Podpory (nejsou potřeba (5 b.), vhodné užití (2.5 b.), zbytečné užití (0 b.)) | 5 | |
+| Podpory (nejsou potřeba (5 b.), vhodné užití* (2.5 b.), zbytečné užití (0 b.)) | 5 | |
 | Vhodné nastavení parametrů tisku (perimetry, výplň, výška vrstvy) | 5 | |
 ^ Tisk ^ 20 ^ ^
 | Jedná se o výtisk modelu dle zadání, výtisk je opracovaný (např. bez podpor, slepený atp.) | 5 | povinný v rámci části |
 | Výtisk neobsahuje vady zjevně způsobené nevhodnou přípravou modelu | 7.5 | |
 | Výtisk neobsahuje vady zjevně způsobené nevhodnou přípravou tiskárny (příprava tiskové plochy, nevhodné teploty) | 7.5 | |
+
+ * Pouze za podpory vygenerované při slicování se strhávají body. Protože jsme v části slicing.
 
 Hodnocení je rozděleno na 4 dílčí části. //Povinný v rámci části// znamená, že bez splnění tohoto úkolu student za danou část nedostane žádné body. V případě opravného tisku se již neopravují hodnoty bodů v ostatních dílčích částech. Pokud tedy například nezvládnete slicing, dostanete z něj nula bodů a (celkem logicky) fatálně selže i tisk, můžete v náhradním termínu dostat body za tisk, za slicing už ale žádné body nedostanete.
