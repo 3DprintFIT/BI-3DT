@@ -2,8 +2,6 @@
 
 Vaším úkolem je vytvořit parametrický model krabičky. Krabička má podstavu tvaru obdélníku se zaoblenými rohy. Obsahuje spodní část a víčko.
 
-<note>Referenční řešení naleznete na [[https://github.com/3DprintFIT/box-task|našem GitHubu]].</note>
-
 <note tip>Naše automatické testy používají plný render (v apliakci zkratka F6). Netestujte váš kód pouze s F5. Pozor také na modifikátor % - v režimu plného renderu se takto prefixovaný kód neobjeví.</note>
 
 ====== Půdorys ======
