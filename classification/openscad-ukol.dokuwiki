@@ -30,7 +30,7 @@ Vaším úkolem je vytvořit parametrický model stojánku na telefon. Stojánek
 /**
  *	Parametrický model stojánku na telefon
  *	@param base_length	  Délka základny 
- *	@param top_lenght 	  Délka podpěry telefonu
+ *	@param top_length 	  Délka podpěry telefonu
  *	@param top_offset   	Odsazení výřezu na telefon
  *	@param width			Šíře celého stojanu
  *	@param thick			Tloušťka stěny 
@@ -47,7 +47,7 @@ Vaším úkolem je vytvořit parametrický model stojánku na telefon. Stojánek
 */
 module mobile_stand(
 	base_length=50,
-    top_lenght=80,
+    top_length=80,
 	top_offset=30,
 	width=50,
 	thick=15,
@@ -66,7 +66,7 @@ module mobile_stand(
 }
 </code>
 
-Stojánek se vykreslí vždy se spodní hranou v Z=0 (dotýká se virtuální podložky v počátku souřadné soustavy) a středem základy v počátku.
+Stojánek se vykreslí vždy se spodní hranou v Z=0 (dotýká se virtuální podložky v počátku souřadné soustavy) a středem základy v počátku, natočený tak jak je znázorněno na schématech.
 
 Vykreslení na správné místo je pro hodnocení úlohy naprosto zásadní, kvůli poloautomatickým testům.
 
