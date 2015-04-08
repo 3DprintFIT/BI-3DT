@@ -39,6 +39,7 @@ Vaším úkolem je vytvořit parametrický model stojánku na telefon. Stojánek
  *	@param mob_width		Šíře telefonu
  *	@param mob_thick		Tloušťka telefonu
  *	@param mob_inset		Zapuštění telefonu
+ *	@param shell_thick		Tloušťka stěny okolo telefonu
  *	@param con_x			Šířka konektoru na telefon
  *	@param con_y			Tloušťka konektoru na telefon
  *	@param con_z			Výška konektoru na telefon
@@ -56,6 +57,7 @@ module mobile_stand(
 	mob_width=40,
 	mob_thick=8,
 	mob_inset=5,
+	shell_thick=2,
 	con_x=10,
 	con_y=5,
 	con_z=10,
