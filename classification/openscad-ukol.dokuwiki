@@ -19,6 +19,12 @@ Vaším úkolem je vytvořit parametrický model stojánku na telefon. Stojánek
 {{:classification:openscad-ukol-ls1415:bokorys.png?0x368|}}
 {{:classification:openscad-ukol-ls1415:vrsek.png?0x368|}}
 
+Hodnota //angle_radius// není zadána číslem, ale je nutné ji vypočítat. 
+
+<code>
+angle_radius = 2*shell_thick + mob_thick + thick/2
+</code>
+
 ====== Rozměry konektoru ======
 
 {{:classification:openscad-ukol-ls1415:bokorys-rez.png?0x368|}}
