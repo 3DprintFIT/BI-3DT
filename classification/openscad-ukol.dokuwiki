@@ -59,7 +59,7 @@ module mobile_stand(
 	width=50,
 	thick=15,
 	radius=10,
-	angle=30,
+	angle=60,
 	mob_width=40,
 	mob_thick=8,
 	mob_inset=5,
