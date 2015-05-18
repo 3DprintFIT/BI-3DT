@@ -186,4 +186,6 @@ Hodnocení dle následující tabulky:
 
  * Pouze za podpory vygenerované při slicování se strhávají body. Protože jsme v části slicing.
 
+<note important>Pro ovládání tiskárny při odevzdávání potřebujete vlastní počítač se schopností připojit se na wifi nebo kabelem do lokální sítě.</note>
+
 Hodnocení je rozděleno na 4 dílčí části. //Povinný v rámci části// znamená, že bez splnění tohoto úkolu student za danou část nedostane žádné body. V případě opravného tisku se již neopravují hodnoty bodů v ostatních dílčích částech. Pokud tedy například nezvládnete slicing, dostanete z něj nula bodů a (celkem logicky) fatálně selže i tisk, můžete v náhradním termínu dostat body za tisk, za slicing už ale žádné body nedostanete.
