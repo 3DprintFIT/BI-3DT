@@ -1,8 +1,6 @@
-====== Semestrální práce ZS 2014/2015======
+====== Semestrální práce ZS i LS 2014/2015======
 
 <note warning>Toto není aktuální zadání práce. Je zde pouze k účelům archivace.</note>
-
-  * [[classification:archive:semestralka2013|Loňské zadání je tady]]
 
 ===== Proteiny =====
 
@@ -76,90 +74,20 @@ Pokud přecejen chcete testovat váš modul nad vám zadanými daty, testujte ho
 
 Vaše proteiny najdete na adresách:
 
-  * https://edux.fit.cvut.cz/courses/BI-3DT/_media/classification/proteins/proteinXXX.scad
-  * https://edux.fit.cvut.cz/courses/BI-3DT/_media/classification/proteins/proteinXXX.stl
+  * https://edux.fit.cvut.cz/courses/BI-3DT/_media/classification/proteins142/proteinXXX.scad
+  * https://edux.fit.cvut.cz/courses/BI-3DT/_media/classification/proteins142/proteinXXX.stl
 
 Kde místo XXX dosadíte číslice z tohoto seznamu:
 
 <code>
-alexaluk 000 001 002
-antospe1 003 004 005
-bambaja2 006 007 008
-bartape2 009 010 011
-blahahy1 012 013 014
-blahami2 015 016 017
-cernama9 018 019 020
-cerveada 021 022 023
-cervej28 024 025 026
-chobomic 027 028 029
-dlouhma3 030 031 032
-doubema2 033 034 035
-dragoala 036 037 038
-duchaja2 039 040 041
-halecivo 042 043 044
-hercklub 045 046 047
-janatma2 048 049 050
-knizerad 051 052 053
-kociluk1 054 055 056
-koppmic2 057 058 059
-koprima3 060 061 062
-kozajaku 063 064 065
-kozajan 066 067 068
-kozakha1 069 070 071
-kozusjir 072 073 074
-kraljak4 075 076 077
-kralto12 078 079 080
-krestfi1 081 082 083
-kugleada 084 085 086
-kusystan 087 088 089
-lariover 090 091 092
-laubedan 093 094 095
-lessnpet 096 097 098
-lhotamir 099 100 101
-lormudan 102 103 104
-majermi6 105 106 107
-meloujir 108 109 110
-mikatom1 111 112 113
-mikesma6 114 115 116
-mikusmi1 117 118 119
-misarja1 120 121 122
-miskovoj 123 124 125
-novacja7 126 127 128
-peroupav 129 130 131
-petram14 132 133 134
-petrovad 135 136 137
-radvamic 138 139 140
-rakosjir 141 142 143
-rehorma4 144 145 146
-reznimi1 147 148 149
-rypacjos 150 151 152
-sebekrob 153 154 155
-sedajir2 156 157 158
-sedlalu2 159 160 161
-skorpste 162 163 164
-smrzjose 165 166 167
-stambpav 168 169 170
-stefami7 171 172 173
-stiplsta 174 175 176
-striton1 177 178 179
-suchama4 180 181 182
-talacrud 183 184 185
-troupmar 186 187 188
-truneja2 189 190 191
-turonjan 192 193 194
-vachamic 195 196 197
-valasja7 198 199 200
-vilimluk 201 202 203
-zdaraada 204 205 206
-zdrubvit 207 208 209
-zuzamiko 210 211 212
+xxx	000	001	002
 </code>
 
 ==== Předzpracování ====
 
 Vyberte si libovolný (podle vás nejednodušší) z vašich tří proteinů a připravte ho pro tisk. Můžete s ním dělat prakticky cokoliv (opravovat, otáčet, krájet, přidávat podpůrné struktury), ale je třeba zachovat při tisku rozměry proteinu. Výstupem je jeden nebo více STL souborů připravených na slicing a velmi stručný popis toho, **co** jste udělali a **proč** (ne nutně písemně, ale při odevzdávání je třeba postup vysvětlit a to i několik týdnů po vykonání vašich změn).
 
-<note tip>Jak řezat STL soubory? Jde to jistě i v OpenSCADu, ale to je zbytečně komplikované. Připravili jsme proto [[tutorials:meshmixer:start|krátký návod pro program MeshMixer]] - doporučují čtyři ze tří cvičících.</note>
+<note tip>Jak řezat STL soubory? Jde to jistě i v OpenSCADu, ale to je zbytečně komplikované. Připravili jsme proto [[tutorials:meshmixer:start|krátký návod pro program MeshMixer]] - doporučují tři ze čtyř cvičících.</note>
 
 <note tip>Nejde vám v Meshmixeru dobře alignovat? Zkuste program [[http://software.ultimaker.com/|Cura]]. Obsahuje funkci //Lay flat//.</note>
 
@@ -187,7 +115,7 @@ V souboru odevzdávejte:
   * Profil pro slicovací program
   * Případné další potřebné soubory
 
-Termín odevzdání je rok 2014. V roce 2015 již semestrální práci nelze odevzdat (a student nemůže získat žádné body), kromě oprávněných případů dlouhodobé doložené indispozice. Nepřehrávejte odevzdaný soubor v roce 2015 nějakou novější verzí, v takovém případě bude vyhodnoceno, že jste práci odevzdali pozdě a nepůjde dohledat, jestli byla alespoň dílčí část odevzdána v termínu. Rozhodující je datum nahrání na Edux.
+Termín odevzdání je do termíny na který jste přihlášeni (viz termíny v KOSu). 
 
 Hodnocení dle následující tabulky:
 
@@ -206,5 +134,7 @@ Hodnocení dle následující tabulky:
 | Výtisk neobsahuje vady zjevně způsobené nevhodnou přípravou tiskárny (příprava tiskové plochy, nevhodné teploty) | 7.5 | |
 
  * Pouze za podpory vygenerované při slicování se strhávají body. Protože jsme v části slicing.
+
+<note important>Pro ovládání tiskárny při odevzdávání potřebujete vlastní počítač se schopností připojit se na wifi nebo kabelem do lokální sítě.</note>
 
 Hodnocení je rozděleno na 4 dílčí části. //Povinný v rámci části// znamená, že bez splnění tohoto úkolu student za danou část nedostane žádné body. V případě opravného tisku se již neopravují hodnoty bodů v ostatních dílčích částech. Pokud tedy například nezvládnete slicing, dostanete z něj nula bodů a (celkem logicky) fatálně selže i tisk, můžete v náhradním termínu dostat body za tisk, za slicing už ale žádné body nedostanete.
