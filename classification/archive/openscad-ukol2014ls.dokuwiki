@@ -1,5 +1,7 @@
 ====== OpenSCAD: Domácí úkol LS 2014/2015 ======
 
+<note warning>Toto není aktuální zadání úkolu. Je zde pouze k účelům archivace.</note>
+
 Vaším úkolem je vytvořit parametrický model stojánku na telefon. Stojánek má podstavu i podpěru telefonu ve tvaru obdélníku se zaoblenými rohy (viz následující schémata). 
 
 <note tip>Naše automatické testy používají plný render (v apliakci zkratka F6). Netestujte váš kód pouze s F5. Pozor také na modifikátor % - v režimu plného renderu se takto prefixovaný kód neobjeví.</note>
