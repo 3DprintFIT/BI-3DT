@@ -58,7 +58,9 @@ Po ohodnocení (které proběhne až po termínu odevzdání) nelze úlohu oprav
 
 Při hodnocení se bude poloautomaticky testovat sada připravených argumentů obsahující především krajní případy. Doporučujeme proto modul vyzkoušet pro všemožné vstupy (nečíselné vstupy testovány nebudou). Na základě výsledku z testu a kvality kódu student může získat 0 až 20 bodů. V případě, že vyhodnotíme, že student úlohu opsal, případně vlastnímu kódu vůbec nerozumí, a ten neprokáže opak, bude úloha hodnocena -100 body, což znamená klasifikaci známkou F (toto se již stalo).
 
-Počet (ne)úspěšných testů přímo ovlivňuje hodnocení. Testy budou po ohodnocení úloh zveřejněny. Skladba testů odpovídá obtížnosti a závažnosti jednotlivých částí úkolu, není tedy možné chtít kompenzaci za to, že jedna chyba ovlivnila výsledek více testů. Před termínem je možné nechat si cvičícím vaše řešení testy projet - cvičící vás například upozorní na to, že nějaká chyba rozbila většinu z nich, ale nemůže vám testy ukázat (tvořit úlohu přímo na míru testům by bylo příliš jednoduché).
+Počet (ne)úspěšných testů přímo ovlivňuje hodnocení. Testy budou po ohodnocení úloh zveřejněny. Skladba testů odpovídá obtížnosti a závažnosti jednotlivých částí úkolu, není tedy možné chtít kompenzaci za to, že jedna chyba ovlivnila výsledek více testů.
+
+Před deadlinem proběhne několik kol odevzdání na nečisto. Cvičící vaše řešení nechá projet testy a upozorní vás například na to, že nějaká chyba rozbila většinu z nich, ale nemůže vám testy ukázat (tvořit úlohu přímo na míru testům by bylo příliš jednoduché). Tyto kola proběhnou 6.11., 13.11., 20.11., 23.11. a 27.11. vždy okolo 01:00 v noci. V tento čas musí být úloha odevzdaná na Edux. Zpětnou vazbu můžete očekávat v průběhu dne. Mimo tyto termíny není možné nechat úlohu projet testy.
 
 ====== Otázky od studentů ======
 
