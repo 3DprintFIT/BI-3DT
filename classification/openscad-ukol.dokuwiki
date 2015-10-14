@@ -16,6 +16,10 @@ Pro jednoduchost budeme předpokládat, že karty mají tvar obdélníku (respek
 
 Zeleně je naznačena jedna karta vložená ve stojanu. Červeně a modře pak určité rozměry, které budou popsány dále. Všimněte si, že při pohledu z boku a zepředu nedochází k žádnému zaoblení. Zato při pohledu zhora je vidět, jak se prostor pro kartu „obtáčí“ kolem karty tak, aby byla mezera mezi kartou a stěnou všude stejná (i v rohu).
 
+**Doplněno pro upřesnění:** Stejně jako má nejpřednější držák karty zaoblené přední rohy, mají zaoblené rohy i další držáky, ale pouze v místě, kde převyšují držák před sebou. Viz obrázek.
+
+{{:classification:vrch-oblouky.png?0x300}}
+
 ==== Interface a argumenty ====
 
 Váš model musí fungovat jako samostatný ''module'' pro OpenSCAD, použitelný pomocí direktivy ''use'' (nemsí obsahovat žádné konstanty mimo modul, ale je možné (a žádoucí) vytvořit si pomocné moduly). Musíte použít tento interface (včetně stejných výchozích hodnot!):
@@ -64,4 +68,6 @@ Před deadlinem proběhne několik kol odevzdání na nečisto. Cvičící vaše
 
 ====== Otázky od studentů ======
 
-//Zatím žádné dotazy nepadly. Neváhejte se zeptat svých cvičících.//
+**Q:** Mají být zaoblené všechny přihrádky, stejně jako ta první?
+
+**A:** Ano, doplněno do zadání.
