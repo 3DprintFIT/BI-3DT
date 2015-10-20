@@ -1,8 +1,9 @@
 ====== OpenSCAD: Domácí úkol ZS 2015/2016 ======
 
 Minulé domácí úlohy najdete v [[classification:archive:start|archívu]].
-
-<note warning>Toto je alfa verze zadání úkolu. Dokud zde uvidíte tuto noticku, zadání se může v detailech měnit.</note>
+/**
+*<note warning>Toto je alfa verze zadání úkolu. Dokud zde uvidíte tuto noticku, zadání se může v detailech měnit.</note>
+*/
 
 <note tip>Naše poloautomatické testy používají plný render (v apliakci zkratka F6). Netestujte váš kód pouze s F5. Pozor také na modifikátor % - v režimu plného renderu se takto prefixovaný kód neobjeví.</note>
 
