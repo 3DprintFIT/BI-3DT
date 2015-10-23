@@ -13,7 +13,7 @@ Protože máte několik důležitých karet (např. platebních nebo ISIC apod.)
 
 Pro jednoduchost budeme předpokládat, že karty mají tvar obdélníku (respektive kvádru), bez jakýkoli zaoblených hran a výstupků (např embosování). Všechny karty mají stejný rozměr. Zde je několik ilustrací řezů tímto stojánkem (boční, podélný a příčný; obrázky jdou kliknutím zvětšit).
 
-{{:classification:bok3.png?0x300}} {{:classification:vrch.png?0x300}} {{:classification:predek.png?0x300}}
+{{:classification:bok4.png?0x300}} {{:classification:vrch.png?0x300}} {{:classification:predek.png?0x300}}
 
 Zeleně je naznačena jedna karta vložená ve stojanu. Červeně a modře pak určité rozměry, které budou popsány dále. Všimněte si, že při pohledu z boku a zepředu nedochází k žádnému zaoblení. Zato při pohledu zhora je vidět, jak se prostor pro kartu „obtáčí“ kolem karty tak, aby byla mezera mezi kartou a stěnou všude stejná (i v rohu).
 
@@ -22,10 +22,6 @@ Zeleně je naznačena jedna karta vložená ve stojanu. Červeně a modře pak u
 {{:classification:vrch-oblouky.png?0x300}}
 
 **Doplněno pro upřesnění:** Poslední karta (najzadnější) nemá zadní stěnu vyvýšenou (viz obrázek).
-
-**Doplněno pro upřesnění:** Detailní obrázek při pohledu z boku:
-
-{{:classification:detail.png?0x300}}
 
 ==== Interface a argumenty ====
 
@@ -46,7 +42,7 @@ Může se stát, že na vstupu dostanete divné údaje, v tom případě se zach
   * Pokud má ''size'' pouze dvě složky, případně pokud je třetí složka 0, předpokládejte kartu s nulovou tloušťkou, což je **v pořádku**.
   * Pokud je první nebo druhá složka vektoru ''size'' <= 0, nevykreslí se **nic**.
   * Pokud je ''cards'' <=0, nevykreslí se **nic**.
-  * Pokud je ''thickeness'' <=0, předpokládejte hodnotu 0.
+  * Pokud je ''thickeness'' <=0, předpokládejte hodnotu 0 (toto nebudeme testovat).
   * Pokud je ''spacing'' <=0, předpokládejte hodnotu 0.
   * Pokud je ''delta'' 0, k žádnému posunu nedojde, pokud je záporné, posune se každá „zadnější“ karta níže (celý objekt se de facto převrátí zády dopředu).
   * Pokud je ''visibility'' mimo interval (0, 1), předpokládejte krajní hodnotu (0 pro < 0, 1 pro > 1).
@@ -85,4 +81,4 @@ Ano, doplněno do zadání, obrázek upraven.
 
 ===== Je rozdíl mezi dvěma úrovněmi delta, nebo delta + spacing? =====
 
-Delta + spacing. Viz doplněný detailní obrázek s pomocnou čarou.
+Delta. Spacing nemá na posun karty vliv.
