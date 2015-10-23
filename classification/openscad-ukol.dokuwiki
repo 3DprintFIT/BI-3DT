@@ -13,7 +13,7 @@ Protože máte několik důležitých karet (např. platebních nebo ISIC apod.)
 
 Pro jednoduchost budeme předpokládat, že karty mají tvar obdélníku (respektive kvádru), bez jakýkoli zaoblených hran a výstupků (např embosování). Všechny karty mají stejný rozměr. Zde je několik ilustrací řezů tímto stojánkem (boční, podélný a příčný; obrázky jdou kliknutím zvětšit).
 
-{{:classification:bok2.png?0x300}} {{:classification:vrch.png?0x300}} {{:classification:predek.png?0x300}}
+{{:classification:bok3.png?0x300}} {{:classification:vrch.png?0x300}} {{:classification:predek.png?0x300}}
 
 Zeleně je naznačena jedna karta vložená ve stojanu. Červeně a modře pak určité rozměry, které budou popsány dále. Všimněte si, že při pohledu z boku a zepředu nedochází k žádnému zaoblení. Zato při pohledu zhora je vidět, jak se prostor pro kartu „obtáčí“ kolem karty tak, aby byla mezera mezi kartou a stěnou všude stejná (i v rohu).
 
@@ -22,6 +22,10 @@ Zeleně je naznačena jedna karta vložená ve stojanu. Červeně a modře pak u
 {{:classification:vrch-oblouky.png?0x300}}
 
 **Doplněno pro upřesnění:** Poslední karta (najzadnější) nemá zadní stěnu vyvýšenou (viz obrázek).
+
+**Doplněno pro upřesnění:** Detailní obrázek při pohledu z boku:
+
+{{:classification:detail.png?0x300}}
 
 ==== Interface a argumenty ====
 
@@ -78,3 +82,7 @@ Ano, doplněno do zadání.
 ===== Neměla by být poslední změna zarovnaná podle poslední přihrádky? =====
 
 Ano, doplněno do zadání, obrázek upraven.
+
+===== Je rozdíl mezi dvěma úrovněmi delta, nebo delta + spacing? =====
+
+Delta + spacing. Viz doplněný detailní obrázek s pomocnou čarou.
