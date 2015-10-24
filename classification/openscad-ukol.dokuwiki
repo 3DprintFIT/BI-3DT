@@ -7,13 +7,15 @@ Minulé domácí úlohy najdete v [[classification:archive:start|archívu]].
 
 <note tip>Naše poloautomatické testy používají plný render (v apliakci zkratka F6). Netestujte váš kód pouze s F5. Pozor také na modifikátor % - v režimu plného renderu se takto prefixovaný kód neobjeví.</note>
 
+<note important>V zadání se dříve objevovala hodnota <del>thickeness</del>. Bylo to samozřejmě špatně a měli jsme na mysli **thickness**.</note>
+
 ===== Stojan na karty =====
 
 Protože máte několik důležitých karet (např. platebních nebo ISIC apod.), které nenosíte v peněžence, ale válí se vám na stole, rozhodli jste se vymodelovat na ně pořadník/stojánek. Stojánek karty umožňuje řadit za sebe a pro každou má vlastní přihrádku. Aby se karty dobře prohlížely, každá z přihrádky o nějaký kus kouká a každá zadnější přihrádka je o kousek vyvýšená (podobně jako sedadla v kině).
 
 Pro jednoduchost budeme předpokládat, že karty mají tvar obdélníku (respektive kvádru), bez jakýkoli zaoblených hran a výstupků (např embosování). Všechny karty mají stejný rozměr. Zde je několik ilustrací řezů tímto stojánkem (boční, podélný a příčný; obrázky jdou kliknutím zvětšit).
 
-{{:classification:bok4.png?0x300}} {{:classification:vrch.png?0x300}} {{:classification:predek.png?0x300}}
+{{:classification:bok4.png?0x300}} {{:classification:vrch2.png?0x300}} {{:classification:predek.png?0x300}}
 
 Zeleně je naznačena jedna karta vložená ve stojanu. Červeně a modře pak určité rozměry, které budou popsány dále. Všimněte si, že při pohledu z boku a zepředu nedochází k žádnému zaoblení. Zato při pohledu zhora je vidět, jak se prostor pro kartu „obtáčí“ kolem karty tak, aby byla mezera mezi kartou a stěnou všude stejná (i v rohu).
 
@@ -25,12 +27,14 @@ Zeleně je naznačena jedna karta vložená ve stojanu. Červeně a modře pak u
 
 ==== Interface a argumenty ====
 
+<note important>V zadání se dříve objevovala hodnota <del>thickeness</del>. Bylo to samozřejmě špatně a měli jsme na mysli **thickness**.</note>
+
 Váš model musí fungovat jako samostatný ''module'' pro OpenSCAD, použitelný pomocí direktivy ''use'' (nemsí obsahovat žádné konstanty mimo modul, ale je možné (a žádoucí) vytvořit si pomocné moduly). Musíte použít tento interface (včetně stejných výchozích hodnot!):
 
-<code>module cardholder(size=[85, 54, 1], thickeness=3, spacing=1, cards=4, delta=25, visibility=0.3) { /* kód */ }</code>
+<code>module cardholder(size=[85, 54, 1], thickness=3, spacing=1, cards=4, delta=25, visibility=0.3) { /* kód */ }</code>
 
   * ''size'' je vektor tří hodnot -- rozměrů karty v milimetrech -- v pořadí výška, šířka, tloušťka
-  * ''thickeness'' je základní tloušťka stěny, na obrázcích výše naznačena červenou barvou
+  * ''thickness'' je základní tloušťka stěny, na obrázcích výše naznačena červenou barvou
   * ''spacing'' je prostor mezi kartou a stěnou, na obrázcích výše naznačen modrou barvou
   * ''cards'' je celkový počet karet (slotů) ve stojánku
   * ''delta'' je posun každého „zadnějšího“ slotu směrem nahoru
@@ -42,14 +46,18 @@ Může se stát, že na vstupu dostanete divné údaje, v tom případě se zach
   * Pokud má ''size'' pouze dvě složky, případně pokud je třetí složka 0, předpokládejte kartu s nulovou tloušťkou, což je **v pořádku**.
   * Pokud je první nebo druhá složka vektoru ''size'' <= 0, nevykreslí se **nic**.
   * Pokud je ''cards'' <=0, nevykreslí se **nic**.
-  * Pokud je ''thickeness'' <=0, předpokládejte hodnotu 0 (toto nebudeme testovat).
+  * Pokud je ''thickness'' <=0, předpokládejte hodnotu 0 (toto nebudeme testovat).
   * Pokud je ''spacing'' <=0, předpokládejte hodnotu 0.
   * Pokud je ''delta'' 0, k žádnému posunu nedojde, pokud je záporné, posune se každá „zadnější“ karta níže (celý objekt se de facto převrátí zády dopředu).
   * Pokud je ''visibility'' mimo interval (0, 1), předpokládejte krajní hodnotu (0 pro < 0, 1 pro > 1).
 
 ==== Umístění v prostoru ====
 
-Objekt bude stát na XY plošině (bude mít spodní hranu zarovnanou s Z = 0). Vycentrovaný vlevo a vpravo podle osy Z. Předek stojanu bude směřovat k negativní ose Y. Umístění je zásadní pro naše poloautomatické testy.
+Objekt bude stát na XY plošině (bude mít spodní hranu zarovnanou s Z = 0). Vycentrovaný vlevo/vpravo a dozadu/dopředu podle osy Z. Předek stojanu bude směřovat k negativní ose Y. Umístění je zásadní pro naše poloautomatické testy.
+
+{{:classification:umisteni.png?0x300}}
+
+Ilustrační obrázek ukazuje umístění. Zvýrazněná stěna je předek.
 
 ====== Kód ======
 
