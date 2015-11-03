@@ -90,3 +90,7 @@ Ano, doplněno do zadání, obrázek upraven.
 ===== Je rozdíl mezi dvěma úrovněmi delta, nebo delta + spacing? =====
 
 Delta. Spacing nemá na posun karty vliv.
+
+===== Parametr delta je udáván v % nebo v jednotkách? =====
+
+V jednotkách.
