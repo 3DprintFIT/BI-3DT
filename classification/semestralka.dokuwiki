@@ -34,7 +34,7 @@ Pro uvedený dvouhrotový příklad vypadá výsledek asi takto:
 
 Dalším úkolem je modul generující náhodné krystaly. Nedostává na vstupu tedy konkrétní data, ale jen jejich meze a počet hrotů.
 
-<code>module random_crystal(nthorns=350, rot=[-90,100], height=[20,40], circumr=[2,4.5], seg=[2,10]) { ... }</code>
+<code>module random_crystal(nthorns=350, rot=[-90,100], height=[20,40], circumr=[2,4.5], seg=[3,10]) { ... }</code>
 
   * ''nthorns'' je počet hrotů
   * další argumenty jsou dvouprvkové vektory určující minimální a maximální hodnoty pro stejnojmenné vlastnosti hrotů (''rot'' jsou meze pro ''rotx'', ''roty'' i ''rotz'')
@@ -72,7 +72,7 @@ Vyberte si libovolný (podle vás nejednodušší) z vašich tří krystalů a p
 
 ==== Slicing ====
 
-Naslicujte libovolným programem vámi připravená tisková STLka s použitím vhodných nastavení. /* Pro Slic3r vyjděte z {{:tutorials:tisk:slic3r_config_bundle.ini.zip|}} (tryska 3dráty, filament 1.75 ABS), pro KISSlicer [[tutorials:tisk:start#nastaveni_pro_kisslicer|jsou tady]]. */ Profily pro slicovací programy Slic3r a KISSlicer budou brzy k dispozici. Výstupem je použitý slicovací profil vyexportovaný z programu a jeden nebo více GCODE souborů. Jednotlivé části můžete tisknout najednou (pokud se vejdou na tiskovou plochu a pokud vám to připadá vhodné) nebo postupně, případě kombinaci obojího.
+Naslicujte libovolným programem vámi připravená tisková STLka s použitím vhodných nastavení. /* Pro Slic3r vyjděte z {{:tutorials:tisk:slic3r_config_bundle.ini.zip|}} (tryska 3dráty, filament 1.75 ABS), pro KISSlicer [[tutorials:tisk:start#nastaveni_pro_kisslicer|jsou tady]]. */ Profily pro slicovací programy Slic3r a KISSlicer budou brzy k dispozici (pro tiskárnu a filament). Výstupem je použitý slicovací profil vyexportovaný z programu a jeden nebo více GCODE souborů. Jednotlivé části můžete tisknout najednou (pokud se vejdou na tiskovou plochu a pokud vám to připadá vhodné) nebo postupně, případě kombinaci obojího.
 
 ==== Tisk a postprocessing ====
 
