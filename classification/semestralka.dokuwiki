@@ -56,10 +56,82 @@ Vaše krystaly najdete na adresách:
   * https://edux.fit.cvut.cz/courses/BI-3DT/_media/classification/crystals151/crystalXXX.scad
   * https://edux.fit.cvut.cz/courses/BI-3DT/_media/classification/crystals151/crystalXXX.stl
 
+(STL soubory ještě nejsou vygenerovány.)
+
 Kde místo XXX dosadíte číslice z tohoto seznamu:
 
 <code>
-bude doplněno
+adameste 001 002 003
+agapoele 004 005 006
+arkhigle 007 008 009
+balanole 010 011 012
+beranpa8 013 014 015
+borskjir 016 017 018
+bynamich 019 020 021
+cernyra3 022 023 024
+chalufil 025 026 027
+chaluluk 028 029 030
+dotuantu 031 032 033
+dolezjo3 034 035 036
+dorazjan 037 038 039
+drapafi1 040 041 042
+dusekva4 043 044 045
+dvoram58 046 047 048
+dvorakl2 049 050 051
+fabiape1 052 053 054
+fiserad2 055 056 057
+hanusmi3 058 059 060
+horacj10 061 062 063
+kadlele1 064 065 066
+kalinmi2 067 068 069
+kasnezde 070 071 072
+keruloli 073 074 075
+klempmil 076 077 078
+kopecev1 079 080 081
+labskdav 082 083 084
+lagodali 085 086 087
+lassama1 088 089 090
+matejm14 091 092 093
+melicma1 094 095 096
+mikessta 097 098 099
+milicpav 100 101 102
+mosnadav 103 104 105
+myslivo1 106 107 108
+nagyluka 109 110 111
+nesrotom 112 113 114
+nguyelon 115 116 117
+novakkry 118 119 120
+novotvi4 121 122 123
+ostroiul 124 125 126
+palasale 127 128 129
+panchjan 130 131 132
+pazdebor 133 134 135
+pekarvit 136 137 138
+pichldom 139 140 141
+stourane 142 143 144
+pribyeka 145 146 147
+rauchlad 148 149 150
+schmipe5 151 152 153
+sebelji1 154 155 156
+skalamat 157 158 159
+spakmaro 160 161 162
+stembmi1 163 164 165
+sterbsta 166 167 168
+sturcmar 169 170 171
+suvaanto 172 173 174
+sykorto7 175 176 177
+thieljan 178 179 180
+trebidav 181 182 183
+trefifil 184 185 186
+vanclma1 187 188 189
+vitovjos 190 191 192
+vladyond 193 194 195
+werneric 196 197 198
+wijasjan 199 200 201
+wijsmluk 202 203 204
+zajicpa2 205 206 207
+zemeklad 208 209 210
+zhukomik 211 212 213
 </code>
 
 ==== Předzpracování ====
