@@ -3,8 +3,6 @@
   * [[classification:archive:semestralka2014|Loňské zadání je tady]]
   * [[classification:archive:semestralka2013|Předloňské zadání je tady]]
 
-<note warning>Toto zadání je rozpracované.</note>
-
 ===== Krystaly =====
 
 Tématem semestrální práce jsou krystaly. Vaším úkolem je v programu OpenSCAD napsat modul, který umí generovat modely krystalů na základě vstupních dat (a modul, který generuje náhodné krystaly), vhodně připravit jeden z vám přidělených krystalů k tisku, vytisknout ho a provést případné dodatečné úpravy.
@@ -55,8 +53,6 @@ Vaše krystaly najdete na adresách:
 
   * https://edux.fit.cvut.cz/courses/BI-3DT/_media/classification/crystals151/crystalXXX.scad
   * https://edux.fit.cvut.cz/courses/BI-3DT/_media/classification/crystals151/crystalXXX.stl
-
-(STL soubory ještě nejsou vygenerovány.)
 
 Kde místo XXX dosadíte číslice z tohoto seznamu:
 
