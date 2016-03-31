@@ -1,3 +1,64 @@
 ====== OpenSCAD: Domácí úkol LS 2015/2016 ======
 
 Domácí úkol ještě není zadán. Pro představu se můžete podívat do [[classification:archive:start|archívu]] úloh z minulých běhů předmětu.
+
+<note warning>Níže vzniká dynamicky zadání úkolu. Nevidíme důvod to dělat tajně. Dokud zde bude tato poznámka, není zadání úkolu rozhodně finální.</note>
+
+===== Ježek v kleci =====
+
+Vaším úkolem je vytvořit parametrický model [[https://cs.wikipedia.org/wiki/Je%C5%BEek_v_kleci|ježka v kleci]] v jazyce/programu OpenSCAD.
+
+Ježek je koule s ostny, podobně jako na tomto obrázku. Obrázek je pouze ilustrační, ostny mohou vyrůstat z ježka po celém jeho povrchu.
+
+{{:classification:hedgehog-01.png|}}
+
+Do ježka Jan Tleskač schoval plánek na létací kolo; na rozdíl od něj však nebudem mít ježka šroubovacího, ale pouze zaklapávajícího. Mechanismus je nakreslen na následujícím obrázku:
+
+{{:classification:hedgehog-02.png|}}
+
+Je definována svislá vzdálenost od středu koule i velikost mezery v mechanismu. Všimněte si, že tato mezera má střed v této vzdálenosti. Ježek je samozřejmě dutý a tloušťka jeho stěny je také definována parametrem.
+
+Jednotlivé ostny mají společný průměr, ale různé směry a délky - toto je určeno koncovým bodem ostnu, který je zadán pomocí koordinát uložených ve vektoru tří hodnot v pořadí X, Y, Z. U těchto koordinát se předpokládá, že střed koule ježka  leží v počátku souřadném. Ostny se nachází pouze vně ježka, nikoli uvnitř. Případný osten, který je příliš krátky zkrátka nebude vůbec existovat.
+
+Jeden osten je vlastně válec se speciálním kulovitým zakončením, které je znázorněno na následujícím obrázku.
+
+{{:classification:hedgehog-04.png|}}
+
+Klec pro ježka je složená s horního a dolního "skorotroidu" (TODO: nazvat to lépe) a sloupků.
+
+{{:classification:hedgehog-05.png?350}}
+
+Horní "skorotoroid" má průřez obdélníku se zaoblenými rohy.
+
+{{:classification:hedgehog-06.png|}}
+
+Jednotlivé sloupky mají stejnou tloušťku, jsou umístěny rovnoměrně po kružnici a leží na středu profilu "skorotoroidu". Abychom jejich pozici mohli testovat, začněte sloupy umisťovat od kladného směru osy X. 
+
+{{:classification:hedgehog-07.png?400}}
+
+Klec umístíte tak, aby koule ježka ležela v jejím středu a sloupy vedly rovnoběžně s osou Z. Červený puntík na obrázku je počátek souřadný.
+
+{{:classification:hedgehog-08.png|}}
+
+===== Modul =====
+
+Váš model musí fungovat jako samostatný module pro OpenSCAD, použitelný pomocí direktivy use (nemsí obsahovat žádné konstanty mimo modul, ale je možné (a žádoucí) vytvořit si pomocné moduly). Musíte použít tento interface (včetně stejných výchozích hodnot!):
+
+<code>module hedgehog(diameter=30,
+                wall_thick=3,
+                spines=[[0,0,20],
+                        [0,0,-20],
+                        [0,20,0],
+                        [0,-20,0],
+                        [20,0,0],
+                        [-20,0,0]],
+                spine_thick=3,
+                lock_disance=3,
+                lock_gap=1,
+                profile_size=[5,3],
+                profile_diameter=40,
+                profile_corner_radius=1,
+                pole_thick=3,
+                pole_count=4,
+                pole_length=40
+                ) { /* kód */ }</code>
