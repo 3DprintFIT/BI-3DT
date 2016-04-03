@@ -18,7 +18,7 @@ Do ježka Jan Tleskač schoval plánek na létací kolo; na rozdíl od něj vša
 
 Je definována svislá vzdálenost od středu koule i velikost mezery v mechanismu. Všimněte si, že tato mezera má střed v této vzdálenosti. Ježek je samozřejmě dutý a tloušťka jeho stěny je také definována parametrem.
 
-Jednotlivé ostny mají společný průměr, ale různé směry a délky - toto je určeno koncovým bodem ostnu, který je zadán pomocí koordinát uložených ve vektoru tří hodnot v pořadí X, Y, Z. U těchto koordinát se předpokládá, že střed koule ježka  leží v počátku souřadném. Ostny se nachází pouze vně ježka, nikoli uvnitř. Případný osten, který je příliš krátky zkrátka nebude vůbec existovat.
+Jednotlivé ostny mají společný průměr, ale různé směry a délky - toto je určeno koncovým bodem ostnu, který je zadán pomocí koordinát uložených ve vektoru tří hodnot v pořadí X, Y, Z. U těchto koordinát se předpokládá, že střed koule ježka  leží v počátku souřadném. Ostny se nachází pouze vně ježka, nikoli uvnitř. Případný osten, který je příliš krátký, zkrátka nebude vůbec existovat.
 
 Jeden osten je vlastně válec se speciálním kulovitým zakončením, které je znázorněno na následujícím obrázku.
 
@@ -78,7 +78,13 @@ Váš model musí fungovat jako samostatný module pro OpenSCAD, použitelný po
 
 ===== Krajní případy =====
 
-TODO
+  * nemusíte řešit situaci, kdy mají být ostny širší než průměr koule ježka
+  * pokud osten zasahuje do zavíracího mechanismu, měly by být osten i zavírací mechanismus tímto nedotčeny - prakticky by tam osten překážel, ale pro potřeby tohoto modelu to nevadí
+  * nemusíte řešit, když ostny ježka nebo koule ježka prochází klecí
+  * pokud je zadána záporná hodnota tam, kde to nedává smysl, ale hodnota 0 smysl dává, znormujte hodnotu na 0 (např. počet sloupků)
+  * pokud je zadána záporná hodnota nebo 0 tam, kde to nedává smysl, nevykreslí se nic (např. průměr koule ježka)
+  * tloušťka stěny ježka i výška zavíracího mechanismu se do ježka vždy vejdou
+  * mezera zavíracího mechanismu může být větší než tloušťka stěny, v tom případě zavírací mechanismus zmizí a zůstane po něm díra
 
 ===== Bonus =====
 
