@@ -1,8 +1,8 @@
 ====== OpenSCAD: Domácí úkol LS 2015/2016 ======
 
-Domácí úkol ještě není zadán. Pro představu se můžete podívat do [[classification:archive:start|archívu]] úloh z minulých běhů předmětu.
+Domácí úkoly ze semstrů minulých můžete vidět v [[classification:archive:start|archívu]].
 
-<note warning>Níže vzniká dynamicky zadání úkolu. Nevidíme důvod to dělat tajně. Dokud zde bude tato poznámka, není zadání úkolu rozhodně finální.</note>
+<note tip>Zadání je prakticky hotové, je však možné, že v něm na základě vašich podnětů objevíme zásadní nedostatky, které opravíme. Sledujte prosím tuto stránku bedlivě. Veškeré změny budou napsány ve spodní části stránky.</note>
 
 ===== Ježek v kleci =====
 
@@ -100,7 +100,7 @@ Kód musí splňovat určitou kvalitu, jednou z podmínek je logické dodržení
 
 Soubor pojmenujte hedgehog.scad, uložte do archivu hedgehog.zip (přímo do kořenového adresáře archivu) a nahrajte přímo do svého osobního namespacu na Eduxu. Musí jít stáhnout z odkazu ''https://edux.fit.cvut.cz/courses/BI-3DT/_media/student/username/hedgehog.zip'' Na soubor do namespacu umístěte odkaz. V archivu kromě souboru hedgehog.scad musí být pouze potřebné soubory (další vaše scad soubory s moduly, případné DXF nebo STL soubory k importování), do archivu nepatří vygenerované STL soubory ježka v kleci. Správné pojmenování je důležité pro naše automatické testy. Nesprávně pojmenovaný soubor se nepovažuje za odevzdaný.
 
-Termín odevzdání je **16.5.2016** včetně. Pozdní odevzdání není možné. V případě doložené dlouhodobé vážné nemoci je možné domluvit se na speciálním termínu. Nemoc či nehoda těsně před odevzdáním neomlouvá.
+Termín odevzdání je **18.5.2016** včetně. Pozdní odevzdání není možné. V případě doložené dlouhodobé vážné nemoci je možné domluvit se na speciálním termínu. Nemoc či nehoda těsně před odevzdáním neomlouvá.
 
 Po ohodnocení (které proběhne až po termínu odevzdání) nelze úlohu opravit. Před termínem odevzdání je ji však možno konzultovat i nahrávat na Edux v rozpracovaném stavu.
 
@@ -108,8 +108,8 @@ Při hodnocení se bude poloautomaticky testovat sada připravených argumentů 
 
 Počet (ne)úspěšných testů přímo ovlivňuje hodnocení. Testy budou po ohodnocení úloh zveřejněny. Skladba testů odpovídá obtížnosti a závažnosti jednotlivých částí úkolu, není tedy možné chtít kompenzaci za to, že jedna chyba ovlivnila výsledek více testů.
 
-Před deadlinem proběhne několik kol odevzdání na nečisto. Cvičící vaše řešení nechá projet testy a upozorní vás například na to, že nějaká chyba rozbila většinu z nich, ale nemůže vám testy ukázat (tvořit úlohu přímo na míru testům by bylo příliš jednoduché). Tyto kola proběhnou ?, ?., ?, ? a ? vždy okolo 00:01 v noci. V tento čas musí být úloha odevzdaná na Edux. Zpětnou vazbu můžete očekávat v průběhu dvou dnů. Mimo tyto termíny není možné nechat úlohu projet testy.
+Před deadlinem proběhne několik kol odevzdání na nečisto. Cvičící vaše řešení nechá projet testy a upozorní vás například na to, že nějaká chyba rozbila většinu z nich, ale nemůže vám testy ukázat (tvořit úlohu přímo na míru testům by bylo příliš jednoduché). Tyto kola proběhnou 23.4., 30.4., 7.5., 14.5. a 16.5. vždy okolo 00:01 v noci. V tento čas musí být úloha odevzdaná na Edux. Zpětnou vazbu můžete očekávat v průběhu dvou dnů. Mimo tyto termíny není možné nechat úlohu projet testy.
 
 ====== Otázky od studentů ======
 
-Zatím  nic.
+Zatím  nic...
