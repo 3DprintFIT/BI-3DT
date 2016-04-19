@@ -112,4 +112,39 @@ Před deadlinem proběhne několik kol odevzdání na nečisto. Cvičící vaše
 
 ====== Otázky od studentů ======
 
-Zatím  nic...
+**Pocita se koncovy bod u spines jako konec zaobleneho zakonceni?**
+
+Ano.
+
+**spine_thick == diameter "valce", pomoci ktereho ostny delame?**
+
+Ano.
+
+**"Horní část koule není nikam odsunutá, z koule prostě část chybí."
+Jakoze je jen pul jezka?**
+
+Ne, jakože z ježka je kus uprostřed (Zavírací mechanismus) vyzmizíkován. Někdo měl z obrázku pocit, že je vrchní díl posunut o ten kousek nahoru, což není pravda, proto jsme tam tuhle větu dali.
+
+**"Abychom jejich pozici mohli testovat, začněte sloupy umisťovat od
+kladného směru osy X." Tzn. mam vzdycky zacit na "uhlu 0"?**
+
+To je implementačně závislé. V jedné z logických implementací to bude "úhel 0".
+
+**Ale potom v
+testovacich datech prochazi bodlina skrz tyc v kleci.**
+
+Ano. Z toho si nic nedělejte, nikdo není dokonalý.
+
+**"profile_size je vektor dvou hodnot určující vnější velikost
+obdélníkového profilu toroidu první číslo je ve směru X/Y, druhé ve
+směru Z." Udaje pred zaoblovanim, nebo po nem?**
+
+Vnější velikost. Záleží, jak zaoblení děláte. Jestli máte obdélník a tomu odebíráte špičatost rohů, tak před zaoblením. Jestli máte obdélník a ten se zaoblením zvětšuje, tak po zaoblení.
+
+**"Pokud osten zasahuje do zavíracího mechanismu, měly by být osten i
+zavírací mechanismus tímto nedotčeny - prakticky by tam osten překážel,
+ale pro potřeby tohoto modelu to nevadí (osten nesmí zasahovat do
+mechanismu, musí být na povrchu koule)" == bude se osten tisknout "do
+vzduchu"?**
+
+Mohl by. Například pokud by osten měl menší tloušťku, než je ta díra v mechanismu. Záleží na konkrétních parametrech.
