@@ -70,7 +70,7 @@ Vyberte si libovolný (podle vás nejednodušší) z vašich tří krystalů a p
 
 ==== Slicing ====
 
-Naslicujte libovolným programem vámi připravená tisková STLka s použitím vhodných nastavení. Pro Slic3r vyjděte z {{:tutorials:tisk:slic3r_config_bundle.ini.zip|}} (profily navolte jako na cviku, tzn. ne -default-), pro KISSlicer [[tutorials:tisk:start#nastaveni_pro_kisslicer|jsou tady]]. Profily pro případné jiné programy pro vás nemáme, ale smíte si vytvořit svoje. Výstupem je použitý slicovací profil vyexportovaný z programu a jeden nebo více GCODE souborů. Jednotlivé části můžete tisknout najednou (pokud se vejdou na tiskovou plochu a pokud vám to připadá vhodné) nebo postupně, případě kombinaci obojího.
+Naslicujte libovolným programem vámi připravená tisková STLka s použitím vhodných nastavení. Pro Slic3r vyjděte z {{:tutorials:tisk:slic3r_config_bundle.ini.zip|}} (profily navolte jako na cviku, tzn. ne -default-). Profily pro případné jiné programy pro vás nemáme, ale smíte si vytvořit svoje. Výstupem je použitý slicovací profil vyexportovaný z programu a jeden nebo více GCODE souborů. Jednotlivé části můžete tisknout najednou (pokud se vejdou na tiskovou plochu a pokud vám to připadá vhodné) nebo postupně, případě kombinaci obojího.
 
 ==== Tisk a postprocessing ====
 
