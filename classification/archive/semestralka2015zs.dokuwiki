@@ -29,14 +29,14 @@ Pro uvedený dvouhrotový příklad vypadá výsledek asi takto:
 
 {{:classification:2example.png?0x300}}
 
-Dalším úkolem je modul generující náhodné krystaly. Nedostává na vstupu tedy konkrétní data, ale jen jejich meze a počet hrotů.
+Dalším úkolem je modul generující náhodné krystaly. Nedostává na vstupu tedy konkrétní data, ale jen jejich meze (uzavřené intervaly) a počet hrotů.
 
 <code>module random_crystal(nthorns=350, rot=[-90,100], height=[20,40], circumr=[2,4.5], seg=[3,10]) { ... }</code>
 
   * ''nthorns'' je počet hrotů
   * další argumenty jsou dvouprvkové vektory určující minimální a maximální hodnoty pro stejnojmenné vlastnosti hrotů (''rot'' jsou meze pro ''rotx'', ''roty'' i ''rotz'')
 
-Pro generování náhodných čísel můžete použít funkci [[https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Mathematical_Functions#rands|rands()]]. Berte v potaz, že ''seg'' je (na rozdíl od ostatních náhodných hodnot) celé číslo. Jednotlivá celá čísla včetně krajních hodnot by měla mít stejnou šanci (uniformní rozdělení).
+Pro generování náhodných čísel můžete použít funkci [[https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Mathematical_Functions#rands|rands()]]. Berte v potaz, že ''seg'' je (na rozdíl od ostatních náhodných hodnot) celé číslo. Jednotlivá celá čísla včetně krajních hodnot by měla mít stejnou šanci (uniformní rozdělení), pozor, toto se v případě nesplnění bodově postihuje.
 
 Pro výchozí hodnoty může vypadat krystal různě (je náhodný), například takto:
 
@@ -50,14 +50,14 @@ Pokud přecejen chcete testovat váš modul nad vám zadanými daty, testujte ho
 
 Vaše krystaly najdete na adresách:
 
-  * https://edux.fit.cvut.cz/courses/BI-3DT/_media/classification/crystals151/crystalXXX.scad
-  * https://edux.fit.cvut.cz/courses/BI-3DT/_media/classification/crystals151/crystalXXX.stl
+  * https://edux.fit.cvut.cz/courses/BI-3DT/_media/classification/crystals152/crystalXXX.scad
+  * https://edux.fit.cvut.cz/courses/BI-3DT/_media/classification/crystals152/crystalXXX.stl
 
 Kde místo XXX dosadíte číslice z tohoto seznamu:
 
 <code>
 xxx 001 002 003
-...
+... coming soon ...
 </code>
 
 ==== Předzpracování ====
@@ -70,7 +70,7 @@ Vyberte si libovolný (podle vás nejednodušší) z vašich tří krystalů a p
 
 ==== Slicing ====
 
-Naslicujte libovolným programem vámi připravená tisková STLka s použitím vhodných nastavení. Pro Slic3r vyjděte z {{:tutorials:tisk:slic3r_config_bundle.ini.zip|}} (tryska 3dráty, filament 1.75 ABS), pro KISSlicer [[tutorials:tisk:start#nastaveni_pro_kisslicer|jsou tady]]. Výstupem je použitý slicovací profil vyexportovaný z programu a jeden nebo více GCODE souborů. Jednotlivé části můžete tisknout najednou (pokud se vejdou na tiskovou plochu a pokud vám to připadá vhodné) nebo postupně, případě kombinaci obojího.
+Naslicujte libovolným programem vámi připravená tisková STLka s použitím vhodných nastavení. Pro Slic3r vyjděte z {{:tutorials:tisk:slic3r_config_bundle.ini.zip|}} (profily navolte jako na cviku, tzn. ne -default-), pro KISSlicer [[tutorials:tisk:start#nastaveni_pro_kisslicer|jsou tady]]. Profily pro případné jiné programy pro vás nemáme, ale smíte si vytvořit svoje. Výstupem je použitý slicovací profil vyexportovaný z programu a jeden nebo více GCODE souborů. Jednotlivé části můžete tisknout najednou (pokud se vejdou na tiskovou plochu a pokud vám to připadá vhodné) nebo postupně, případě kombinaci obojího.
 
 ==== Tisk a postprocessing ====
 
@@ -92,7 +92,9 @@ V souboru odevzdávejte:
   * Profil pro slicovací program
   * Případné další potřebné soubory
 
-Termín odevzdání je konec výukové části semestru, tedy 10.1.2016 včetně. Možnost pozdního odevzdání: Za každý další započatý týden (byť o vteřinu) je z celkového hodnocení strženo 10 bodů. Pokud je celkový součet menší než 0, je hodnocení za semestrální práci 0. V době započetí termínu klasifikovaného zápočtu (tisk v laboratoři), již musí být odevzdáno na Eduxu.
+Termín odevzdání je 19.6.2016 včetně (případně začátek vašeho zápočtového termínu, pokud se tento koná dřív). Možnost pozdního odevzdání: Za každý další započatý týden (byť o vteřinu) je z celkového hodnocení strženo 10 bodů. Pokud je celkový součet menší než 0, je hodnocení za semestrální práci 0. V době započetí termínu klasifikovaného zápočtu (tisk v laboratoři), již musí být odevzdáno na Eduxu.
+
+Zkouškové končí 1.7.2016, nemáme nic proti odevzdání a zápočtovým termínům i po tomto datu, ale je třeba se na tom explicitně domluvit a přijmout riziko z toho plynoucí.
 
 Hodnocení dle následující tabulky:
 
