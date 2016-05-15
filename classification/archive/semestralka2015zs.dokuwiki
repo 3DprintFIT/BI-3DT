@@ -21,7 +21,7 @@ Každý hrot má podobný tvar jako na tomto obrázku (obrázek jde zvětšit):
 
 {{:classification:rect10491.png?0x300}}
 
-Střed spodní strany leží na počátku souřadném. Před rotací hrot ukazuje směrem kolmo vzhůru (po kladné ose Z). Celková délka trnu je ''height'', zlom je vzdálen třetí odmocninu ''height'' od vrchu. Trn má profil //n//-úhelníku, kde //n// je ''seg''. Kružnice opsaná tomuto //n//-úhelníku má v místě zlomu poloměr ''circumr'', na spodku hrotu je pak poloměr třetinový. Hrot je následně rotován vektorem ''[rotx, roty, rotz]''.
+Střed spodní strany leží na počátku souřadném. Před rotací hrot ukazuje směrem kolmo vzhůru (po kladné ose Z). Celková délka trnu je ''height'', zlom je vzdálen třetí odmocninu ''height'' od vrchu. Trn má profil pravidelného ("rovnostranného") //n//-úhelníku, kde //n// je ''seg''. Kružnice opsaná tomuto //n//-úhelníku má v místě zlomu poloměr ''circumr'', na spodku hrotu je pak poloměr třetinový. Hrot je následně rotován vektorem ''[rotx, roty, rotz]''.
 
 Krystal je pouze směsicí těchto hrotů.
 
