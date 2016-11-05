@@ -88,9 +88,9 @@ Celé tělo je 3D zaoblené, ale díry na zásuvky ne.
   * Pokud je to záporné číslo nic se nevykreslí
 
 ===== Rozestup zásuvek =====
-  * Rozestup zásuvek mezi zásuvkou včetné její tloušťky
-  * Proto rozestup může být i záporný.
-  * Pokud je 0 zásuvky se lehce dotýkají
+  * Rozestup zásuvek mezi zásuvkou
+  * Pokud je 0, zásuvky se lehce dotýkají (jakoby v jednom bodě)
+  * Pokud je záporný, nic se nevykreslí
 
 {{:classification:plugs-distance.svg.png?500}}
 
