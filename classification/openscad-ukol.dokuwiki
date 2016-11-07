@@ -143,6 +143,13 @@ Celý objekt leží na rovině XY, tzn nezasahuje do záporného Z:
   * Rozměr na ose X není schválně zadán, protože zásuvka bude mít délku podle nastavených parametrů.
 
 
-===== Odevzdání =====
+====== Kód ======
 
-<note important>Termíny a způsob odevzdání budou doplněny co by dup.</note>
+Kód musí splňovat určitou kvalitu, jednou z podmínek je logické dodržení odsazení (v celém souboru stejné). Opakované konstrukce musí být implementovány vlastními moduly a forcykly. Magické konstanty musí být samovysvětlující, nebo doplněné o komentář. Není možné použít žádné externí knihovny pro OpenSCAD, ani knihovnu MCAD. Manipulace s ''$fn'', ''$fs'' a ''$fa'' je přísně zakázána.
+
+
+====== Odevzdání ======
+
+Odevzdává se dle instrukcí na [[https://github.com/3DprintFIT/B161HW-Template#zadání-domácího-úkolu|GitHubu]]
+
+Deadline je 7.12.2016 včetně.
