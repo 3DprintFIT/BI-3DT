@@ -85,7 +85,7 @@ Celé tělo je 3D zaoblené, ale díry na zásuvky ne.
 ===== Tlouštka okolo jedné zásuvky =====
   * Jedná se o tlouštku stěny okolo zásuvky při pohledu ze shora
   * Může byt na ose y uříznuty v případě vhodného nastavení parametru pro osu y
-  * Pokud je to záporné číslo nic se nevykreslí
+  * Pokud je to záporné číslo nebo 0 nic se nevykreslí
 
 ===== Rozestup zásuvek =====
   * Rozestup zásuvek mezi zásuvkou
@@ -118,6 +118,7 @@ Celé tělo je 3D zaoblené, ale díry na zásuvky ne.
 ===== Poloměr zaoblení =====
   * jak moc je tělo zásuvky zaoblené (0 - není zaoblené; N - poloměr v rohu je N)
   * nesmyslné hodnoty nebudou testovány
+  * zaoblením se nesmí objekt zvětšit, tzn. dříve uvedené rozměry jsou vnější po zaoblení
 
 ===== Umístění v prostoru =====
 
