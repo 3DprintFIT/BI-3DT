@@ -2,8 +2,6 @@
 
 Domácí úkoly ze semestrů minulých můžete vidět v [[classification:archive:start|archívu]].
 
-<note important>Toto je alpha verze zadání úkolu. Hlavní podstata se měnit nebude, na úkolu můžete začít pracovat. Může ale dojít k opravě různých chyb, které nám na první pohled nedošly. Rozhraní modulu zatím není plně odladěné.</note>
-
 ====== Motivace ======
 
 Vaším úkolem je navrhnout plně parametricky model elektrické zásuvky / prodlužovačky / rozmnožovačky / jezvčíka / psa (dále jen zásuvky). Jelikož každý designer si chce namodelovat svoji zásuvku a následně vyzkoušet jak vypadá v reálném světe. Zapojit do ní na zkoušku kabely. Přiložit ji k nábytku, jestli mu pasuje (esteticky, rozměrově). Proto máte za úkol navrhnout univerzální modul, který těmto zoufalým designérům pomůže.
@@ -35,7 +33,18 @@ Zásuvka má toto rozhraní včetně výchozích hodnot, které musíte zachovat
 <note important>Výchozí hodnoty budou doplněny co by dup.</note>
 
 <code>
-module plug(y, z, radius_of_outlets, number_of_outlets, border_of_outlet, offset_of_outlets, depth_of_outlets, pin_radius, pin_depth, pin_offset, pin_angle, round_r) {
+module plug(y=40,
+            z=30,
+            radius_of_outlets = 15,
+            number_of_outlets = 3,
+            border_of_outlet = 6,
+            offset_of_outlets = 0,
+            depth_of_outlets = 10,
+            pin_radius = 2,
+            pin_depth = 5,
+            pin_offset = 8,
+            pin_angle = 45,
+            round_r = 2) {
    // ...
 }
 </code>
