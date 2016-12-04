@@ -14,7 +14,7 @@ Vaším úkolem je navrhnout plně parametricky model elektrické zásuvky / pro
 
 Zásuvka má tyto parametry
   * **y** vnější rozměr na ose y (více méně, viz dále)
-  * **z** vnější rozměr na ose z
+  * **z** vnější rozměr na ose z (nepočítaje případné trčící kolíky)
   * **radius_of_outlets** 	poloměr vnitřku jedné zásuvky
   * **number_of_outlets** 	počet zásuvek
   * **border_of_outlet**	tloušťka okolo jedné zásuvky
@@ -77,8 +77,9 @@ Celé tělo je 3D zaoblené, ale díry na zásuvky ne.
 (Nevidíte-li na obrázku osy s popisky, dejte tvrdý refresh stránky, máte v cache starou verzi.)
 
 ===== Výška / osa z =====
-  * Pokud je hloubka zásuvky (depth_of_outlets) a délka kolíků (pin_depth) v součtu větší a tudíž by došlo k proděravení zásuvku skrz na skrz nic se nevyskreslí.
-  * Pokud je záporná nic se nevykreslí.
+  * Pokud je hloubka zásuvky (depth_of_outlets) a délka kolíků (pin_depth) v součtu větší a tudíž by došlo k proděravění zásuvku skrz na skrz, nic se nevykreslí.
+  * Pokud je záporná, nic se nevykreslí.
+  * Z udává výšku těla zásuvky, bez případných kolíků, které někdy mohou trčet výše.
 
 {{:classification:plugs-plug-depth.svg.png?600}}
 
