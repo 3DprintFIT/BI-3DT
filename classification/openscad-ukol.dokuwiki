@@ -30,8 +30,6 @@ Jednotlivé parametry budou podrobněji vysvětleny dále.
 
 Zásuvka má toto rozhraní včetně výchozích hodnot, které musíte zachovat:
 
-<note important>Výchozí hodnoty budou doplněny co by dup.</note>
-
 <code>
 module plug(y=40,
             z=30,
