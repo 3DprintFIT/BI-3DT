@@ -42,7 +42,7 @@ Naslicujte libovolným programem vámi připravená tisková STLka s použitím 
 
 ==== Tisk a postprocessing ====
 
-V zápočtových akcích vypsaných v KOSu, probíhajících ve zkouškovém období, budete v laboratoři z ABS tisknout krystaly z vámi připravených GCODE souborů. Po dotisknutí je třeba výtisk náležitě opracovat - oddělat podpory, slepit atp. Výsledný krystal by měl vypadat co nejpodobněji požadovanému modelu. Na jeden termín je celkem maximálně 5 hodin (tisk + postproccessing).
+V zápočtových akcích vypsaných v KOSu, probíhajících ve zkouškovém období, budete v laboratoři z ABS tisknout vločky z vámi připravených GCODE souborů. Po dotisknutí je třeba výtisk náležitě opracovat - oddělat podpory, slepit atp. Výsledná vločka by měla vypadat co nejpodobněji požadovanému modelu. Na jeden termín je celkem maximálně 5 hodin (tisk + postproccessing).
 
 V případě absolutního selhání při tisku je možné tisk opakovat s novým GCODEm, ale pouze jednou. V případě technického problému na naší straně se samozřejmě o promarněný pokus nejedná.
 
