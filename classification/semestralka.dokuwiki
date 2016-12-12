@@ -17,20 +17,112 @@ Napište OpenSCAD modul ''flake'' dodržující předepsané rozhraní, který n
 Vektor (pole) ''branches'' obsahuje malá přirozená čísla. Pro každý prvek tohoto pole bude mít vločka jednu odnož, která se následně rozdělí na N dalších, kde N je hodnota prvku.
 Například pro pole ''[1, 2, 2, 3, 5]'' bude vločka mít 5 odnoží. Dvě se rozdělí na 2, jedna na 3 a jedna na 5 pod-odnoží. Jedna odnož se dělit nebude.
 
-Číslo ''circr'' je poloměr opsané koule vločky. Číslo ''r'' je poloměr odnoží (i pod-odnoží). Číslo ''ang'' je úhel ve stupních, pod kterým se větví pod-odnože. Více o anatomii vločky se dozvíte dále z nákresu.
+Číslo ''circr'' je poloměr opsané koule vločky. Číslo ''r'' je poloměr odnoží (i pod-odnoží). Číslo ''ang'' je úhel ve stupních, pod kterým se větví pod-odnože (pokud je pod-odnož jen jedna, je rovně (''ang'' se neberu v úvahu)), úhel se počítá tak, že 0 je rovná tyčka, 90 je kolmá (úhly mimo tento interval nemusíte řešit). Více o anatomii vločky se dozvíte dále z nákresu.
 
 Odnože musí ze středu vločky vycházet do různých směrů tak, aby byly co nejstejněji rozdistribuované. Pokud bychom měli 2D vločku, stačilo by odnože rozmístit tak, aby mezi sebou měli úhel ''360/(počet odnoží)'', protože ale máme vločku 3D, není tento problém úplně triviální. Zajímají vás algoritmy který umí rovnoměrně rozmístit N bodů na povrchu koule, které již existují, jen je třeba je adaptovat pro OpenSCAD (ten neumí inkrementovat hodnoty průchodem cyklu) (tip: ''cos()'' a ''sin()'' v OpenSCADu očekává vstup ve stupních, konstanta ''PI'' již existuje). Zajímají vás algoritmy, které dávají dobré výsledky i pro malá čísla, protože odnoží nebude mnoho. Vzhledem k tomu, že váš algoritmus na rovnoměrné rozmisťování odnoží může fungovat různými způsoby, je pořadí prvků ve vektoru ''branches'' irelevantní - můžete o tomto vektoru uvažovat jako o multisetu.
 
+Poznámka: Na rozmístění odnoží nemá vliv počet jejich pod-odnoží. Při řešení rozmístění odnoží uvažujte každou odnož stejnou.
+
+==== Anatomie 3D vločky ====
+
+Na tomto obrázku je naznačeno, jak jednotlivé odnože vycházejí ze středu vločky směrem k opsané kouli (ta koule není součástí vločky, pouze rozměrová informace):
+
+{{:classification:male.svg.png|}}
+
+A zde vidíte jednotlivé rozměry a tvar jedné odnože. Proměnná ''x'' je třeba dopočítat vzhledem k ''r'' a ''circr'':
+
+{{:classification:velke.svg.png|}}
+
+Jednotlivé pod-odnože jsou vytočené o úhel ''ang'' a rovnoměrně rozmístěné:
+
+{{:classification:odnoz.png|}}
+
+Pokud je pod-odnož jen jedna, je rovně (vytočení o ''ang'' se nekoná).
+
+Celkový pohled:
+
+{{:classification:vlocka.png|}}
+
 ==== Vaše vločky ====
 
-Každému z vás budou přiděleny tři náhodně vygenerované multisety ''branches''. Je na vás, který z nich si vyberete k tisku. Vločky se tisknou s ostatními argumenty nastavenými na výchozí hodnoty.
+Každému z vás jsou přiděleny tři náhodně vygenerované multisety ''branches''. Je na vás, který z nich si vyberete k tisku. Vločky se tisknou s ostatními argumenty nastavenými na výchozí hodnoty.
 
-TODO dát sem multisety
+<code>
+abunokar [2, 2, 1, 3, 3, 2, 1, 2, 1, 2, 2, 2] [2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2] [2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 3, 2, 2, 2] 
+bajermi2 [2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 3] [2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 1, 2, 2, 2, 2] [2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] 
+balakzde [2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 4, 2] [3, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2] [2, 2, 2, 2, 3, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3] 
+balvitom [3, 2, 2, 2, 2, 2, 3, 2, 4, 2, 2, 2] [2, 2, 3, 3, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2] [2, 2, 2, 2, 2, 2, 3, 3, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2] 
+bilaktom [3, 3, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2] [2, 2, 2, 2, 1, 2, 3, 2, 2, 2, 3, 2, 2, 2, 2, 3] [2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2] 
+binajan2 [2, 2, 2, 2, 3, 2, 3, 2, 2, 2, 2, 4] [2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2] [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 3] 
+bodnabog [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1] [2, 2, 2, 4, 3, 2, 2, 4, 2, 2, 2, 2, 2, 2, 2, 3, 3, 2] 
+bohmokri [2, 2, 3, 2, 3, 2, 2, 1, 3, 2, 3, 2] [3, 2, 4, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2] [2, 2, 2, 3, 4, 2, 2, 2, 2, 2, 2, 1, 2, 2, 3, 2, 2, 2] 
+brkamich [3, 2, 2, 2, 3, 2, 2, 2, 1, 2, 2, 2] [1, 1, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 4, 2] [2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3] 
+brychon1 [2, 2, 2, 2, 3, 2, 2, 3, 2, 3, 2, 2] [2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 4, 4] [2, 2, 3, 2, 2, 3, 2, 2, 1, 2, 2, 2, 2, 3, 2, 2, 2, 2] 
+buchomic [2, 2, 2, 2, 4, 2, 2, 2, 2, 3, 2, 2] [2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 2, 1] [2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] 
+cahlivoj [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 1] [2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3] [2, 3, 2, 3, 2, 3, 1, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1] 
+ceznepet [2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2] [2, 3, 2, 2, 2, 2, 2, 2, 3, 1, 2, 3, 2, 2, 2, 2] [2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] 
+dvorak16 [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] [2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 1] [2, 3, 2, 2, 2, 1, 3, 3, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2] 
+formape7 [2, 2, 2, 2, 2, 3, 2, 4, 2, 1, 2, 3] [2, 2, 1, 2, 2, 4, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2] [1, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2] 
+friedtad [2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2] [2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] [2, 3, 2, 1, 2, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2] 
+gajdoma3 [2, 2, 2, 2, 1, 2, 1, 1, 2, 2, 2, 3] [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1] [2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2] 
+havlito5 [2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2] [2, 2, 2, 1, 1, 2, 2, 2, 2, 2, 2, 3, 4, 2, 3, 3] [2, 2, 2, 2, 3, 2, 3, 2, 2, 3, 3, 2, 2, 2, 2, 2, 2, 2] 
+hlavam34 [2, 2, 2, 2, 2, 2, 5, 2, 2, 2, 2, 2] [2, 2, 2, 2, 2, 3, 2, 2, 1, 2, 2, 2, 2, 2, 2, 3] [2, 2, 2, 2, 2, 3, 2, 3, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2] 
+hrnciane [2, 4, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1] [2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 3, 3, 2, 2, 2, 1] [3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2] 
+hudakfil [3, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 3] [2, 2, 2, 3, 2, 2, 2, 2, 2, 1, 2, 2, 3, 3, 2, 2] [2, 2, 2, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2] 
+hynekjak [3, 3, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2] [2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 1, 2, 2, 2, 1] [3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] 
+jirikjak [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1] [2, 3, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2] [2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 3, 1, 2, 1, 2, 2, 2, 2] 
+juransar [2, 3, 1, 2, 2, 1, 2, 3, 2, 2, 1, 2] [2, 2, 2, 2, 1, 2, 1, 2, 3, 2, 2, 2, 2, 3, 2, 3] [2, 2, 2, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] 
+klasnpav [2, 2, 2, 2, 2, 1, 2, 3, 1, 2, 3, 1] [3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2, 2, 2, 2, 2, 2] 
+kotlarob [4, 2, 3, 2, 2, 2, 2, 2, 1, 2, 1, 2] [2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2] [2, 2, 2, 3, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 3, 1, 2, 1] 
+kozliluk [2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2] [2, 2, 3, 1, 1, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2] [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 2, 2, 2] 
+kralja11 [2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 3, 2] [2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 3, 2, 2, 2, 2, 2] [2, 4, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2] 
+kralmar3 [2, 2, 2, 3, 2, 2, 2, 2, 3, 2, 2, 3] [2, 2, 2, 2, 3, 3, 1, 2, 2, 2, 3, 2, 2, 2, 2, 2] [2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] 
+krejcj15 [4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] [2, 2, 2, 2, 3, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2] [2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 4, 2, 2] 
+lakomon1 [2, 2, 2, 4, 2, 2, 2, 2, 2, 2, 2, 2] [2, 2, 1, 2, 1, 2, 4, 4, 2, 2, 2, 2, 2, 2, 2, 3] [2, 3, 2, 2, 2, 2, 2, 2, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2] 
+lhotevla [2, 2, 4, 2, 2, 2, 1, 1, 2, 1, 2, 2] [2, 2, 2, 1, 2, 2, 2, 2, 2, 3, 2, 1, 2, 2, 2, 2] [2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2] 
+lukanjan [2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 3, 2] [2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2] [2, 2, 2, 2, 2, 2, 2, 2, 5, 2, 2, 2, 2, 2, 2, 2, 2, 2] 
+machafi1 [2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2] [3, 2, 2, 2, 2, 2, 2, 3, 2, 1, 1, 2, 2, 2, 2, 2] [2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2] 
+majeron1 [3, 2, 2, 2, 4, 2, 2, 2, 2, 2, 2, 3] [2, 2, 2, 3, 2, 2, 3, 2, 3, 2, 2, 2, 2, 2, 2, 2] [2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 1, 2, 1, 2, 2, 1, 2] 
+makarjir [2, 2, 2, 1, 3, 1, 2, 2, 2, 2, 2, 2] [2, 3, 2, 2, 2, 2, 1, 2, 2, 2, 2, 3, 2, 2, 2, 2] [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2] 
+marajan  [2, 2, 3, 1, 2, 1, 2, 2, 2, 2, 2, 2] [2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 4, 2, 2, 2, 2] [2, 2, 2, 2, 1, 2, 1, 2, 2, 1, 2, 1, 4, 2, 2, 2, 2, 2] 
+marvajan [2, 3, 2, 2, 1, 2, 2, 2, 2, 3, 3, 2] [1, 4, 2, 1, 3, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2] [3, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 3, 1, 2] 
+matejjon [2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2] [2, 2, 2, 5, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 1, 2, 2, 2, 2, 2, 2] 
+mokosdav [2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] [2, 2, 2, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] [2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 5, 2, 2, 2, 2, 2, 2, 2] 
+molnaric [2, 1, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2] [2, 2, 2, 2, 1, 2, 3, 2, 2, 2, 3, 3, 2, 2, 2, 2] [2, 2, 3, 2, 2, 2, 1, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2] 
+mrazvoj1 [1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2] [2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2] [2, 2, 2, 2, 1, 2, 2, 1, 3, 2, 2, 3, 2, 2, 2, 2, 1, 2] 
+novakad4 [2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2] [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 3, 3] [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 1, 2, 2, 2, 2] 
+novakj98 [2, 2, 2, 2, 2, 2, 2, 2, 4, 1, 2, 2] [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3] [1, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 4, 1, 2] 
+ovcacmar [2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1] [1, 2, 3, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2] [3, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2] 
+pavlihel [2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 5, 2] [3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2] [2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 1, 2, 2, 2] 
+pesamare [2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1] [2, 2, 2, 2, 2, 3, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1] [2, 2, 2, 2, 4, 2, 2, 2, 2, 2, 2, 1, 2, 2, 1, 2, 2, 4] 
+pilarpe4 [3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] [2, 2, 2, 1, 2, 3, 2, 2, 2, 2, 2, 5, 2, 3, 2, 3] [2, 1, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2] 
+pitakma1 [4, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 4] [2, 1, 3, 2, 1, 3, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2] [2, 2, 1, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2] 
+platejan [2, 2, 1, 3, 2, 2, 2, 2, 2, 1, 2, 4] [2, 2, 1, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 3] [1, 1, 2, 1, 5, 2, 3, 2, 2, 4, 2, 2, 2, 2, 2, 2, 2, 2] 
+pozdevla [2, 2, 2, 2, 2, 3, 1, 2, 1, 2, 2, 2] [2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2] [2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 3, 2, 2, 1, 2, 2, 1] 
+samigguz [2, 2, 2, 2, 2, 2, 2, 1, 4, 1, 3, 2] [3, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 3] [2, 3, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2] 
+shchamar [2, 4, 3, 2, 2, 3, 2, 1, 2, 2, 3, 2] [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2, 2] [2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 4, 2, 2, 2, 2] 
+spolejan [2, 2, 2, 2, 5, 2, 2, 3, 2, 2, 2, 2] [2, 2, 2, 1, 2, 2, 2, 3, 2, 2, 2, 2, 2, 4, 2, 1] [2, 2, 2, 2, 2, 5, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3] 
+stikenur [2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1] [2, 2, 2, 2, 2, 2, 2, 4, 2, 3, 2, 2, 2, 2, 2, 2] [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2] 
+struzjos [2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 4, 2] [2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] [2, 2, 2, 2, 2, 2, 3, 3, 2, 1, 4, 1, 2, 2, 2, 2, 2, 2] 
+svobol29 [2, 3, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2] [2, 3, 2, 1, 1, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2] [2, 1, 2, 2, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3] 
+safrada2 [2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2] [2, 2, 3, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3] [2, 2, 2, 2, 4, 3, 1, 2, 2, 2, 2, 2, 2, 1, 4, 2, 2, 2] 
+stefafre [2, 3, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2] [2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 1, 2, 2, 2, 2, 2] [2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2] 
+subrtade [2, 2, 1, 2, 2, 2, 4, 2, 2, 2, 2, 2] [2, 2, 2, 3, 2, 2, 2, 2, 4, 3, 2, 1, 2, 3, 1, 3] [2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 1, 2, 2, 2, 2, 2, 4, 2] 
+sulikdan [2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2] [2, 2, 2, 1, 2, 2, 2, 2, 3, 4, 2, 2, 2, 3, 2, 2] [2, 2, 1, 2, 2, 2, 4, 2, 2, 1, 2, 2, 2, 1, 2, 2, 3, 2] 
+sveigmic [2, 1, 1, 2, 2, 2, 5, 2, 2, 5, 2, 2] [2, 2, 2, 2, 2, 2, 4, 1, 3, 2, 2, 2, 2, 2, 2, 2] [2, 1, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2] 
+taibrmar [2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2] [2, 2, 1, 2, 1, 2, 2, 2, 2, 3, 2, 2, 1, 2, 2, 2] [2, 2, 1, 2, 2, 2, 2, 2, 3, 2, 2, 2, 3, 2, 2, 1, 2, 2] 
+terokyeg [2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 2] [1, 2, 2, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] [2, 2, 2, 2, 3, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3] 
+vitekon4 [2, 4, 2, 2, 3, 2, 2, 2, 2, 2, 4, 3] [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2] [2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2] 
+vomasmic [2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2] [3, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 1, 2, 2, 2, 2] [2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1, 2] 
+zderaann [2, 2, 2, 2, 2, 2, 2, 2, 1, 3, 2, 2] [1, 2, 2, 3, 2, 3, 3, 2, 1, 2, 2, 2, 2, 2, 2, 2] [2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] 
+zemanm34 [2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3] [2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 1, 2, 1, 2, 2] [2, 2, 2, 2, 2, 2, 1, 1, 1, 2, 4, 2, 2, 2, 2, 3, 4, 2] 
+zimoljan [3, 2, 2, 1, 2, 2, 2, 2, 3, 2, 2, 2] [2, 2, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2] [2, 2, 2, 2, 2, 2, 3, 2, 3, 3, 2, 2, 2, 2, 3, 2, 2, 1]
+</code>
 
 
 ==== Předzpracování ====
 
-Vyberte si libovolný (podle vás nejednodušší nebo nejzajímavější) z vašich tří multisetů a připravte vločku z něj vygenerovanou pro tisk. Můžete s ní dělat prakticky cokoliv (opravovat, otáčet, krájet, přidávat podpůrné struktury), ale je třeba zachovat při tisku rozměry a tvar vločky dle zadaných pravidel a dat. Výstupem je jeden nebo více STL souborů připravených na slicing a velmi stručný popis toho, **co** jste udělali a **proč** (ne nutně písemně, ale při odevzdávání je třeba postup vysvětlit a to i několik týdnů po vykonání vašich změn).
+Vyberte si libovolný (podle vás nejednodušší nebo nejzajímavější) z vašich tří multisetů a připravte vločku z něj vygenerovanou pro tisk (můžete si zvýšit ''$fn'', aby byla vaše vločka hezčí). Můžete s ní dělat prakticky cokoliv (opravovat, otáčet, krájet, přidávat podpůrné struktury), ale je třeba zachovat při tisku rozměry a tvar vločky dle zadaných pravidel a dat. Výstupem je jeden nebo více STL souborů připravených na slicing a velmi stručný popis toho, **co** jste udělali a **proč** (ne nutně písemně, ale při odevzdávání je třeba postup vysvětlit a to i několik týdnů po vykonání vašich změn).
 
 <note tip>Jak řezat STL soubory? Jde to jistě i v OpenSCADu, ale to je zbytečně komplikované. Připravili jsme proto [[tutorials:meshmixer:start|krátký návod pro program MeshMixer]] - doporučují tři ze čtyř cvičících.</note>
 
