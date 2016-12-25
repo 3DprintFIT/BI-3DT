@@ -31,7 +31,7 @@ Na tomto obrázku je naznačeno, jak jednotlivé odnože vycházejí ze středu 
 
 {{:classification:male.svg.png|}}
 
-A zde vidíte jednotlivé rozměry a tvar jedné odnože. Proměnná ''x'' je třeba dopočítat vzhledem k ''r'' a ''circr'':
+A zde vidíte jednotlivé rozměry a tvar jedné odnože. Proměnná ''x'' je třeba dopočítat vzhledem k pevně zadaným vstupům:
 
 {{:classification:velke.svg.png|}}
 
