@@ -144,8 +144,8 @@ Odevzdává se na GitHub, [[https://classroom.github.com/assignment-invitations/
 
 V repozitáři odevzdávejte:
 
-  * scad soubor s modulem ''flake''
-  * scad soubor volající modul ''flake'' s vašimi vybranými daty
+  * scad soubor s modulem ''flake'' jeho deklarací/definicí
+  * scad soubor **volající** modul ''flake'' s vašimi vybranými daty (bez deklarace/definice modulu flake)
   * STL soubor s vaší vločkou, tak jak byl vygenerován OpenSCADem
   * Tiskové STL soubory
   * Tiskové GCODE soubory
