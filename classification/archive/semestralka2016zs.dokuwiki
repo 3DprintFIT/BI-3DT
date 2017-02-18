@@ -1,0 +1,182 @@
+====== Semestrální práce ZS 2016/2017======
+
+<note warning>Toto není aktuální zadání semestrální práce. Je zde pouze k účelům archivace.
+
+Další starší zadání můžete vidět v [[classification:archive:start|archívu]].</note>
+
+<note tip>**Alternativní zadání práce:** Po dohodě s Mirem Hrončokem můžete místo této semestrální práce řešit issues [[https://github.com/admesh/|projektů ADMesh]]. Kolik jich musíte vyřešit a jak budete bodově ohodnoceni, závisí na proběhlé dohodě. V případě zájmu se prosím ozvěte co nejdříve, je zde jen omezené množství práce a tedy je alternativa k semestrálce možná jen pro malý počet studentů.</note>
+
+===== 3D vločka =====
+
+Tématem semestrální práce jsou 3D vločky. Vaším úkolem je v programu OpenSCAD napsat modul, který umí generovat modely 3D vloček na základě vstupních dat, vhodně připravit vám přidělenou vločku k tisku, vytisknout ji a provést případné dodatečné úpravy.
+
+==== Generátor 3D vloček ====
+
+Napište OpenSCAD modul ''flake'' dodržující předepsané rozhraní, který na základě vstupních dat zobrazí/vytvoří 3D vločku.
+
+<code>module flake(branches=[], circr=30, r=3, ang=45) { ... }</code>
+
+Vektor (pole) ''branches'' obsahuje malá přirozená čísla. Pro každý prvek tohoto pole bude mít vločka jednu odnož, která se následně rozdělí na N dalších, kde N je hodnota prvku.
+Například pro pole ''[1, 2, 2, 3, 5]'' bude vločka mít 5 odnoží. Dvě se rozdělí na 2, jedna na 3 a jedna na 5 pod-odnoží. Jedna odnož se dělit nebude.
+
+Číslo ''circr'' je poloměr opsané koule vločky. Číslo ''r'' je poloměr odnoží (i pod-odnoží). Číslo ''ang'' je úhel ve stupních, pod kterým se větví pod-odnože (pokud je pod-odnož jen jedna, je rovně (''ang'' se neberu v úvahu)), úhel se počítá tak, že 0 je rovná tyčka, 90 je kolmá (úhly mimo tento interval nemusíte řešit). Více o anatomii vločky se dozvíte dále z nákresu.
+
+Odnože musí ze středu vločky vycházet do různých směrů tak, aby byly co nejstejněji rozdistribuované. Pokud bychom měli 2D vločku, stačilo by odnože rozmístit tak, aby mezi sebou měli úhel ''360/(počet odnoží)'', protože ale máme vločku 3D, není tento problém úplně triviální. Zajímají vás algoritmy který umí rovnoměrně rozmístit N bodů na povrchu koule, které již existují, jen je třeba je adaptovat pro OpenSCAD (ten neumí inkrementovat hodnoty průchodem cyklu) (tip: ''cos()'' a ''sin()'' v OpenSCADu očekává vstup ve stupních, konstanta ''PI'' již existuje). Zajímají vás algoritmy, které dávají dobré výsledky i pro malá čísla, protože odnoží nebude mnoho. Vzhledem k tomu, že váš algoritmus na rovnoměrné rozmisťování odnoží může fungovat různými způsoby, je pořadí prvků ve vektoru ''branches'' irelevantní - můžete o tomto vektoru uvažovat jako o multisetu.
+
+Poznámka: Na rozmístění odnoží nemá vliv počet jejich pod-odnoží. Při řešení rozmístění odnoží uvažujte každou odnož stejnou.
+
+==== Anatomie 3D vločky ====
+
+Na tomto obrázku je naznačeno, jak jednotlivé odnože vycházejí ze středu vločky směrem k opsané kouli (ta koule není součástí vločky, pouze rozměrová informace):
+
+{{:classification:male.svg.png|}}
+
+A zde vidíte jednotlivé rozměry a tvar jedné odnože. Proměnná ''x'' je třeba dopočítat vzhledem k pevně zadaným vstupům:
+
+{{:classification:velke.svg.png|}}
+
+Jednotlivé pod-odnože jsou vytočené o úhel ''ang'' a rovnoměrně rozmístěné:
+
+{{:classification:odnoz.png|}}
+
+Pokud je pod-odnož jen jedna, je rovně (vytočení o ''ang'' se nekoná). Její délka není ''5x'' z obrázku výše, ale méně (tak aby dosáhla na, ale nepřesáhla opsanou kouli).
+
+Celkový pohled:
+
+{{:classification:vlocka.png|}}
+
+==== Vaše vločky ====
+
+Každému z vás jsou přiděleny tři náhodně vygenerované multisety ''branches''. Je na vás, který z nich si vyberete k tisku. Vločky se tisknou s ostatními argumenty nastavenými na výchozí hodnoty.
+
+<code>
+abunokar [3, 2, 5, 3, 3, 3, 3, 3, 4, 3, 3, 3] [3, 3, 2, 4, 4, 2, 3, 3, 3, 3, 3, 3, 2, 2, 3, 3] [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3] 
+bajermi2 [3, 4, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3] [3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 2, 3, 4, 1] [3, 3, 2, 3, 4, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3] 
+balakzde [3, 3, 3, 3, 3, 3, 4, 3, 3, 2, 3, 3] [3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 2, 3, 5, 2, 2] [3, 2, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3] 
+balvitom [3, 3, 3, 3, 5, 3, 3, 3, 1, 3, 3, 3] [3, 2, 3, 4, 3, 2, 3, 3, 3, 3, 3, 4, 3, 2, 3, 3] [3, 3, 2, 3, 3, 4, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3] 
+bilaktom [3, 3, 3, 3, 3, 3, 3, 5, 2, 3, 3, 3] [3, 3, 3, 2, 3, 4, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3] [3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 2, 3, 3, 3, 3, 3, 3, 3] 
+binajan2 [3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3] [3, 4, 3, 3, 1, 3, 3, 3, 4, 3, 3, 3, 2, 3, 3, 3] [3, 3, 3, 3, 3, 2, 2, 3, 4, 3, 3, 3, 3, 3, 3, 3, 5, 3] 
+bodnabog [3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3] [3, 3, 3, 3, 4, 4, 3, 3, 3, 3, 3, 3, 3, 4, 4, 3] [4, 3, 3, 3, 3, 3, 3, 2, 5, 3, 3, 3, 3, 4, 1, 3, 3, 3] 
+bohmokri [3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 2] [3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 2] [3, 3, 3, 3, 5, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3] 
+brkamich [3, 2, 2, 3, 3, 3, 3, 5, 3, 3, 3, 3] [3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3] [3, 3, 3, 3, 3, 4, 2, 2, 3, 2, 3, 3, 3, 2, 3, 3, 3, 3] 
+brychon1 [3, 3, 3, 3, 3, 3, 2, 3, 4, 3, 3, 3] [3, 3, 3, 3, 3, 3, 4, 4, 3, 2, 3, 3, 4, 3, 4, 4] [3, 2, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3] 
+buchomic [3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 2] [3, 3, 1, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 5, 3, 3] [2, 3, 3, 3, 4, 2, 3, 3, 3, 3, 3, 2, 3, 3, 2, 3, 2, 3] 
+cahlivoj [3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3] [3, 3, 3, 3, 3, 3, 3, 2, 3, 2, 3, 3, 4, 3, 3, 4] [5, 3, 4, 3, 4, 3, 3, 3, 3, 3, 2, 2, 3, 3, 3, 3, 3, 3] 
+ceznepet [3, 3, 4, 2, 3, 3, 3, 3, 3, 3, 3, 3] [4, 3, 2, 3, 3, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3] [3, 4, 3, 4, 3, 4, 3, 3, 3, 2, 3, 4, 2, 3, 3, 3, 5, 3] 
+dvorak16 [3, 3, 3, 3, 4, 4, 3, 3, 3, 3, 3, 3] [3, 3, 3, 3, 3, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3] [4, 3, 3, 3, 3, 3, 5, 3, 3, 3, 3, 4, 3, 4, 3, 3, 3, 3] 
+formape7 [3, 4, 3, 2, 4, 3, 4, 3, 3, 4, 3, 3] [3, 3, 3, 3, 3, 3, 2, 3, 4, 5, 3, 4, 3, 2, 3, 3] [3, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3] 
+friedtad [3, 4, 3, 3, 3, 3, 2, 3, 2, 4, 3, 3] [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1] [3, 3, 2, 3, 2, 3, 3, 4, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3] 
+gajdoma3 [3, 3, 3, 4, 3, 3, 2, 3, 3, 3, 3, 4] [4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 4, 3, 2, 3, 3] [4, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 5, 3, 3] 
+havlito5 [3, 3, 4, 3, 3, 3, 4, 3, 1, 3, 2, 3] [3, 3, 3, 3, 4, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3] [3, 3, 3, 3, 3, 2, 4, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3] 
+hlavam30 [3, 3, 3, 2, 2, 3, 3, 3, 3, 3, 3, 3] [3, 3, 2, 3, 3, 3, 3, 3, 4, 3, 3, 2, 3, 3, 3, 2] [5, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 2] 
+hrnciane [3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 1] [3, 3, 4, 4, 3, 3, 2, 3, 2, 3, 3, 2, 2, 3, 3, 3] [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3] 
+hudakfil [3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 2] [2, 3, 3, 3, 3, 2, 3, 3, 4, 3, 3, 3, 4, 3, 3, 3] [4, 5, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 2, 3, 3, 3, 4] 
+hynekjak [3, 3, 2, 3, 1, 3, 3, 3, 3, 3, 1, 3] [3, 3, 3, 4, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3] [3, 3, 4, 3, 3, 1, 3, 3, 3, 3, 3, 2, 3, 2, 3, 3, 3, 2] 
+jirikjak [3, 3, 3, 3, 2, 3, 3, 3, 3, 4, 3, 3] [3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3] [3, 3, 1, 3, 3, 3, 3, 3, 3, 3, 3, 4, 5, 3, 3, 3, 3, 2] 
+juransar [3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 4, 2] [3, 3, 3, 3, 3, 3, 2, 5, 3, 3, 3, 3, 3, 3, 3, 4] [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 2, 3] 
+klasnpav [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3] [3, 3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3] [3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3] 
+kotlarob [3, 3, 2, 3, 3, 2, 3, 3, 3, 3, 3, 3] [3, 3, 3, 3, 4, 5, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3] [3, 3, 2, 3, 3, 3, 3, 4, 3, 3, 3, 3, 4, 3, 3, 3, 3, 4] 
+kozliluk [3, 4, 2, 2, 2, 3, 3, 3, 5, 3, 3, 4] [3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 4, 3, 3, 3, 3] [3, 3, 3, 2, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 2, 2, 3] 
+kralja11 [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3] [4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 4] [2, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 4, 3] 
+kralmar3 [2, 2, 3, 3, 3, 3, 3, 2, 2, 3, 3, 3] [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3] [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 2, 3, 3, 3, 4, 3] 
+krejcj15 [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 2] [3, 3, 1, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3] [3, 2, 2, 3, 4, 3, 3, 4, 3, 3, 3, 3, 2, 3, 3, 5, 3, 3] 
+lakomon1 [3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3] [4, 2, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 4] [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 4, 3, 3, 3] 
+lhotevla [3, 3, 3, 5, 3, 2, 3, 3, 3, 3, 3, 2] [2, 3, 3, 3, 4, 5, 4, 4, 3, 3, 3, 3, 3, 3, 4, 3] [3, 3, 3, 3, 2, 4, 3, 2, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3] 
+lukanjan [2, 3, 2, 3, 2, 3, 3, 4, 3, 3, 3, 3] [3, 3, 3, 3, 2, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3] [3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 2, 3, 3, 3, 3, 3, 3, 3] 
+machafi1 [3, 2, 3, 3, 2, 3, 3, 3, 3, 2, 3, 4] [3, 3, 3, 2, 4, 3, 3, 3, 2, 3, 2, 4, 3, 3, 3, 3] [3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3] 
+majeron1 [3, 3, 3, 2, 3, 3, 3, 3, 5, 3, 1, 1] [3, 3, 3, 3, 3, 3, 3, 1, 3, 3, 3, 3, 3, 3, 1, 5] [3, 3, 3, 3, 3, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3] 
+makarjir [4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3] [3, 3, 2, 3, 3, 2, 3, 3, 2, 3, 3, 4, 3, 3, 3, 3] [3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3] 
+marajan  [4, 3, 4, 4, 2, 3, 3, 3, 3, 3, 3, 1] [3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 4, 3, 3, 3, 3] [3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 4, 3, 3, 3, 4] 
+marvajan [3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 4] [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 5, 3, 3, 3, 3] [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3] 
+matejjon [3, 3, 5, 3, 3, 3, 2, 3, 3, 3, 2, 3] [3, 3, 3, 3, 3, 2, 3, 4, 4, 3, 3, 2, 3, 3, 4, 3] [3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4] 
+mokosdav [3, 5, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3] [3, 3, 3, 2, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3] [3, 3, 3, 3, 4, 4, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3] 
+molnaric [3, 3, 3, 3, 2, 3, 3, 4, 3, 3, 3, 3] [2, 3, 4, 3, 3, 3, 4, 3, 3, 3, 3, 3, 2, 3, 3, 3] [3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3] 
+mrazvoj1 [3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 2, 3] [3, 3, 3, 3, 3, 2, 3, 3, 3, 2, 3, 3, 2, 3, 3, 3] [3, 3, 3, 2, 3, 3, 2, 3, 3, 2, 3, 3, 2, 4, 3, 2, 3, 3] 
+novakad4 [3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3] [3, 3, 2, 2, 3, 2, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3] [3, 3, 4, 3, 3, 3, 3, 4, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3] 
+novakj98 [3, 3, 3, 3, 3, 3, 3, 5, 3, 3, 3, 3] [3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 4, 3, 3, 3, 3, 3] [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 3, 3, 3, 5, 3] 
+ovcacmar [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4] [3, 3, 3, 3, 4, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3] [3, 4, 3, 3, 4, 3, 3, 2, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3] 
+pavlihel [3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 1, 3] [1, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 5, 3, 3] [4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 2, 3, 3, 2, 3] 
+pesamare [3, 2, 3, 3, 5, 3, 3, 3, 3, 3, 3, 3] [3, 3, 4, 3, 3, 4, 3, 3, 3, 3, 4, 3, 3, 4, 3, 4] [4, 3, 4, 3, 3, 3, 3, 3, 2, 3, 2, 4, 3, 3, 3, 3, 3, 3] 
+pilarpe4 [3, 3, 2, 3, 3, 3, 4, 3, 3, 3, 3, 3] [3, 4, 4, 3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2] [3, 2, 3, 3, 3, 4, 2, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3] 
+pitakma1 [3, 3, 4, 3, 2, 4, 3, 3, 3, 3, 3, 3] [3, 2, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3] [3, 3, 2, 2, 3, 3, 2, 4, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3] 
+platejan [3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3] [3, 3, 3, 3, 3, 3, 3, 5, 4, 3, 4, 3, 4, 3, 3, 3] [3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 2, 3] 
+pozdevla [3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 4] [3, 2, 4, 3, 4, 5, 3, 2, 3, 3, 3, 3, 4, 3, 5, 2] [3, 4, 3, 3, 4, 2, 3, 3, 3, 4, 3, 3, 3, 4, 3, 3, 3, 3] 
+samigguz [4, 3, 3, 4, 3, 2, 3, 3, 3, 3, 2, 3] [3, 3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3] [3, 3, 2, 3, 3, 3, 3, 3, 2, 3, 2, 3, 3, 2, 4, 3, 4, 3] 
+shchamar [3, 3, 2, 3, 3, 3, 4, 3, 3, 3, 3, 2] [3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3] [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 4] 
+spolejan [3, 3, 3, 2, 3, 3, 3, 3, 3, 2, 3, 3] [3, 3, 3, 3, 4, 4, 3, 3, 1, 3, 3, 3, 3, 4, 3, 3] [3, 4, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3] 
+stikenur [3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3] [3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 4, 2, 3, 3, 3, 3] [3, 3, 3, 2, 3, 4, 3, 3, 3, 3, 3, 2, 4, 3, 3, 3, 3, 3] 
+struzjos [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3] [3, 3, 2, 3, 2, 4, 4, 4, 3, 3, 3, 3, 3, 3, 2, 3] [3, 2, 4, 3, 3, 4, 3, 3, 2, 3, 3, 3, 4, 3, 3, 4, 5, 3] 
+svobol29 [3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3] [3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 2, 3, 3, 4, 4, 3] [3, 4, 3, 3, 2, 3, 3, 3, 2, 3, 2, 3, 3, 3, 3, 2, 3, 2] 
+safrada2 [4, 2, 3, 3, 3, 3, 3, 4, 3, 3, 5, 4] [3, 3, 3, 3, 3, 3, 3, 3, 5, 3, 3, 3, 4, 3, 3, 3] [3, 3, 3, 3, 2, 3, 3, 4, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3] 
+stefafre [4, 3, 3, 2, 3, 3, 3, 2, 3, 3, 3, 3] [3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 4, 3] [3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 5, 3, 3, 3, 4, 3, 3] 
+subrtade [3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 2, 3] [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 4] [3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 4, 2, 3, 3] 
+sulikdan [4, 3, 4, 3, 3, 3, 3, 2, 3, 3, 3, 3] [3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 4, 3, 3, 2, 3] [3, 2, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 4, 4, 3, 3, 2, 3] 
+sveigmic [3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3] [3, 3, 5, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3] [3, 3, 3, 3, 3, 3, 3, 1, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3] 
+taibrmar [4, 3, 4, 3, 3, 3, 3, 3, 3, 3, 1, 3] [3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3] [3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 4, 3, 3, 3, 3] 
+terokyeg [3, 2, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3] [4, 3, 3, 3, 4, 2, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3] [3, 3, 3, 3, 4, 3, 2, 3, 3, 3, 3, 3, 2, 3, 3, 2, 3, 3] 
+vitekon4 [3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 4] [3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 4, 3, 3, 3, 3] [3, 3, 3, 3, 3, 3, 3, 4, 3, 4, 3, 3, 3, 2, 3, 3, 3, 3] 
+vomasmic [3, 3, 3, 2, 3, 3, 4, 3, 3, 3, 3, 1] [3, 2, 3, 3, 3, 3, 4, 3, 3, 2, 3, 3, 3, 3, 3, 3] [4, 2, 2, 5, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4] 
+zderaann [2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3] [3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 3, 3, 3, 3] [4, 4, 2, 4, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 4, 3, 3] 
+zemanm30 [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3] [2, 3, 3, 3, 3, 4, 3, 3, 2, 4, 3, 2, 1, 3, 3, 3] [3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3] 
+zimoljan [3, 2, 4, 3, 3, 3, 2, 3, 3, 4, 3, 3] [3, 3, 3, 3, 3, 3, 4, 5, 3, 3, 3, 3, 3, 3, 3, 4] [1, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3]
+</code>
+
+
+==== Předzpracování ====
+
+Vyberte si libovolný (podle vás nejednodušší nebo nejzajímavější) z vašich tří multisetů a připravte vločku z něj vygenerovanou pro tisk (můžete si zvýšit ''$fn'', aby byla vaše vločka hezčí). Můžete s ní dělat prakticky cokoliv (opravovat, otáčet, krájet, přidávat podpůrné struktury), ale je třeba zachovat při tisku rozměry a tvar vločky dle zadaných pravidel a dat. Výstupem je jeden nebo více STL souborů připravených na slicing a velmi stručný popis toho, **co** jste udělali a **proč** (ne nutně písemně, ale při odevzdávání je třeba postup vysvětlit a to i několik týdnů po vykonání vašich změn).
+
+<note tip>Jak řezat STL soubory? Jde to jistě i v OpenSCADu, ale to je zbytečně komplikované. Připravili jsme proto [[tutorials:meshmixer:start|krátký návod pro program MeshMixer]] - doporučují tři ze čtyř cvičících.</note>
+
+<note tip>Nejde vám v Meshmixeru dobře alignovat? Zkuste program [[http://software.ultimaker.com/|Cura]]. Obsahuje funkci //Lay flat//.</note>
+
+==== Slicing ====
+
+Naslicujte libovolným programem vámi připravená tisková STLka s použitím vhodných nastavení. Pro Slic3r vyjděte z {{:tutorials:tisk:slic3r_config_bundle.ini.zip|}} (profily navolte jako na cviku, tzn. ne -default-). Profily pro případné jiné programy pro vás nemáme, ale smíte si vytvořit svoje. Výstupem je použitý slicovací profil vyexportovaný z programu a jeden nebo více GCODE souborů. Jednotlivé části můžete tisknout najednou (pokud se vejdou na tiskovou plochu a pokud vám to připadá vhodné) nebo postupně, případě kombinaci obojího.
+
+==== Tisk a postprocessing ====
+
+V zápočtových akcích vypsaných v KOSu, probíhajících ve zkouškovém období, budete v laboratoři z ABS tisknout vločky z vámi připravených GCODE souborů. Po dotisknutí je třeba výtisk náležitě opracovat - oddělat podpory, slepit atp. Výsledná vločka by měla vypadat co nejpodobněji požadovanému modelu. Na jeden termín je celkem maximálně 5 hodin (tisk + postproccessing).
+
+V případě absolutního selhání při tisku je možné tisk opakovat s novým GCODEm, ale pouze jednou. V případě technického problému na naší straně se samozřejmě o promarněný pokus nejedná.
+
+==== Odevzdání, hodnocení a termíny ====
+
+Odevzdává se na GitHub, [[https://classroom.github.com/assignment-invitations/552b004c3355a605f50cd8a90bdc0d02|založte si repozitář tímto odkazem]]. Veškeré slovní popisy uveďte přímo do README (či README.md apod.) v repozitáři.
+
+V repozitáři odevzdávejte:
+
+  * scad soubor s modulem ''flake'' jeho deklarací/definicí
+  * scad soubor **volající** modul ''flake'' s vašimi vybranými daty (bez deklarace/definice modulu flake)
+  * STL soubor s vaší vločkou, tak jak byl vygenerován OpenSCADem
+  * Tiskové STL soubory
+  * Tiskové GCODE soubory
+  * Profil pro slicovací program, který jste použili
+  * Případné další potřebné soubory
+  * Vyplnit dotazník, bude upřesněno
+
+Termín odevzdání na GitHub je **15.1.2017** včetně (případně začátek vašeho zápočtového termínu, pokud se tento koná dřív), tisknout můžete i potom. Možnost pozdního odevzdání: Za každý další započatý týden (byť o vteřinu) je z celkového hodnocení strženo 10 bodů. Pokud je celkový součet menší než 0, je hodnocení za semestrální práci 0. V době započetí termínu klasifikovaného zápočtu (tisk v laboratoři), již musí být odevzdáno na GitHub.
+
+Zkouškové končí 19.2.2017, nemáme nic proti odevzdání a zápočtovým termínům i po tomto datu, ale je třeba se na tom explicitně domluvit a přijmout rizika z toho plynoucí.
+
+Hodnocení dle následující tabulky:
+
+^ Moduly pro OpenSCAD ^ 10 ^ ^
+| Modul ''flake'' funguje podle zadání | 7 | povinný v rámci části |
+| Zdrojový kód je vhodně členěn a komentován | 3 | |
+^ Příprava na tisk ^ 10 ^ ^
+| Vhodně připravená tisková STLka | 5 | povinný v rámci části |
+| Mesh ve všech tiskových STL je v pořádku | 5 | |
+^ Slicing ^ 10 ^ ^
+| Podpory (nejsou potřeba (5 b.), vhodné užití* (2.5 b.), zbytečné užití (0 b.)) | 5 | |
+| Vhodné nastavení parametrů tisku (perimetry, výplň, výška vrstvy) | 5 | |
+^ Tisk ^ 20 ^ ^
+| Jedná se o výtisk modelu dle zadání, výtisk je opracovaný (např. bez podpor, slepený atp.) | 5 | povinný v rámci části |
+| Výtisk neobsahuje vady zjevně způsobené nevhodnou přípravou modelu | 7.5 | |
+| Výtisk neobsahuje vady zjevně způsobené nevhodnou přípravou tiskárny (příprava tiskové plochy, nevhodné teploty) | 7.5 | |
+
+ * Pouze za podpory vygenerované při slicování se strhávají body. Protože jsme v části slicing.
+
+<note important>Pro ovládání tiskárny při odevzdávání potřebujete vlastní počítač se schopností připojit se na WiFi nebo kabelem do lokální sítě. Také potřebuje znát (umět dohledat) svou MAC adresu.</note>
+
+Hodnocení je rozděleno na 4 dílčí části. //Povinný v rámci části// znamená, že bez splnění tohoto úkolu student za danou část nedostane žádné body. V případě opravného tisku se již neopravují hodnoty bodů v ostatních dílčích částech. Pokud tedy například nezvládnete slicing, dostanete z něj nula bodů a (celkem logicky) fatálně selže i tisk, můžete v náhradním termínu dostat body za tisk, za slicing už ale žádné body nedostanete.
