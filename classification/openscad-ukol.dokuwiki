@@ -73,3 +73,142 @@ Takto vypadají klávesy ze strany (na průřezu podél osy Y). Na prvním obrá
 
 Všimněte si, že stěna o tloušťce ''defaultspace'' je pouze mezi klávesami. Tloušťka stěny vedle krajních kláves je ''basemargin''.
 Také si všimněte, že klávesy se vznášejí ve vzduchu; to je samozřejmě při 3D tisku celkem problematické, ale v domácím úkolu to tak stejně je a nemusí vás to nijak trápit.
+
+
+==== Text na klávesách ====
+
+Některé klávesy an sobě mohou obsahovat text. Z pohledu XY je text na klávese vycentrován:
+
+{{:en:classification:key-top.svg.png|}}
+
+I pokud jde o větší klávesu (např. ''[2,1]'' nebo třeba ''[5,10]''), text je stále v jejím středu.
+
+
+Parametry pro celý modul ''textsize'' a ''textz'' ovlivňují velikost nápisu.
+
+''textsize'' je třeba předat primitivě ''text()'' jako argument ''size''. ''textz'' určuje hloubku písmene (podél osy Z, jak název napovídá).
+
+{{:en:classification:text-side.svg.png|}}
+
+
+Všimněte si, že nápis také obsahuje válcovité vykrojení, stejně jako klávesa samotná. Nesnažte se nápis "ohnout", stačí jej vytáhnout směrem vzhůru a odkrojit z něj patřičný válec.
+Poloměr válcovitého vykrojení klávesy a nápisu na ní je stejný.
+
+
+Jak se dělá v OpenSCADu text? Zde vidíte příklad volání primitivy ''text()'', který vytvoří **2D objekt** vycentrovaný na XY rovině:
+
+<code lang="cpp">
+text("A", halign="center", valign="center", size=textsize);
+</code>
+
+**Neměňte výchozí písmo (font).** Můžete předpokládat, že námi zadaný text se vždy na klávesu vejde.
+
+Pro lepší vizualizaci klávesy s nápisem přikládáme náhledy na 3D model klávesy s písmenem //A//:
+
+{{:en:classification:a.png?600}}
+
+**Pro-tip:** Když budete vytahovat 2D nápis a odečítat z něj nějaký jiný objekt, přidejte parametr ''convexity=10'' do volání ''linear_extrude()'' - vaše náhledy (//F5//) budou vypadat lépe. (Na testy to nemá vliv, ale bude se vám s tím příjemněji pracovat.)
+
+==== Rozvržení klávesnice ====
+
+Rozvržení klávesnice je dáno parametrem ''layout''. Je to vektor vektorů vektorů (oh!). Rozebereme si jej zevnitř. Jedna klávesa (či prázdná pozice) je reprezentována vektorem 0, 2 nebo 3 hodnot. Prázný vektor reprezentuje místo bez klávesy. První dvě hodnoty vektoru určují velikost a třetí volitelná hodnota nápis. (Pro zjištění délky vektoru použijte ''len(vector)''.) Několik příkladů:
+
+<code lang="cpp">
+[1,1] // standardně veliká klávesa bez popisku
+[8,1] // velmi dlouhá klávesa bez popisku (jako mezerník)
+[3,1,"Enter"] // dlouhá varianta klávesy Enter
+[1,2,"+"] // vysoká klávesa se symbolem +, jako na numpadu
+[10,10,"I love OpenSACD"] // šíleně velká klávesa s dlouhým textem - stále validní klávesa
+</code>
+
+Klávesy tvoří řádky. Více řádek tvoří rozvržení klávesnice. Všechny řádky mají stejnou délku.
+
+Abyste to měli kapku jednodušší, jsou v rozvržení umístěny plaeholdery tam, kde zabírá místo klávesa z jiného políčka mřížky.
+Když je v rozvržení klávesa ''[2,1]'', následují hned za ní jeden ''[]'' placeholder.
+Když je v rozvržení klávesa ''[3,1]'', následují hned za ní dva ''[]'' placeholdery.
+Když je v rozvržení vysoká klávesa, jako např. ''[1,2]'', nachází se na její pozici v dalších řádcích ''[]'' placeholdery (zde jeden).
+Budou testovány pouze validní rozvržení.
+
+
+Pojďme si ukázat nějaké příklady. pro začátek něco jednoduchého:
+
+<code lang="cpp">
+[
+[[1, 1, "X"], [1, 1, "O"]],
+[[2, 1, "BI-3DT"], []],
+[[1, 1, "<"], [1, 1, ">"]],
+]
+</code>
+
+{{:en:classification:easylayout.png?200}}
+
+Rozvržení s klávesami přes více řádků:
+
+<code lang="cpp">
+[
+[[1,2], [1,1]],
+[[], [1,2]],
+[[1, 1], []],
+[[2,2], []],
+[[], []],
+]
+</code>
+
+{{:en:classification:long.png?150}}
+
+A něco zajímavějšího:
+
+<code lang="cpp">
+[
+[[1,1, "Esc"], [], [1,1,"F1"], [1,1,"F2"], [1,1,"F3"], [1,1,"F4"], [], [1,1,"F5"], [1,1,"F6"], [1,1,"F7"], [1,1,"F8"], [], [1,1,"F9"], [1,1,"F10"], [1,1,"F11"], [1,1,"F12"], [], [1,1], [1,1], [1,1], [], [], [], [], []],
+[[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []],
+[[1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [2,1], [], [], [1,1], [1,1], [1,1], [], [1,1], [1,1], [1,1], [1,1]],
+[[2,1], [], [1,1,"Q"], [1,1,"W"], [1,1,"E"], [1,1,"R"], [1,1,"T"], [1,1,"Y"], [1,1,"U"], [1,1,"I"], [1,1,"O"], [1,1,"P"], [1,1], [1,1], [2,2], [], [], [1,1], [1,1], [1,1], [], [1,1], [1,1], [1,1], [1,2]],
+[[2,1], [], [1,1,"A"], [1,1,"S"], [1,1,"D"], [1,1,"F"], [1,1,"G"], [1,1,"H"], [1,1,"J"], [1,1,"K"], [1,1,"L"], [1,1], [1,1], [1,1], [], [], [], [], [], [], [], [1,1], [1,1], [1,1], []],
+[[3,1], [], [], [1,1,"Z"], [1,1,"X"], [1,1,"C"], [1,1,"V"], [1,1,"B"], [1,1,"N"], [1,1,"M"], [1,1], [1,1], [1,1], [3,1], [], [], [], [], [1,1], [], [], [1,1], [1,1], [1,1], [1,2]],
+[[2,1], [], [2,1], [], [6,1], [], [], [], [], [], [2,1], [], [2,1], [], [2,1], [], [], [1,1], [1,1], [1,1], [], [2,1], [], [1,1], []],
+]
+</code>
+
+{{:en:classification:qwerty.png?600}}
+
+===== Rozhraní modulu =====
+
+<code lang="cpp">
+module keyboard(
+        layout=[[[1,1,"A"]]],
+        keysize=[13,13,7],
+        keydip=2,
+        textsize=4,
+        textz=0.5,
+        keymargin=1,
+        defaultspace=0.25,
+        basez=10,
+        basemargin = 10,
+        upwards=2
+        ) {
+    // sem napište váš kód...
+}
+</code>
+
+Nemožné hodnoty nebudou testovány. Berte ale na vědomí, že některé hodnoty jako okraje, vzdálenosti, mezery dávají smysl i když jsou nastaveny na 0.
+
+
+Psaní pomocných modulů je silně doporučeno. Ujistěte se, že váš modul lze použít z jiného souboru pomocí direktivy ''use <keyboard.scad>''. **Manipulace s magickými proměnnými ''$f*'' je zakázána.** Pokud chcete vaše řešení prohlížet s vyšším rozlišením, proveďte to například z externího souboru.
+Váš kód musí splňovat určitou kvalitu. Opakování v kódu je špatně, vždy použijte moduly a cykly. Není doporučováno používat rekurzi, ani to k vyřešení úkolu není zapotřebí. Bulharské konstanty musí být doplněny o vysvětlující komentář. Využití externích knihoven (včetně knihovny MCAD) je zakázáno.
+
+===== Odevzdávání a hodnocení =====
+
+  * Maximální počet bodů: 30
+  * Za testy: 25
+  * Za kvalitu kódu: 5
+  * (Kód, který neprochází alespoň třemi testy, nemá nárok na body za kvalitu.)
+
+K odevzdávání použijte GitHub...
+
+
+===== ChangeLog =====
+
+Změny v zadání od vydání alfa verze:
+
+  * v rozhraní chyběl paramtr ''keydip'', byl přidán
