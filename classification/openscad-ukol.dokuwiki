@@ -2,7 +2,7 @@
 
 Domácí úkoly ze semestrů minulých můžete vidět v [[classification:archive:start|archívu]].
 
-<note important>Toto je **beta** verze zadní domácího úkolu. Dojede pouze k jazykovým a kosmetickým změnám v zadání. Výjimkou může být, pokud někdo v zadání objeví opravdovou botu.</note>
+<note important>Toto je **beta** verze zadní domácího úkolu. Dojde pouze k jazykovým a kosmetickým změnám v zadání. Výjimkou může být, pokud někdo v zadání objeví opravdovou botu.</note>
 
 ===== Vyhodnocování domácího úkolu =====
 
@@ -203,6 +203,7 @@ Váš kód musí splňovat určitou kvalitu. Opakování v kódu je špatně, v�
 
 K odevzdávání použijte GitHub. Běžte na následující odkaz: [[https://classroom.github.com/assignment-invitations/d6d6ee3ec67c8300b703aa8d532142e6|classroom.github.com/...]].
 GitHub vám vytvoří repozitář v naší organizaci. Hned po jeho vytvoření dejte své ČVUT uživatelské jméno do souboru USERNAME. Svou implementaci vložte do souboru keyboard.scad.
+Hodnotíme a feedback dáváme jen k výchozí větvi master.
 
 
 Checkpointy:
