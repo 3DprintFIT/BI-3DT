@@ -202,11 +202,21 @@ Váš kód musí splňovat určitou kvalitu. Opakování v kódu je špatně, v�
   * (Kód, který neprochází alespoň třemi testy, nemá nárok na body za kvalitu.)
 
 K odevzdávání použijte GitHub. Běžte na následující odkaz: [[https://classroom.github.com/assignment-invitations/d6d6ee3ec67c8300b703aa8d532142e6|classroom.github.com/...]].
-GitHub vám vytvoří repozitář v naší organizaci. Hned po jeho vytvoření dejte své ČVUT uživatelské jméno do souboru USERNAME. Svou implementaci vložte do souboru kayborad.scad.
+GitHub vám vytvoří repozitář v naší organizaci. Hned po jeho vytvoření dejte své ČVUT uživatelské jméno do souboru USERNAME. Svou implementaci vložte do souboru keyboard.scad.
 
-It will create a repository in our GitHub organisation. Update your username in the USERNAME file right after your repository is ready. Put your implementation into the kayborad.scad file.
-Je doporučeno používat git, ale můžete používat i editaci souborů přímo ve webovém rozhraní GitHubu.
 
+Checkpointy:
+
+  * 2017-03-27 01:00 (ráno / v noci)
+  * 2017-04-03 01:00 
+  * 2017-04-10 01:00 (po tomto checkpointu již nebudou z naší strany přidány žádné testy)
+  * 2017-04-17 01:00
+
+Zpětnou vazbu poskytneme většinou do 24 hodin. V repozitáři vám založíme issue nebo vám dáme palec nahoru pod testovaný commit.
+
+Deadline:
+
+  * **2017-04-24** (včetně)
 
 ===== ChangeLog =====
 
