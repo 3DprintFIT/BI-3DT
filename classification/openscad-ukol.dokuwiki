@@ -2,10 +2,7 @@
 
 Domácí úkoly ze semestrů minulých můžete vidět v [[classification:archive:start|archívu]].
 
-<note important>Existuje [[en:classification:openscad-ukol|anglická alfa verze zadání]]. Prosím podívejte se na ni a dejte nám zpětnou vazbu.</note>
-
-
-<note important>Toto je **alfa** verze zadní domácího úkolu. Nebude se zásadně měnit, ale může dojít k drobným úpravám. Prosíme o zpětnou vazbu.</note>
+<note important>Toto je **beta** verze zadní domácího úkolu. Dojede pouze k jazykovým a kosmetickým změnám v zadání. Výjimkou může být, pokud někdo v zadání objeví opravdovou botu.</note>
 
 ===== Vyhodnocování domácího úkolu =====
 
@@ -204,7 +201,11 @@ Váš kód musí splňovat určitou kvalitu. Opakování v kódu je špatně, v�
   * Za kvalitu kódu: 5
   * (Kód, který neprochází alespoň třemi testy, nemá nárok na body za kvalitu.)
 
-K odevzdávání použijte GitHub...
+K odevzdávání použijte GitHub. Běžte na následující odkaz: [[https://classroom.github.com/assignment-invitations/d6d6ee3ec67c8300b703aa8d532142e6|classroom.github.com/...]].
+GitHub vám vytvoří repozitář v naší organizaci. Hned po jeho vytvoření dejte své ČVUT uživatelské jméno do souboru USERNAME. Svou implementaci vložte do souboru kayborad.scad.
+
+It will create a repository in our GitHub organisation. Update your username in the USERNAME file right after your repository is ready. Put your implementation into the kayborad.scad file.
+Je doporučeno používat git, ale můžete používat i editaci souborů přímo ve webovém rozhraní GitHubu.
 
 
 ===== ChangeLog =====
