@@ -3,3 +3,73 @@
 Domácí úkoly ze semestrů minulých můžete vidět v [[classification:archive:start|archívu]].
 
 <note important>Existuje [[en:classification:openscad-ukol|anglická alfa verze zadání]]. Prosím podívejte se na ni a dejte nám zpětnou vazbu.</note>
+
+
+<note important>Toto je **alfa** verze zadní domácího úkolu. Nebude se zásadně měnit, ale může dojít k drobným úpravám. Prosíme o zpětnou vazbu.</note>
+
+===== Vyhodnocování domácího úkolu =====
+
+<note important>Rozhraní domácího úkolu a umístění objektu v kartézském souřadném systému je zásadní pro vyhodnocování našich poloautomatických testů, které se spouštějí nad vaším řešením. Pokud neumístíte objekt přesně podle zadání, nebo vás modul nesplní zadané rozhraní **včetně výchozích hodnot argumentů**, testy selžou a dostane málo bodů (většinou žádné). Kvůli absenci lepšího řešení, které plánujeme až na příští běh předmětu, nemůžete testy ani vaše výsledky testů vidět. Abychom tuto vaši nevýhodu vyvážili, nabízíme vám několik checkpointů, kdy si můžete nechat domácí úkol zkontrolovat. tytot checkpointy vám pomohou odhalit především hloupé chyby s fatálními následky. Je na vás, kolik checkpointů použijete, ale je **silně doporučeno** využít alespoň dva. Pokud řešení odevzdáte pár hodin před deadlinem a všechny testy selžou, protože jste udělali překlep, nebo protože jse objekt umístili na špatné místo, je to bohužel váš problém. Varovali jsme vás.</note>
+
+<note tip>Naše testy používají plný render (//F6//). Otestujte svoji implementaci v režimu plného renderu! Klidně pro ladění použijte "průhledné objekty"  (''%'') nebo ''color()'', výsledky testů to neovlivní.</note>
+
+<note tip>Pro představu o tom, jak testy fungují, můžete nahlédnout do testů z minulých běhů: např. [[https://github.com/3DprintFIT/cards-stand-task|cards-stand-task]] či [[https://github.com/3DprintFIT/box-task|box-task]].</note>
+
+===== Klávesnice =====
+
+Vaším úkolem je vytvořit modul v programu OpenSCAD reprezentující zjednodušenou klávesnici. Rozmístění kláves na klávesnici je plně parametrické, ale pro zjednodušení pouze do mřížky.
+
+Klávesnice se skládá z těla s dírami na klávesy a jednotlivých kláves.
+
+==== Tělo klávesnice ====
+
+Tělo klávesnice je hranol s obdélníkovou či čtvercovou podstavou se čtyřmi zaoblenými rohy. Velikost těla závisí na parametrech 'basemargin'' a ''basez', a n a velikosti oblasti s klávesami (více informací v další sekci).
+
+Několik obrázků:
+
+Pohled shora:
+
+{{:en:classification:body.svg.png|}}
+
+Pohled ze strany:
+
+{{:en:classification:body-side.svg.png|}}
+
+
+Zakreslené osy jsou velmi podstatné pro umístění objektu v kartézském systému. na prvním obrázku si všimněte, že klávesnice jde ve směru **kladné osy X** a **záporné osy Y** (to vypadá divně, ale dává to smysl vzhledem k reprezentaci rozložení klávesnice). Klávesnice leží přímo na XY rovině, všechny Z souřadnice jsou nezáporné.
+
+
+==== Klávesy a díry na klávesy ====
+
+Sekce s klávesami obsahuje klávesy a díry na ně.
+
+Jedna klávesa je hranol s obdélníkovou či čtvercovou podstavou a zaoblenou vrchní stěnou, někdy obsahující nápis. Takhle vypadá jednoduchá klávesa velikosti 1x1 a díra na ni:
+
+Shora (přerušovaná čára značí okraj díry):
+
+{{:en:classification:key-top-notext.svg.png|}}
+
+Ze strany (pohled **podél osy Y**):
+
+{{:en:classification:1key.svg.png|}}
+
+Všimněte si parametru ''keydip''. Ten je stejný pro klávesy libovolného rozměru, takže poloměr vykrojení se musí této hodnotě přizpůsobit. Zakřivení se děje pouze podél osy Y - nejedná se tedy o vykrojení kulovité, ale o válcovité.
+
+''keysize'' je parametr ovlivňující velikost všech kláves. Jednotlivé klávesy ale mohou zabírat místo více políček v mřížce, takže každá klávesa má i svou informaci o velikosti. Klávesa na obrázcích výše má velikost ''[1,1]''.
+
+Díry jsou odděleny stěnou o tloušťce ''defaultspace'' (pokud ''defaultspace'' není nula). Takhle bude vypadat více kláves (obrázek lze zvětšit po rozkliknutí odkazu):
+
+{{:en:classification:keys-top.svg.png?600}}
+
+Zde vidíte, jak určit velikost kláves větších než ''[1,1]'': Zabírají stejné místo, jaké by zabíralo několik kláves vedle sebe (včetně mezery mezi nimi). Klávesa ve spodním řádku má velikost ''[2,1]'':
+
+{{:en:classification:keys-top-long.svg.png?600}}
+
+Takto vypadají klávesy ze strany (na průřezu podél osy Y). Na prvním obrázku jsou tři klávesy velikosti ''[1,1]'', na druhém jedna klávesa velikosti ''[1,1]'' a jedna velikosti ''[2,1]'':
+
+{{:en:classification:keys-side.svg.png|}}
+
+{{:en:classification:keys-side-double.svg.png|}}
+
+Všimněte si, že stěna o tloušťce ''defaultspace'' je pouze mezi klávesami. Tloušťka stěny vedle krajních kláves je ''basemargin''.
+Také si všimněte, že klávesy se vznášejí ve vzduchu; to je samozřejmě při 3D tisku celkem problematické, ale v domácím úkolu to tak stejně je a nemusí vás to nijak trápit.
