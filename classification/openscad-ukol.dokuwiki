@@ -6,7 +6,7 @@ Domácí úkoly ze semestrů minulých můžete vidět v [[classification:archiv
 
 ===== Vyhodnocování domácího úkolu =====
 
-<note important>Rozhraní domácího úkolu a umístění objektu v kartézském souřadném systému je zásadní pro vyhodnocování našich poloautomatických testů, které se spouštějí nad vaším řešením. Pokud neumístíte objekt přesně podle zadání, nebo vás modul nesplní zadané rozhraní **včetně výchozích hodnot argumentů**, testy selžou a dostane málo bodů (většinou žádné). Kvůli absenci lepšího řešení, které plánujeme až na příští běh předmětu, nemůžete testy ani vaše výsledky testů vidět. Abychom tuto vaši nevýhodu vyvážili, nabízíme vám několik checkpointů, kdy si můžete nechat domácí úkol zkontrolovat. tytot checkpointy vám pomohou odhalit především hloupé chyby s fatálními následky. Je na vás, kolik checkpointů použijete, ale je **silně doporučeno** využít alespoň dva. Pokud řešení odevzdáte pár hodin před deadlinem a všechny testy selžou, protože jste udělali překlep, nebo protože jse objekt umístili na špatné místo, je to bohužel váš problém. Varovali jsme vás.</note>
+<note important>Rozhraní domácího úkolu a umístění objektu v kartézském souřadném systému je zásadní pro vyhodnocování našich poloautomatických testů, které se spouštějí nad vaším řešením. Pokud neumístíte objekt přesně podle zadání, nebo váš modul nesplní zadané rozhraní **včetně výchozích hodnot argumentů**, testy selžou a dostane málo bodů (většinou žádné). Kvůli absenci lepšího řešení, které plánujeme až na příští běh předmětu, nemůžete testy ani vaše výsledky testů vidět. Abychom tuto vaši nevýhodu vyvážili, nabízíme vám několik checkpointů, kdy si můžete nechat domácí úkol zkontrolovat. Tyto checkpointy vám pomohou odhalit především hloupé chyby s fatálními následky. Je na vás, kolik checkpointů použijete, ale je **silně doporučeno** využít alespoň dva. Pokud řešení odevzdáte pár hodin před deadlinem a všechny testy selžou, protože jste udělali překlep, nebo protože jste objekt umístili na špatné místo, je to bohužel váš problém. Varovali jsme vás.</note>
 
 <note tip>Naše testy používají plný render (//F6//). Otestujte svoji implementaci v režimu plného renderu! Klidně pro ladění použijte "průhledné objekty"  (''%'') nebo ''color()'', výsledky testů to neovlivní.</note>
 
@@ -20,7 +20,7 @@ Klávesnice se skládá z těla s dírami na klávesy a jednotlivých kláves.
 
 ==== Tělo klávesnice ====
 
-Tělo klávesnice je hranol s obdélníkovou či čtvercovou podstavou se čtyřmi zaoblenými rohy. Velikost těla závisí na parametrech 'basemargin'' a ''basez', a n a velikosti oblasti s klávesami (více informací v další sekci).
+Tělo klávesnice je hranol s obdélníkovou či čtvercovou podstavou se čtyřmi zaoblenými rohy. Velikost těla závisí na parametrech ''basemargin'' a ''basez'', a na velikosti oblasti s klávesami (více informací v další sekci).
 
 Několik obrázků:
 
@@ -74,7 +74,7 @@ Také si všimněte, že klávesy se vznášejí ve vzduchu; to je samozřejmě 
 
 ==== Text na klávesách ====
 
-Některé klávesy an sobě mohou obsahovat text. Z pohledu XY je text na klávese vycentrován:
+Některé klávesy na sobě mohou obsahovat text. Z pohledu XY je text na klávese vycentrován:
 
 {{:en:classification:key-top.svg.png|}}
 
@@ -120,8 +120,8 @@ Rozvržení klávesnice je dáno parametrem ''layout''. Je to vektor vektorů ve
 
 Klávesy tvoří řádky. Více řádek tvoří rozvržení klávesnice. Všechny řádky mají stejnou délku.
 
-Abyste to měli kapku jednodušší, jsou v rozvržení umístěny plaeholdery tam, kde zabírá místo klávesa z jiného políčka mřížky.
-Když je v rozvržení klávesa ''[2,1]'', následují hned za ní jeden ''[]'' placeholder.
+Abyste to měli kapku jednodušší, jsou v rozvržení umístěny placeholdery tam, kde zabírá místo klávesa z jiného políčka mřížky.
+Když je v rozvržení klávesa ''[2,1]'', následuje hned za ní jeden ''[]'' placeholder.
 Když je v rozvržení klávesa ''[3,1]'', následují hned za ní dva ''[]'' placeholdery.
 Když je v rozvržení vysoká klávesa, jako např. ''[1,2]'', nachází se na její pozici v dalších řádcích ''[]'' placeholdery (zde jeden).
 Budou testovány pouze validní rozvržení.
