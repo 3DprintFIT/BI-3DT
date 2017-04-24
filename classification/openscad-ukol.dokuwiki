@@ -2,8 +2,6 @@
 
 Domácí úkoly ze semestrů minulých můžete vidět v [[classification:archive:start|archívu]].
 
-<note important>Toto je **RC** verze zadní domácího úkolu. Dojde pouze k jazykovým a kosmetickým změnám v zadání.</note>
-
 ===== Vyhodnocování domácího úkolu =====
 
 <note important>Rozhraní domácího úkolu a umístění objektu v kartézském souřadném systému je zásadní pro vyhodnocování našich poloautomatických testů, které se spouštějí nad vaším řešením. Pokud neumístíte objekt přesně podle zadání, nebo váš modul nesplní zadané rozhraní **včetně výchozích hodnot argumentů**, testy selžou a dostane málo bodů (většinou žádné). Kvůli absenci lepšího řešení, které plánujeme až na příští běh předmětu, nemůžete testy ani vaše výsledky testů vidět. Abychom tuto vaši nevýhodu vyvážili, nabízíme vám několik checkpointů, kdy si můžete nechat domácí úkol zkontrolovat. Tyto checkpointy vám pomohou odhalit především hloupé chyby s fatálními následky. Je na vás, kolik checkpointů použijete, ale je **silně doporučeno** využít alespoň dva. Pokud řešení odevzdáte pár hodin před deadlinem a všechny testy selžou, protože jste udělali překlep, nebo protože jste objekt umístili na špatné místo, je to bohužel váš problém. Varovali jsme vás.</note>
