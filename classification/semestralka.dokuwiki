@@ -3,7 +3,7 @@
 
 {{:classification:bi-3dt.png|}} {{:classification:trubka.png?250}} {{:classification:trubka2.png?250}}
 
-<note important>Toto je pre-alfa verze zadání práce.</note>
+<note important>Toto je alfa verze zadání práce. Hlaste prosím problémy.</note>
 
 <note tip>**Alternativní zadání práce:** Po dohodě s Mirem Hrončokem můžete místo této semestrální práce řešit issues [[https://github.com/admesh/|projektů ADMesh]]. Kolik jich musíte vyřešit a jak budete bodově ohodnoceni, závisí na proběhlé dohodě. V případě zájmu se prosím ozvěte co nejdříve, je zde jen omezené množství práce a tedy je alternativa k semestrálce možná jen pro malý počet studentů.</note>
 
@@ -147,7 +147,7 @@ V případě absolutního selhání při tisku je možné tisk opakovat s novým
 
 ==== Odevzdání, hodnocení a termíny ====
 
-Odevzdává se na GitHub, (zde bude odkaz na založení repozitáře). Veškeré slovní popisy uveďte přímo do README (či README.md apod.) v repozitáři.
+Odevzdává se na GitHub, na [[https://classroom.github.com/assignment-invitations/e655b4a11eefc6049134fa85ff1919f5|tomto odkazu si vytvoříte repozitář]]. Veškeré slovní popisy uveďte přímo do README (či README.md apod.) v repozitáři.
 
 V repozitáři odevzdávejte:
 
