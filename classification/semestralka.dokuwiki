@@ -3,7 +3,7 @@
 
 {{:classification:bi-3dt.png|}} {{:classification:trubka.png?250}} {{:classification:trubka2.png?250}}
 
-<note important>Toto je alfa verze zadání práce. Hlaste prosím problémy.</note>
+<note important>Toto je beta verze zadání práce. Hlaste prosím problémy.</note>
 
 <note tip>**Alternativní zadání práce:** Po dohodě s Mirem Hrončokem můžete místo této semestrální práce řešit issues [[https://github.com/admesh/|projektů ADMesh]]. Kolik jich musíte vyřešit a jak budete bodově ohodnoceni, závisí na proběhlé dohodě. V případě zájmu se prosím ozvěte co nejdříve, je zde jen omezené množství práce a tedy je alternativa k semestrálce možná jen pro malý počet studentů.</note>
 
@@ -59,6 +59,8 @@ Vnější zakřivení trubek může být libovolné, zvolte jej ale tak, aby dá
 Každý z vás obdrží 2 zadání, které má vytisknout. Z nich si vybere to, které se mu víc líbí. Tloušťku stěny však volíte vhodně sami tak, aby se podařilo model vytisknout a přitom se to stihlo.
 
 <note tip>Pozor, pokud bude vzdálenost od středu příliš krátká a konce trubek by se překrývali, smíte (musíte) je patřičně prodloužit, nikoli však více, než je potřeba. Tuto skutečnost řádně okomentujete. Není nutné tento stav ošetřovat v parametrickém modelu!</note>
+
+<note important>Vaše řešení v OpenSCADu musí podporovat všechny profily trubek, ne jen ty, které máte zadány.</note>
 
 <code>
 Abisogomyan Sergei: [['Pentagon', 32, 32, 30], ['Star', 46, 22, 3], ['Circle', 31, 28, -15]]
