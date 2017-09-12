@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "lint": "remark cs/*.md",
+    "lint": "remark cs/*.md -f",
     "fix": "remark cs/*.md -o"
   },
   "dependencies": {
