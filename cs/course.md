@@ -45,11 +45,11 @@ Průběh
 Hodnocení
 ---------
 
-|         |                                               |
-| ------- | --------------------------------------------- |
-| 30 bodů | Domácí parametrický úkol v programu OpenSCAD  |
-| 30 bodů | Práce v semestru na cvičeních                 |
-| 40 bodů | Semestrální práce                             |
+-   **30 bodů**  Domácí parametrický úkol v programu OpenSCAD
+
+-   **30 bodů**  Práce v semestru na cvičeních 
+
+-   **40 bodů**  Semestrální práce 
 
 Informace na stránce [Hodnocení][eduxclassification] na EDUXu je vždy prioritní 
 oproti informacím uvedených zde (informujte nás při neshodě).
