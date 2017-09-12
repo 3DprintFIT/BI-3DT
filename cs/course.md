@@ -92,5 +92,5 @@ Na Facebooku existuje stránka
 můžete konzultovat své problémy s ostatními studenty, případně i s námi
 (vyučující sami tuto stránku aktivně sledují, ale nespoléhejte na to).
 
-[eduxtutorials]: http://edux.fit.cvut.cz/courses/BI-3DT.1/tutorials
-[eduxclassification]: http://edux.fit.cvut.cz/courses/BI-3DT.1/classification
+[eduxtutorials]: http://edux.fit.cvut.cz/courses/BI-3DT/tutorials
+[eduxclassification]: http://edux.fit.cvut.cz/courses/BI-3DT/classification
