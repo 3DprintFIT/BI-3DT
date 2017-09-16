@@ -1,0 +1,25 @@
+language: python
+python:
+- '3.6'
+sudo: true
+dist: trusty
+install:
+- sudo sed -i 's/trusty/yakkety/' /etc/apt/sources.list
+- sudo rm -rf /etc/apt/sources.list.d/*
+- sudo apt-get update -qq
+- sudo apt-get install -qq pandoc ca-certificates
+- pip install -r requirements.txt
+script:
+- ":"
+notifications:
+  email: false
+deploy:
+  provider: script
+  script: python g2e.py
+  on:
+    branch: master
+    repo: 3DprintFIT/BI-3DT
+env:
+  global:
+  - secure: pNqZ7oB8D3vnFK+k9Ud4/Vw21NQh7zGn49X9pyi/1qB1xMcSj7rCvN+OiN+myAjQ7DtZYHBdrpF7KMfq+FTDbqKRhEA1MBj7dE3GoScCXNPMTGudZE1k6JfWRvMqEYe5AmGoK4gTupq4ZVq/1wF35SZyvJ5NfoI/BaVlYOFvJeJGUTx56itusWQedJrdZChVcaT4UgwGh7cZokTwysR2upfAJfivkH5cTeNo0yk6aBGpd/lnk+WwjA79K5p1lh6KC0RHwL+ZK0ryeZf1lgEYC6dsqi/KQov23rU2Stb15cRb+n8Zx9jD4FzHQo8dfPTYcWs9E98RdbXYuARrM33ozut60Kmxairm/eDfujtA1/tLpkjmeqiFrsS/v83cLsk6To/bbbKFW2NCH56jM/wMHRKZ3pIPzbor3nonLf+UR5ivfjaUDqVPf02tUT8fab8bFy2XF6jU8MMlDFioMINkc/ATami5MIyyrWu+mAjxn9fdk19vgzQpq+kCdR1TCkmuaO5irGihsrZUxCuuXlk9B5YBjYN+qEDe4qsC0B5Wnym1EtNMSeT6DqrdZFiMWu6xs4F/zdmAj1XZ2/ilp2Au3XzWonank9/sgn1xy5H0fAFkKYV/NJckrw8t3JSwU3ool57yfm+dO6/SkU9sOMYkyG2Y05bunmRq4cVyuWdTuuQ=
+  - secure: Zhh4osBr4LdLfwC/IggWtP/792gEnJLDHpbayqGm9JfqWPKDVYQK642pO+ofCdvHBehAABghJ5pJIf5Bj9SXpXjgDCPLHBAyW3psURiPgBiBEugMKto7AvNnf/hEjgbxWj+6MN4K9vO/+T1bbkrcOe/kplclmyc9M6a0b9U+ME7MZxMSse1QK0F1You526o5AKllMRfzd04jNnyldW0HiFpMvbKiYNj3krF/zCRzXs+OqaGavS6YLypKosEVaMESdAzdcDixBYXR701GUO0ESVEXhFPIjzBXqQODaH59wfPBhgAFY4PkBihhCnjgWq3tuoMrsZqldVIaQo0Q3ISd+Esn4kYJyQpUO0DaWGouY9Gh77qUeFy+rML1NIQwdPxxTYFInTmnTuiO6OQ6EtbdYpIxXMWtoUsqkVPAQFqAn+8N+3XUXtdaV2oFGObK+adXAgC70rpVzAwuZO6seY4s58sbyzidCxtHVbppTIQLBrGInf+EipOV29VHwcnIfOcn6n3oHYG+9L/m4rhi3TBY3K6+xZEsMllXEmfZRk/tuGTtYgiKXUKN9ABco5qDE8k6o1fUf7k4RBz7hUKE8X8psRIAdBmO6k38ze+BYlzWrFLBTGZVuh0wYnRyb0Z6DVXkWcABUNfXTmpU1L51ypHmTl7+Z1KpItv8T4odl4CRjfU=
