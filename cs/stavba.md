@@ -9,7 +9,7 @@ a kalibrovat paralelně čtyři 3D tiskárny [RebeliX](http://reprap4u.cz/rebeli
 Stavbu povedou cvičící a další členové laboratoře. 
 Práce na stavbě **je nepovinná**, nehodnotí se.
 
-{{:tutorials:stavba:3dprint_2012-02-03_12-19-29.jpg?300|}}
+![](../images/stavba/3dprint_2012-02-03_12-19-29.jpg)
 
 Studenti budou v rámci cvičení rozděleni na dvě skupiny (cca poloviny) - 
 jedna skupina bude stavět, druhá bude mít v normální učebně výuku. 

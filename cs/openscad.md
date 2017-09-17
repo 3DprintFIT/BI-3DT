@@ -16,7 +16,7 @@ Nezbytný úvod
 CSG strom
 ---------
 
-{{:tutorials:openscad:csg_tree.png?600}}
+![](../images/openscad/csg_tree.png)
 
 ([pic by Zottie](http://commons.wikimedia.org/wiki/File:Csg_tree.png))
 
@@ -67,7 +67,7 @@ Příklad
   sphere(100);
 ```
 
-{{:tutorials:openscad:ex1.png|}}
+![](../images/openscad/ex1.png)
 
 Transformace
 ------------
@@ -88,7 +88,7 @@ Příklad
   color("red") translate([30,0,0]) rotate([0,0,60]) cube(5);
 ```
 
-{{:tutorials:openscad:ex2.png|}}
+![](../images/openscad/ex2.png)
 
 CSG modelování
 --------------
@@ -107,7 +107,7 @@ Příklad
   }
 ```
 
-{{:tutorials:openscad:ex1.png|}}
+![](../images/openscad/ex1.png)
 
 Příklad
 -------
@@ -119,7 +119,7 @@ Příklad
   }
 ```
 
-{{:tutorials:openscad:ex3.png|}}
+![](../images/openscad/ex3.png)
 
 Příklad
 -------
@@ -131,7 +131,7 @@ Příklad
   }
 ```
 
-{{:tutorials:openscad:ex4.png|}}
+![](../images/openscad/ex4.png)
 
 Cykly a podmínky
 ----------------
@@ -156,7 +156,7 @@ Příklad
   }
 ```
 
-{{:tutorials:openscad:ex6.png|}}
+![](../images/openscad/ex6.png)
 
 Moduly
 ------
@@ -187,7 +187,7 @@ Příklad
   roundcube([50,80,80],corner=5);
 ```
 
-{{:tutorials:openscad:ex7.png|}}
+![](../images/openscad/ex7.png)
 
 child();
 --------
@@ -207,7 +207,7 @@ Příklad
   elongate() {sphere(30); cube(45,center=true); cylinder(r=10,h=50);}
 ```
 
-{{:tutorials:openscad:ex8.png|}}
+![](../images/openscad/ex8.png)
 
 Debugging
 ---------
@@ -226,7 +226,7 @@ Příklad
   }
 ```
 
-{{:tutorials:openscad:ex9.png|}}
+![](../images/openscad/ex9.png)
 
 Pomocníčci
 ----------
@@ -251,7 +251,7 @@ Příklad
   }
 ```
 
-{{:tutorials:openscad:ex5.png|}}
+![](../images/openscad/ex5.png)
 
 Dvourozměrný subsystém
 ----------------------
@@ -300,7 +300,7 @@ Příklad
   }
 ```
 
-{{:tutorials:openscad:ex11.png|}}
+![](../images/openscad/ex11.png)
 
 rotate_extrude()
 ----------------
@@ -317,7 +317,7 @@ Příklad
   rotate_extrude($fn=200) polygon(points=[[0,0],[2,1],[1,2],[1,3],[3,4],[0,5]]);
 ```
 
-{{:tutorials:openscad:ex10.png|}}
+![](../images/openscad/ex10.png)
 
 2D import
 ---------
@@ -333,7 +333,7 @@ Příklad
   rotate_extrude() resize([20,0],[true,true]) import("bottle.dxf");
 ```
 
-{{:tutorials:openscad:ex12.png|}}
+![](../images/openscad/ex12.png)
 
 projection()
 ------------
@@ -350,7 +350,7 @@ Příklad
   linear_extrude(20) projection() rotate([90,0,0]) example002();
 ```
 
-{{:tutorials:openscad:ex13.png|}}
+![](../images/openscad/ex13.png)
 
 import()
 --------
@@ -372,7 +372,7 @@ Příklad
   }
 ```
 
-{{:tutorials:openscad:ex14.png|}}
+![](../images/openscad/ex14.png)
 
 surface()
 ---------
@@ -407,7 +407,7 @@ Příklad
     // i=0.0001; cube(20); translate([20-i,20-i,0]) cube(20);
 ```
 
-{{:tutorials:openscad:ex15.png|}}
+![](../images/openscad/ex15.png)
 
 Knihovna MCAD
 -------------
@@ -429,7 +429,7 @@ Příklad
   motor(Nema17);
 ```
 
-{{:tutorials:openscad:ex16.png|}}
+![](../images/openscad/ex16.png)
 
 Úlohy
 -----

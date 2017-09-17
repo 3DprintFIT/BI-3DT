@@ -10,7 +10,7 @@ Co to je?
 -   Nástroj/sada v jazyku Python pro převod STL na GCode
 -   Detailní popis na [vlastních stránkách](http://fabmetheus.crsndoo.com/wiki/index.php/Skeinforge)
 
-{{:tutorials:skeinforge:skeinforge.png?300|}}
+[](../images/skeinforge/skeinforge.png)
 
 Kalibrace vs. Nastavení tisku
 -----------------------------

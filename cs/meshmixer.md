@@ -36,17 +36,17 @@ nainstalovat pomocí programu Wine, jen musíte do složky s programem
 [prntvpt.dll](http://www.dllme.com/dll/files/prntvpt_dll.html). Jediný problém, 
 se kterým jsme se setkali, jsou divné fonty a crash při prvním spuštění.
 
-{{:tutorials:meshmixer:meshmixer1.png?400}}
+![](../images/meshmixer/meshmixer1.png)
 
 ### Řez objektem
 
 Nejprve importujte STL soubor pomocí tlačítka **Import**.
 
-{{:tutorials:meshmixer:meshmixer2.png?400}}
+![](../images/meshmixer/meshmixer2.png)
 
 Poté z nabídky **Edit** vyberte **Plane Cut**.
 
-{{:tutorials:meshmixer:meshmixer3.png?400}}
+![](../images/meshmixer/meshmixer3.png)
 
 Pomocí všelijakých šipek můžete manipulovat rovinou řezu. Můžete také táhnout 
 stisknutou myš a vytvořit čáru (na obrázku červená), podél které se rovina 
@@ -55,12 +55,12 @@ můžete s ním rotovat pravým tlačítkem myši. Před stisknutím tlačítka 
 se ujistěte, že máte vybráno **Type: Slice**, jinak skončíte pouze s jednou 
 částí objektu.
 
-{{:tutorials:meshmixer:meshmixer4.png?400}}
+![](../images/meshmixer/meshmixer4.png)
 
 Po provedení řezu vypadá objekt stejně jako předtím. Musíte opět z menu **Edit**
 vybrat **Separate Shells**.
 
-{{:tutorials:meshmixer:meshmixer5.png?400}}
+![](../images/meshmixer/meshmixer5.png)
 
 V modálním okně můžete vybírat, který shell bude vidět, případně na jakém se 
 provádí akce (pozor, to je rozdíl, jedno řeší to očičko, druhé řeší jakoby 
@@ -68,26 +68,26 @@ provádí akce (pozor, to je rozdíl, jedno řeší to očičko, druhé řeší 
   z nabídky **Edit** možnost **Align**. To proto, aby objekt ležel na placaté 
   části, jinak byl řez k ničemu.
 
-{{:tutorials:meshmixer:meshmixer8.png?400}}
+![](../images/meshmixer/meshmixer8.png)
 
 V dialogu **Align** je vybrána ve výchozím stavu osa Y. To by snad mělo zajistit
 položení objektu na plocho (i když možná vzhůru nohama, k tomu se dostaneme), 
 takže stačí dát **Accept**.
 
-{{:tutorials:meshmixer:meshmixer9.png?400}}
+![](../images/meshmixer/meshmixer9.png)
 
 Z menu **File** zvolte **Export** a uložte danou část jako STL soubor. 
 Doporučuji zkontrolovat, že jste vyexportovali správnou část 
 (otevřením výsledného STL v nějakém programu).
 
-{{:tutorials:meshmixer:meshmixer10.png?400}}
+![](../images/meshmixer/meshmixer10.png)
 
 Postup zopakujte pro druhou polovinu. Zde nastal případ, že **Align** otáčí 
 objekt jinak, než chceme. Stačí kliknout na šipku (označenou zeleným puntíkem) 
 a pokračovat jako u předchozí části.
 
-{{:tutorials:meshmixer:meshmixer11.png?400}}
+![](../images/meshmixer/meshmixer11.png)
 
-{{:tutorials:meshmixer:meshmixer12.png?400}}
+![](../images/meshmixer/meshmixer12.png)
 
-{{:tutorials:meshmixer:meshmixer13.png?400}}
+![](../images/meshmixer/meshmixer13.png)

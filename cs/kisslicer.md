@@ -11,7 +11,7 @@ Program KISSlicer
 Ukázka
 ------
 
-{{:tutorials:kisslicer:screen_shot_2014-10-19_at_18.10.02.png?500|}}
+![](../images/kisslicer/screen_shot_2014-10-19_at_18.10.02.png)
 
 Popis rozhraní
 --------------
@@ -36,7 +36,8 @@ Tloušťka stěny
 -   Nastaveno v mm
 -   V celém objektu je počítáno s tloušťkou stěny podle zadané hodnoty
 -   Obvody jsou doplněny 100% výplní
-    {{:tutorials:kisslicer:screen_shot_2014-10-19_at_18.43.40.png|}}
+
+![](../images/kisslicer/screen_shot_2014-10-19_at_18.43.40.png)
 
 Extrusion Width/Thickness
 -------------------------

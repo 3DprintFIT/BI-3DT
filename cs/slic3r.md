@@ -10,7 +10,7 @@ Program Slic3r
 Ukázka
 ------
 
-{{:tutorials:slic3r:slic3r.png?500}}
+[](../images/slic3r/slic3r.png)
 
 Panely
 ------
@@ -61,25 +61,25 @@ Print Settings
 
 Ideální výška je okolo 0,2mm
 
-{{:tutorials:slic3r:layer_height_comparison.jpg?800|Zdroj: <http://arduinoblog11.blogspot.cz/2012_04_01_archive.html}}>
+[Zdroj: http://arduinoblog11.blogspot.cz/2012_04_01_archive](../images/slic3r/layer_height_comparison.jpg)
 
 #### Perimeters
 
 Jak silný bude "plášť" objektu
 
-{{:tutorials:slic3r:very_slightly_over_stuck_down_print.jpg?400|}}
+[](../images/slic3r/very_slightly_over_stuck_down_print.jpg)
 
 ### Infill
 
 Více o výplni na stránce [programu](http://manual.slic3r.org/expert-mode/infill)
 
-{{:tutorials:slic3r:linear_2pc_25pc_50pc_with_scale.jpg?400|}}
+[](../images/slic3r/linear_2pc_25pc_50pc_with_scale.jpg)
 
-{{:tutorials:slic3r:rectilinear_line.jpg?300|}}
+[](../images/slic3r/rectilinear_line.jpg)
 
-{{:tutorials:slic3r:concentric_and_archimedial_fill.jpg?300|}}
+[](../images/slic3r/concentric_and_archimedial_fill.jpg)
 
-{{:tutorials:slic3r:hilbert_octag.jpg?300|}}
+[](../images/slic3r/hilbert_octag.jpg)
 
 ### Speed
 
@@ -89,7 +89,7 @@ Možnost nastavit rychlosti konkrétních částí objektu.
 
 Obvodová linie objektu.
 
-{{:tutorials:slic3r:screen_shot_2013-10-16_at_21.50.13.png?300|}}
+[](../images/slic3r/screen_shot_2013-10-16_at_21.50.13.png)
 
 Lze nastavit počet linií a výšku.
 Proč asi výšku?

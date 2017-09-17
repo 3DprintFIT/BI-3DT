@@ -95,25 +95,25 @@ Principem RepRap tiskárny je částečná replikace sebe sama.
 Základní modely Reprap
 ----------------------
 
-{{:tutorials:reprap:reprap_darwin.jpg?200|Darwin}}
-{{:tutorials:reprap:reprap_v2_mendel.jpg?200|Mendel}}
-{{:tutorials:reprap:rostock.jpg?200|Rostock}}
+![](../images/reprap/reprap_darwin.jpg)
+![](../images/reprap/reprap_v2_mendel.jpg)
+![](../images/reprap/rostock.jpg)
 
 Fork-modely
 -----------
 
-{{:tutorials:reprap:linuxalt-2012-29.jpg?200|Huxley}}
-{{:tutorials:reprap:assembled-prusa-mendel.jpg?200|PrusaMendel}}
-{{:tutorials:reprap:prusai3-metalframe.jpg?200|Prusa i3}}
-{{:tutorials:reprap:rebel2-lcd-bez-zdroje.jpg?200|Rebel II}}
-{{:tutorials:reprap:rebelix.jpg?200|RebeliX}}
-{{:tutorials:reprap:kossels.jpeg?200|Kossel}}
+![](../images/reprap/linuxalt-2012-29.jpg)
+![](../images/reprap/assembled-prusa-mendel.jpg)
+![](../images/reprap/prusai3-metalframe.jpg)
+![](../images/reprap/rebel2-lcd-bez-zdroje.jpg)
+![](../images/reprap/rebelix.jpg)
+![](../images/reprap/kossels.jpeg)
 
 Speciální typy
 --------------
 
-{{:tutorials:reprap:reprap_magazine_morgan-article-mockup-11.jpg?200|Morgan}}
-{{:tutorials:reprap:below2_preview_featured.jpg?200|Folding RepRap}}
+![](../images/reprap/reprap_magazine_morgan-article-mockup-11.jpg)
+![](../images/reprap/below2_preview_featured.jpg)
 
 Vstupní formát (Slicing)
 ------------------------

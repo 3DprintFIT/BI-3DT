@@ -85,7 +85,7 @@ Ukázka
     G1 X85.618 Y80.452 F7800.000 ; move inwards before travel
 ```
 
-{{:tutorials:gcode:screen_shot_2013-10-16_at_18.52.41.png?600|}}
+![](../images/gcode/screen_shot_2013-10-16_at_18.52.41.png)
 
 Prohlížení
 ----------

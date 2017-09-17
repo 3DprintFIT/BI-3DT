@@ -7,7 +7,7 @@ OctoPrint
 Při kalibračním a dalším tisku budeme používat webový 
 ovládací interface [OctoPrint](http://octoprint.org).
 
-{{:tutorials:tisk:screenshot-temperature.png|Náhled}}
+![Náhled](../images/tisk/screenshot-temperature.png)
 
 Předletová příprava
 -------------------
@@ -23,23 +23,23 @@ případě s poškozenou tiskárnou.
 Nastavení pro Slic3r
 --------------------
 
-Config bundle ke stažení {{:tutorials:tisk:slic3r_config_bundle.ini.zip|zde}}
+Config bundle ke stažení [zde](../images/tisk/slic3r_config_bundle.ini.zip)
 
 Testovací objekty
 -----------------
 
-{{:tutorials:tisk:20mm-box.stl.zip|}}
+[20mm-box.stl.zip](../images/tisk/20mm-box.stl.zip)
 
 Trysky
 ------
 
 ### 3Draty
 
-{{:tutorials:tisk:3draty.jpg?200|3Draty}}
+![](../images/tisk/3draty.jpg)
 
 ### JHead
 
-{{:tutorials:tisk:JHead.jpg?200|JHead}}
+![](../images/tisk/JHead.jpg)
 
 Úkoly
 -----

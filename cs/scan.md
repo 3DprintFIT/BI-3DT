@@ -10,7 +10,7 @@ Na cvičení proběhne skenování studentů pomocí
 Zároveň bude k dispozici skener na objekty 
 [Ciclop](https///github.com/bqlabs/ciclop).
 
-{{:tutorials:scan:ciclop.jpg?600}}
+![](../images/scan/ciclop.jpg)
 
 (Obrázek CC BY-SA 4.0 © 
 [bq](https///github.com/bqlabs/ciclop/blob/master/doc/images/ciclop.jpg).)
@@ -18,12 +18,12 @@ Zároveň bude k dispozici skener na objekty
 Kdo chce, může zkusit zrekonstruovat naskenovaný model lebky v programu 
 MeshLab nebo CloudCompare.
 
-{{:tutorials:scan:lebka.png?600}}
+![](../images/scan/lebka.png)
 
-Point cloud: {{:tutorials:scan:lebka.ply|}}
+Point cloud: [](../images/scan/lebka.ply)
 
 (Skenovaný model CC BY-SA 3.0 © 
-  [Ben Slama](http://www.thingiverse.com/thing:518109).)
+  [Ben Slama](http://www.thingiverse.com/thing:518109) )
 
 Návod: 
-{{:tutorials:scan:horus_guide_to_post-processing_of_the_point_cloud...|}}
+![](../images/scan/horus_guide_to_post-processing_of_the_point_cloud)
