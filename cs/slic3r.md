@@ -1,55 +1,59 @@
-~~SLIDESHOW~~
+Slic3r
+======
 
-# Slic3r
-
-## Slic3r
+Program Slic3r
+--------------
 
 -   OpenSource nástroj pro generování GCode
-
 -   Více na [Webu projektu](http://slic3r.org)
 
-## Ukázka
+Ukázka
+------
 
 {{:tutorials:slic3r:slic3r.png?500}}
 
-## Panely
+Panely
+------
 
 -   Plater - Na rozložení objektů po tiskové ploše
-
--   Print Settings - Veškerá nastavení tisku, jako rychlost, výplň, podpory, atd.
-
--   Filament Settings - Nastavení specifické pro materiál. Teploty, průměr, chlazení.
-
--   Printer Settings - Nastavení specifické pro tiskárnu. Průměr trysky, velikost tiskové plochy, atd.
+-   Print Settings - Veškerá nastavení tisku, jako rychlost, 
+    výplň, podpory, atd.
+-   Filament Settings - Nastavení specifické pro materiál. 
+    Teploty, průměr, chlazení.
+-   Printer Settings - Nastavení specifické pro tiskárnu. Průměr trysky, 
+    velikost tiskové plochy, atd.
 
 Pozn.: Jelikož jsme experti, tak budeme pracovat v Expert modu 8-)
 
-## Printer Settings
+Printer Settings
+----------------
 
 -   General
-      \_Nastavení rozměrů tiskárny
-      \_Typ firmwaru
-      \*Počet extruderů
+    -   Nastavení rozměrů tiskárny
+    -   Typ firmwaru
+    -   Počet extruderů
 
 -   Custom G-code
-      \*Vlastní definice startu a konce souboru
+    -   Vlastní definice startu a konce souboru
 
 -   Extruder X
-      \_Průměr trysky
-      \_Offset, pokud máme více trysek vedle sebe
-      \_Rectraction
-        \_Eliminace tlaku v trysce
+    -   Průměr trysky
+    -   Offset, pokud máme více trysek vedle sebe
+    -   Rectraction
+        -   Eliminace tlaku v trysce
 
-## Filament Settings
+Filament Settings
+-----------------
 
 -   Filament
-      \_Průměr materiálu
-      \_Teploty
+    -   Průměr materiálu
+    -   Teploty
 
 -   Cooling
     -   Chlazení objektů, aby se nepřehřívaly/nedeformovaly
 
-## Print Settings
+Print Settings
+--------------
 
 ### Layers and Perimeters
 
@@ -96,10 +100,12 @@ Proč?
 
 Více na stránce [programu](http://manual.slic3r.org/expert-mode/support-material)
 
-## Plater
+Plater
+------
 
 -   Poskládání objektů na tiskovou plochu
 
-## Odkazy
+Odkazy
+------
 
 -   starší ale zajímavý třídílný článek **slic3r is nicer** [1](http://richrap.blogspot.cz/2012/01/slic3r-is-nicer-part-1-settings-and.html), [2](http://richrap.blogspot.cz/2012/01/slic3r-is-nicer-part-2-filament-and.html), [3](http://richrap.blogspot.cz/2012/01/slic3r-is-nicer-part-3-how-low-can-you.html), 
