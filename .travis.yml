@@ -12,6 +12,7 @@ addons:
       - yarn
 sudo: true
 dist: trusty
+group: deprecated-2017Q3
 install:
   - yarn
   - sudo sed -i 's/trusty/yakkety/' /etc/apt/sources.list
