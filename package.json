@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "lint": "remark cs/*.md -f",
+    "fix": "remark cs/*.md -o"
+  },
+  "dependencies": {
+    "remark-cli": "^4.0.0",
+    "remark-preset-lint-consistent": "^2.0.1",
+    "remark-preset-lint-markdown-style-guide": "^2.1.1",
+    "remark-preset-lint-recommended": "^3.0.1"
+  }
+}

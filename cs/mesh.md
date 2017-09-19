@@ -4,10 +4,9 @@ Práce s 3D modely ve formě meshí
 Triangulární mesh
 -----------------
 
-Existuje mnoho způsobů, jak reprezentovat 3D modely. Například [CSG strom],
-jako v OpenSCADu, případně různé objemové oktalové reprezentace apod.
-
-[CSG strom]: https://en.wikipedia.org/wiki/Constructive_solid_geometry
+Existuje mnoho způsobů, jak reprezentovat 3D modely. Například 
+[CSG strom][csgtree], jako v OpenSCADu, případně různé objemové oktalové 
+reprezentace apod.
 
 Pro 3D tisk se však nejčastěji používá **hraniční reprezentace**, konkrétně
 triangulární mesh (nebo lépe česky trojúhelníková síť). Mesh je kolekce bodů,
@@ -18,9 +17,9 @@ ve 3D prostoru je, že tři body, neležící na jedné přímce, vždy tvoří
 trojúhelník (4 body nemusí v trojrozměrném prostoru ležet v jedné rovině a
 tvořit čtyřúhelník).
 
-![Mesh](../images/mesh.svg.png)
-
-_Obrázek upraven z [Wikipedie](https://commons.wikimedia.org/wiki/File:Mesh_overview.svg)._
+![Mesh](../images/mesh.svg.png)  
+*Obrázek upraven z 
+[Wikipedie](https://commons.wikimedia.org/wiki/File:Mesh_overview.svg).*
 
 Jednotlivé facety tvoří „vodotěsnou“ hranici mezi vnitřkem a vnějškem 3D modelu.
 
@@ -36,20 +35,18 @@ Formát STL
 
 Triangulární mesh lze ukládat v různých formátech. Nejpoužívanějším formátem
 pro FDM 3D tisk je **formát STL** (mezi další patří OBJ, AMF, 3MF a další).
-STL znamená _STereoLitography_ a je to formát vyvinutý společností _3D Systems_
+STL znamená *STereoLitography* a je to formát vyvinutý společností *3D Systems*
 v roce 1987 jako univerzální formát pro rapid prototyping.
 
-Později se objevily významy zkratky jako _Standard Triangle Language_ nebo
-_Standard Tessellation Language_.
+Později se objevily významy zkratky jako *Standard Triangle Language* nebo
+*Standard Tessellation Language*.
 
 Soubor ve formátu STL obsahuje seznam trojúhelníkových facetů, jejich vrcholů
-a normál. Existuje lidsky čitelná [ASCII] a úspornější [binární] varianta.
+a normál. Existuje lidsky čitelná [ASCII][asciistl] a úspornější 
+[binární][binarystl] varianta.
 
 Formát STL není otevřeným formátem, ale je velmi rozšířen, podporuje jej mnoho
 programů nejen ze světa 3D tisku.
-
-[ASCII]: http://en.wikipedia.org/wiki/STL_(file_format)#ASCII_STL
-[binární]: http://en.wikipedia.org/wiki/STL_(file_format)#Binary_STL
 
 ### ASCII STL soubor
 
@@ -112,8 +109,7 @@ endsolid OpenSCAD_Model
 
 ![Mesh reprezentující kostku](../images/cube.svg.png)
 
-
-[Binární STL soubor][binární] obsahuje stejné informace, pouze v úspornější
+[Binární STL soubor][binarystl] obsahuje stejné informace, pouze v úspornější
 podobě.
 Čísla jsou reprezentována datovým typem `float32` v pořadí little endian.
 
@@ -122,16 +118,12 @@ Prohlížení STL souborů
 
 STL soubory lze prohlížet v mnoha programech:
 
- * `cat` a `hexdump` pro ty s velkou představivostí 😎
- * [ADMeshGUI](https://github.com/admesh/ADMeshGUI/) (Linux, macOS, Windows)
- * [STLView](http://www.freestlview.com/) (Windows)
- * [Pleasant3D](http://www.pleasantsoftware.com/developer/pleasant3d/) (macOS)
- * nástroje na úpravu meshe jako [MeshLab] nebo [Netfabb]
- * modelovací nástroje jako [Blender] apod.
-
-[MeshLab]: http://www.meshlab.net/
-[Netfabb]: https://github.com/3DprintFIT/netfabb-basic-download
-[Blender]: https://www.blender.org/
+-   `cat` a `hexdump` pro ty s velkou představivostí 😎
+-   [ADMeshGUI](https://github.com/admesh/ADMeshGUI/) (Linux, macOS, Windows)
+-   [STLView](http://www.freestlview.com/) (Windows)
+-   [Pleasant3D](http://www.pleasantsoftware.com/developer/pleasant3d/) (macOS)
+-   nástroje na úpravu meshe jako [MeshLab][meshlab] nebo [Netfabb][netfabb]
+-   modelovací nástroje jako [Blender][blender] apod.
 
 ![ADMeshGUI](../images/admeshgui.png)
 
@@ -165,8 +157,9 @@ tvořit část modelu s nulovým objemem.
 
 ### Špatně orientovaný facet
 
-Orientace facetu je dána pořadím vrcholů a normálou. Tyto informace si tedy mohou protiřečit. Někdy je také část 3D modelu nebo celý model otočen „vnitřkem ven“.
-
+Orientace facetu je dána pořadím vrcholů a normálou. Tyto informace si tedy 
+mohou protiřečit. Někdy je také část 3D modelu nebo celý model otočen 
+„vnitřkem ven“.
 
 ![Špatně orientovaný facet](../images/mesh_flipped.svg.png)
 
@@ -182,10 +175,10 @@ z jedné kostky do druhé?
 
 Při spojování více skořepin často vniká chyba, kdy se facety navzájem protínají.
 
-Na obrázku jsou nesprávně (vlevo) a správně (vpravo) spojené koule, díra v meshi je zde jen pro lepší náhled dovnitř.
+Na obrázku jsou nesprávně (vlevo) a správně (vpravo) spojené koule, díra v meshi
+je zde jen pro lepší náhled dovnitř.
 
 ![Protínající se facete](../images/mesh_intersect.png)
-
 
 Oprava chyb v triangulární meshi
 --------------------------------
@@ -223,18 +216,26 @@ které jsou volně šiřitelné.
 
 Na cvičení používáme tento program.
 
-TODO zde bude video s opravou kostky a krokodýla
-
+> TODO zde bude video s opravou kostky a krokodýla
 
 Soubory
 -------
 
- * [cube_bad.stl](../stls/cube_bad.stl) – kostka z videa s chybami
- * [cube_correct.stl](../stls/cube_correct.stl) – kostka z videa bez chyb
- * [aligator_mini_bad.stl](../stls/aligator_mini_bad.stl) – aligátor z videa ([originál CC BY-SA Joseph Larson](https://www.thingiverse.com/thing:21724))
- * [bunny_trouble_piece.stl](../stls/bunny_trouble_piece.stl) – králík z videa ([CC BY-NC mrbug](https://www.thingiverse.com/thing:7578))
- * [base_simple.stl](../stls/base_simple.stl) – bodovaná úloha na cvičení
- * [stojan_broken.stl](../stls/stojan_broken.stl) – bodovaná úloha na cvičení
- * [vicko.stl](../stls/vicko.stl) – bodovaná úloha na cvičení
- * [tajmahal.stl](../stls/tajmahal.stl) – nebodovaná úloha na procvičení ([CC BY-SA Nicholas Wilson](https://www.thingiverse.com/thing:11183))
+-   [cube_bad.stl](../stls/cube_bad.stl) – kostka z videa s chybami
+-   [cube_correct.stl](../stls/cube_correct.stl) – kostka z videa bez chyb
+-   [aligator_mini_bad.stl](../stls/aligator_mini_bad.stl) – aligátor z videa 
+    ([originál CC BY-SA Joseph Larson](https://www.thingiverse.com/thing:21724))
+-   [bunny_trouble_piece.stl](../stls/bunny_trouble_piece.stl) – králík z videa 
+    ([CC BY-NC mrbug](https://www.thingiverse.com/thing:7578))
+-   [base_simple.stl](../stls/base_simple.stl) – bodovaná úloha na cvičení
+-   [stojan_broken.stl](../stls/stojan_broken.stl) – bodovaná úloha na cvičení
+-   [vicko.stl](../stls/vicko.stl) – bodovaná úloha na cvičení
+-   [tajmahal.stl](../stls/tajmahal.stl) – nebodovaná úloha na procvičení 
+    ([CC BY-SA Nicholas Wilson](https://www.thingiverse.com/thing:11183))
 
+[csgtree]: https://en.wikipedia.org/wiki/Constructive_solid_geometry
+[asciistl]: http://en.wikipedia.org/wiki/STL_(file_format)#ASCII_STL
+[binarystl]: http://en.wikipedia.org/wiki/STL_(file_format)#Binary_STL
+[meshlab]: http://www.meshlab.net/
+[netfabb]: https://github.com/3DprintFIT/netfabb-basic-download
+[blender]: https://www.blender.org/
