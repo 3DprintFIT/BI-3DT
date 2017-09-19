@@ -71,7 +71,7 @@ Semestrální práce
 Instalace programů
 ------------------
 
--   viz [Programy](apps.md)
+-   viz Programy (TODO dát link)
 -   do příště za domácí úkol
 -   příští cvičení konzultace případných problémů
 
@@ -88,7 +88,7 @@ Facebook
 --------
 
 Na Facebooku existuje stránka 
-[Nechceme vypadnout z BI-3DT](https///www.facebook.com/groups/bi3dt/), na které
+[Nechceme vypadnout z BI-3DT](https://www.facebook.com/groups/bi3dt/), na které
 můžete konzultovat své problémy s ostatními studenty, případně i s námi
 (vyučující sami tuto stránku aktivně sledují, ale nespoléhejte na to).
 
