@@ -122,12 +122,12 @@ Prohlížení STL souborů
 
 STL soubory lze prohlížet v mnoha programech:
 
- * `cat` a `hexdump` pro ty s velkou představivostí 😎
- * [ADMeshGUI](https://github.com/admesh/ADMeshGUI/) (Linux, macOS, Windows)
- * [STLView](http://www.freestlview.com/) (Windows)
- * [Pleasant3D](http://www.pleasantsoftware.com/developer/pleasant3d/) (macOS)
- * nástroje na úpravu meshe jako [MeshLab] nebo [Netfabb]
- * modelovací nástroje jako [Blender] apod.
+  * `cat` a `hexdump` pro ty s velkou představivostí 😎
+  * [ADMeshGUI](https://github.com/admesh/ADMeshGUI/) (Linux, macOS, Windows)
+  * [STLView](http://www.freestlview.com/) (Windows)
+  * [Pleasant3D](http://www.pleasantsoftware.com/developer/pleasant3d/) (macOS)
+  * nástroje na úpravu meshe jako [MeshLab] nebo [Netfabb]
+  * modelovací nástroje jako [Blender] apod.
 
 [MeshLab]: http://www.meshlab.net/
 [Netfabb]: https://github.com/3DprintFIT/netfabb-basic-download
@@ -229,12 +229,12 @@ TODO zde bude video s opravou kostky a krokodýla
 Soubory
 -------
 
- * [cube_bad.stl](../stls/cube_bad.stl) – kostka z videa s chybami
- * [cube_correct.stl](../stls/cube_correct.stl) – kostka z videa bez chyb
- * [aligator_mini_bad.stl](../stls/aligator_mini_bad.stl) – aligátor z videa ([originál CC BY-SA Joseph Larson](https://www.thingiverse.com/thing:21724))
- * [bunny_trouble_piece.stl](../stls/bunny_trouble_piece.stl) – králík z videa ([CC BY-NC mrbug](https://www.thingiverse.com/thing:7578))
- * [base_simple.stl](../stls/base_simple.stl) – bodovaná úloha na cvičení
- * [stojan_broken.stl](../stls/stojan_broken.stl) – bodovaná úloha na cvičení
- * [vicko.stl](../stls/vicko.stl) – bodovaná úloha na cvičení
- * [tajmahal.stl](../stls/tajmahal.stl) – nebodovaná úloha na procvičení ([CC BY-SA Nicholas Wilson](https://www.thingiverse.com/thing:11183))
+  * [cube_bad.stl](../stls/cube_bad.stl) – kostka z videa s chybami
+  * [cube_correct.stl](../stls/cube_correct.stl) – kostka z videa bez chyb
+  * [aligator_mini_bad.stl](../stls/aligator_mini_bad.stl) – aligátor z videa ([originál CC BY-SA Joseph Larson](https://www.thingiverse.com/thing:21724))
+  * [bunny_trouble_piece.stl](../stls/bunny_trouble_piece.stl) – králík z videa ([CC BY-NC mrbug](https://www.thingiverse.com/thing:7578))
+  * [base_simple.stl](../stls/base_simple.stl) – bodovaná úloha na cvičení
+  * [stojan_broken.stl](../stls/stojan_broken.stl) – bodovaná úloha na cvičení
+  * [vicko.stl](../stls/vicko.stl) – bodovaná úloha na cvičení
+  * [tajmahal.stl](../stls/tajmahal.stl) – nebodovaná úloha na procvičení ([CC BY-SA Nicholas Wilson](https://www.thingiverse.com/thing:11183))
 

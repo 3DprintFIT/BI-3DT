@@ -19,10 +19,10 @@ Naštěstí již existují hotové open-source knihovny, které toto řeší za 
 Knihoven je celá řada, najít vhodnou knihovnu pro vás oblíbený jazyk je otázka
 několika vteřin vyhledávání na internetu. Zde namátkou zmíním:
 
- * [numpy-stl](https://pypi.python.org/pypi/numpy-stl) pro Python + NumPy
- * [STLdotNET](https://github.com/QuantumConcepts/STLdotNET) pro C#
- * [STL-Loader](https://github.com/cpedrinaci/STL-Loader) pro Javu
- * …
+  * [numpy-stl](https://pypi.python.org/pypi/numpy-stl) pro Python + NumPy
+  * [STLdotNET](https://github.com/QuantumConcepts/STLdotNET) pro C#
+  * [STL-Loader](https://github.com/cpedrinaci/STL-Loader) pro Javu
+  * …
 
 My budeme používat knihovnu [ADMesh], která je napsaná v jazyce C, dá se
 jednoduše použít v jazyce C++, existují bindingy pro jazyky Python a Ruby.
@@ -72,9 +72,9 @@ int main(void) {
 
 Všimněte si, že:
 
- * funkce přijímají jako první argument ukazatel na strukturu `stl_file`
- * po každém volání IO funkce je korektní volat `stl_exit_on_error()`, jinak můžete dostat SEGFAULT
- * na konci se sluší volat `stl_close()`
+  * funkce přijímají jako první argument ukazatel na strukturu `stl_file`
+  * po každém volání IO funkce je korektní volat `stl_exit_on_error()`, jinak můžete dostat SEGFAULT
+  * na konci se sluší volat `stl_close()`
 
 Program se kompiluje pomocí:
 
@@ -141,7 +141,7 @@ vstupní soubor.
 
 Pro ukázku můžete použít následující STL, ale program musí umět pracovat s jakýmkoliv STL.
 
- * [hellskull.stl](../stls/hellskull.stl) ([CC BY-ND Ola Sundberg](https://www.thingiverse.com/thing:479949))
+  * [hellskull.stl](../stls/hellskull.stl) ([CC BY-ND Ola Sundberg](https://www.thingiverse.com/thing:479949))
 
 Vhodný úhel nalezněte bruteforce metodou pro úhly otočení v násobcích 5°
 (5°, 10°, 15°, ...).
