@@ -23,7 +23,7 @@
         "remark-validate-links": "^7.0.0"
     },
     "scripts": {
-        "fix": "remark cs/*.md -o",
-        "lint": "remark cs/*.md -f"
+        "fix": "remark *.md cs/*.md -o",
+        "lint": "remark *.md cs/*.md -f"
     }
 }
