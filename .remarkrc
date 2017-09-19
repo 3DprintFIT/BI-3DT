@@ -1,0 +1,19 @@
+{
+    "plugins": [
+        "remark-preset-lint-recommended",
+        "remark-preset-lint-consistent",
+        "remark-preset-lint-markdown-style-guide",
+        [
+            "remark-lint-heading-style",
+            "setext"
+        ],
+        [
+            "remark-lint-list-item-indent",
+            "tab-size"
+        ],
+        [
+            "remark-lint-list-item-spacing",
+            false
+        ]
+    ]
+}
