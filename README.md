@@ -1,6 +1,8 @@
 BI-3DT
 ======
 
+[![Build Status](https://travis-ci.org/3DprintFIT/BI-3DT.svg?branch=master)](https://travis-ci.org/3DprintFIT/BI-3DT)
+
 Materials for the 3D printing course at the
 [Faculty of Information Technology](https://fit.cvut.cz/en),
 CTU in Prague.

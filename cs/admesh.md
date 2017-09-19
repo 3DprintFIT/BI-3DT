@@ -19,21 +19,19 @@ Naštěstí již existují hotové open-source knihovny, které toto řeší za 
 Knihoven je celá řada, najít vhodnou knihovnu pro vás oblíbený jazyk je otázka
 několika vteřin vyhledávání na internetu. Zde namátkou zmíním:
 
- * [numpy-stl](https://pypi.python.org/pypi/numpy-stl) pro Python + NumPy
- * [STLdotNET](https://github.com/QuantumConcepts/STLdotNET) pro C#
- * [STL-Loader](https://github.com/cpedrinaci/STL-Loader) pro Javu
- * …
+-   [numpy-stl](https://pypi.python.org/pypi/numpy-stl) pro Python + NumPy
+-   [STLdotNET](https://github.com/QuantumConcepts/STLdotNET) pro C#
+-   [STL-Loader](https://github.com/cpedrinaci/STL-Loader) pro Javu
+-   …
 
-My budeme používat knihovnu [ADMesh], která je napsaná v jazyce C, dá se
+My budeme používat knihovnu [ADMesh][admesh], která je napsaná v jazyce C, dá se
 jednoduše použít v jazyce C++, existují bindingy pro jazyky Python a Ruby.
-
-[ADMesh]: https://github.com/admesh/admesh
 
 ADMesh
 ------
 
-[ADMesh] je open-source program, který umožňuje manipulovat s STL meshí z
-příkazové řádky. Kromě rozhraní pro příkazovou řádku je k dispozici také
+[ADMesh][admesh] je open-source program, který umožňuje manipulovat s STL meshí 
+z příkazové řádky. Kromě rozhraní pro příkazovou řádku je k dispozici také
 knihovní API, které ale původně nevzniklo s úmyslem znovupoužitelnosti,
 takže je mnohdy jeho použití neintuitivní.
 
@@ -72,9 +70,10 @@ int main(void) {
 
 Všimněte si, že:
 
- * funkce přijímají jako první argument ukazatel na strukturu `stl_file`
- * po každém volání IO funkce je korektní volat `stl_exit_on_error()`, jinak můžete dostat SEGFAULT
- * na konci se sluší volat `stl_close()`
+-   funkce přijímají jako první argument ukazatel na strukturu `stl_file`
+-   po každém volání IO funkce je korektní volat `stl_exit_on_error()`, 
+    jinak můžete dostat SEGFAULT
+-   na konci se sluší volat `stl_close()`
 
 Program se kompiluje pomocí:
 
@@ -89,7 +88,6 @@ $ gcc -L/cesta/k/adresáři/knihovnou -I/cesta/k/adresáři/s/hlavičkovým/soub
 ```
 
 Výsledný program spustíte příkazem:
-
 
 ```console
 $ ./myapp
@@ -110,7 +108,6 @@ Jednotlivé funkce a struktury najdete v souboru
 [`admesh/stl.h`](https://github.com/admesh/admesh/tree/master/src/stl.h).
 Velkou dokumentací knihovna bohužel neoplývá, i když něco vzniká na
 [admesh.readthedocs.io](http://admesh.readthedocs.io/en/latest/).
-
 
 Úloha
 -----
@@ -139,17 +136,25 @@ opsaného hranolu, a do souboru zadaného druhým argumentem (z příkazové ř�
 uloží orotovaný soubor v takovém formátu (ASCII/binary), v jakém byl načten
 vstupní soubor.
 
-Pro ukázku můžete použít následující STL, ale program musí umět pracovat s jakýmkoliv STL.
+Pro ukázku můžete použít následující STL, ale program musí umět pracovat s 
+jakýmkoliv STL.
 
- * [hellskull.stl](../stls/hellskull.stl) ([CC BY-ND Ola Sundberg](https://www.thingiverse.com/thing:479949))
+-   [hellskull.stl](../stls/hellskull.stl) 
+    ([CC BY-ND Ola Sundberg](https://www.thingiverse.com/thing:479949))
 
 Vhodný úhel nalezněte bruteforce metodou pro úhly otočení v násobcích 5°
 (5°, 10°, 15°, ...).
 
 Vhodné funkce a údaje:
 
-  * `stl_rotate_z(&stl_in, angle_in_degrees)` – rotuje kolem osy Z, o daný počet stupňů
-  * `<stl_file>.stats.number_of_facets` je počet trojúhelníků v STL
-  * `<stl_file>.facet_start` je ukazatel na první trojúhelník (a jde k němu přistupovat jako k poli)
-  * trojúhelníky jsou uloženy v strukturách `stl_facet` obsahující v trojprvkovém poli `vertex` tři vrcholy (struktura `stl_vertex` obsahující tři floaty `x`, `y` a `z`)
-  * zajímavé údaje jsou uloženy i ve `stl_file.stats`
+-   `stl_rotate_z(&stl_in, angle_in_degrees)` – rotuje kolem osy Z, o daný 
+    počet stupňů
+-   `<stl_file>.stats.number_of_facets` je počet trojúhelníků v STL
+-   `<stl_file>.facet_start` je ukazatel na první trojúhelník (a jde k němu 
+    přistupovat jako k poli)
+-   trojúhelníky jsou uloženy v strukturách `stl_facet` obsahující v 
+    trojprvkovém poli `vertex` tři vrcholy (struktura `stl_vertex` obsahující 
+    tři floaty `x`, `y` a `z`)
+-   zajímavé údaje jsou uloženy i ve `stl_file.stats`
+  
+[admesh]: https://github.com/admesh/admesh
