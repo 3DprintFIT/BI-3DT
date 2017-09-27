@@ -1,11 +1,11 @@
 """Uploads stuff from GitHub to Edux"""
 import io
-import os
 import pathlib
 import re
 import sys
 import subprocess
 
+import click
 import easywebdav
 from PIL import Image
 
@@ -97,17 +97,15 @@ def scale_large_images(text, maxwidth=600):
     return '\n'.join(lines)
 
 
-def convert(path):
+def _convert(path):
     """Converts given path and runs additional functions"""
     return fix_relative_links(
         fix_data_links(scale_large_images(fix_image_links(dokuwiki(path)))))
 
 
 class Connection:
-    def __init__(self):
-        self.c = easywebdav.connect(HOST,
-                                    username=os.environ['EDUX_USER'],
-                                    password=os.environ['EDUX_PASSWORD'],
+    def __init__(self, user, password):
+        self.c = easywebdav.connect(HOST, username=user, password=password,
                                     protocol='https')
 
     def upload_dir(self, local_directory, destination):
@@ -125,7 +123,7 @@ class Connection:
 
     def upload_converted(self, local_file, destination):
         print('converting', local_file)
-        converted = io.BytesIO(convert(local_file).encode('utf-8'))
+        converted = io.BytesIO(_convert(local_file).encode('utf-8'))
         if not destination.endswith('.txt'):
             self.c.mkdirs(destination)
             destination = destination + '/start.txt'
@@ -133,8 +131,36 @@ class Connection:
         self.c.upload(converted, destination)
 
 
-if __name__ == '__main__':
-    conn = Connection()
+@click.group()
+def g2e():
+    pass
+
+
+@g2e.command()
+@click.argument('markdown', nargs=-1, type=click.Path())
+@click.option('--silent', is_flag=True)
+def convert(markdown, silent):
+    """Converts given md files to Dokuwiki, prints them to stdout"""
+    for path in markdown:
+        try:
+            converted = _convert(path)
+        except Exception:
+            click.echo(click.style(path, fg='red'))
+            raise
+        click.echo(click.style(path, fg='green'))
+        if not silent:
+            click.echo(converted)
+            click.echo()
+
+
+@g2e.command()
+@click.argument('user', envvar='EDUX_USER')
+@click.argument('password', envvar='EDUX_PASSWORD')
+def deploy(user, password):
+    """Deploys to Edux, use EDUX_USER and EDUX_PASSWORD environment variables
+    to provide credentials."""
+    conn = Connection(user, password)
+
     conn.upload_dir('images', MEDIA)
     conn.upload_dir('stls', MEDIA)
     conn.upload_dir('configs', MEDIA)
@@ -143,3 +169,7 @@ if __name__ == '__main__':
         real_value = value.format(self=key)
         conn.upload_converted(f'cs/{key}.md',
                               f'{PAGES}{real_value}')
+
+
+if __name__ == '__main__':
+    g2e()

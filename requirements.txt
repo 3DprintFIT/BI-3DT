@@ -1,2 +1,3 @@
 git+https://github.com/hroncok/easywebdav.git
 Pillow==4.2.1
+click==6.7
