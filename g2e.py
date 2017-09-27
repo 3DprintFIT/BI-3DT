@@ -100,6 +100,7 @@ if __name__ == '__main__':
     conn.upload_dir('configs', MEDIA)
 
     relations = {
+        'schedule': 'tutorials',
         'admesh': 'tutorials/{self}',
         'course': 'tutorials/{self}',
         'mesh': 'tutorials/{self}',
