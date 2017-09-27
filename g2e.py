@@ -106,3 +106,6 @@ if __name__ == '__main__':
 
         conn.upload_converted(f'cs/{tutorial}.md',
                               f'{PAGES}tutorials/{tutorial}')
+
+    conn.upload_converted('cs/classification.md',
+                          f'{PAGES}classification')
