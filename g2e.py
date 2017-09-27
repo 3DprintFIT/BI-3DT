@@ -101,6 +101,7 @@ if __name__ == '__main__':
 
     relations = {
         'schedule': 'tutorials',
+        'apps': '{self}.txt',
         'admesh': 'tutorials/{self}',
         'course': 'tutorials/{self}',
         'mesh': 'tutorials/{self}',
