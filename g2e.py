@@ -48,8 +48,8 @@ class RelLinkerFakeDict(dict):
 def dokuwiki_link(key, template, separator=':'):
     link = template.format(self=key).replace('/', separator)
     if link.endswith('.txt'):
-        return link[:-len('.txt')]
-    return link + f'{separator}start'
+        return separator + link[:-len('.txt')]
+    return separator + link + f'{separator}start'
 
 
 def dokuwiki(path):
