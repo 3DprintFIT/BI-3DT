@@ -12,11 +12,12 @@ install:
 - npm i
 script:
 - npm run lint
+- python g2e.py convert cs/*.md --silent
 notifications:
   email: false
 deploy:
   provider: script
-  script: python g2e.py
+  script: python g2e.py deploy
   on:
     branch: master
     repo: 3DprintFIT/BI-3DT
