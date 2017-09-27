@@ -132,7 +132,7 @@ $ pip3 install --user admesh
 
 Ilustrační obrázek z Netfabbu ukazující opsaný hranol s obdélníkovou podstavou:
 
-![Opsaný hranol](../images/boundingbox.png)
+![Opsaný hranol](../images/admesh/boundingbox.png)
 
 Program vypíše na standardní výstup úhel otočení (ve stupních), obsah postavy
 opsaného hranolu, a do souboru zadaného druhým argumentem (z příkazové řádky)
@@ -141,7 +141,7 @@ vstupní soubor.
 
 Pro ukázku můžete použít následující STL, ale program musí umět pracovat s jakýmkoliv STL.
 
-  * [hellskull.stl](../stls/hellskull.stl) ([CC BY-ND Ola Sundberg](https://www.thingiverse.com/thing:479949))
+  * [hellskull.stl](../stls/admesh/hellskull.stl) ([CC BY-ND Ola Sundberg](https://www.thingiverse.com/thing:479949))
 
 Vhodný úhel nalezněte bruteforce metodou pro úhly otočení v násobcích 5°
 (5°, 10°, 15°, ...).

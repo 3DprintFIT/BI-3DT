@@ -32,7 +32,7 @@ Metoda vytváření objektů z tekutého polymeru, který je postupně vytvrzov�
 pomocí záření různých vlnových délek. 
 [Video](https://www.youtube.com/watch?v=NM55ct5KwiI)
 
-![Stereolitografie](../images/stereolithography_apparatus.jpg)
+![Stereolitografie](../images/reprap/stereolithography_apparatus.jpg)
 
 Práškový tisk (SLS, DMLS)
 ------------------------
@@ -43,7 +43,7 @@ pouze potřebných míst. Vytvrzení může probíhat buď zapečením prášku 
 UV zářením. [Video SLS](https://www.youtube.com/watch?v=9E5MfBAV_tA), 
 [Video DMLS](https://www.youtube.com/watch?v=bgQvqVq-SQU)
 
-![Práškový tisk](../images/sls.jpg)
+![Práškový tisk](../images/reprap/sls.jpg)
 
 PolyJet
 -------
@@ -52,7 +52,7 @@ Podobně jako v inkoustových tiskárnách je polymer vytryskáván z tiskové h
 pomocí miniaturních trysek. Následně je vrstva vytvrzena UV paprskem.
 [Video](https://www.youtube.com/watch?v=ZjXh1RJfA34)
 
-![PolyJet](../images/polyjet.jpg)
+![PolyJet](../images/reprap/polyjet.jpg)
 
 FFF/FDM/Thermoplastic extrusion
 -------------------------------

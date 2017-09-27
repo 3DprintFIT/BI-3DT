@@ -18,13 +18,13 @@ ve 3D prostoru je, že tři body, neležící na jedné přímce, vždy tvoří
 trojúhelník (4 body nemusí v trojrozměrném prostoru ležet v jedné rovině a
 tvořit čtyřúhelník).
 
-![Mesh](../images/mesh.svg.png)
+![Mesh](../images/mesh/mesh.svg.png)
 
 _Obrázek upraven z [Wikipedie](https://commons.wikimedia.org/wiki/File:Mesh_overview.svg)._
 
 Jednotlivé facety tvoří „vodotěsnou“ hranici mezi vnitřkem a vnějškem 3D modelu.
 
-![Mesh reprezentující kouli](../images/sphere.svg.png)
+![Mesh reprezentující kouli](../images/mesh/sphere.svg.png)
 
 Na rozdíl od CSG stromu se mesh vyznačuje tím, že nenese informace o významu
 (není například parametrická), na druhou stranu je velmi rychlé ji vykreslit,
@@ -82,7 +82,7 @@ endsolid name
 Pořadí vrcholů facetu musí splňovat pravidlo pravé ruky: Jestliže palce ukazuje
 ve směru normály (tedy ven z objektu), stočené prsty udávají pořadí vrcholů.
 
-![Normálový vektor](../images/normal_vector.svg.png)
+![Normálový vektor](../images/mesh/normal_vector.svg.png)
 
 Jednotlivá čísla se dají reprezentovat jak pomocí notace čísel s plovoucí
 desetinou čárkou, tak „lidštějším zápisem“, můžete se tak setkat např.
@@ -110,7 +110,7 @@ solid OpenSCAD_Model
 endsolid OpenSCAD_Model
 ```
 
-![Mesh reprezentující kostku](../images/cube.svg.png)
+![Mesh reprezentující kostku](../images/mesh/cube.svg.png)
 
 
 [Binární STL soubor][binární] obsahuje stejné informace, pouze v úspornější
@@ -133,7 +133,7 @@ STL soubory lze prohlížet v mnoha programech:
 [Netfabb]: https://github.com/3DprintFIT/netfabb-basic-download
 [Blender]: https://www.blender.org/
 
-![ADMeshGUI](../images/admeshgui.png)
+![ADMeshGUI](../images/mesh/admeshgui.png)
 
 Chyby v triangulární meshi
 --------------------------
@@ -148,12 +148,12 @@ Zde si představíme několik častých chyb v STL souborech:
 
 Mesh není „vodotěsná“ a někde obsahuje díru.
 
-![Díra v meshi](../images/mesh_hole.svg.png)
+![Díra v meshi](../images/mesh/mesh_hole.svg.png)
 
 Často díra není způsobena chybějícím facetem, ale nepřesností v číslech
 s plovoucí desetinnou čárkou s malou přesností.
 
-![Díra v meshi způsobená floatovou chybou](../images/mesh_floaterror.svg.png)
+![Díra v meshi způsobená floatovou chybou](../images/mesh/mesh_floaterror.svg.png)
 
 ### Duplicitní facet
 
@@ -161,14 +161,14 @@ Na stejném místě se nachází více facetů.
 Někdy jsou stejně orientované a plně se překrývají, jindy můžou takové facety
 tvořit část modelu s nulovým objemem.
 
-![Duplicitní facet](../images/mesh_duplicate.svg.png)
+![Duplicitní facet](../images/mesh/mesh_duplicate.svg.png)
 
 ### Špatně orientovaný facet
 
 Orientace facetu je dána pořadím vrcholů a normálou. Tyto informace si tedy mohou protiřečit. Někdy je také část 3D modelu nebo celý model otočen „vnitřkem ven“.
 
 
-![Špatně orientovaný facet](../images/mesh_flipped.svg.png)
+![Špatně orientovaný facet](../images/mesh/mesh_flipped.svg.png)
 
 ### Sdílená hrana či stěna
 
@@ -176,7 +176,7 @@ Na první pohled nevinná chyba, která ale rozporuje fyzické reprezentaci 3D
 modelu. Je mezi těmito kostkami úzká mezera, nebo jde úzkou mezerou projít
 z jedné kostky do druhé?
 
-![Sdílená hrana](../images/mesh_commonedge.svg.png)
+![Sdílená hrana](../images/mesh/mesh_commonedge.svg.png)
 
 ### Protínající se facety
 
@@ -184,7 +184,7 @@ Při spojování více skořepin často vniká chyba, kdy se facety navzájem pr
 
 Na obrázku jsou nesprávně (vlevo) a správně (vpravo) spojené koule, díra v meshi je zde jen pro lepší náhled dovnitř.
 
-![Protínající se facete](../images/mesh_intersect.png)
+![Protínající se facete](../images/mesh/mesh_intersect.png)
 
 
 Oprava chyb v triangulární meshi
@@ -229,12 +229,12 @@ TODO zde bude video s opravou kostky a krokodýla
 Soubory
 -------
 
-  * [cube_bad.stl](../stls/cube_bad.stl) – kostka z videa s chybami
-  * [cube_correct.stl](../stls/cube_correct.stl) – kostka z videa bez chyb
-  * [aligator_mini_bad.stl](../stls/aligator_mini_bad.stl) – aligátor z videa ([originál CC BY-SA Joseph Larson](https://www.thingiverse.com/thing:21724))
-  * [bunny_trouble_piece.stl](../stls/bunny_trouble_piece.stl) – králík z videa ([CC BY-NC mrbug](https://www.thingiverse.com/thing:7578))
-  * [base_simple.stl](../stls/base_simple.stl) – bodovaná úloha na cvičení
-  * [stojan_broken.stl](../stls/stojan_broken.stl) – bodovaná úloha na cvičení
-  * [vicko.stl](../stls/vicko.stl) – bodovaná úloha na cvičení
-  * [tajmahal.stl](../stls/tajmahal.stl) – nebodovaná úloha na procvičení ([CC BY-SA Nicholas Wilson](https://www.thingiverse.com/thing:11183))
+  * [cube_bad.stl](../stls/mesh/cube_bad.stl) – kostka z videa s chybami
+  * [cube_correct.stl](../stls/mesh/cube_correct.stl) – kostka z videa bez chyb
+  * [aligator_mini_bad.stl](../stls/mesh/aligator_mini_bad.stl) – aligátor z videa ([originál CC BY-SA Joseph Larson](https://www.thingiverse.com/thing:21724))
+  * [bunny_trouble_piece.stl](../stls/mesh/bunny_trouble_piece.stl) – králík z videa ([CC BY-NC mrbug](https://www.thingiverse.com/thing:7578))
+  * [base_simple.stl](../stls/mesh/base_simple.stl) – bodovaná úloha na cvičení
+  * [stojan_broken.stl](../stls/mesh/stojan_broken.stl) – bodovaná úloha na cvičení
+  * [vicko.stl](../stls/mesh/vicko.stl) – bodovaná úloha na cvičení
+  * [tajmahal.stl](../stls/mesh/tajmahal.stl) – nebodovaná úloha na procvičení ([CC BY-SA Nicholas Wilson](https://www.thingiverse.com/thing:11183))
 
