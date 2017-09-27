@@ -3,6 +3,7 @@ import io
 import os
 import pathlib
 import re
+import sys
 import subprocess
 
 import easywebdav
@@ -13,6 +14,42 @@ HOST = 'edux.fit.cvut.cz'
 COURSE = 'BI-3DT'
 PAGES = f'/data/{COURSE}/pages/'
 MEDIA = f'/data/{COURSE}/media/'
+
+RELATIONS = {
+    'schedule': 'tutorials',
+    'apps': '{self}.txt',
+    'admesh': 'tutorials/{self}',
+    'course': 'tutorials/{self}',
+    'mesh': 'tutorials/{self}',
+    'reprap': 'tutorials/{self}',
+    'openscad': 'tutorials/{self}',
+    'slicing': 'tutorials/{self}',
+    'gcode': 'tutorials/{self}',
+    'slic3r': 'tutorials/{self}',
+    'kisslicer': 'tutorials/{self}',
+    'printing': 'tutorials/{self}',
+    'bridges': 'tutorials/{self}',
+    'supports': 'tutorials/{self}',
+    'multicolor': 'tutorials/{self}',
+    'classification': '{self}',
+    'sidebar_footer': 'funding.txt',
+}
+
+
+class RelLinkerFakeDict(dict):
+    def __missing__(self, key):
+        try:
+            return dokuwiki_link(key, RELATIONS[key])
+        except KeyError:
+            print('Warning: Cannot resolve link', key, file=sys.stderr)
+            return 'deadlink'
+
+
+def dokuwiki_link(key, template, separator=':'):
+    link = template.format(self=key).replace('/', separator)
+    if link.endswith('.txt'):
+        return link[:-len('.txt')]
+    return link + f'{separator}start'
 
 
 def dokuwiki(path):
@@ -36,8 +73,11 @@ def fix_data_links(text):
 def fix_relative_links(text):
     """[[./foo.md|bar]] -> [[tutorials:foo|bar]]"""
     # TODO This will break with English tutorials!
-    return re.sub(r'\[\[(\./)?([^\|]+)\.md\|([^]]*)\]\]',
-                  r'[[tutorials:\2|\3]]', text)
+    # Also, this is very hacky :(
+    text = re.sub(r'([{}])', r'\1\1', text)
+    text = re.sub(r'\[\[(\./)?([^\|]+)\.md\|([^]]*)\]\]',
+                  r'[[{links[\2]}|\3]]', text)
+    return text.format(links=RelLinkerFakeDict())
 
 
 def scale_large_images(text, maxwidth=600):
@@ -99,27 +139,7 @@ if __name__ == '__main__':
     conn.upload_dir('stls', MEDIA)
     conn.upload_dir('configs', MEDIA)
 
-    relations = {
-        'schedule': 'tutorials',
-        'apps': '{self}.txt',
-        'admesh': 'tutorials/{self}',
-        'course': 'tutorials/{self}',
-        'mesh': 'tutorials/{self}',
-        'reprap': 'tutorials/{self}',
-        'openscad': 'tutorials/{self}',
-        'slicing': 'tutorials/{self}',
-        'gcode': 'tutorials/{self}',
-        'slic3r': 'tutorials/{self}',
-        'kisslicer': 'tutorials/{self}',
-        'printing': 'tutorials/{self}',
-        'bridges': 'tutorials/{self}',
-        'supports': 'tutorials/{self}',
-        'multicolor': 'tutorials/{self}',
-        'classification': '{self}',
-        'sidebar_footer': 'funding.txt',
-    }
-
-    for key, value in relations.items():
+    for key, value in RELATIONS.items():
         real_value = value.format(self=key)
         conn.upload_converted(f'cs/{key}.md',
                               f'{PAGES}{real_value}')
