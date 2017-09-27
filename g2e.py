@@ -97,10 +97,11 @@ if __name__ == '__main__':
     conn = Connection()
     conn.upload_dir('images', MEDIA)
     conn.upload_dir('stls', MEDIA)
+    conn.upload_dir('configs', MEDIA)
 
     for tutorial in ('admesh', 'course', 'mesh', 'reprap',
                      'openscad', 'slicing', 'gcode', 'slic3r',
-                     'kisslicer'):
+                     'kisslicer', 'printing'):
 
         conn.upload_converted(f'cs/{tutorial}.md',
                               f'{PAGES}tutorials/{tutorial}')
