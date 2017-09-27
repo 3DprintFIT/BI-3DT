@@ -48,7 +48,8 @@ paměti zařízení (závisí na elektronice kolik příkazů se vejde do pamět
 Vzniká tedy prodleva mezi tím co ukazuje ovládací software a co tiskárna 
 skutečně dělá za příkaz.
 
-Zástupci:  
+Zástupci:
+
 -   G0 - Rapid move
 -   G1 - Controlled move
 -   G28 - Move to Origin
