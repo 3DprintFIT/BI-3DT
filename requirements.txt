@@ -1,1 +1,2 @@
 git+https://github.com/hroncok/easywebdav.git
+Pillow==4.2.1
