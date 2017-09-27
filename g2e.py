@@ -79,6 +79,7 @@ if __name__ == '__main__':
     conn.upload_dir('images', MEDIA)
     conn.upload_dir('stls', MEDIA)
 
-    for tutorial in ('admesh', 'course', 'mesh', 'reprap', 'openscad'):
+    for tutorial in ('admesh', 'course', 'mesh', 'reprap',
+                     'openscad', 'slicing'):
         conn.upload_converted(f'cs/{tutorial}.md',
                               f'{PAGES}tutorials/{tutorial}')
