@@ -91,6 +91,6 @@ Prohlížení
 ----------
 
 GCode můžete prohlížet v programu 
-[Pronterface](pronterface.md). Po spuštění zvolte z horního 
+[Pronterface](apps.md). Po spuštění zvolte z horního 
 panelu **Load file** a zvolte požadovaný .gcode soubor. Až se načte, klepněte 
 do části uprostřed. Pokud máte zapnuté 3D zobrazení, musíte použít dvojklik.
