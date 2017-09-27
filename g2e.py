@@ -6,6 +6,7 @@ import re
 import subprocess
 
 import easywebdav
+from PIL import Image
 
 
 HOST = 'edux.fit.cvut.cz'
@@ -39,9 +40,27 @@ def fix_relative_links(text):
                   r'[[tutorials:\2|\3]]', text)
 
 
+def scale_large_images(text, maxwidth=600):
+    """For each image, add ?600, but only if bigger"""
+    lines = text.splitlines()
+    for num, line in enumerate(lines):
+        match = re.match(r'.*{{:(?P<image>[^|}]+)', line)
+        if match:
+            image = match.group('image').strip()
+            im = Image.open(image)
+            width = im.size[0]
+            if width > maxwidth:
+                lines[num] = re.sub(r'{{:(?P<image>[^|}]+)\|(?P<alt>[^}]+)}}',
+                                    r'{{:\g<image>?' + f'{maxwidth}' +
+                                    r'|\g<alt>}}',
+                                    line)
+    return '\n'.join(lines)
+
+
 def convert(path):
     """Converts given path and runs additional functions"""
-    return fix_relative_links(fix_stl_links(fix_image_links(dokuwiki(path))))
+    return fix_relative_links(
+        fix_stl_links(scale_large_images(fix_image_links(dokuwiki(path)))))
 
 
 class Connection:
