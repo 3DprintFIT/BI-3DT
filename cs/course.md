@@ -94,3 +94,9 @@ můžete konzultovat své problémy s ostatními studenty, případně i s námi
 
 [eduxtutorials]: http://edux.fit.cvut.cz/courses/BI-3DT/tutorials
 [eduxclassification]: http://edux.fit.cvut.cz/courses/BI-3DT/classification
+
+
+Nebodovaná úloha na dnešní cvičení
+----------------------------------
+
+[B171A-Username-Assignment](https://github.com/3DprintFIT/B171A-Username-Assignment)
