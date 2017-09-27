@@ -27,10 +27,10 @@ def fix_image_links(text):
     return text.replace('../images/', 'images/')
 
 
-def fix_stl_links(text):
-    """[[../stls/foo|bar]] -> {{:stls/foo|bar}}"""
-    return re.sub(r'\[\[\.\./stls/([^\|]+)\|([^]]*)\]\]',
-                  r'{{:stls/\1|\2}}', text)
+def fix_data_links(text):
+    """[[../whatnot/foo|bar]] -> {{:whatnot/foo|bar}}"""
+    return re.sub(r'\[\[\.\./([^/]+)/([^\|]+)\|([^]]*)\]\]',
+                  r'{{:\1/\2|\3}}', text)
 
 
 def fix_relative_links(text):
@@ -60,7 +60,7 @@ def scale_large_images(text, maxwidth=600):
 def convert(path):
     """Converts given path and runs additional functions"""
     return fix_relative_links(
-        fix_stl_links(scale_large_images(fix_image_links(dokuwiki(path)))))
+        fix_data_links(scale_large_images(fix_image_links(dokuwiki(path)))))
 
 
 class Connection:
