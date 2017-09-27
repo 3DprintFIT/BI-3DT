@@ -101,7 +101,8 @@ if __name__ == '__main__':
 
     for tutorial in ('admesh', 'course', 'mesh', 'reprap',
                      'openscad', 'slicing', 'gcode', 'slic3r',
-                     'kisslicer', 'printing', 'bridges'):
+                     'kisslicer', 'printing', 'bridges', 'supports',
+                     'multicolor'):
 
         conn.upload_converted(f'cs/{tutorial}.md',
                               f'{PAGES}tutorials/{tutorial}')
