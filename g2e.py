@@ -99,13 +99,25 @@ if __name__ == '__main__':
     conn.upload_dir('stls', MEDIA)
     conn.upload_dir('configs', MEDIA)
 
-    for tutorial in ('admesh', 'course', 'mesh', 'reprap',
-                     'openscad', 'slicing', 'gcode', 'slic3r',
-                     'kisslicer', 'printing', 'bridges', 'supports',
-                     'multicolor'):
+    relations = {
+        'admesh': 'tutorials/{self}',
+        'course': 'tutorials/{self}',
+        'mesh': 'tutorials/{self}',
+        'reprap': 'tutorials/{self}',
+        'openscad': 'tutorials/{self}',
+        'slicing': 'tutorials/{self}',
+        'gcode': 'tutorials/{self}',
+        'slic3r': 'tutorials/{self}',
+        'kisslicer': 'tutorials/{self}',
+        'printing': 'tutorials/{self}',
+        'bridges': 'tutorials/{self}',
+        'supports': 'tutorials/{self}',
+        'multicolor': 'tutorials/{self}',
+        'classification': '{self}',
+        'sidebar_footer': 'funding.txt',
+    }
 
-        conn.upload_converted(f'cs/{tutorial}.md',
-                              f'{PAGES}tutorials/{tutorial}')
-
-    conn.upload_converted('cs/classification.md',
-                          f'{PAGES}classification')
+    for key, value in relations.items():
+        real_value = value.format(self=key)
+        conn.upload_converted(f'cs/{key}.md',
+                              f'{PAGES}{real_value}')
