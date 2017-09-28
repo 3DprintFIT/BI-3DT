@@ -122,7 +122,7 @@ def fix_relative_links(text):
     # TODO This will break with English tutorials!
     # Also, this is very hacky :(
     text = re.sub(r'([{}])', r'\1\1', text)
-    text = re.sub(r'\[\[(\./)?([^\|]+)\.md\|([^]]*)\]\]',
+    text = re.sub(r'\[\[(\./)?([^\|:]+)\.md\|([^]]*)\]\]',
                   r'[[{links[\2]}|\3]]', text)
     return text.format(links=RelLinkerFakeDict())
 
