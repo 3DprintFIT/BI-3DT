@@ -42,6 +42,7 @@ MEDIA = f'/data/{COURSE}/media/'
 
 RELATIONS = {
     'schedule': 'tutorials',
+    'index': 'start.txt',
     'apps': '{self}.txt',
     'admesh': 'tutorials/{self}',
     'course': 'tutorials/{self}',
