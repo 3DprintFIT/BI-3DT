@@ -147,7 +147,8 @@ def convert(markdown, silent):
         except Exception:
             print(click.style(path, fg='red'))
             raise
-        print(click.style(path, fg='green'))
+        if silent or len(markdown) > 1:
+            print(click.style(path, fg='green'))
         if not silent:
             print(converted)
             print()
