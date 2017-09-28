@@ -16,4 +16,4 @@ Změna programu vyhrazena.
 | 10.     | 2.5.2017   | [Tisk](printing.md) - [Podpory](supports.md)                                             |   4  |
 | 11.     | 11.5.2017  | [Tisk](printing.md) - [Vícebarevný tisk](multicolor.md)                                  |   4  |
 | 12.     | 15.5.2017  | [Tisk](printing.md) - co si přejete vyzkoušet ohledně semestrální práce                  |   0  |
-|         |            | [Meshmixer](meshmixer.md) (domácí příprava vhodná k semestrálce)                         |   0  |
+|         |            | [MeshMixer a řezání STL souborů](meshmixer.md) (domácí příprava vhodná k semestrálce)    |   0  |
