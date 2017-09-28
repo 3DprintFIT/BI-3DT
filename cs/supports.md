@@ -17,4 +17,4 @@ Proto zajistěte to, aby se dostatečně přichytla k tiskové ploše
 
 ![Židlička](../images/supports/chair.png)
 
-Stáhněte si opět [config](../configs/printing/Slic3r_config_bundle.ini) pro Slic3r.
+Stáhněte si opět [config](../configs/printing/slic3r_config_bundle.ini) pro Slic3r.
