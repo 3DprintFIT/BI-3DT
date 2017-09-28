@@ -49,6 +49,8 @@ RELATIONS = {
     'reprap': 'tutorials/{self}',
     'openscad': 'tutorials/{self}',
     'scan': 'tutorials/{self}',
+    'openscad-vars': 'tutorials/openscad/variables.txt',
+    'openscad-molecule': 'tutorials/openscad/molecule.txt',
     'slicing': 'tutorials/{self}',
     'gcode': 'tutorials/{self}',
     'slic3r': 'tutorials/{self}',
