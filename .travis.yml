@@ -12,7 +12,7 @@ install:
 - npm i
 script:
 - npm run lint
-- python g2e.py convert cs/*.md --silent
+- python g2e.py convert cs/*.md cs/*/*.md --silent
 notifications:
   email: false
 deploy:
