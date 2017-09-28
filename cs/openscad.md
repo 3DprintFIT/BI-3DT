@@ -433,3 +433,15 @@ Příklad: MCAD
 ```
 
 ![Ukázka](../images/openscad/ex16.png)
+
+
+Pokročilá práce s proměnnými
+----------------------------
+
+-   [příklady chování](./openscad-vars.md)
+
+
+Příklady ze cvičení
+-------------------
+
+-   [molekula](./openscad-molecule.md)
