@@ -63,6 +63,7 @@ RELATIONS = {
     'meshmixer': 'tutorials/{self}',
     'classification': '{self}',
     'sidebar_footer': 'funding.txt',
+    'literature': 'literature.txt',
     'teacher': '{self}',
     'teacher/halecivo': '{self}',
     'teacher/hroncmir': '{self}',
