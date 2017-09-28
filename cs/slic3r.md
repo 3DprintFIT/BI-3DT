@@ -12,6 +12,9 @@ Ukázka
 
 ![Slic3r](../images/slic3r/slic3r.png)
 
+Další fotografie z článku jsou © Richard Horne, z článků odkázaných na konci
+stránky.
+
 Panely
 ------
 
