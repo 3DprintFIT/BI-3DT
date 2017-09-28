@@ -35,6 +35,12 @@ RELATIONS = {
     'sidebar_footer': 'funding.txt',
 }
 
+ASSETS = [
+    'configs',
+    'images',
+    'stls',
+]
+
 
 class RelLinkerFakeDict(dict):
     def __missing__(self, key):
@@ -162,9 +168,8 @@ def deploy(user, password):
     to provide credentials."""
     conn = Connection(user, password)
 
-    conn.upload_dir('images', MEDIA)
-    conn.upload_dir('stls', MEDIA)
-    conn.upload_dir('configs', MEDIA)
+    for directory in ASSETS:
+        conn.upload_dir(directory, MEDIA)
 
     for key, value in RELATIONS.items():
         real_value = value.format(self=key)
