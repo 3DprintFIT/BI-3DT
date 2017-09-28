@@ -4,6 +4,8 @@ Pro tisk přemostění je důležité mít správně nastavený profil ve slicer
 
 ![Most](../images/bridges/bridge.jpg)
 
+(Obrázek z [videa](https://www.youtube.com/watch?v=wK2APNwEoSk) © BCN3D Technologies.)
+
 ## Správně nastavený most
 
 Pro kalibraci mostu se upravuje hodnota v aplikaci Slic3r v sekcích:
