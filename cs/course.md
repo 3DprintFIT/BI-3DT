@@ -71,7 +71,7 @@ Semestrální práce
 Instalace programů
 ------------------
 
--   viz Programy (TODO dát link)
+-   viz [Programy](apps.md)
 -   do příště za domácí úkol
 -   příští cvičení konzultace případných problémů
 
