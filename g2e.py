@@ -57,6 +57,7 @@ RELATIONS = {
     'bridges': 'tutorials/{self}',
     'supports': 'tutorials/{self}',
     'multicolor': 'tutorials/{self}',
+    'meshmixer': 'tutorials/{self}',
     'classification': '{self}',
     'sidebar_footer': 'funding.txt',
     'teacher': '{self}',
