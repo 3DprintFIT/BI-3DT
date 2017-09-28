@@ -7,6 +7,8 @@ Využijte nastavení Slic3ru, které umožňuje takové podpory generovat.
 
 ![Medvěd](../images/supports/bear.png)
 
+(Model CC BY-NC 3.0 © [Christophe Caranchini](https://www.thingiverse.com/thing:192392).)
+
 Aby si mohl roznašeč dárků při skládání pod stromeček odpočinout,
 musíme mu ještě vytisknout malou [židličku](../stls/supports/bear.stl).
 Židlička je opět poměrně nešťastná. A to tak, že má malé nožičky.
