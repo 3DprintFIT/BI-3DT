@@ -145,12 +145,12 @@ def convert(markdown, silent):
         try:
             converted = _convert(path)
         except Exception:
-            click.echo(click.style(path, fg='red'))
+            print(click.style(path, fg='red'))
             raise
-        click.echo(click.style(path, fg='green'))
+        print(click.style(path, fg='green'))
         if not silent:
-            click.echo(converted)
-            click.echo()
+            print(converted)
+            print()
 
 
 @g2e.command()
