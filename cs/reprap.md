@@ -34,6 +34,8 @@ pomocí záření různých vlnových délek.
 
 ![Stereolitografie](../images/reprap/stereolithography_apparatus.jpg)
 
+(Obrázek z [Wikipedie](https://commons.wikimedia.org/wiki/File:Stereolithography_apparatus.jpg) © Materialgeeza (CC BY-SA).)
+
 Práškový tisk (SLS, DMLS)
 ------------------------
 
@@ -45,6 +47,8 @@ UV zářením. [Video SLS](https://www.youtube.com/watch?v=9E5MfBAV_tA),
 
 ![Práškový tisk](../images/reprap/sls.jpg)
 
+([Obrázek](https://www.prlog.org/12539309-3d-printing-powder-market-analysis-till-2021-download.html) © PRLog.)
+
 PolyJet
 -------
 
@@ -53,6 +57,8 @@ pomocí miniaturních trysek. Následně je vrstva vytvrzena UV paprskem.
 [Video](https://www.youtube.com/watch?v=ZjXh1RJfA34)
 
 ![PolyJet](../images/reprap/polyjet.jpg)
+
+(Nedokážeme dohledat původ obrázku, pomůžete nám? Na internetu je příliš rozšířený.)
 
 FFF/FDM/Thermoplastic extrusion
 -------------------------------
@@ -63,6 +69,8 @@ trysky, kde je roztaven a následně je kladen na podložku.
 [Video](https://www.youtube.com/watch?v=WHO6G67GJbM)
 
 ![FDM](../images/reprap/fdm_by_zureks.png)
+
+(Obrázek z [Wikipedie](https://commons.wikimedia.org/wiki/File:FDM_by_Zureks.png) © Zureks (CC BY-SA).)
 
 *1 - tryska vytlačující plast, 2 - vymodelovaná část objektu, 
 3 - pohybující se platforma*
@@ -96,24 +104,57 @@ Základní modely RepRap
 ----------------------
 
 ![RepRap Darwin](../images/reprap/reprap_darwin.jpg)
+
+(© [Adrian Bowyer](http://reprap.org/wiki/File:RepRapOneDarwin-darwin.jpg), GNU FDL)
+
 ![RepRap Mendel](../images/reprap/reprap_v2_mendel.jpg)
+
+(© [Adrian Bowyer](http://reprap.org/wiki/File:Mendel.jpg), GNU FDL)
+
 ![Rostock](../images/reprap/rostock.jpg)
+
+(© [Johann C. Rocholl](http://reprap.org/wiki/File:Rostock.jpg), GNU FDL)
+
 
 Fork-modely
 -----------
 
 ![Huxley](../images/reprap/huxley.jpg)
+
+(© [Petr Krčmář, root.cz](https://www.root.cz/galerie/linuxalt-2012/#29), použito se svolením)
+
 ![Prusa Mendel](../images/reprap/assembled-prusa-mendel.jpg)
+
+(© [Josef Průša](http://reprap.org/wiki/File:Assembled-prusa-mendel.jpg), GNU FDL)
+
 ![Prusa i3](../images/reprap/prusai3-metalframe.jpg)
+
+(© [Bitflusher](http://reprap.org/wiki/File:Prusai3-metalframe.jpg), GNU FDL)
+
 ![Rebel 2](../images/reprap/rebel2.jpg)
+
+(© [Petr Zahradník](https://www.clexpert.cz/3dtisk/rebel2/), fair use)
+
 ![RebeliX](../images/reprap/rebelix.jpg)
-![Kossel](../images/reprap/kossels.jpeg)
+
+(vlastní foto)
+
+![Kossel](../images/reprap/kossel.jpg)
+
+(© [Johann C. Rocholl](http://reprap.org/wiki/File:Kossel.jpg), GNU FDL)
+
 
 Speciální typy
 --------------
 
 ![Morgan](../images/reprap/morgan.jpg)
+
+(© [Morgan 3D Printers](http://www.morgan3dp.com/reprap-morgan-source/), GPLv2)
+
 ![FoldaRap](../images/reprap/foldarap.jpg)
+
+(© [Emmanuel](https://www.thingiverse.com/thing:15877), GPLv2)
+
 
 Vstupní formát (Slicing)
 ------------------------
