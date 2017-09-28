@@ -134,6 +134,8 @@ Ilustrační obrázek z Netfabbu ukazující opsaný hranol s obdélníkovou pod
 
 ![Opsaný hranol](../images/admesh/boundingbox.png)
 
+(Model CC BY-NC 3.0 © [Daniel Moos](https://www.thingiverse.com/thing:50212).)
+
 Program vypíše na standardní výstup úhel otočení (ve stupních), obsah postavy
 opsaného hranolu, a do souboru zadaného druhým argumentem (z příkazové řádky)
 uloží orotovaný soubor v takovém formátu (ASCII/binary), v jakém byl načten
