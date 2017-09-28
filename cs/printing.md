@@ -9,6 +9,10 @@ ovládací interface [OctoPrint](http://octoprint.org).
 
 ![Náhled](../images/printing/octoprint.png)
 
+(Obrázek z [README] OctoPrintu © Gina Häußge (AGPL).)
+
+[README]: https://github.com/foosel/OctoPrint/blob/master/README.md
+
 Předletová příprava
 -------------------
 
