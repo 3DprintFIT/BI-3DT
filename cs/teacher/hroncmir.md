@@ -1,0 +1,8 @@
+# Miro Hrončok (garant předmětu)
+
+  * e-mail: [miroslav.hroncok@fit.cvut.cz](mailto:miroslav.hroncok@fit.cvut.cz)
+  * twitter: @hroncok
+  * mobilní telefon: +420 777 974 800 - pouze naléhavé případy, např. když se neobjevím na cvičení :P
+  * školní telefon: +420 224 356 415 - pokud jsem v labu
+  * místnost: TH:A-1153
+  * konzultace: po předchozí dohodě

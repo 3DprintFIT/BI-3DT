@@ -33,6 +33,13 @@ RELATIONS = {
     'multicolor': 'tutorials/{self}',
     'classification': '{self}',
     'sidebar_footer': 'funding.txt',
+    'teacher': '{self}',
+    'teacher/halecivo': '{self}',
+    'teacher/hroncmir': '{self}',
+    'teacher/prusaja3': '{self}',
+    'teacher/sykorto6': '{self}',
+    'teacher/wijasjan': '{self}',
+    'teacher/zehramar': '{self}',
 }
 
 

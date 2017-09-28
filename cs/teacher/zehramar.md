@@ -1,0 +1,8 @@
+# Marek Žehra (tento semestr neučí)
+
+Marek Žehra tento semestr neučí 3D tisk.
+
+  * e-mail: [marek.zehra@fit.cvut.cz](mailto:marek.zehra@fit.cvut.cz)
+  * školní telefon: +420 224 356 415 - pokud sedím v labu :)
+  * místnost: A1153
+  * konzultace: po předcohzí dohodě mailem, nebo na telefonu
