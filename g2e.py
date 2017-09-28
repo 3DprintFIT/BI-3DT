@@ -48,6 +48,7 @@ RELATIONS = {
     'mesh': 'tutorials/{self}',
     'reprap': 'tutorials/{self}',
     'openscad': 'tutorials/{self}',
+    'scan': 'tutorials/{self}',
     'slicing': 'tutorials/{self}',
     'gcode': 'tutorials/{self}',
     'slic3r': 'tutorials/{self}',
