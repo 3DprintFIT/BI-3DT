@@ -24,6 +24,7 @@ THE SOFTWARE.
 """
 
 import io
+import os
 import pathlib
 import re
 import sys
@@ -82,11 +83,14 @@ def dokuwiki_link(key, template, separator=':'):
     return separator + link + f'{separator}start'
 
 
+def run(*command):
+    return subprocess.run(command, universal_newlines=True, check=True,
+                          stdout=subprocess.PIPE).stdout
+
+
 def dokuwiki(path):
     """Converts given path to dokuwiki syntax, returns string"""
-    return subprocess.run(('pandoc', '--to', 'dokuwiki', path),
-                          universal_newlines=True, check=True,
-                          stdout=subprocess.PIPE).stdout
+    return run('pandoc', '--to', 'dokuwiki', path)
 
 
 def fix_image_links(text):
@@ -133,6 +137,13 @@ def _convert(path):
         fix_data_links(scale_large_images(fix_image_links(dokuwiki(path)))))
 
 
+def travis_changed_files():
+    commit_range = os.environ.get('TRAVIS_COMMIT_RANGE')
+    if commit_range:
+        return run('git', 'diff', '--name-only', commit_range).splitlines()
+    return None
+
+
 class Connection:
     def __init__(self, user, password):
         self.c = easywebdav.connect(HOST, username=user, password=password,
@@ -148,8 +159,16 @@ class Connection:
             if path.is_dir():
                 self.upload_dir(path, destination)
             else:
-                print('uploading', destination + path.name)
-                self.c.upload(str(path), destination + path.name)
+                self.upload_asset(path, destination + path.name)
+
+    def upload_asset(self, path, destination):
+        changed_files = travis_changed_files()
+        path = str(path)
+        if changed_files is None or path in changed_files:
+            print('uploading', destination)
+            return self.c.upload(path, destination)
+        print(f'skipping {destination} (not changed)')
+        return None
 
     def upload_converted(self, local_file, destination):
         print('converting', local_file)
