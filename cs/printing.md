@@ -23,7 +23,7 @@ případě s poškozenou tiskárnou.
 Nastavení pro Slic3r
 --------------------
 
-Config bundle ke stažení [zde](../configs/printing/Slic3r_config_bundle.ini)
+Config bundle ke stažení [zde](../configs/printing/slic3r_config_bundle.ini)
 
 Testovací objekt
 -----------------

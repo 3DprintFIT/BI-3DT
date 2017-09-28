@@ -11,4 +11,4 @@ Pro kalibraci mostu se upravuje hodnota v aplikaci Slic3r v sekcích:
  -  Print Settings→Speed→Bridges 
  -  Print Settings→Advanced→Flow.
 
-Pro dnešní cvičení si stáhnětě nový [config](../configs/bridges/Slic3r_config_bundle.ini)
+Pro dnešní cvičení si stáhnětě nový [config](../configs/bridges/slic3r_config_bundle.ini)
