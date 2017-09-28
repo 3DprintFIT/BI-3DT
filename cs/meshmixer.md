@@ -1,30 +1,33 @@
 MeshMixer a řezání STL souborů
 ==============================
 
-Aktuální MeshMixer 2.9 najdete na [stránkách programu](http://www.meshmixer.com/). 
-Existuje verze pro Windows a macOS. A experimentální balíček pro Ubuntu 14.04
+Aktuální MeshMixer 3.2 najdete na [stránkách programu](http://www.meshmixer.com/). 
+Existuje verze pro Windows a macOS.
+
+Existoval experimentální balíček pro Ubuntu 14.04
 (můžete si z něj relativně jednoduše udělat 
 [AppImage](https://github.com/hroncok/meshmixer-docker/blob/master/README.md#how-to-create-meshmixer-appimage) 
-a spouštět ho na jiných distribucích).
+a spouštět ho na jiných distribucích, nebo si ho vzít z fakultního počítače).
 
-<https://www.youtube.com/watch?v=cVx1vXq8Xao>
+Video návody jsou vytvořeny na verzi 2.9:
+
+[Řezání objektů v MeshMixeru](https://www.youtube.com/watch?v=cVx1vXq8Xao)
 
 Cura je dostupná ve dvou variantách, já doporučuji stáhnout 
 [Cura Lulzbot Edititon](https://www.lulzbot.com/cura) nebo 
 [starší verzi Ultimaker Cura (15.x)](https://ultimaker.com/en/products/cura-software/list) 
 (nová verze je celá předělaná a návod nebude souhlasit).
 
-<https://www.youtube.com/watch?v=FNOLtlEaJKA>
+[Pokládání objektů v Cuře](https://www.youtube.com/watch?v=FNOLtlEaJKA)
 
-Mohlo by se vám také hodit: <https://www.youtube.com/watch?v=SiBXboixe2g>
-
-A ještě řezání ve Slic3ru: <https://www.youtube.com/watch?v=1U4MVuaSv0U>
+Mohlo by se vám také hodit: [Převisy v Cuře (bez komentáře)](https://www.youtube.com/watch?v=SiBXboixe2g)
+a [Řezání modelů ve Slic3ru](https://www.youtube.com/watch?v=1U4MVuaSv0U)
 
 MeshMixer 2.4
 -------------
 
-Tato část návodu (bez videí) je pro starou verzi MeshMixeru, ale vystačíte si 
-s jedním programem.
+Tato část návodu (bez videí) je pro velmi starou verzi MeshMixeru,
+ale vystačíte si s jedním programem.
 
 ### Instalace
 
