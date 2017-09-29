@@ -150,6 +150,12 @@ def _convert(path):
         fix_data_links(scale_large_images(fix_image_links(dokuwiki(path)))))
 
 
+def validate_converted(wiki):
+    """Raises RuntimeError if wrong"""
+    if '<html>' in wiki.lower():
+        raise RuntimeError('Plain <HTML> found')
+
+
 def travis_changed_files():
     commit_range = os.environ.get('TRAVIS_COMMIT_RANGE')
     if commit_range:
@@ -206,6 +212,7 @@ def convert(markdown, silent):
     for path in markdown:
         try:
             converted = _convert(path)
+            validate_converted(converted)
         except Exception:
             print(click.style(path, fg='red'))
             raise
