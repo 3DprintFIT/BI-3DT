@@ -24,7 +24,7 @@ Průběh
 
 -   **cvičení** -- zde v A1048
 -   **tisk semestrálních prací** -- v labu A1153 ve zkouškovém období
--   harmonogram semestru je na stránce [Cvičení][eduxtutorials] na EDUXu
+-   harmonogram semestru je na stránce [Cvičení](./schedule.md)
 -   účast v zásadě nepovinná:
     -   nevyhodíme vás za to, že jste nepřišli
     -   úlohy na cvičeních jsou ale za body
@@ -36,7 +36,7 @@ Hodnocení
 -   **30 bodů**  Práce v semestru na cvičeních 
 -   **40 bodů**  Semestrální práce 
 
-Informace na stránce [Hodnocení][eduxclassification] na EDUXu je vždy prioritní 
+Informace na stránce [Hodnocení](./classification.md) je vždy prioritní 
 oproti informacím uvedených zde (informujte nás při neshodě).
 
 Cvičení
@@ -45,17 +45,17 @@ Cvičení
 Kopírují workflow tisku.
 
 1.  **Tvorba modelů**: program OpenSCAD
-1.  **Optimalizace** a **opravy**: program netfabb Basic
-1.  **Slicování**: programy Slic3r (a KISSlicer)
-1.  **Tisk**: program OctoPrint
-1.  1 cvičení také **Programování**: ADMesh
+2.  **Optimalizace** a **opravy**: program netfabb Basic
+3.  **Slicování**: programy Slic3r (a KISSlicer)
+4.  **Tisk**: program OctoPrint
+5.  1 cvičení také **Programování**: ADMesh
 
 Domácí úkol
 -----------
 
 -   ověření schopnosti ovládat program OpenSCAD na úrovni mistra Yody
 -   odevzdávání na GitHub
--   zadání ve 3. týdnu (snad)
+-   zadání ve 4. týdnu (snad)
 -   parametrický model s pevně daným rozhraním
 
 Semestrální práce
@@ -66,12 +66,12 @@ Semestrální práce
 -   zadání zveřejníme později
 -   zakončeno tiskem:
     -   zkouškové obdobní
--   40 % [hodnocení][eduxclassification] předmětu
+-   40 % [hodnocení](./classification.md) předmětu
 
 Instalace programů
 ------------------
 
--   viz [Programy](apps.md)
+-   viz [Programy](./apps.md)
 -   do příště za domácí úkol
 -   příští cvičení konzultace případných problémů
 
@@ -92,11 +92,13 @@ Na Facebooku existuje stránka
 můžete konzultovat své problémy s ostatními studenty, případně i s námi
 (vyučující sami tuto stránku aktivně sledují, ale nespoléhejte na to).
 
-[eduxtutorials]: http://edux.fit.cvut.cz/courses/BI-3DT/tutorials
-[eduxclassification]: http://edux.fit.cvut.cz/courses/BI-3DT/classification
+GitHub
+------
+
+Letos v předmětu experimentální odevzdávání všeho na GitHub.
+Na tomhle cvičení si to vyzkoušíme.
 
 
-Nebodovaná úloha na dnešní cvičení
-----------------------------------
+### Nebodovaná úloha na dnešní cvičení
 
 [B171A-Username-Assignment](https://github.com/3DprintFIT/B171A-Username-Assignment)
