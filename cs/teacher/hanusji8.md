@@ -1,0 +1,6 @@
+# Jiří Hanuš
+
+  * e-mail: [hanusji8@fit.cvut.cz](mailto:hanusji8@fit.cvut.cz)
+  * telefon: +420 608 038 811 (výjimečné příady)
+  * místnost: A1153
+  * konzultace: po předchozí domluvě
