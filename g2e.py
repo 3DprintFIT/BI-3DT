@@ -72,6 +72,7 @@ RELATIONS = {
     'teacher/wijasjan': '{self}',
     'teacher/zehramar': '{self}',
     'teacher/hanusji8': '{self}',
+    'teacher/hlavam30': '{self}',
 }
 
 ASSETS = [
