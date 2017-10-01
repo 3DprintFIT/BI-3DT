@@ -1,8 +1,16 @@
 Učitelé
 =======
 
-  * Tento semestr vás učí [Miro Hrončok](teacher/hroncmir.md) a
-    [Janusz Wijas](teacher/wijasjan.md).
+  * Tento semestr vás učí:
+      * první cvičení:
+          * [Jakub Průša](teacher/prusaja3.md)
+          * [Janusz Wijas](teacher/wijasjan.md)
+      * druhé cvičení:
+          * [Miro Hrončok](teacher/hroncmir.md) (garant předmětu)
+          * [Jiří Hanuš](teacher/hanusji8.md)
+      * třetí cvičení:
+          * [Tomáš Sýkora](teacher/sykorto6.md)
+          * [Marián Hlaváč](teacher/hlavam30.md)
   * Telefon do labu: +420 224 358 714
   * Místnost labu: TH:A-1153
   * E-mail: [3dprint@fit.cvut.cz](mailto:3dprint@fit.cvut.cz)
