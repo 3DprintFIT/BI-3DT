@@ -98,7 +98,3 @@ GitHub
 Letos v předmětu experimentální odevzdávání všeho na GitHub.
 Na tomhle cvičení si to vyzkoušíme.
 
-
-### Nebodovaná úloha na dnešní cvičení
-
-[B171A-Username-Assignment](https://github.com/3DprintFIT/B171A-Username-Assignment)
