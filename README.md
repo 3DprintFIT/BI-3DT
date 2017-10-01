@@ -40,7 +40,7 @@ There are some dependencies, so use Python virtual environments and `pip` to
 get them:
 
 ```console
-$ python3.6 -m venv _env__
+$ python3.6 -m venv __env__
 $ . __env__/bin/activate
 (__env__) $ python -m pip install -r requirements.txt
 ...
