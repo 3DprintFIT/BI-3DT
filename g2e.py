@@ -150,10 +150,23 @@ def scale_large_images(text, maxwidth=600):
     return '\n'.join(lines)
 
 
+def is_tutorial(path):
+    key = path[len('cs/'):-len('.md')]
+    try:
+        return RELATIONS[key].startswith('tutorials')
+    except KeyError:
+        return False
+
+
 def _convert(path):
     """Converts given path and runs additional functions"""
-    return fix_relative_links(
+    source = fix_relative_links(
         fix_data_links(scale_large_images(fix_image_links(dokuwiki(path)))))
+
+    if is_tutorial(path):
+        source += '\n\n~~SLIDESHOW~~'
+
+    return source
 
 
 def validate_converted(wiki):
