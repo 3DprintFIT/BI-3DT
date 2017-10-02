@@ -223,7 +223,7 @@ které jsou volně šiřitelné.
 
 Na cvičení používáme tento program.
 
-TODO zde bude video s opravou kostky a krokodýla
+[![Video](../images/mesh/video.png)](https://www.youtube.com/watch?v=bl1AIYqPvcE)
 
 
 Soubory
