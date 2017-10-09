@@ -53,7 +53,7 @@ Primitiva
 ---------
 
 -   `cube(size,center);` -- kvádr (`size=[1,2,3]`) nebo krychle (`size=5`)
--   `sphere(``r);` -- koule
+-   `sphere(r);` -- koule
 -   `cylinder(h,r1,r2,center);` -- (komolý) kužel (`r1,r2`) 
     nebo válec (`r`)
 -   `polyhedron(...);` -- mnohostěn, nešahat
