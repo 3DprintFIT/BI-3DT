@@ -167,7 +167,7 @@ Moduly
 
 -   přijímá parametry, můžou nabývat výchozích hodnot
 
--   může přijímat `child()`
+-   může přijímat `children()`
 
 -   můžete je mít v jiných souborech a použít `include `<f.scad>`;` nebo 
     `use `<f.scad>`;`
