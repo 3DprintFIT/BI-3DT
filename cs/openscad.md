@@ -167,7 +167,7 @@ Moduly
 
 -   přijímá parametry, můžou nabývat výchozích hodnot
 
--   může přijímat `child()`
+-   může přijímat `children()`
 
 -   můžete je mít v jiných souborech a použít `include `<f.scad>`;` nebo 
     `use `<f.scad>`;`
@@ -189,20 +189,22 @@ Příklad: Modul
 
 ![Ukázka](../images/openscad/ex7.png)
 
-child()
+children()
 -------
 
--   `child(0)` .. `child($children-1)`
+-   `children(0)` .. `children($children-1)`
+
+-   `children([start : step : end])`
 
 -   `children()`
 
-Příklad: child()
+Příklad: children()
 ----------------
 
 ```cpp
   module elongate() {
     for (i = [0 : $children-1])
-      scale([10 , 1, 1 ]) child(i);
+      scale([10 , 1, 1 ]) children(i);
   }
   elongate() {sphere(30); cube(45,center=true); cylinder(r=10,h=50);}
 ```
