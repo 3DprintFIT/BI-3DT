@@ -192,7 +192,7 @@ Příklad: Modul
 children()
 -------
 
--   `children(0)` .. `child($children-1)`
+-   `children(0)` .. `children($children-1)`
 
 -   `children([start : step : end])`
 
