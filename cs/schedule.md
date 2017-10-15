@@ -6,7 +6,7 @@ Změna programu vyhrazena.
 |---------|------------|------------------------------------------------------------------------------------------|---------------------------------------------------------------|
 | 1.      | 2.10.2017  | [Principy předmětu](course.md), [RepRap](reprap.md)                                      | [0](https://github.com/3DprintFIT/B171A-Username-Assignment)  |
 | 2.      | 9.10.2017  | [OpenSCAD: Základy](openscad.md)                                                         | [3](https://github.com/3DprintFIT/B171A-OpenSCAD1-Assignment) |
-| 3.      | 16.10.2017 | [OpenSCAD: Pokročilé](openscad.md)                                                       | 3                                                             |
+| 3.      | 16.10.2017 | [OpenSCAD: Pokročilé](openscad.md)                                                       | [3](https://github.com/3DprintFIT/B171A-OpenSCAD2-Assignment)                                                             |
 | 4.      | 23.10.2017 | [Mesh](mesh.md)                                                                          | 3                                                             |
 | 5.      | 30.10.2017 | [ADMesh](admesh.md) - Programová manipulace s meshí                                      | 3                                                             |
 | 6.      | 6.11.2017  | [Skenování](scan.md)                                                                     | 3                                                             |
