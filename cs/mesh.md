@@ -233,8 +233,5 @@ Soubory
   * [cube_correct.stl](../stls/mesh/cube_correct.stl) – kostka z videa bez chyb
   * [aligator_mini_bad.stl](../stls/mesh/aligator_mini_bad.stl) – aligátor z videa ([originál CC BY-SA Joseph Larson](https://www.thingiverse.com/thing:21724))
   * [bunny_trouble_piece.stl](../stls/mesh/bunny_trouble_piece.stl) – králík z videa ([CC BY-NC mrbug](https://www.thingiverse.com/thing:7578))
-  * [base_simple.stl](../stls/mesh/base_simple.stl) – bodovaná úloha na cvičení
-  * [stojan_broken.stl](../stls/mesh/stojan_broken.stl) – bodovaná úloha na cvičení
-  * [vicko.stl](../stls/mesh/vicko.stl) – bodovaná úloha na cvičení
   * [tajmahal.stl](../stls/mesh/tajmahal.stl) – nebodovaná úloha na procvičení ([CC BY-SA Nicholas Wilson](https://www.thingiverse.com/thing:11183))
 
