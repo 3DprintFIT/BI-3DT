@@ -107,6 +107,6 @@ neznáme, máme ale nějaké
 od studentů.
 
 Jednotlivé funkce a struktury najdete v souboru
-[`admesh/stl.h`](https://github.com/admesh/admesh/tree/master/src/stl.h).
+[`admesh/stl.h`](https://github.com/admesh/admesh/blob/0.98.x/src/stl.h).
 Velkou dokumentací knihovna bohužel neoplývá, i když něco vzniká na
 [admesh.readthedocs.io](http://admesh.readthedocs.io/en/latest/).
