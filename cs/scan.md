@@ -1,8 +1,7 @@
 Skenování
 =========
 
-Toto cvičení je dobrovolné a není bodované. je to také dobrá chvíle na 
-konzultaci domácího úkolu.
+Informace zde uvedené nejsou aktuální!
 
 Na cvičení proběhne skenování studentů pomocí 
 [Kinectu](https://en.wikipedia.org/wiki/Kinect).
