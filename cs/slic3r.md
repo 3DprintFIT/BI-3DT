@@ -26,7 +26,10 @@ Panely
 -   Printer Settings - Nastavení specifické pro tiskárnu. Průměr trysky, 
     velikost tiskové plochy, atd.
 
-Pozn.: Jelikož jsme experti, tak budeme pracovat v Expert modu 8-)
+Pozn.: Jelikož jsme experti, tak budeme pracovat v Expert režimu.
+Režim se přepíná v *File | Preferences*.
+
+
 
 Printer Settings
 ----------------
@@ -107,6 +110,22 @@ Plater
 ------
 
 -   Poskládání objektů na tiskovou plochu
+
+
+Načítání konfigurace
+--------------------
+
+Pro práci na našich tiskárnách budeme vždy používat naše nastavení, které
+najdete v souboru [slic3r_config_bundle.ini](../configs/printing/slic3r_config_bundle.ini).
+
+Pro načtení konfigurace z našeho souboru je třeba použít volbu *Load Config Bundle...*
+z nabídky *File*. **Pozor!** Obyčejná varinta *Load Config...* funguje jinak
+a při jejím použití nedojte ihned k chybě programu, ale data se nenačtou celá.
+
+Po načtení config bundlu vám aplikace oznámí, že načetla 3 presety. Pokud to
+neudělá, udělali jste chybu (použili jste *Load Config...* místo
+*Load Config Bundle...*).
+
 
 Odkazy
 ------
