@@ -1,6 +1,4 @@
-# Sýkora (tento semestr neučí)
-
-Tomáš Sýkora tento semestr neučí 3D tisk.
+# Tomáš Sýkora
 
   * e-mail: [tomas.sykora@fit.cvut.cz](mailto:tomas.sykora@fit.cvut.cz)
   * twitter: @syky27
