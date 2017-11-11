@@ -21,10 +21,6 @@ Dochází ke kontaktu skeneru a skenováhé modelu.
 #### Destruktivní
 Tento typ skenerů je poněkud atypický, protože jde v podstatě o frézku s kamerou. Na začátku je potřeba měřený objekt zalít do bloku tak, aby pomocný materiál dokonale zatekl do všech dutin. Barva tohoto materiálu musí být kontrastní oproti barvě skenovaného objektu. Takto nachystaný díl se upne na desku frézky a postupně se odfrézovávají tenké vrstvičky konstantní tloušťky. Každá nově odkrytá vrstva je vždy vyfocena a snímek uložen pro pozdější zpracování. Výsledkem je tedy sada 2D fotek s uloženou informací, v jaké výšce Z byla fotka pořízena. Software na každé fotce na přechodu barev zalitého objektu a pomocného materiálu vyextrahuje okrajovou křivku. Tato křivka je reprezentována jako body v rovině. Pokud se spojí křivky ze všech odfrézovaných hladin, pak dostaneme 3D mrak bodů.
 
-![RE1000](../images/scan/re1000.png)
-
-(Obrázek [RE1000](http://robo.hyperlink.cz/3dskenery/obr14.jpg).)
-
 
 
 #### Nedestruktivní
@@ -56,21 +52,28 @@ Jedná se opensource program pro editaci a úpravu mračna bodů a 3D modelů. Z
 Více info o programu [zde](http://www.cloudcompare.org)
 
 ### Ukázka v programu
+> Tato ukázka proběhně živě na cvičení
+ 
 
- - Nejdříve ukázat základní popis programu
- - Ukázka 1 
+ - Základní popis programu
+ - Ukázka 1 (Model nohy)
+	 - Potřebné modely jsou [Sken](../stls/scan/foot_scan.bin) a [Reference](../stls/scan/foot_reference.stl) 
 	 - Nahrání mračna bodů
 	 - Ukázka rekonstrukce 3D modelu
 	 - Ukázka shaderu
- - Ukázka 2
+ - Ukázka 2 (Model zahrady)
+	 - Potřebné modely jsou [Sken 1](../stls/scan/garden1.bin) a [Sken 2](../stls/scan/garden2.bin)
 	 - Importovat 2 point cloudy se zahradou
 	 - Ukázka automatické registrace
 	 - Ukázka poočítaní vzdáleností
- - Ukázka 3
+ - Ukázka 3 (Model zahrady + segmentace)
+	 - Potřebné modely jsou [Sken 1](../stls/scan/garden1.bin) a [Sken 2](../stls/scan/garden2.bin)
 	 - Ukázka segmentace
 	 - Ukázka ručního výběru bodů pro registraci
 	 - Připomenutí si měření vzdáleností
 
+### Užitečné odkazy
+Návod na rekonstrukci modelu pomocí MeshLabu nebo CloudComparu:  [Horus_Guide_to_post-processing_of_the_point_cloud.pdf](https://storage.googleapis.com/bqcom15.statics.bq.com/prod/resources/manual/Horus_Guide_to_post-processing_of_the_point_cloud-1475833823.pdf)
  
 ### Úkoly
 
@@ -78,4 +81,3 @@ Agentům tajné služny se podařil získat 3D sken hlavy Donalda Trumpa (Dále 
 
 Následně se pokusit modely na sebe napasovat tak aby se dala měřit vzájemná podobnost. Měření provádějtě obousměrně. Tak aby jste měli barevné spektrum na hlavě DT a poté i na hlavě KČU. Barevné spektrum zvoltě vhodně. Výsledkem budou 2 obrázky nahrané v repozitáři. (2 body)
 
-Návod: [Horus_Guide_to_post-processing_of_the_point_cloud.pdf](https://storage.googleapis.com/bqcom15.statics.bq.com/prod/resources/manual/Horus_Guide_to_post-processing_of_the_point_cloud-1475833823.pdf)
