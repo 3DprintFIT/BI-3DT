@@ -84,16 +84,19 @@ V praxi je možné se s touto technologií setkat například u
   - Základní popis programu
   - Ukázka 1 (Model nohy)
       - Potřebné modely jsou [sken](../stls/scan/foot_scan.bin) a [reference](../stls/scan/foot_reference.stl) 
+          - Model nohy je z portálu [Thingiverse, CC BY-NC 3.0](https://www.thingiverse.com/thing:1615359) 
       - Nahrání mračna bodů
       - Ukázka rekonstrukce 3D modelu
       - Ukázka shaderu
   - Ukázka 2 (Model zahrady)
       - Potřebné modely jsou [sken 1](../stls/scan/garden1.bin) a [sken 2](../stls/scan/garden2.bin)
+          - Stažené přímo z projektu [CloudCompare, GPL 2+](http://www.cloudcompare.org/samples/CloudCompareGardenData.7z)
       - Importovat 2 point cloudy se zahradou
       - Ukázka automatické registrace
       - Ukázka poočítaní vzdáleností
   - Ukázka 3 (Model zahrady + segmentace)
       - Potřebné modely jsou [sken 1](../stls/scan/garden1.bin) a [sken 2](../stls/scan/garden2.bin)
+          - Stažené přímo z projektu [CloudCompare, GPL 2+](http://www.cloudcompare.org/samples/CloudCompareGardenData.7z)
       - Ukázka segmentace
       - Ukázka ručního výběru bodů pro registraci
       - Připomenutí si měření vzdáleností
