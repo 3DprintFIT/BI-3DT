@@ -36,7 +36,27 @@ Nedestruktivní kontaktní skenery zahrnují všechny narozdíl od destrukt
 
 ## Optické - aktivní 3D skenery
 
-TODO
+Aktivní optické metody se dále dělí podle toho, jaká fyzikálncí vlastnost daného záření se použije pro výpočet prostorové souřadnice bodu
+
+#### Time of flight
+Nejjednodušší metoda se nazývá „time of flight“. Tato metoda je založená na měření času, za jakou dobu se vyslaný paprsek vrátí zpět na snímač po odrazu od objektu.
+
+#### Triangulace
+Další možností je metoda „triangulation“, která na základě známého úhlu mezi projektorem a snímačem, známé vzdálenosti projektoru od snímače a známé polohy měřeného bodu na snímači, dokažé dopočítat skutečný prostorový bod na povrchu objektu.
+
+Triangulace může být:
+
+  - Aktivní 
+  - Pasivní
+
+#### Structured light
+Další aktivní optickou metodou je „structured light“. Ta používá projekci pravidelného vzoru na objekt a na základě deformace tohoto vzoru pak počítá prostorové souřadnice bodů. Výhodou této metody je obrovská rychlost, s jakou se nasnímá daný povrch objektu. Řádově jde o miliony bodů za několik sekund.
+
+V praxi je možné se s touto technologií setkat například u
+
+ - Microsoft Kinect
+ - Assus Xtion
+ - Intel RealSense
 
  - Predevsim Time of flight
  	- Pouzivane v prumyslu 	
@@ -75,7 +95,7 @@ Více info o programu [zde](http://www.cloudcompare.org)
 ### Užitečné odkazy
 Návod na rekonstrukci modelu pomocí MeshLabu nebo CloudComparu:  [Horus_Guide_to_post-processing_of_the_point_cloud.pdf](https://storage.googleapis.com/bqcom15.statics.bq.com/prod/resources/manual/Horus_Guide_to_post-processing_of_the_point_cloud-1475833823.pdf)
  
-### Úkoly
+### Úkoly (přesunout do samostatného repozitáře)
 
 Agentům tajné služny se podařil získat 3D sken hlavy Donalda Trumpa (Dále jen DT) a Kim Čong Una (dále jen KČU). Vaším úkolem je z mračna bodů zrekonstruovat a vyexportovat 3D modely DT a KČU. Výsledne modely nahrajte do repozitáře. (1 bod)
 
