@@ -77,6 +77,10 @@ V praxi je možné se s touto technologií setkat například u
 
 [CloudCompare](http://www.cloudcompare.org) je open-source program pro editaci a úpravu mračna bodů a 3D modelů. Zároveň program umožňuje počítat zajímavé údaje o podobnostech nebo měřit různé vzdálenosti a statistky.
 
+  - stáhnout pro Windows, macOS, Ubuntu a další (balík snap) na odkazu výše
+  - [repozitář pro Fedoru](https://copr.fedorainfracloud.org/coprs/churchyard/CloudCompare/) by @hroncok
+  - kdo nemá, použije školní počítač
+
 ### Ukázka v programu
 > Tato ukázka proběhne živě na cvičení
  
