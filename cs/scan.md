@@ -102,10 +102,3 @@ Více info o programu [zde](http://www.cloudcompare.org)
 
 ### Užitečné odkazy
 Návod na rekonstrukci modelu pomocí MeshLabu nebo CloudComparu:  [Horus_Guide_to_post-processing_of_the_point_cloud.pdf](https://storage.googleapis.com/bqcom15.statics.bq.com/prod/resources/manual/Horus_Guide_to_post-processing_of_the_point_cloud-1475833823.pdf)
- 
-### Úkoly (přesunout do samostatného repozitáře)
-
-Agentům tajné služny se podařil získat 3D sken hlavy Donalda Trumpa (Dále jen DT) a Kim Čong Una (dále jen KČU). Vaším úkolem je z mračna bodů zrekonstruovat a vyexportovat 3D modely DT a KČU. Výsledne modely nahrajte do repozitáře. (1 bod)
-
-Následně se pokusit modely na sebe napasovat tak aby se dala měřit vzájemná podobnost. Měření provádějtě obousměrně. Tak aby jste měli barevné spektrum na hlavě DT a poté i na hlavě KČU. Barevné spektrum zvoltě vhodně. Výsledkem budou 2 obrázky nahrané v repozitáři. (2 body)
-
