@@ -66,12 +66,12 @@ V praxi je možné se s touto technologií setkat například u
   - Intel RealSense
 
   - Predevsim Time of flight
-      - Pouzivane v prumyslu     
-  - Stereo aktivni a pasivni
-      - Aktivni napriklad horus 
+      - používané v průmyslu     
+  - Stereo aktivní a pasivní
+      - aktivní například Ciclop/Horus
   - Structured light
       - Kinect
-      - Realsense
+      - RealSense
 
 ## CloudCompare
 
@@ -97,7 +97,7 @@ V praxi je možné se s touto technologií setkat například u
           - Stažené přímo z projektu [CloudCompare, GPL 2+](http://www.cloudcompare.org/samples/CloudCompareGardenData.7z)
       - Importovat 2 point cloudy se zahradou
       - Ukázka automatické registrace
-      - Ukázka poočítaní vzdáleností
+      - Ukázka počítaní vzdáleností
   - Ukázka 3 (Model zahrady + segmentace)
       - Potřebné modely jsou [sken 1](../stls/scan/garden1.bin) a [sken 2](../stls/scan/garden2.bin)
           - Stažené přímo z projektu [CloudCompare, GPL 2+](http://www.cloudcompare.org/samples/CloudCompareGardenData.7z)
