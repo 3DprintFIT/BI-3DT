@@ -75,9 +75,8 @@ V praxi je možné se s touto technologií setkat například u
       - Realsense
 
 ## CloudCompare
-Jedná se opensource program pro editaci a úpravu mračna bodů a 3D modelů. Zároveň program umožňuje počítat zajímavé údaje o podobnostech nebo měřit různé vzdálenosti a statisky.
 
-Více info o programu [zde](http://www.cloudcompare.org)
+[CloudCompare](http://www.cloudcompare.org) je open-source program pro editaci a úpravu mračna bodů a 3D modelů. Zároveň program umožňuje počítat zajímavé údaje o podobnostech nebo měřit různé vzdálenosti a statisky.
 
 ### Ukázka v programu
 > Tato ukázka proběhně živě na cvičení
