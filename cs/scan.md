@@ -73,6 +73,11 @@ V praxi je možné se s touto technologií setkat například u
       - Kinect
       - RealSense
 
+![Microsoft Kinect](../images/scan/structured_light_2.png)
+![Intel RealSense](../images/scan/structured_light_1.jpg)
+
+
+
 ## CloudCompare
 
 [CloudCompare](http://www.cloudcompare.org) je open-source program pro editaci a úpravu mračna bodů a 3D modelů. Zároveň program umožňuje počítat zajímavé údaje o podobnostech nebo měřit různé vzdálenosti a statistky.
