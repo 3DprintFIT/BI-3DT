@@ -73,6 +73,7 @@ RELATIONS = {
     'teacher/zehramar': '{self}',
     'teacher/hanusji8': '{self}',
     'teacher/hlavam30': '{self}',
+    'homework': 'classification/openscad-ukol.txt',
 }
 
 ASSETS = [
