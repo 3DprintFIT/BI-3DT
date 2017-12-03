@@ -13,7 +13,7 @@ Změna programu vyhrazena.
 | 7.      | 13.11.2017 | [Skenování](scan.md)                                                                     | [3](https://github.com/3DprintFIT/B171A-Scanning-Assignment)  |
 | 8.      | 20.11.2017 | [Tisk - Základy](printing.md)                                                            | [3](printing.md)                                              |
 | 9.      | 27.11.2017 | [Tisk](printing.md) - [Mosty](bridges.md)                                                | [3](bridges.md)                                               |
-| 10.     | 4.12.2017  | [Tisk](printing.md) - [Podpory](supports.md)                                             | 3                                                             |
+| 10.     | 4.12.2017  | [Tisk](printing.md) - [Podpory](supports.md)                                             | [3](supports.md)                                              |
 | 11.     | 11.12.2017 | [Tisk](printing.md) - [Vícebarevný tisk](multicolor.md)                                  | 3                                                             |
 | 12.     | 18.12.2017 | [Tisk](printing.md) - co si přejete vyzkoušet ohledně semestrální práce                  | 0                                                             |
 |         |            | [MeshMixer a řezání STL souborů](meshmixer.md) (domácí příprava vhodná k semestrálce)    | 0                                                             |
