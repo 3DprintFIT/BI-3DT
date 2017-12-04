@@ -7,6 +7,10 @@ Využijte nastavení Slic3ru, které umožňuje takové podpory generovat.
 
 ![Medvěd](../images/supports/bear.png)
 
+Podpory oloupejte. Až budete mít volnou chvíli, navrhněte, jak se podporám
+u tohoto modelu vyhnout. Svůj návrh prezentujte na úrovni modelu, gcode,
+případně ho vytiskněte (pokud vám na to zbude čas po bodovaných úlohách).
+
 (Model CC BY-NC 3.0 © [Christophe Caranchini](https://www.thingiverse.com/thing:192392).)
 
 Aby si mohl roznašeč dárků při skládání pod stromeček odpočinout,
