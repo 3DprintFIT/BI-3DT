@@ -48,3 +48,17 @@ Abyste správně rozdělili GCode soubor, je potřeba ho rozdělit v tom správn
 Správné místo je v našem případě těsně po příkazu určujícím přechod na další vrstvu.
 
 ![Gcode](../images/multicolor/gcode.png)
+
+## Úloha
+
+Vytiskněte libovolné množství (nejméně však jedno) dvoubarevného
+[loga laboratoře](../stls/multicolor/3dprintlab-logo.stl).
+Použijte na to jeden z dvou postupů popsaných výše, ideálně ale první.
+Nastavení tisku zvolte dle potřeby, vycházejte však z tiskového profilu *Normal*.
+Pokud nebudete mít u tiskárny připraveno, požádejte cvičícího o dvě různé barvy materiálu.
+
+Ukázkový výtisk:
+
+![Ukázkový výtisk](../images/multicolor/logo.jpg)
+
+Bodování: 3 body za splnění zadání a úklid.
