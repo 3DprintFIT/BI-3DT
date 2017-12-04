@@ -10,7 +10,7 @@ Využijte nastavení Slic3ru, které umožňuje takové podpory generovat.
 (Model CC BY-NC 3.0 © [Christophe Caranchini](https://www.thingiverse.com/thing:192392).)
 
 Aby si mohl roznašeč dárků při skládání pod stromeček odpočinout,
-musíme mu ještě vytisknout malou [židličku](../stls/supports/bear.stl).
+musíme mu ještě vytisknout malou [židličku](../stls/supports/chair.stl).
 Židlička je opět poměrně nešťastná. A to tak, že má malé nožičky.
 Proto zajistěte to, aby se dostatečně přichytla k tiskové ploše
 (vzpomeňte si, co jsme si říkali o různých podložkách objektů jako Raft a Brim).
