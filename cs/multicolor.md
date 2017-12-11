@@ -13,9 +13,10 @@ tisku a následné navázání s novým materiálem), ale „ukočírování“ 
 
 Nastavení pro Slic3r
 --------------------
-Je nutné použít správný config pro Slic3r, pokud použijete config z minulého cvičení model se Vám nevytiskne správně.
 
-Config bundle ke stažení [zde](../configs/printing/slic3r_config_bundle.ini)
+Je nutné použít správný config pro Slic3r, pokud použijete upravený config z minulého cvičení, model se nemusí vytisknout správně.
+
+Stáhněte si jako obvykle [slic3r_config_bundle.ini](../configs/printing/slic3r_config_bundle.ini).
 
 ## Postupy
 
