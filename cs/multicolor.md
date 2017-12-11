@@ -11,6 +11,13 @@ tisku a následné navázání s novým materiálem), ale „ukočírování“ 
 
 [rozhovoru]: https://replicatore.wordpress.com/2014/11/19/il-progetto-slic3r-e-appena-iniziato-parola-di-alessandro-ranellucci/
 
+Nastavení pro Slic3r
+--------------------
+
+Je nutné použít správný config pro Slic3r, pokud použijete upravený config z minulého cvičení, model se nemusí vytisknout správně.
+
+Stáhněte si jako obvykle [slic3r_config_bundle.ini](../configs/printing/slic3r_config_bundle.ini).
+
 ## Postupy
 
 Existují dva možné přístupy (námi vyzkoušené) jak vytisknout vícebarevný objekt s
