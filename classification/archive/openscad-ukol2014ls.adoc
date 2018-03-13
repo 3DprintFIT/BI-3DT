@@ -1,48 +1,67 @@
-====== OpenSCAD: Domácí úkol LS 2014/2015 ======
+= OpenSCAD: Domácí úkol LS 2014/2015 
+:imagesdir: ../../media/classification/archive
 
-<note warning>Toto není aktuální zadání úkolu. Je zde pouze k účelům archivace.</note>
 
-Vaším úkolem je vytvořit parametrický model stojánku na telefon. Stojánek má podstavu i podpěru telefonu ve tvaru obdélníku se zaoblenými rohy (viz následující schémata). 
+WARNING: Toto není aktuální zadání úkolu. Je zde pouze k účelům archivace.
 
-<note tip>Naše automatické testy používají plný render (v apliakci zkratka F6). Netestujte váš kód pouze s F5. Pozor také na modifikátor % - v režimu plného renderu se takto prefixovaný kód neobjeví.</note>
 
-====== Náhled ======
+Vaším úkolem je vytvořit parametrický model stojánku na telefon. Stojánek má podstavu i podpěru telefonu ve tvaru obdélníku se zaoblenými rohy (viz následující schémata).
 
-{{:classification:openscad-ukol-ls1415:nahled_1.png?0x250|}}
-{{:classification:openscad-ukol-ls1415:nahled_2.png?0x250|}}
-{{:classification:openscad-ukol-ls1415:nahled_3.png?0x250|}}
+TIP: Naše automatické testy používají plný render (v apliakci zkratka F6). Netestujte váš kód pouze s F5. Pozor také na modifikátor % - v režimu plného renderu se takto prefixovaný kód neobjeví.
 
-===== Podstava =====
 
-{{:classification:openscad-ukol-ls1415:podstava.png|}}
+= Náhled
 
-====== Vnější rozměry ======
 
-{{:classification:openscad-ukol-ls1415:bokorys.png?0x368|}}
-{{:classification:openscad-ukol-ls1415:vrsek.png?0x368|}}
+image::../openscad-ukol-ls1415/nahled-1.png[height="250"]
 
-Hodnota //angle_radius// není zadána číslem, ale je nutné ji vypočítat. 
+image::../openscad-ukol-ls1415/nahled-2.png[height="250"]
 
-<code>
+image::../openscad-ukol-ls1415/nahled-3.png[height="250"]
+
+
+== Podstava
+
+
+image::../openscad-ukol-ls1415/podstava.png[]
+
+
+= Vnější rozměry
+
+
+image::../openscad-ukol-ls1415/bokorys.png[height="368"]
+
+image::../openscad-ukol-ls1415/vrsek.png[height="368"]
+
+Hodnota __angle_radius__ není zadána číslem, ale je nutné ji vypočítat.
+
+
+----
 angle_radius = 2*shell_thick + mob_thick + thick/2
-</code>
+----
 
-====== Rozměry konektoru ======
 
-{{:classification:openscad-ukol-ls1415:bokorys-rez.png?0x368|}}
-{{:classification:openscad-ukol-ls1415:vrsek-rez.png?0x368|}}
+= Rozměry konektoru
 
-====== Interface ======
 
-<code c>
+image::../openscad-ukol-ls1415/bokorys-rez.png[height="368"]
+
+image::../openscad-ukol-ls1415/vrsek-rez.png[height="368"]
+
+
+= Interface
+
+
+[source,c]
+----
 /**
  *	Parametrický model stojánku na telefon
- *	@param base_length	  Délka základny 
+ *	@param base_length	  Délka základny
  *	@param top_length 	  Délka podpěry telefonu
  *	@param top_offset   	Odsazení výřezu na telefon
  *	@param width			Šíře celého stojanu
- *	@param thick			Tloušťka stěny 
- *	@param radius	   	Zaoblení rohů 
+ *	@param thick			Tloušťka stěny
+ *	@param radius	   	Zaoblení rohů
  *	@param angle			Úhel naklonění vrchní části
  *	@param mob_width		Šíře telefonu
  *	@param mob_thick		Tloušťka telefonu
@@ -74,30 +93,37 @@ module mobile_stand(
 ){
   //insert your code here...
 }
-</code>
+----
+
 
 Stojánek se vykreslí vždy se spodní hranou v Z=0 (dotýká se virtuální podložky v počátku souřadné soustavy) a středem základy v počátku, natočený tak jak je znázorněno na schématech.
 
 Vykreslení na správné místo je pro hodnocení úlohy naprosto zásadní, kvůli poloautomatickým testům.
 
-Modul musí jít použít z externího souboru pomocí direktivy ''use'' - nesmí tedy uchovávat žádné konstanty mimo modul.
+Modul musí jít použít z externího souboru pomocí direktivy `use` - nesmí tedy uchovávat žádné konstanty mimo modul.
 
 Zachovejte výchozí hodnoty argumentů tak, jak jsou zadané!
 
-====== Kód ======
 
-Kód musí splňovat určitou kvalitu, jednou z podmínek je logické dodržení odsazení (v celém souboru stejné). Opakované konstrukce musí být implementovány vlastními moduly a forcykly. Magické konstanty musí být samovysvětlující, nebo doplněné o komentář. Není možné použít žádné externí knihovny pro OpenSCAD, ani knihovnu MCAD. Manipulace s ''$fn'', ''$fs'' a ''$fa'' je zakázána.
+= Kód
 
-====== Odevzdávání a hodnocení ======
 
-Soubor pojmenujte stand.scad, uložte do archivu stand.zip (přímo do kořenového adresáře archivu) a nahrajte přímo do svého osobního namespacu na Eduxu. Musí jít stáhnout z odkazu ''https://edux.fit.cvut.cz/courses/BI-3DT/_media/student/username/stand.zip'' Na soubor do namespacu umístěte odkaz. V archivu kromě souboru stand.scad musí být pouze potřebné soubory (další vaše scad soubory s moduly, případné DXF nebo STL soubory k importování), do archivu nepatří vygenerované STL soubory stojánku.
+Kód musí splňovat určitou kvalitu, jednou z podmínek je logické dodržení odsazení (v celém souboru stejné). Opakované konstrukce musí být implementovány vlastními moduly a forcykly. Magické konstanty musí být samovysvětlující, nebo doplněné o komentář. Není možné použít žádné externí knihovny pro OpenSCAD, ani knihovnu MCAD. Manipulace s `$fn`, `$fs` a `$fa` je zakázána.
 
-Termín odevzdání je **27.4.2015** včetně. Pozdní odevzdání je možné do 4.5.2015 včetně a to za polovinu bodů, které by jinak student obdržel, kdyby odevzdal včas. V případě doložené dlouhodobé vážné nemoci je možné domluvit se na speciálním termínu. Nemoc či nehoda těsně před odevzdáním neomlouvá.
+
+= Odevzdávání a hodnocení
+
+
+Soubor pojmenujte stand.scad, uložte do archivu stand.zip (přímo do kořenového adresáře archivu) a nahrajte přímo do svého osobního namespacu na Eduxu. Musí jít stáhnout z odkazu `https://edux.fit.cvut.cz/courses/BI-3DT/_media/student/username/stand.zip` Na soubor do namespacu umístěte odkaz. V archivu kromě souboru stand.scad musí být pouze potřebné soubory (další vaše scad soubory s moduly, případné DXF nebo STL soubory k importování), do archivu nepatří vygenerované STL soubory stojánku.
+
+Termín odevzdání je *27.4.2015* včetně. Pozdní odevzdání je možné do 4.5.2015 včetně a to za polovinu bodů, které by jinak student obdržel, kdyby odevzdal včas. V případě doložené dlouhodobé vážné nemoci je možné domluvit se na speciálním termínu. Nemoc či nehoda těsně před odevzdáním neomlouvá.
 
 Po ohodnocení (které proběhne až po termínu odevzdání) nelze úlohu opravit. Před termínem odevzdání je ji však možno konzultovat i nahrávat na Edux v rozpracovaném stavu. Pokud chcete úlohu odevzdávat až v pozdějším termínu, ujistěte se, že na přelomu 27. a 28.4. na Eduxu není žádná rozpracovaná verze (je třeba smazat soubor, nejen odkaz).
 
 Při hodnocení se bude poloautomaticky testovat sada připravených argumentů obsahující především krajní případy. Doporučujeme proto modul vyzkoušet pro všemožné vstupy (nečíselné vstupy testovány nebudou). Na základě výsledku z testu a kvality kódu student může získat 0 až 20 bodů. V případě, že vyhodnotíme, že student úlohu opsal, případně vlastnímu kódu vůbec nerozumí, a ten neprokáže opak, bude úloha hodnocena -100 body, což znamená klasifikaci známkou F.
 
-====== Otázky od studentů ======
 
-//Zatím žádné dotazy nepadly. Neváhejte se zeptat svých cvičících.//
+= Otázky od studentů
+
+
+_Zatím žádné dotazy nepadly. Neváhejte se zeptat svých cvičících._

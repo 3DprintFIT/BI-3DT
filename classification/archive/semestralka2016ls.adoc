@@ -1,68 +1,89 @@
-====== Semestrální práce LS 2016/2017 ======
+= Semestrální práce LS 2016/2017 
+:imagesdir: ../../media/classification/archive
+:toc:
 
 
-{{:classification:bi-3dt.png|}} {{:classification:trubka.png?250}} {{:classification:trubka2.png?250}}
+image:../bi-3dt.png[] image:../trubka.png[width="250"] image:../trubka2.png[width="250"]
 
-<note warning>Toto není aktuální zadání úkolu. Je zde pouze k účelům archivace.</note>
+WARNING: Toto není aktuální zadání úkolu. Je zde pouze k účelům archivace.
 
-<note tip>**Alternativní zadání práce:** Po dohodě s Mirem Hrončokem můžete místo této semestrální práce řešit issues [[https://github.com/admesh/|projektů ADMesh]]. Kolik jich musíte vyřešit a jak budete bodově ohodnoceni, závisí na proběhlé dohodě. V případě zájmu se prosím ozvěte co nejdříve, je zde jen omezené množství práce a tedy je alternativa k semestrálce možná jen pro malý počet studentů.</note>
 
-===== Trubky =====
+TIP: *Alternativní zadání práce:* Po dohodě s Mirem Hrončokem můžete místo této semestrální práce řešit issues https://github.com/admesh/[projektů ADMesh]. Kolik jich musíte vyřešit a jak budete bodově ohodnoceni, závisí na proběhlé dohodě. V případě zájmu se prosím ozvěte co nejdříve, je zde jen omezené množství práce a tedy je alternativa k semestrálce možná jen pro malý počet studentů.
+
+
+== Trubky
+
 
 Úkolem je vytvořit křižovatku pro tři trubky na vodu. Každá trubka má určitý profil a průměr. Křižovatka sama o sobě nesmí zpomalit průtok (teoretickou) vody z dvou libovolných trubek do třetí (či z jedné do dvou).
 
-==== Generátor křižovatek ====
 
-Napište OpenSCAD modul ''splitter'' dodržující předepsané rozhraní, který na základě vstupních dat vytvoří křižovatku tří trubek.
+=== Generátor křižovatek
 
-<code lang="cpp">module splitter(pipes=[...], wall_thick=2.5) { ... }</code>
 
-Vektor ''pipes'' obsahuje 3 položky popisující 3 trubky vystupující z křižovatky.
+Napište OpenSCAD modul `splitter` dodržující předepsané rozhraní, který na základě vstupních dat vytvoří křižovatku tří trubek.
+
+
+[source,lang]
+----
+module splitter(pipes=[...], wall_thick=2.5) { ... }
+----
+
+Vektor `pipes` obsahuje 3 položky popisující 3 trubky vystupující z křižovatky.
 
 Každá trubka obsahuje následující údaje v uvedeném pořadí (poslední závorka je interval validních rozsahů (nevalidní hodnoty nemusíte ošetřovat)):
 
-  - profil trubky (string, viz dále)
-  - délka trubky od středu spojení (20, 50)
-  - vnitřní průměr trubky (dle zvoleného profilu) (10, 40)
-  - úhel, jenž svírá trubka s vodorovnou podložkou (-30°,30°)
+. profil trubky (string, viz dále)
+. délka trubky od středu spojení (20, 50)
+. vnitřní průměr trubky (dle zvoleného profilu) (10, 40)
+. úhel, jenž svírá trubka s vodorovnou podložkou (-30°,30°)
 
-Parametr ''wall_thick'' udává tloušťku stěny v celém objektu. Pokud tedy parametr bude např. 2.5, tloušťka musí být v celém objektu 2.5 (drobné deviace v oblouku jsou přípustné). Průměry trubek jsou vnitřní, šířka stěny tedy zvětšuje vnější rozměr modelu a nesnižuje průchodnost trubek.
+Parametr `wall_thick` udává tloušťku stěny v celém objektu. Pokud tedy parametr bude např. 2.5, tloušťka musí být v celém objektu 2.5 (drobné deviace v oblouku jsou přípustné). Průměry trubek jsou vnitřní, šířka stěny tedy zvětšuje vnější rozměr modelu a nesnižuje průchodnost trubek.
 
 (Na výchozích hodnotách parametrů modulu nezáleží.)
 
-==== Profily trubek ====
 
-{{:classification:profiles.png|Profily}}
+=== Profily trubek
 
-Váš modul musí podporovat všechny zde uvedené profily trubek. Na otočení profilu záleží! Profily jsou znázorněny tak, že spodní strana leží dole (v rámci následnicích obrázků), jsou vždy kolmo na osu trubky a znázorňují pohled zevnitř ven. Druh profilu je určen řetězcem, například tedy ''Square''. (Rozhraní nebude automaticky testováno, zvolte velikost písmen dne uvážení.)
 
-Proměnná ''d'' na obrázku znázorňuje, co pro daný profil znamená výraz průměr v rozhraní modulu.
+image::../profiles.png["Profily"]
 
-Není možné použít externí knihovny (ani knihovnu MCAD). Na rozdíl od úkolu je však možné manipulovat s ''$fn'' (což by se mohlo hodit, mrk, mrk).
+Váš modul musí podporovat všechny zde uvedené profily trubek. Na otočení profilu záleží! Profily jsou znázorněny tak, že spodní strana leží dole (v rámci následnicích obrázků), jsou vždy kolmo na osu trubky a znázorňují pohled zevnitř ven. Druh profilu je určen řetězcem, například tedy `Square`. (Rozhraní nebude automaticky testováno, zvolte velikost písmen dne uvážení.)
 
-===== Vzájemná pozice =====
+Proměnná `d` na obrázku znázorňuje, co pro daný profil znamená výraz průměr v rozhraní modulu.
+
+Není možné použít externí knihovny (ani knihovnu MCAD). Na rozdíl od úkolu je však možné manipulovat s `$fn` (což by se mohlo hodit, mrk, mrk).
+
+
+== Vzájemná pozice
+
 
 Při pohledu shora svírají trubky se sousedícími trubkami úhel 120°.
 
-{{:classification:top-view.png|Pohled z vrchu}}
 
-Proměnné na obrázky ''l'' a ''d'' jsou délky a průměry trubek. Indexy ''a'', ''b'' a ''c'' označují jednotlivé trubky. Při pohledu shora jsou trubky řazeny kladným směrem (proti směru hodinových ručiček). Vhledem k absenci automatického testování je jedno, kterým směrem bude ukazovat první trubka.
+image::../top-view.png["Pohled z vrchu"]
+
+Proměnné na obrázky `l` a `d` jsou délky a průměry trubek. Indexy `a`, `b` a `c` označují jednotlivé trubky. Při pohledu shora jsou trubky řazeny kladným směrem (proti směru hodinových ručiček). Vhledem k absenci automatického testování je jedno, kterým směrem bude ukazovat první trubka.
 
 Při pohledu z boku svírá každá z trubek s podložkou úhel z intervalu (-30°,30°), zde na obrázku jsou dvě další trubky rovnoběžné s podložkou pro lepší znázornění, ale v praxi to tak vždy není. Středové osy trubek se protínají ve středu celé křižovatky. Kladné číslo zde znamená směr vzhůru, záporné dolů.
 
-{{:classification:front-view.png|Pohled z boku}}
+
+image::../front-view.png["Pohled z boku"]
 
 Vnější zakřivení trubek může být libovolné, zvolte jej ale tak, aby dávalo smyl a nesnižovalo průchodnost trubkou. Myslete na to, že váš model musí být parametrický.
 
-===== Zadání k tisku =====
+
+== Zadání k tisku
+
 
 Každý z vás obdrží 2 zadání, které má vytisknout. Z nich si vybere to, které se mu víc líbí. Tloušťku stěny však volíte vhodně sami tak, aby se podařilo model vytisknout a přitom se to stihlo.
 
-<note tip>Pozor, pokud bude vzdálenost od středu příliš krátká a konce trubek by se překrývali, smíte (musíte) je patřičně prodloužit, nikoli však více, než je potřeba. Tuto skutečnost řádně okomentujete. Není nutné tento stav ošetřovat v parametrickém modelu!</note>
+TIP: Pozor, pokud bude vzdálenost od středu příliš krátká a konce trubek by se překrývali, smíte (musíte) je patřičně prodloužit, nikoli však více, než je potřeba. Tuto skutečnost řádně okomentujete. Není nutné tento stav ošetřovat v parametrickém modelu!
 
-<note important>Vaše řešení v OpenSCADu musí podporovat všechny profily trubek, ne jen ty, které máte zadány.</note>
 
-<code>
+IMPORTANT: Vaše řešení v OpenSCADu musí podporovat všechny profily trubek, ne jen ty, které máte zadány.
+
+
+----
 Abisogomyan Sergei: [['Pentagon', 32, 32, 30], ['Star', 46, 22, 3], ['Circle', 31, 28, -15]]
 Abisogomyan Sergei: [['RippedSquare', 24, 25, -11], ['Square', 41, 11, -10], ['Star', 25, 40, 15]]
 Bigarová Jana: [['Star', 33, 12, 12], ['Pentagon', 29, 39, 3], ['Square', 37, 24, -23]]
@@ -127,62 +148,75 @@ Sivák Dominik: [['Star', 40, 20, 6], ['Pentagon', 34, 13, 15], ['Circle', 48, 2
 Sivák Dominik: [['RippedSquare', 50, 24, -17], ['Circle', 31, 13, 7], ['Pentagon', 32, 36, -20]]
 Widmark Sondre Johan: [['Pentagon', 48, 25, -27], ['Star', 25, 37, -13], ['Circle', 27, 35, -25]]
 Widmark Sondre Johan: [['Square', 30, 38, 16], ['Circle', 34, 24, -24], ['Pentagon', 26, 35, -17]]
-</code>
+----
 
-==== Předzpracování ====
 
-Vyberte si jednu (podle vás nejednodušší nebo nejzajímavější) z vašich zadaných křižovatek a připravte STL model pro tisk (můžete si zvýšit ''$fn'', aby byla vaše křižovatka hezčí). Můžete s ní dělat prakticky cokoliv (opravovat, otáčet, krájet, přidávat podpůrné struktury), ale je třeba zachovat při tisku rozměry a tvar křižovatky dle zadaných pravidel a dat. Výstupem je jeden nebo více STL souborů připravených na slicing a velmi stručný popis toho, **co** jste udělali a **proč** (ne nutně písemně, ale při odevzdávání je třeba postup vysvětlit a to i několik týdnů po vykonání vašich změn).
+=== Předzpracování
 
-<note tip>Jak řezat STL soubory? Jde to jistě i v OpenSCADu, ale to je zbytečně komplikované. Připravili jsme proto [[tutorials:meshmixer:start|krátký návod pro program MeshMixer]] - doporučují tři ze čtyř cvičících.</note>
 
-<note tip>Nejde vám v Meshmixeru dobře alignovat? Zkuste program [[https://www.lulzbot.com/cura|Cura]]. Obsahuje funkci //Lay flat//.</note>
+Vyberte si jednu (podle vás nejednodušší nebo nejzajímavější) z vašich zadaných křižovatek a připravte STL model pro tisk (můžete si zvýšit `$fn`, aby byla vaše křižovatka hezčí). Můžete s ní dělat prakticky cokoliv (opravovat, otáčet, krájet, přidávat podpůrné struktury), ale je třeba zachovat při tisku rozměry a tvar křižovatky dle zadaných pravidel a dat. Výstupem je jeden nebo více STL souborů připravených na slicing a velmi stručný popis toho, *co* jste udělali a *proč* (ne nutně písemně, ale při odevzdávání je třeba postup vysvětlit a to i několik týdnů po vykonání vašich změn).
 
-==== Slicing ====
+TIP: Jak řezat STL soubory? Jde to jistě i v OpenSCADu, ale to je zbytečně komplikované. Připravili jsme proto xref:../../tutorials/meshmixer/index#[krátký návod pro program MeshMixer] - doporučují tři ze čtyř cvičících.
 
-Naslicujte libovolným programem vámi připravená tisková STLka s použitím vhodných nastavení. Pro Slic3r vyjděte z {{:tutorials:tisk:slic3r_config_bundle.ini.zip|}} (profily navolte jako na cviku, tzn. ne ''-default-''). Profily pro případné jiné programy pro vás nemáme, ale smíte si vytvořit svoje. Výstupem je použitý slicovací profil vyexportovaný z programu a jeden nebo více GCODE souborů. Jednotlivé části můžete tisknout najednou (pokud se vejdou na tiskovou plochu a pokud vám to připadá vhodné) nebo postupně, případě kombinaci obojího.
 
-==== Tisk a postprocessing ====
+TIP: Nejde vám v Meshmixeru dobře alignovat? Zkuste program https://www.lulzbot.com/cura[Cura]. Obsahuje funkci _Lay flat_.
+
+
+=== Slicing
+
+
+Naslicujte libovolným programem vámi připravená tisková STLka s použitím vhodných nastavení. Pro Slic3r vyjděte z link:{imagesdir}/../../tutorials/tisk/slic3r-config-bundle.ini.zip[slic3r-config-bundle.ini.zip] (profily navolte jako na cviku, tzn. ne `-default-`). Profily pro případné jiné programy pro vás nemáme, ale smíte si vytvořit svoje. Výstupem je použitý slicovací profil vyexportovaný z programu a jeden nebo více GCODE souborů. Jednotlivé části můžete tisknout najednou (pokud se vejdou na tiskovou plochu a pokud vám to připadá vhodné) nebo postupně, případě kombinaci obojího.
+
+
+=== Tisk a postprocessing
+
 
 V zápočtových akcích vypsaných v KOSu, probíhajících ve zkouškovém období, budete v laboratoři z ABS tisknout křižovatku z vámi připravených GCODE souborů. Po dotisknutí je třeba výtisk náležitě opracovat - oddělat podpory, slepit atp. Výsledná křižovatka by měla vypadat co nejpodobněji požadovanému modelu. Na jeden termín je celkem maximálně 5 hodin (tisk + postprocessing).
 
 V případě absolutního selhání při tisku je možné tisk opakovat s novým GCODEm, ale pouze jednou. V případě technického problému na naší straně se samozřejmě o promarněný pokus nejedná.
 
-==== Odevzdání, hodnocení a termíny ====
 
-Odevzdává se na GitHub, na [[https://classroom.github.com/assignment-invitations/e655b4a11eefc6049134fa85ff1919f5|tomto odkazu si vytvoříte repozitář]]. Veškeré slovní popisy uveďte přímo do README (či README.md apod.) v repozitáři.
+=== Odevzdání, hodnocení a termíny
+
+
+Odevzdává se na GitHub, na https://classroom.github.com/assignment-invitations/e655b4a11eefc6049134fa85ff1919f5[tomto odkazu si vytvoříte repozitář]. Veškeré slovní popisy uveďte přímo do README (či README.md apod.) v repozitáři.
 
 V repozitáři odevzdávejte:
 
-  * scad soubor s modulem ''splitter'' - jeho deklarací/definicí
-  * scad soubor **volající** modul ''splitter'' s vašimi vybranými daty (bez deklarace/definice modulu splitter)
-  * STL soubor s vaší křižovatkou, tak jak byla vygenerován OpenSCADem
-  * Tiskové STL soubory
-  * Tiskové GCODE soubory
-  * Profil pro slicovací program, který jste použili (např. ze Slic3ru exportujte Config Bundle)
-  * Případné další potřebné soubory
+* scad soubor s modulem `splitter` - jeho deklarací/definicí
+* scad soubor *volající* modul `splitter` s vašimi vybranými daty (bez deklarace/definice modulu splitter)
+* STL soubor s vaší křižovatkou, tak jak byla vygenerován OpenSCADem
+* Tiskové STL soubory
+* Tiskové GCODE soubory
+* Profil pro slicovací program, který jste použili (např. ze Slic3ru exportujte Config Bundle)
+* Případné další potřebné soubory
 
-Termín odevzdání na GitHub je **11.6.2017** včetně (případně začátek vašeho zápočtového termínu, pokud se tento koná dřív), tisknout můžete i potom. Možnost pozdního odevzdání: Za každý další započatý týden (byť o vteřinu) je z celkového hodnocení strženo 10 bodů. Pokud je celkový součet menší než 0, je hodnocení za semestrální práci 0. V době započetí termínu klasifikovaného zápočtu (tisk v laboratoři), již musí být odevzdáno na GitHub.
+Termín odevzdání na GitHub je *11.6.2017* včetně (případně začátek vašeho zápočtového termínu, pokud se tento koná dřív), tisknout můžete i potom. Možnost pozdního odevzdání: Za každý další započatý týden (byť o vteřinu) je z celkového hodnocení strženo 10 bodů. Pokud je celkový součet menší než 0, je hodnocení za semestrální práci 0. V době započetí termínu klasifikovaného zápočtu (tisk v laboratoři), již musí být odevzdáno na GitHub.
 
 Zkouškové končí 30.6.2017, nemáme nic proti odevzdání a zápočtovým termínům i po tomto datu, ale je třeba se na tom explicitně domluvit a přijmout rizika z toho plynoucí.
 
 Hodnocení dle následující tabulky:
 
-^ Modul pro OpenSCAD ^ 10 ^ ^
-| Modul ''splitter'' funguje podle zadání | 7 | povinný v rámci části |
-| Zdrojový kód je vhodně členěn a komentován | 3 | |
-^ Příprava na tisk ^ 10 ^ ^
-| Vhodně připravená tisková STLka | 5 | povinný v rámci části |
-| Mesh ve všech tiskových STL je v pořádku | 5 | |
-^ Slicing ^ 10 ^ ^
-| Podpory (nejsou potřeba (5 b.), vhodné užití* (2.5 b.), zbytečné užití (0 b.)) | 5 | |
-| Vhodné nastavení parametrů tisku (perimetry, výplň, výška vrstvy) | 5 | |
-^ Tisk ^ 10 ^ ^
-| Jedná se o výtisk modelu dle zadání, výtisk je opracovaný (např. bez podpor, slepený atp.) | 4 | povinný v rámci části |
-| Výtisk neobsahuje vady zjevně způsobené nevhodnou přípravou modelu | 3 | |
-| Výtisk neobsahuje vady zjevně způsobené nevhodnou přípravou tiskárny (příprava tiskové plochy, nevhodné teploty) | 3 | |
+[options="autowidth"]
+|====
+<h| Modul pro OpenSCAD  <h| 10 h|
+| Modul `splitter` funguje podle zadání  | 7  | povinný v rámci části
+| Zdrojový kód je vhodně členěn a komentován  | 3 |
+<h| Příprava na tisk  <h| 10 h|
+| Vhodně připravená tisková STLka  | 5  | povinný v rámci části
+| Mesh ve všech tiskových STL je v pořádku  | 5 |
+<h| Slicing  <h| 10 h|
+| Podpory (nejsou potřeba (5 b.), vhodné užití* (2.5 b.), zbytečné užití (0 b.))  | 5 |
+| Vhodné nastavení parametrů tisku (perimetry, výplň, výška vrstvy)  | 5 |
+<h| Tisk  <h| 10 h|
+| Jedná se o výtisk modelu dle zadání, výtisk je opracovaný (např. bez podpor, slepený atp.)  | 4  | povinný v rámci části
+| Výtisk neobsahuje vady zjevně způsobené nevhodnou přípravou modelu  | 3 |
+| Výtisk neobsahuje vady zjevně způsobené nevhodnou přípravou tiskárny (příprava tiskové plochy, nevhodné teploty)  | 3 |
+|====
 
- * Pouze za podpory vygenerované při slicování se strhávají body. Protože jsme v části slicing.
+* Pouze za podpory vygenerované při slicování se strhávají body. Protože jsme v části slicing.
 
-<note important>Pro ovládání tiskárny při odevzdávání potřebujete vlastní počítač se schopností připojit se na WiFi nebo síťovým kabelem do lokální sítě. Také potřebuje znát (umět dohledat) svou MAC adresu.</note>
+IMPORTANT: Pro ovládání tiskárny při odevzdávání potřebujete vlastní počítač se schopností připojit se na WiFi nebo síťovým kabelem do lokální sítě. Také potřebuje znát (umět dohledat) svou MAC adresu.
 
-Hodnocení je rozděleno na 4 dílčí části. //Povinný v rámci části// znamená, že bez splnění tohoto úkolu student za danou část nedostane žádné body. V případě opravného tisku se již neopravují hodnoty bodů v ostatních dílčích částech. Pokud tedy například nezvládnete slicing, dostanete z něj nula bodů a (celkem logicky) fatálně selže i tisk, můžete v náhradním termínu dostat body za tisk, za slicing už ale žádné body nedostanete.
+
+Hodnocení je rozděleno na 4 dílčí části. _Povinný v rámci části_ znamená, že bez splnění tohoto úkolu student za danou část nedostane žádné body. V případě opravného tisku se již neopravují hodnoty bodů v ostatních dílčích částech. Pokud tedy například nezvládnete slicing, dostanete z něj nula bodů a (celkem logicky) fatálně selže i tisk, můžete v náhradním termínu dostat body za tisk, za slicing už ale žádné body nedostanete.

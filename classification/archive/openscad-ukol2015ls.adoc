@@ -1,22 +1,29 @@
-====== OpenSCAD: Domácí úkol LS 2015/2016 ======
+= OpenSCAD: Domácí úkol LS 2015/2016 
+:imagesdir: ../../media/classification/archive
 
-<note warning>Toto není aktuální zadání úkolu. Je zde pouze k účelům archivace.</note>
 
-Domácí úkoly ze semstrů minulých můžete vidět v [[classification:archive:start|archívu]].
+WARNING: Toto není aktuální zadání úkolu. Je zde pouze k účelům archivace.
 
-<note tip>Zadání je prakticky hotové, je však možné, že v něm na základě vašich podnětů objevíme zásadní nedostatky, které opravíme. Sledujte prosím tuto stránku bedlivě. Veškeré změny budou napsány ve spodní části stránky.</note>
 
-===== Ježek v kleci =====
+Domácí úkoly ze semstrů minulých můžete vidět v xref:index#[archívu].
 
-Vaším úkolem je vytvořit parametrický model [[https://cs.wikipedia.org/wiki/Je%C5%BEek_v_kleci|ježka v kleci]] v jazyce/programu OpenSCAD.
+TIP: Zadání je prakticky hotové, je však možné, že v něm na základě vašich podnětů objevíme zásadní nedostatky, které opravíme. Sledujte prosím tuto stránku bedlivě. Veškeré změny budou napsány ve spodní části stránky.
+
+
+== Ježek v kleci
+
+
+Vaším úkolem je vytvořit parametrický model https://cs.wikipedia.org/wiki/Je%C5%BEek_v_kleci[ježka v kleci] v jazyce/programu OpenSCAD.
 
 Ježek je koule s ostny, podobně jako na tomto obrázku. Obrázek je pouze ilustrační, ostny mohou vyrůstat z ježka po celém jeho povrchu.
 
-{{:classification:hedgehog-01.png|}}
+
+image::../hedgehog-01.png[]
 
 Do ježka Jan Tleskač schoval plánek na létací kolo; na rozdíl od něj však nebudem mít ježka šroubovacího, ale pouze zaklapávajícího. Mechanismus je nakreslen na následujícím obrázku:
 
-{{:classification:hedgehog-02.png|}}
+
+image::../hedgehog-02.png[]
 
 Je definována svislá vzdálenost od středu koule i velikost mezery v mechanismu. Všimněte si, že tato mezera má střed v této vzdálenosti. Ježek je samozřejmě dutý a tloušťka jeho stěny je také definována parametrem.
 Horní část koule není nikam odsunutá, z koule prostě část chybí.
@@ -25,29 +32,38 @@ Jednotlivé ostny mají společný průměr, ale různé směry a délky - toto 
 
 Jeden osten je vlastně válec se speciálním kulovitým zakončením, které je znázorněno na následujícím obrázku.
 
-{{:classification:hedgehog-04.png|}}
+
+image::../hedgehog-04.png[]
 
 Klec pro ježka je složená s horního a dolního toroidu a sloupků.
 
-{{:classification:hedgehog-05.png?350}}
+
+image::../hedgehog-05.png[width="350"]
 
 Horní i spodní toroid má průřez obdélníku se zaoblenými rohy.
 
-{{:classification:hedgehog-06.png|}}
 
-Jednotlivé sloupky mají stejnou tloušťku, jsou umístěny rovnoměrně po kružnici a leží na středu profilu toroidu. Abychom jejich pozici mohli testovat, začněte sloupy umisťovat od kladného směru osy X. 
+image::../hedgehog-06.png[]
 
-{{:classification:hedgehog-07.png?400}}
+Jednotlivé sloupky mají stejnou tloušťku, jsou umístěny rovnoměrně po kružnici a leží na středu profilu toroidu. Abychom jejich pozici mohli testovat, začněte sloupy umisťovat od kladného směru osy X.
+
+
+image::../hedgehog-07.png[width="400"]
 
 Klec umístíte tak, aby koule ježka ležela v jejím středu a sloupy vedly rovnoběžně s osou Z. Červený puntík na obrázku je počátek souřadný.
 
-{{:classification:hedgehog-08.png|}}
 
-===== Modul =====
+image::../hedgehog-08.png[]
+
+
+== Modul
+
 
 Váš model musí fungovat jako samostatný modul pro OpenSCAD, použitelný pomocí direktivy use (nesmí obsahovat žádné konstanty mimo modul, ale je možné (a žádoucí) vytvořit si pomocné moduly). Musíte použít tento interface (včetně stejných výchozích hodnot!):
 
-<code>module hedgehog(diameter=30,
+
+----
+module hedgehog(diameter=30,
                 wall_thick=3,
                 spines=[[0,0,20],
                         [0,0,-20],
@@ -64,45 +80,54 @@ Váš model musí fungovat jako samostatný modul pro OpenSCAD, použitelný pom
                 pole_thick=3,
                 pole_count=4,
                 pole_length=40
-                ) { /* kód */ }</code>
+                ) { /* kód */ }
+----
 
-  * ''diameter'' je vnější průměr ježka bez ostnů
-  * ''wall_thick'' je tloušťka stěny ježka
-  * ''spines'' je vektor souřadnic koncových bodů ostnů
-  * ''spine_thick'' je tloušťka ostnů
-  * ''lock_distance'' je vzdálenost zobrazená šipkami na obrázku s mechanismem
-  * ''lock_gap'' je tloušťka mezery v zámku mezi dvěma díly
-  * ''profile_size'' je vektor dvou hodnot určující vnější velikost obdélníkového profilu toroidu první číslo je ve směru X/Y, druhé ve směru Z
-  * ''profile_diameter'' je vnější průměr toroidu
-  * ''profile_corner_radius'' je poloměr zaoblení rohu obdélníkového profilu toroidu
-  * ''pole_thick'' je tloušťka sloupků klece
-  * ''pole_count'' je počet sloupků klece
-  * ''pole_length'' je délka sloupků klece od toroidu k toroidu
+* `diameter` je vnější průměr ježka bez ostnů
+* `wall_thick` je tloušťka stěny ježka
+* `spines` je vektor souřadnic koncových bodů ostnů
+* `spine_thick` je tloušťka ostnů
+* `lock_distance` je vzdálenost zobrazená šipkami na obrázku s mechanismem
+* `lock_gap` je tloušťka mezery v zámku mezi dvěma díly
+* `profile_size` je vektor dvou hodnot určující vnější velikost obdélníkového profilu toroidu první číslo je ve směru X/Y, druhé ve směru Z
+* `profile_diameter` je vnější průměr toroidu
+* `profile_corner_radius` je poloměr zaoblení rohu obdélníkového profilu toroidu
+* `pole_thick` je tloušťka sloupků klece
+* `pole_count` je počet sloupků klece
+* `pole_length` je délka sloupků klece od toroidu k toroidu
 
-===== Krajní případy =====
 
-  * nemusíte řešit situaci, kdy mají být ostny širší než průměr koule ježka
-  * pokud osten zasahuje do zavíracího mechanismu, měly by být osten i zavírací mechanismus tímto nedotčeny - prakticky by tam osten překážel, ale pro potřeby tohoto modelu to nevadí (osten nesmí zasahovat do mechanismu, musí být na povrchu koule)
-  * nemusíte řešit, když ostny ježka nebo koule ježka prochází klecí
-  * pokud je zadána záporná hodnota tam, kde to nedává smysl, ale hodnota 0 smysl dává, znormujte hodnotu na 0 (např. počet sloupků)
-  * pokud je zadána záporná hodnota nebo 0 tam, kde to nedává smysl, nevykreslí se nic (např. průměr koule ježka)
-  * tloušťka stěny ježka i výška zavíracího mechanismu se do ježka vždy vejdou
-  * mezera zavíracího mechanismu může být větší než tloušťka stěny, v tom případě zavírací mechanismus zmizí a zůstane po něm díra
-  * pokud je poloměr rohu profilu toroidu zadán příliš velký, musíte jej zvětšit na maximální možnou velikost.
+== Krajní případy
 
-===== Bonus =====
 
-Za bonusový bod můžete naimplementovat Tleskačovo tajemství. Do ježka ukryjete ''children()'', které modul ''hedgehog()'' dostane na vstupu. Ale pozor, nevíte, jak je tajemství veliké, tak jej vhodně resizujte tak, aby se tam vešlo. Můžete předpokládat, že střed tajemství je taktéž na počátku souřadném a že je největší ve směru osy Z.
+* nemusíte řešit situaci, kdy mají být ostny širší než průměr koule ježka
+* pokud osten zasahuje do zavíracího mechanismu, měly by být osten i zavírací mechanismus tímto nedotčeny - prakticky by tam osten překážel, ale pro potřeby tohoto modelu to nevadí (osten nesmí zasahovat do mechanismu, musí být na povrchu koule)
+* nemusíte řešit, když ostny ježka nebo koule ježka prochází klecí
+* pokud je zadána záporná hodnota tam, kde to nedává smysl, ale hodnota 0 smysl dává, znormujte hodnotu na 0 (např. počet sloupků)
+* pokud je zadána záporná hodnota nebo 0 tam, kde to nedává smysl, nevykreslí se nic (např. průměr koule ježka)
+* tloušťka stěny ježka i výška zavíracího mechanismu se do ježka vždy vejdou
+* mezera zavíracího mechanismu může být větší než tloušťka stěny, v tom případě zavírací mechanismus zmizí a zůstane po něm díra
+* pokud je poloměr rohu profilu toroidu zadán příliš velký, musíte jej zvětšit na maximální možnou velikost.
 
-====== Kód ======
 
-Kód musí splňovat určitou kvalitu, jednou z podmínek je logické dodržení odsazení (v celém souboru stejné). Opakované konstrukce musí být implementovány vlastními moduly a forcykly. Magické konstanty musí být samovysvětlující, nebo doplněné o komentář. Není možné použít žádné externí knihovny pro OpenSCAD, ani knihovnu MCAD. Manipulace s ''$fn'', ''$fs'' a ''$fa'' je zakázána.
+== Bonus
 
-====== Odevzdávání a hodnocení ======
 
-Soubor pojmenujte hedgehog.scad, uložte do archivu hedgehog.zip (přímo do kořenového adresáře archivu) a nahrajte přímo do svého osobního namespacu na Eduxu. Musí jít stáhnout z odkazu ''https://edux.fit.cvut.cz/courses/BI-3DT/_media/student/username/hedgehog.zip'' Na soubor do namespacu umístěte odkaz. V archivu kromě souboru hedgehog.scad musí být pouze potřebné soubory (další vaše scad soubory s moduly, případné DXF nebo STL soubory k importování), do archivu nepatří vygenerované STL soubory ježka v kleci. Správné pojmenování je důležité pro naše automatické testy. Nesprávně pojmenovaný soubor se nepovažuje za odevzdaný.
+Za bonusový bod můžete naimplementovat Tleskačovo tajemství. Do ježka ukryjete `children()`, které modul `hedgehog()` dostane na vstupu. Ale pozor, nevíte, jak je tajemství veliké, tak jej vhodně resizujte tak, aby se tam vešlo. Můžete předpokládat, že střed tajemství je taktéž na počátku souřadném a že je největší ve směru osy Z.
 
-Termín odevzdání je **18.5.2016** včetně. Pozdní odevzdání není možné. V případě doložené dlouhodobé vážné nemoci je možné domluvit se na speciálním termínu. Nemoc či nehoda těsně před odevzdáním neomlouvá.
+
+= Kód
+
+
+Kód musí splňovat určitou kvalitu, jednou z podmínek je logické dodržení odsazení (v celém souboru stejné). Opakované konstrukce musí být implementovány vlastními moduly a forcykly. Magické konstanty musí být samovysvětlující, nebo doplněné o komentář. Není možné použít žádné externí knihovny pro OpenSCAD, ani knihovnu MCAD. Manipulace s `$fn`, `$fs` a `$fa` je zakázána.
+
+
+= Odevzdávání a hodnocení
+
+
+Soubor pojmenujte hedgehog.scad, uložte do archivu hedgehog.zip (přímo do kořenového adresáře archivu) a nahrajte přímo do svého osobního namespacu na Eduxu. Musí jít stáhnout z odkazu `https://edux.fit.cvut.cz/courses/BI-3DT/_media/student/username/hedgehog.zip` Na soubor do namespacu umístěte odkaz. V archivu kromě souboru hedgehog.scad musí být pouze potřebné soubory (další vaše scad soubory s moduly, případné DXF nebo STL soubory k importování), do archivu nepatří vygenerované STL soubory ježka v kleci. Správné pojmenování je důležité pro naše automatické testy. Nesprávně pojmenovaný soubor se nepovažuje za odevzdaný.
+
+Termín odevzdání je *18.5.2016* včetně. Pozdní odevzdání není možné. V případě doložené dlouhodobé vážné nemoci je možné domluvit se na speciálním termínu. Nemoc či nehoda těsně před odevzdáním neomlouvá.
 
 Po ohodnocení (které proběhne až po termínu odevzdání) nelze úlohu opravit. Před termínem odevzdání je ji však možno konzultovat i nahrávat na Edux v rozpracovaném stavu.
 
@@ -112,17 +137,19 @@ Počet (ne)úspěšných testů přímo ovlivňuje hodnocení. Testy budou po oh
 
 Před deadlinem proběhne několik kol odevzdání na nečisto. Cvičící vaše řešení nechá projet testy a upozorní vás například na to, že nějaká chyba rozbila většinu z nich, ale nemůže vám testy ukázat (tvořit úlohu přímo na míru testům by bylo příliš jednoduché). Tyto kola proběhnou 23.4., 30.4., 7.5., 14.5. a 16.5. vždy okolo 00:01 v noci. V tento čas musí být úloha odevzdaná na Edux. Zpětnou vazbu můžete očekávat v průběhu dvou dnů. Mimo tyto termíny není možné nechat úlohu projet testy.
 
-====== Otázky od studentů ======
 
-**Pocita se koncovy bod u spines jako konec zaobleneho zakonceni?**
+= Otázky od studentů
 
-Ano.
 
-**spine_thick == diameter "valce", pomoci ktereho ostny delame?**
+*Pocita se koncovy bod u spines jako konec zaobleneho zakonceni?*
 
-Ano.
+​Ano.
 
-**"Horní část koule není nikam odsunutá, z koule prostě část chybí."
+*spine_thick == diameter „valce“, pomoci ktereho ostny delame?*
+
+​Ano.
+
+**„Horní část koule není nikam odsunutá, z koule prostě část chybí.“
 Jakoze je jen pul jezka?**
 
 Ne, jakože z ježka je kus uprostřed (Zavírací mechanismus) vyzmizíkován. Někdo měl z obrázku pocit, že je vrchní díl posunut o ten kousek nahoru, což není pravda, proto jsme tam tuhle větu dali.
@@ -130,12 +157,12 @@ Ne, jakože z ježka je kus uprostřed (Zavírací mechanismus) vyzmizíkován. 
 **"Abychom jejich pozici mohli testovat, začněte sloupy umisťovat od
 kladného směru osy X." Tzn. mam vzdycky zacit na "uhlu 0"?**
 
-To je implementačně závislé. V jedné z logických implementací to bude "úhel 0".
+To je implementačně závislé. V jedné z logických implementací to bude „úhel 0“.
 
 **Ale potom v
 testovacich datech prochazi bodlina skrz tyc v kleci.**
 
-Ano. Z toho si nic nedělejte, nikdo není dokonalý.
+​Ano. Z toho si nic nedělejte, nikdo není dokonalý.
 
 **"profile_size je vektor dvou hodnot určující vnější velikost
 obdélníkového profilu toroidu první číslo je ve směru X/Y, druhé ve

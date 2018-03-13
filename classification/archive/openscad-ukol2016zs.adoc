@@ -1,38 +1,49 @@
-====== OpenSCAD: Domácí úkol ZS 2016/2017 ======
+= OpenSCAD: Domácí úkol ZS 2016/2017 
+:imagesdir: ../../media/classification/archive
+:toc:
 
-<note warning>Toto není aktuální zadání úkolu. Je zde pouze k účelům archivace.</note>
 
-Další domácí úkoly ze semestrů minulých můžete vidět v [[classification:archive:start|archívu]].
+WARNING: Toto není aktuální zadání úkolu. Je zde pouze k účelům archivace.
 
-====== Motivace ======
+
+Další domácí úkoly ze semestrů minulých můžete vidět v xref:index#[archívu].
+
+
+= Motivace
+
 
 Vaším úkolem je navrhnout plně parametricky model elektrické zásuvky / prodlužovačky / rozmnožovačky / jezvčíka / psa (dále jen zásuvky). Jelikož každý designer si chce namodelovat svoji zásuvku a následně vyzkoušet jak vypadá v reálném světe. Zapojit do ní na zkoušku kabely. Přiložit ji k nábytku, jestli mu pasuje (esteticky, rozměrově). Proto máte za úkol navrhnout univerzální modul, který těmto zoufalým designérům pomůže.
 
 (Potřeba designerů po zásuvkách je smyšlená.)
 
-{{:classification:plugs-photo.jpg?600}}
 
-====== Rozhraní ======
+image::../plugs-photo.jpg[width="600"]
+
+
+= Rozhraní
+
 
 Zásuvka má tyto parametry
-  * **y** vnější rozměr na ose y (více méně, viz dále)
-  * **z** vnější rozměr na ose z (nepočítaje případné trčící kolíky)
-  * **radius_of_outlets** 	poloměr vnitřku jedné zásuvky
-  * **number_of_outlets** 	počet zásuvek
-  * **border_of_outlet**	tloušťka okolo jedné zásuvky
-  * **offset_of_outlets**	rozestup jednotlivých zásuvek, 0 znamená že se dotýkají
-  * **depth_of_outlets**	hloubka zásuvek
-  * **pin_radius**			poloměr kolíků
-  * **pin_depth** 			délka kolíku a hloubka děr
-  * **pin_offset**			rozestup kolíků od středu
-  * **pin_angle** 			úhel natočení kolíků
-  * **round_r** poloměr zaoblení těla zásuvky
+
+* *y* vnější rozměr na ose y (více méně, viz dále)
+* *z* vnější rozměr na ose z (nepočítaje případné trčící kolíky)
+* *radius_of_outlets* 	poloměr vnitřku jedné zásuvky
+* *number_of_outlets* 	počet zásuvek
+* *border_of_outlet*	tloušťka okolo jedné zásuvky
+* *offset_of_outlets*	rozestup jednotlivých zásuvek, 0 znamená že se dotýkají
+* *depth_of_outlets*	hloubka zásuvek
+* *pin_radius*			poloměr kolíků
+* *pin_depth* 			délka kolíku a hloubka děr
+* *pin_offset*			rozestup kolíků od středu
+* *pin_angle* 			úhel natočení kolíků
+* *round_r* poloměr zaoblení těla zásuvky
 
 Jednotlivé parametry budou podrobněji vysvětleny dále.
 
 Zásuvka má toto rozhraní včetně výchozích hodnot, které musíte zachovat:
 
-<code>
+
+----
 module plug(y=40,
             z=30,
             radius_of_outlets = 15,
@@ -47,120 +58,178 @@ module plug(y=40,
             round_r = 2) {
    // ...
 }
-</code>
+----
+
 
 Váš model musí fungovat jako samostatný module pro OpenSCAD, použitelný pomocí direktivy use (nesmí obsahovat žádné konstanty mimo modul, ale je možné (a žádoucí) vytvořit si pomocné moduly). Musíte použít výše zmíněný interface (včetně stejných výchozích hodnot!).
 
-====== Vnější tvar ======
+
+= Vnější tvar
+
 
 Jednotlivé zásuvky vypadají takto:
 
-{{:classification:plugs-multiple.svg.png?600}}
+
+image::../plugs-multiple.svg.png[width="600"]
 
 Ale levá krajní vypadá jinak:
 
-{{:classification:plugs-start.svg.png?600}}
+
+image::../plugs-start.svg.png[width="600"]
 
 Celé tělo je 3D zaoblené, ale díry na zásuvky ne.
 
-{{:classification:plugs-rounded.svg.png?600}}
 
-====== Konkrétní popis parametrů ======
+image::../plugs-rounded.svg.png[width="600"]
 
-===== Šířka / osa y =====
-  * Je dána tak, aby když je tloušťka okolo zásuvky tlustší než šírka, tak se ořízne.
-  * Pokud je hodnota větší než průměr zásuvky a jejího tloušťky, tak se nic neořezává.
-  * Pokud je šírka menší než průměr zásuvky tak se nic nevykreslí.
 
-{{:classification:plugs-shape.svg.png?500}}
+= Konkrétní popis parametrů
+
+
+== Šířka / osa y
+
+
+* Je dána tak, aby když je tloušťka okolo zásuvky tlustší než šírka, tak se ořízne.
+* Pokud je hodnota větší než průměr zásuvky a jejího tloušťky, tak se nic neořezává.
+* Pokud je šírka menší než průměr zásuvky tak se nic nevykreslí.
+
+
+image::../plugs-shape.svg.png[width="500"]
 
 (Nevidíte-li na obrázku osy s popisky, dejte tvrdý refresh stránky, máte v cache starou verzi.)
 
-===== Výška / osa z =====
-  * Pokud je hloubka zásuvky (depth_of_outlets) a délka kolíků (pin_depth) v součtu větší a tudíž by došlo k proděravění zásuvku skrz na skrz, nic se nevykreslí.
-  * Pokud je záporná, nic se nevykreslí.
-  * Z udává výšku těla zásuvky, bez případných kolíků, které někdy mohou trčet výše.
 
-{{:classification:plugs-plug-depth.svg.png?600}}
-
-===== Poloměr jedné zásuvky =====
-  * Pozor nejedná se o průměr
+== Výška / osa z
 
 
-===== Počet zásuvek =====
-  * Pokud je to záporné číslo nic se nevykreslí
-  * Pokud je to 0 nic se nevykreslí
-  * 1 je validní počet zásuvek 
+* Pokud je hloubka zásuvky (depth_of_outlets) a délka kolíků (pin_depth) v součtu větší a tudíž by došlo k proděravění zásuvku skrz na skrz, nic se nevykreslí.
+* Pokud je záporná, nic se nevykreslí.
+* Z udává výšku těla zásuvky, bez případných kolíků, které někdy mohou trčet výše.
 
-===== Tlouštka okolo jedné zásuvky =====
-  * Jedná se o tlouštku stěny okolo zásuvky při pohledu ze shora
-  * Může byt na ose y uříznuty v případě vhodného nastavení parametru pro osu y
-  * Pokud je to záporné číslo nebo 0 nic se nevykreslí
 
-===== Rozestup zásuvek =====
-  * Rozestup zásuvek mezi zásuvkou
-  * Pokud je 0, zásuvky se lehce dotýkají (jakoby v jednom bodě)
-  * Pokud je záporný, nic se nevykreslí
+image::../plugs-plug-depth.svg.png[width="600"]
 
-{{:classification:plugs-distance.svg.png?500}}
 
-===== Hloubka zásuvek =====
-  * Hloubka jedné zásuvky
-  * Pokud je hloubka zásuvky (depth_of_outlets) a délka kolíků (pin_depth) v součtu větší a tudíž by došlo k proděravení zásuvku skrz na skrz nic se nevyskreslí.
-  * Pokud je to záporné číslo nic se nevykreslí
+== Poloměr jedné zásuvky
 
-===== Poloměr kolíku =====
-  * Poloměr jednoho kolíku i děr co jsou v zásuvce
 
-===== Hloubka děr a délka kolíku =====
-  * Je stejná
+* Pozor nejedná se o průměr
 
-===== Rozestup kolíků =====
-  * Pokud je rozestup 0, kolík i díry jsou na stejném místě
 
-{{:classification:plugs-pins.svg.png?300}}
+== Počet zásuvek
 
-===== Úhel kolíku =====
-  * Jedná se o natočení kolíků (směr viz obrázek)
 
-{{:classification:plugs-angle.svg.png?500}}
+* Pokud je to záporné číslo nic se nevykreslí
+* Pokud je to 0 nic se nevykreslí
+* 1 je validní počet zásuvek
 
-===== Poloměr zaoblení =====
-  * jak moc je tělo zásuvky zaoblené (0 - není zaoblené; N - poloměr v rohu je N)
-  * nesmyslné hodnoty nebudou testovány
-  * zaoblením se nesmí objekt zvětšit, tzn. dříve uvedené rozměry jsou vnější po zaoblení
 
-===== Umístění v prostoru =====
+== Tlouštka okolo jedné zásuvky
+
+
+* Jedná se o tlouštku stěny okolo zásuvky při pohledu ze shora
+* Může byt na ose y uříznuty v případě vhodného nastavení parametru pro osu y
+* Pokud je to záporné číslo nebo 0 nic se nevykreslí
+
+
+== Rozestup zásuvek
+
+
+* Rozestup zásuvek mezi zásuvkou
+* Pokud je 0, zásuvky se lehce dotýkají (jakoby v jednom bodě)
+* Pokud je záporný, nic se nevykreslí
+
+
+image::../plugs-distance.svg.png[width="500"]
+
+
+== Hloubka zásuvek
+
+
+* Hloubka jedné zásuvky
+* Pokud je hloubka zásuvky (depth_of_outlets) a délka kolíků (pin_depth) v součtu větší a tudíž by došlo k proděravení zásuvku skrz na skrz nic se nevyskreslí.
+* Pokud je to záporné číslo nic se nevykreslí
+
+
+== Poloměr kolíku
+
+
+* Poloměr jednoho kolíku i děr co jsou v zásuvce
+
+
+== Hloubka děr a délka kolíku
+
+
+* Je stejná
+
+
+== Rozestup kolíků
+
+
+* Pokud je rozestup 0, kolík i díry jsou na stejném místě
+
+
+image::../plugs-pins.svg.png[width="300"]
+
+
+== Úhel kolíku
+
+
+* Jedná se o natočení kolíků (směr viz obrázek)
+
+
+image::../plugs-angle.svg.png[width="500"]
+
+
+== Poloměr zaoblení
+
+
+* jak moc je tělo zásuvky zaoblené (0 - není zaoblené; N - poloměr v rohu je N)
+* nesmyslné hodnoty nebudou testovány
+* zaoblením se nesmí objekt zvětšit, tzn. dříve uvedené rozměry jsou vnější po zaoblení
+
+
+== Umístění v prostoru
+
 
 Pro naše poloautomatické testy je třeba objekt správně umístit v prostoru.
 
 Zásuvka leží více-méně na počátku (bod 0). Osa X prochází prostředkem objektu
 
-{{:classification:plugs-xy.svg.png?600}}
+
+image::../plugs-xy.svg.png[width="600"]
 
 Osa Y prochází prostředkem zásuvek (ne prostředkem objektu). Pokud máme sudý počet zásuvek:
 
-{{:classification:plugs-xy-center-even.svg.png?300}}
+
+image::../plugs-xy-center-even.svg.png[width="300"]
 
 Pokud máme lichý počet zásuvek:
 
-{{:classification:plugs-xy-center-odd.svg.png?300}}
+
+image::../plugs-xy-center-odd.svg.png[width="300"]
 
 Celý objekt leží na rovině XY, tzn nezasahuje do záporného Z:
 
-{{:classification:plugs-z.svg.png?500}}
 
-===== Poznámky =====
-  * Rozměr na ose X není schválně zadán, protože zásuvka bude mít délku podle nastavených parametrů.
+image::../plugs-z.svg.png[width="500"]
 
 
-====== Kód ======
-
-Kód musí splňovat určitou kvalitu, jednou z podmínek je logické dodržení odsazení (v celém souboru stejné). Opakované konstrukce musí být implementovány vlastními moduly a forcykly. Magické konstanty musí být samovysvětlující, nebo doplněné o komentář. Není možné použít žádné externí knihovny pro OpenSCAD, ani knihovnu MCAD. Manipulace s ''$fn'', ''$fs'' a ''$fa'' je přísně zakázána.
+== Poznámky
 
 
-====== Odevzdání ======
+* Rozměr na ose X není schválně zadán, protože zásuvka bude mít délku podle nastavených parametrů.
 
-Odevzdává se dle instrukcí na [[https://github.com/3DprintFIT/B161HW-Template#zadání-domácího-úkolu|GitHubu]]
+
+= Kód
+
+
+Kód musí splňovat určitou kvalitu, jednou z podmínek je logické dodržení odsazení (v celém souboru stejné). Opakované konstrukce musí být implementovány vlastními moduly a forcykly. Magické konstanty musí být samovysvětlující, nebo doplněné o komentář. Není možné použít žádné externí knihovny pro OpenSCAD, ani knihovnu MCAD. Manipulace s `$fn`, `$fs` a `$fa` je přísně zakázána.
+
+
+= Odevzdání
+
+
+Odevzdává se dle instrukcí na https://github.com/3DprintFIT/B161HW-Template#zadání-domácího-úkolu[GitHubu]
 
 Deadline je 7.12.2016 včetně.
