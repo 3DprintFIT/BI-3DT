@@ -40,7 +40,7 @@ Syntax
 
 -   **stringy** v dvojitých uvozovkách -- `echo("Ahoj světe!");`
 
--   **proměnné** nejsou úplně proměnné, ale spíše **konstatnty**
+-   **proměnné** nejsou úplně proměnné, ale spíše **konstanty**
     -   `a = 3; echo(a); a= 5;` -- `ECHO: 5`
 
 -   **matematické [výrazy](http://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Mathematical_Operators) a [funkce](http://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Mathematical_Functions)**, PI
@@ -57,7 +57,7 @@ Primitiva
 -   `cylinder(h,r1,r2,center);` -- (komolý) kužel (`r1,r2`) 
     nebo válec (`r`)
 -   `polyhedron(...);` -- mnohostěn, nešahat
--   parametry vhodné pojmenovávat, např `cylinder(r=5,h=2)`
+-   parametry vhodné pojmenovávat, např. `cylinder(r=5,h=2)`
 
 Příklad: Primitiva
 ------------------
