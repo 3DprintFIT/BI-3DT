@@ -245,7 +245,8 @@ programu Netfabb Basic], které jsou volně šiřitelné.
 
 Na cvičení používáme tento program.
 
-https://www.youtube.com/watch?v=bl1AIYqPvcE[image:../images/mesh/video.png[Video]]
+.Pro program Netfabb Basic je k dispozici tento https://www.youtube.com/watch?v=bl1AIYqPvcE[videotutoriál].
+video::bl1AIYqPvcE[youtube]
 
 Soubory
 ~~~~~~~
