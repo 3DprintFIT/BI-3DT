@@ -1,0 +1,46 @@
+Slicing
+-------
+
+Proč slicing?
+~~~~~~~~~~~~~
+
+image:../images/slicing/sliced_apple.jpg["Slicnuté" jablko]
+
+(© https://www.flickr.com/photos/vanf/5336855585/[Daniel Novta], CC BY)
+
+Rasterizace
+~~~~~~~~~~~
+
+Při zobrazení reálného modelu ve světových souřadnicích na výstupní
+zařízení (rastrové, vektorové) potřebujeme zajistit co nejvěrnější
+podobnost reálného a zobrazovaného modelu.
+
+image:../images/slicing/rasterization.png[Rasterizace]
+
+(Nedokážeme dohledat původ obrázku, pomůžete nám? Na internetu zmizel.)
+
+Rasterizace 3D modelu
+~~~~~~~~~~~~~~~~~~~~~
+
+image:../images/slicing/whistle_3dview.png[3D View píšťalka]
+
+(Model CC BY-NC 3.0 © https://www.thingiverse.com/thing:1046[Eberhard
+Rensch].)
+
+Přenos 3D modelu do reálného světa
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+image:../images/slicing/whistle_printed.png[Vytištěná píšťalka]
+
+(Foto CC BY-NC 3.0 © https://www.thingiverse.com/thing:1046[Eberhard
+Rensch].)
+
+* Snažíme se najít hranici při které je ještě snesitelná doba tisku a
+objekt vypadá „dobře“
+
+Ideální parametry
+~~~~~~~~~~~~~~~~~
+
+* Tloušťka stěny
+* Výška vrstvy
+* Množství výplně

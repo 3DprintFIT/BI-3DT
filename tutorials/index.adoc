@@ -1,0 +1,48 @@
+Cvičení
+-------
+
+Změna programu vyhrazena.
+
+[cols=",,,",options="header",]
+|=======================================================================
+|Cvičení |Datum |Téma |Body
+|1. |2.10.2017 |xref:course#[Principy předmětu],
+xref:reprap#[RepRap]
+|https://github.com/3DprintFIT/B171A-Username-Assignment[0]
+
+|2. |9.10.2017 |xref:openscad#[OpenSCAD: Základy]
+|https://github.com/3DprintFIT/B171A-OpenSCAD1-Assignment[3]
+
+|3. |16.10.2017 |xref:openscad#[OpenSCAD: Pokročilé]
+|https://github.com/3DprintFIT/B171A-OpenSCAD2-Assignment[3]
+
+|4. |23.10.2017 |xref:mesh#[Mesh]
+|https://github.com/3DprintFIT/B171A-Mesh-Assignment[3]
+
+|5. |30.10.2017 |xref:admesh#[ADMesh] - Programová manipulace s meshí
+|https://github.com/3DprintFIT/B171A-ADMesh-Assignment[3]
+
+|6. |6.11.2017 |xref:slicing#[Slicing], xref:gcode#[GCode],
+xref:slic3r#[Slic3r], xref:kisslicer#[KISSlicer]
+|https://github.com/3DprintFIT/B171A-Slicing-Assignment[3]
+
+|7. |13.11.2017 |xref:scan#[Skenování]
+|https://github.com/3DprintFIT/B171A-Scanning-Assignment[3]
+
+|8. |20.11.2017 |xref:printing#[Tisk - Základy] |xref:printing#[3]
+
+|9. |27.11.2017 |xref:printing#[Tisk] - xref:bridges#[Mosty]
+|xref:bridges#[3]
+
+|10. |4.12.2017 |xref:printing#[Tisk] - xref:supports#[Podpory]
+|xref:supports#[3]
+
+|11. |11.12.2017 |xref:printing#[Tisk] -
+xref:multicolor#[Vícebarevný tisk] |xref:multicolor#[3]
+
+|12. |18.12.2017 |xref:printing#[Tisk] - co si přejete vyzkoušet
+ohledně semestrální práce |0
+
+| | |xref:meshmixer#[MeshMixer a řezání STL souborů] (domácí příprava
+vhodná k semestrálce) |0
+|=======================================================================

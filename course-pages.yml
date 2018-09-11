@@ -1,0 +1,15 @@
+course:
+  code: BI-3DT
+  name: 3D Tisk
+semester: B181
+language: cs
+repository:
+  gitlabPath: /bi-3dt/bi-3dt
+navigation:
+  hiddenFiles:
+    - images
+    - stls
+    - configs
+    - README.*
+    - LICENSE
+    - tutorials/openscad/

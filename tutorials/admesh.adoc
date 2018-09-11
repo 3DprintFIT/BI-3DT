@@ -1,0 +1,119 @@
+Programová manipulace s STL soubory
+-----------------------------------
+
+Kromě ručního zpracování meshe v programech, jako je Netfabb Basic, je
+možné mesh zpracovávat i programově – tedy vytvářet programy, které s
+meshí něco více či méně zajímavého provádějí. Protože jsme na Fakultě
+informačních technologií, byla by škoda tento přístup neprozkoumat.
+
+Možnosti zpracování meshe ve formátu STL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Formát STL je velmi jednoduchý. Jeho popis najdete ve
+xref:./mesh#[cvičení, které se věnuje meshi a chybám v ní]. Načítat a
+ukládat soubory ve formátu STL není tedy žádná raketová věda, ale jedná
+se o poměrně nudné programování.
+
+Naštěstí již existují hotové open-source knihovny, které toto řeší za
+nás.
+
+Knihoven je celá řada, najít vhodnou knihovnu pro vás oblíbený jazyk je
+otázka několika vteřin vyhledávání na internetu. Zde namátkou zmíním:
+
+* https://pypi.python.org/pypi/numpy-stl[numpy-stl] pro Python + NumPy
+* https://github.com/QuantumConcepts/STLdotNET[STLdotNET] pro C#
+* https://github.com/cpedrinaci/STL-Loader[STL-Loader] pro Javu
+* …
+
+My budeme používat knihovnu https://github.com/admesh/admesh[ADMesh],
+která je napsaná v jazyce C, dá se jednoduše použít v jazyce C++,
+existují bindingy pro jazyky Python a Ruby.
+
+ADMesh
+~~~~~~
+
+https://github.com/admesh/admesh[ADMesh] je open-source program, který
+umožňuje manipulovat s STL meshí z příkazové řádky. Kromě rozhraní pro
+příkazovou řádku je k dispozici také knihovní API, které ale původně
+nevzniklo s úmyslem znovupoužitelnosti, takže je mnohdy jeho použití
+neintuitivní.
+
+Příklad: Převod z ASCII do binárního STL a obráceně
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Zde je na ukázku krátký program, který načte STL soubor `model.stl`
+(binární nebo ASCII) a zapíše jej jako ASCII nebo binární STL do
+stejného souboru – z binárních dělá ASCII a z ASCII dělá binární.
+
+[source,c]
+----
+#include <stdlib.h>
+#include <admesh/stl.h>
+ 
+int main(void) {
+  stl_file stl_in;
+  char *filename = "model.stl";
+ 
+  printf("Opening %s\n", filename);
+  stl_open(&stl_in, filename);
+  stl_exit_on_error(&stl_in);
+ 
+  if (stl_in.stats.type == binary) {
+    printf("Writing ASCII file %s\n", filename);
+    stl_write_ascii(&stl_in, filename, "ADMesh");
+    stl_exit_on_error(&stl_in);
+  } else {
+    printf("Writing binary file %s\n", filename);
+    stl_write_binary(&stl_in, filename, "ADMesh");
+    stl_exit_on_error(&stl_in);
+  }
+ 
+  stl_close(&stl_in);
+  return EXIT_SUCCESS;
+}
+----
+
+Všimněte si, že:
+
+* funkce přijímají jako první argument ukazatel na strukturu `stl_file`
+* po každém volání IO funkce je korektní volat `stl_exit_on_error()`,
+jinak můžete dostat SEGFAULT
+* na konci se sluší volat `stl_close()`
+
+Program se kompiluje pomocí:
+
+[source,console]
+----
+$ gcc source.c -ladmesh -o myapp
+----
+
+Případně, pokud nemáte ADMesh nainstalovaný ve standardních cestách:
+
+[source,console]
+----
+$ gcc -L/cesta/k/adresáři/knihovnou -I/cesta/k/adresáři/s/hlavičkovým/souborem source.c -ladmesh -o myapp
+----
+
+Výsledný program spustíte příkazem:
+
+[source,console]
+----
+$ ./myapp
+----
+
+Na některých systémech musíte použít:
+
+[source,console]
+----
+$ LD_LIBRARY_PATH=/usr/local/lib ./myapp
+----
+
+Pro ty méně šťastné z vás, používající Windows, bohužel oficiální
+instrukce neznáme, máme ale nějaké
+https://edux.fit.cvut.cz/courses/BI-3DT/tutorials/admesh/win[screenshoty
+pro NetBeany] od studentů.
+
+Jednotlivé funkce a struktury najdete v souboru
+https://github.com/admesh/admesh/blob/0.98.x/src/stl.h[`admesh/stl.h`].
+Velkou dokumentací knihovna bohužel neoplývá, i když něco vzniká na
+http://admesh.readthedocs.io/en/latest/[admesh.readthedocs.io].

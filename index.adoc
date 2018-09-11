@@ -1,0 +1,35 @@
+= BI-3DT
+
+Materials for the 3D printing course at the
+https://fit.cvut.cz/en[Faculty of Information Technology], CTU in
+Prague.
+
+Those materials are provided in Czech.
+
+BI-3DT - 3D tisk
+----------------
+
+* xref:classification#[Pravidla hodnocení]
+* https://rozvoj.fit.cvut.cz/evolution-dev/classification/home[Vaše body
+z předmětu]
+* xref:tutorials/index#[Harmonogram cvičení]
+* xref:teachers/index#[Učitelé]
+* https://www.facebook.com/groups/bi3dt/[Facebook: Nechceme vypadnout z
+BI-3DT]
+* https://timetable.fit.cvut.cz/new/courses/BI-3DT.1[Rozvrh]
+* https://gitlab.fit.cvut.cz/BI-3DT/bi-3dt[GitLab]
+* https://github.com/3DprintFIT/BI-3DT[GitHub]
+
+
+License
+-------
+
+All content in this repository, unless otherwise noted, is licensed
+under the terms of the
+https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons
+Attribution-ShareAlike 4.0 International] license.
+
+_The 3D Printing Lab, Faculty of Information Technology_ shall be stated
+at the author of those materials.
+
+image:https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-sa.png[width=88,height=31]
