@@ -1,10 +1,12 @@
 course:
   code: BI-3DT
+  altCodes:
+   - BI-3DT.1
   name: 3D Tisk
 semester: B181
 language: cs
 repository:
-  gitlabPath: /bi-3dt/bi-3dt
+  gitlabPath: /BI-3DT/BI-3DT
 navigation:
   hiddenFiles:
     - images
