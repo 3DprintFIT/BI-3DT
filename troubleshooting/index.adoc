@@ -1,0 +1,12 @@
+= Troubleshooting
+Marián Hlaváč <marian.hlavac@fit.cvut.cz>
+
+Pokud nenosíte v peněžence čtyřlístek, nebo si na cvičení nenosíte talisman pro štěstí, pravděpodobně se stane, že se něco nepovede nebo se na něčem zaseknete.
+
+V této sekci naleznete přehledně nejčastější problémy a jejich řešení, formou Q&A.
+Problémy jsou rozděleny do tématických celků.
+
+== Oblasti problémů
+
+TODO: Zde budou odkazy na jednotlivé kategorie problémů a jejich stručný popis
+
