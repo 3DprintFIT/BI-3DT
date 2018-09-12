@@ -1,0 +1,44 @@
+= Problémy při tisku
+Marián Hlaváč <marian.hlavac@fit.cvut.cz>
+:toc:
+
+== Na tiskárnu se nelze připojit.
+
+Pokud se nelze na tiskárnu připojit...
+
+1. Zkontrolujte, že jste připojeni do správné sítě (WiFi síť BI-3DT).
+2. Ujistěte se, že se připojujete na správnou adresu.
+3. Zkuste ručně zadat IP adresu.
+4. Tiskárnu restartujte jejím vypnutím a opětovným zapnutím.
+
+IP adresa tiskárny je *192.168.0.XXX*, kde XXX je číslo vaší tiskárny. 
+
+TODO: IP adresa není correct
+
+Pokud nic z toho nepomůže, požádejte cvičícího o pomoc.
+
+== Nemohu se k tiskárně přihlásit.
+
+TODO: Nutné informace o přihlašování od @hany
+
+== Z extruderu nevytéká žádný plast.
+
+Pokud jste právě zavedli filament, chvíli to trvá, než se z extruderu vytlačí veškerý vzduch a začne vytékat plast.
+
+Jemně uchopte filament při extrudování a zkontrolujte hmatem, zda filament bez problémů je vtahován dovnitř extruderu.
+Pokud je filament na místě a nejde dovnitř, znamená to, že je extruder ucpaný.
+
+1. Zkontrolujte správnost nastavených teplot
+2. Zkuste filament vyjmout a zavést znova
+
+Pokud nic nepomůže, je nutné extruder vyčistit.
+Přivolejte cvičícího pro asistenci.
+
+== Tiskárna vydává divný hlasitý zvuk.
+
+Tiskárny jsou obecně velmi hlučné.
+Pokud si však všimnete velmi nezvyklého hluku při tisku, zastavte tisk, abyste zabránili poškození tiskárny a přivolejte cvičícího.
+
+== Z tiskárny se kouří / hoří / je viditelně fyzicky poškozená.
+
+Okamžitě upozorněte cvičícího. I pokud si nejste jistí, zda je to problém, raději přivolejte cvičícího.
