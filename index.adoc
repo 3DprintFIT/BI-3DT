@@ -10,7 +10,7 @@ BI-3DT - 3D tisk
 ----------------
 
 * xref:classification#[Pravidla hodnocení]
-* https://rozvoj.fit.cvut.cz/evolution-dev/classification/home[Vaše body
+* https://grades.fit.cvut.cz/courses/BI-3DT.1/classification[Vaše body
 z předmětu]
 * xref:tutorials/index#[Harmonogram cvičení]
 * xref:teachers/index#[Učitelé]
