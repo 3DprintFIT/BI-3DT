@@ -56,7 +56,7 @@ Klec umístíte tak, aby koule ježka ležela v jejím středu a sloupy vedly ro
 image::hedgehog-08.png[]
 
 
-== Modul
+=== Modul
 
 
 Váš model musí fungovat jako samostatný modul pro OpenSCAD, použitelný pomocí direktivy use (nesmí obsahovat žádné konstanty mimo modul, ale je možné (a žádoucí) vytvořit si pomocné moduly). Musíte použít tento interface (včetně stejných výchozích hodnot!):
@@ -97,7 +97,7 @@ module hedgehog(diameter=30,
 * `pole_length` je délka sloupků klece od toroidu k toroidu
 
 
-== Krajní případy
+=== Krajní případy
 
 
 * nemusíte řešit situaci, kdy mají být ostny širší než průměr koule ježka
@@ -110,19 +110,19 @@ module hedgehog(diameter=30,
 * pokud je poloměr rohu profilu toroidu zadán příliš velký, musíte jej zvětšit na maximální možnou velikost.
 
 
-== Bonus
+=== Bonus
 
 
 Za bonusový bod můžete naimplementovat Tleskačovo tajemství. Do ježka ukryjete `children()`, které modul `hedgehog()` dostane na vstupu. Ale pozor, nevíte, jak je tajemství veliké, tak jej vhodně resizujte tak, aby se tam vešlo. Můžete předpokládat, že střed tajemství je taktéž na počátku souřadném a že je největší ve směru osy Z.
 
 
-= Kód
+== Kód
 
 
 Kód musí splňovat určitou kvalitu, jednou z podmínek je logické dodržení odsazení (v celém souboru stejné). Opakované konstrukce musí být implementovány vlastními moduly a forcykly. Magické konstanty musí být samovysvětlující, nebo doplněné o komentář. Není možné použít žádné externí knihovny pro OpenSCAD, ani knihovnu MCAD. Manipulace s `$fn`, `$fs` a `$fa` je zakázána.
 
 
-= Odevzdávání a hodnocení
+== Odevzdávání a hodnocení
 
 
 Soubor pojmenujte hedgehog.scad, uložte do archivu hedgehog.zip (přímo do kořenového adresáře archivu) a nahrajte přímo do svého osobního namespacu na Eduxu. Musí jít stáhnout z odkazu `https://edux.fit.cvut.cz/courses/BI-3DT/_media/student/username/hedgehog.zip` Na soubor do namespacu umístěte odkaz. V archivu kromě souboru hedgehog.scad musí být pouze potřebné soubory (další vaše scad soubory s moduly, případné DXF nebo STL soubory k importování), do archivu nepatří vygenerované STL soubory ježka v kleci. Správné pojmenování je důležité pro naše automatické testy. Nesprávně pojmenovaný soubor se nepovažuje za odevzdaný.
@@ -138,7 +138,7 @@ Počet (ne)úspěšných testů přímo ovlivňuje hodnocení. Testy budou po oh
 Před deadlinem proběhne několik kol odevzdání na nečisto. Cvičící vaše řešení nechá projet testy a upozorní vás například na to, že nějaká chyba rozbila většinu z nich, ale nemůže vám testy ukázat (tvořit úlohu přímo na míru testům by bylo příliš jednoduché). Tyto kola proběhnou 23.4., 30.4., 7.5., 14.5. a 16.5. vždy okolo 00:01 v noci. V tento čas musí být úloha odevzdaná na Edux. Zpětnou vazbu můžete očekávat v průběhu dvou dnů. Mimo tyto termíny není možné nechat úlohu projet testy.
 
 
-= Otázky od studentů
+== Otázky od studentů
 
 
 *Pocita se koncovy bod u spines jako konec zaobleneho zakonceni?*

@@ -45,12 +45,12 @@ Poznámka: Na rozmístění odnoží nemá vliv počet jejich pod-odnoží. Při
 Na tomto obrázku je naznačeno, jak jednotlivé odnože vycházejí ze středu vločky směrem k opsané kouli (ta koule není součástí vločky, pouze rozměrová informace):
 
 
-image::male.svg.png[]
+image::male.svg[width="500"]
 
 A zde vidíte jednotlivé rozměry a tvar jedné odnože. Proměnná `x` je třeba dopočítat vzhledem k pevně zadaným vstupům:
 
 
-image::velke.svg.png[]
+image::velke.svg[width="600"]
 
 Jednotlivé pod-odnože jsou vytočené o úhel `ang` a rovnoměrně rozmístěné:
 

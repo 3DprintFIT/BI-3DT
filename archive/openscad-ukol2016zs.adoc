@@ -9,7 +9,7 @@ WARNING: Toto není aktuální zadání úkolu. Je zde pouze k účelům archiva
 Další domácí úkoly ze semestrů minulých můžete vidět v xref:index#[archívu].
 
 
-= Motivace
+== Motivace
 
 
 Vaším úkolem je navrhnout plně parametricky model elektrické zásuvky / prodlužovačky / rozmnožovačky / jezvčíka / psa (dále jen zásuvky). Jelikož každý designer si chce namodelovat svoji zásuvku a následně vyzkoušet jak vypadá v reálném světe. Zapojit do ní na zkoušku kabely. Přiložit ji k nábytku, jestli mu pasuje (esteticky, rozměrově). Proto máte za úkol navrhnout univerzální modul, který těmto zoufalým designérům pomůže.
@@ -20,7 +20,7 @@ Vaším úkolem je navrhnout plně parametricky model elektrické zásuvky / pro
 image::plugs-photo.jpg[width="600"]
 
 
-= Rozhraní
+== Rozhraní
 
 
 Zásuvka má tyto parametry
@@ -64,29 +64,29 @@ module plug(y=40,
 Váš model musí fungovat jako samostatný module pro OpenSCAD, použitelný pomocí direktivy use (nesmí obsahovat žádné konstanty mimo modul, ale je možné (a žádoucí) vytvořit si pomocné moduly). Musíte použít výše zmíněný interface (včetně stejných výchozích hodnot!).
 
 
-= Vnější tvar
+== Vnější tvar
 
 
 Jednotlivé zásuvky vypadají takto:
 
 
-image::plugs-multiple.svg.png[width="600"]
+image::plugs-multiple.svg[width="600"]
 
 Ale levá krajní vypadá jinak:
 
 
-image::plugs-start.svg.png[width="600"]
+image::plugs-start.svg[width="600"]
 
 Celé tělo je 3D zaoblené, ale díry na zásuvky ne.
 
 
-image::plugs-rounded.svg.png[width="600"]
+image::plugs-rounded.svg[width="600"]
 
 
-= Konkrétní popis parametrů
+== Konkrétní popis parametrů
 
 
-== Šířka / osa y
+=== Šířka / osa y
 
 
 * Je dána tak, aby když je tloušťka okolo zásuvky tlustší než šírka, tak se ořízne.
@@ -94,12 +94,12 @@ image::plugs-rounded.svg.png[width="600"]
 * Pokud je šírka menší než průměr zásuvky tak se nic nevykreslí.
 
 
-image::plugs-shape.svg.png[width="500"]
+image::plugs-shape.svg[width="500"]
 
 (Nevidíte-li na obrázku osy s popisky, dejte tvrdý refresh stránky, máte v cache starou verzi.)
 
 
-== Výška / osa z
+=== Výška / osa z
 
 
 * Pokud je hloubka zásuvky (depth_of_outlets) a délka kolíků (pin_depth) v součtu větší a tudíž by došlo k proděravění zásuvku skrz na skrz, nic se nevykreslí.
@@ -107,16 +107,16 @@ image::plugs-shape.svg.png[width="500"]
 * Z udává výšku těla zásuvky, bez případných kolíků, které někdy mohou trčet výše.
 
 
-image::plugs-plug-depth.svg.png[width="600"]
+image::plugs-plug-depth.svg[width="600"]
 
 
-== Poloměr jedné zásuvky
+=== Poloměr jedné zásuvky
 
 
 * Pozor nejedná se o průměr
 
 
-== Počet zásuvek
+=== Počet zásuvek
 
 
 * Pokud je to záporné číslo nic se nevykreslí
@@ -124,7 +124,7 @@ image::plugs-plug-depth.svg.png[width="600"]
 * 1 je validní počet zásuvek
 
 
-== Tlouštka okolo jedné zásuvky
+=== Tlouštka okolo jedné zásuvky
 
 
 * Jedná se o tlouštku stěny okolo zásuvky při pohledu ze shora
@@ -132,7 +132,7 @@ image::plugs-plug-depth.svg.png[width="600"]
 * Pokud je to záporné číslo nebo 0 nic se nevykreslí
 
 
-== Rozestup zásuvek
+=== Rozestup zásuvek
 
 
 * Rozestup zásuvek mezi zásuvkou
@@ -140,10 +140,10 @@ image::plugs-plug-depth.svg.png[width="600"]
 * Pokud je záporný, nic se nevykreslí
 
 
-image::plugs-distance.svg.png[width="500"]
+image::plugs-distance.svg[width="500"]
 
 
-== Hloubka zásuvek
+=== Hloubka zásuvek
 
 
 * Hloubka jedné zásuvky
@@ -151,37 +151,37 @@ image::plugs-distance.svg.png[width="500"]
 * Pokud je to záporné číslo nic se nevykreslí
 
 
-== Poloměr kolíku
+=== Poloměr kolíku
 
 
 * Poloměr jednoho kolíku i děr co jsou v zásuvce
 
 
-== Hloubka děr a délka kolíku
+=== Hloubka děr a délka kolíku
 
 
 * Je stejná
 
 
-== Rozestup kolíků
+=== Rozestup kolíků
 
 
 * Pokud je rozestup 0, kolík i díry jsou na stejném místě
 
 
-image::plugs-pins.svg.png[width="300"]
+image::plugs-pins.svg[width="300"]
 
 
-== Úhel kolíku
+=== Úhel kolíku
 
 
 * Jedná se o natočení kolíků (směr viz obrázek)
 
 
-image::plugs-angle.svg.png[width="500"]
+image::plugs-angle.svg[width="500"]
 
 
-== Poloměr zaoblení
+=== Poloměr zaoblení
 
 
 * jak moc je tělo zásuvky zaoblené (0 - není zaoblené; N - poloměr v rohu je N)
@@ -189,7 +189,7 @@ image::plugs-angle.svg.png[width="500"]
 * zaoblením se nesmí objekt zvětšit, tzn. dříve uvedené rozměry jsou vnější po zaoblení
 
 
-== Umístění v prostoru
+=== Umístění v prostoru
 
 
 Pro naše poloautomatické testy je třeba objekt správně umístit v prostoru.
@@ -197,37 +197,37 @@ Pro naše poloautomatické testy je třeba objekt správně umístit v prostoru.
 Zásuvka leží více-méně na počátku (bod 0). Osa X prochází prostředkem objektu
 
 
-image::plugs-xy.svg.png[width="600"]
+image::plugs-xy.svg[width="600"]
 
 Osa Y prochází prostředkem zásuvek (ne prostředkem objektu). Pokud máme sudý počet zásuvek:
 
 
-image::plugs-xy-center-even.svg.png[width="300"]
+image::plugs-xy-center-even.svg[width="300"]
 
 Pokud máme lichý počet zásuvek:
 
 
-image::plugs-xy-center-odd.svg.png[width="300"]
+image::plugs-xy-center-odd.svg[width="300"]
 
 Celý objekt leží na rovině XY, tzn nezasahuje do záporného Z:
 
 
-image::plugs-z.svg.png[width="500"]
+image::plugs-z.svg[width="500"]
 
 
-== Poznámky
+=== Poznámky
 
 
 * Rozměr na ose X není schválně zadán, protože zásuvka bude mít délku podle nastavených parametrů.
 
 
-= Kód
+== Kód
 
 
 Kód musí splňovat určitou kvalitu, jednou z podmínek je logické dodržení odsazení (v celém souboru stejné). Opakované konstrukce musí být implementovány vlastními moduly a forcykly. Magické konstanty musí být samovysvětlující, nebo doplněné o komentář. Není možné použít žádné externí knihovny pro OpenSCAD, ani knihovnu MCAD. Manipulace s `$fn`, `$fs` a `$fa` je přísně zakázána.
 
 
-= Odevzdání
+== Odevzdání
 
 
 Odevzdává se dle instrukcí na https://github.com/3DprintFIT/B161HW-Template#zadání-domácího-úkolu[GitHubu]

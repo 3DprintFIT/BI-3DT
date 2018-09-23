@@ -1,3 +1,5 @@
 = Semestrální práce ZS 2017/2018 
 
-Zadání semestrálky najdete na https://github.com/3DprintFIT/B171CW-Assignment[GitHubu].
+WARNING: Toto není aktuální zadání úkolu. Je zde pouze k účelům archivace.
+
+Zadání semestrálky ZS 2017/2018 najdete na https://github.com/3DprintFIT/B171CW-Assignment[GitHubu].

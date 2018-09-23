@@ -3,7 +3,7 @@
 :toc:
 
 
-image:../bi-3dt.png[] image:../trubka.png[width="250"] image:../trubka2.png[width="250"]
+image:bi-3dt.png[] image:trubka.png[width="250"] image:trubka2.png[width="250"]
 
 WARNING: Toto není aktuální zadání úkolu. Je zde pouze k účelům archivace.
 

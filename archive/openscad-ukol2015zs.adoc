@@ -9,10 +9,8 @@ WARNING: Toto není aktuální zadání úkolu. Je zde pouze k účelům archiva
 TIP: Naše poloautomatické testy používají plný render (v apliakci zkratka F6). Netestujte váš kód pouze s F5. Pozor také na modifikátor % - v režimu plného renderu se takto prefixovaný kód neobjeví.
 
 
-[IMPORTANT]
-====
-V zadání se dříve objevovala hodnota [line-through]#thickeness#. Bylo to samozřejmě špatně a měli jsme na mysli *thickness*.
-====
+IMPORTANT: V zadání se dříve objevovala hodnota [line-through]#thickeness#.
+Bylo to samozřejmě špatně a měli jsme na mysli *thickness*.
 
 
 == Stojan na karty
@@ -22,7 +20,7 @@ Protože máte několik důležitých karet (např. platebních nebo ISIC apod.)
 
 Pro jednoduchost budeme předpokládat, že karty mají tvar obdélníku (respektive kvádru), bez jakýkoli zaoblených hran a výstupků (např embosování). Všechny karty mají stejný rozměr. Zde je několik ilustrací řezů tímto stojánkem (boční, podélný a příčný; obrázky jdou kliknutím zvětšit).
 
-image:../bok4.png[height="300"] image:../vrch2.png[height="300"] image:../predek.png[height="300"]
+image:bok4.png[height="300"] image:vrch2.png[height="300"] image:predek.png[height="300"]
 
 Zeleně je naznačena jedna karta vložená ve stojanu. Červeně a modře pak určité rozměry, které budou popsány dále. Všimněte si, že při pohledu z boku a zepředu nedochází k žádnému zaoblení. Zato při pohledu zhora je vidět, jak se prostor pro kartu „obtáčí“ kolem karty tak, aby byla mezera mezi kartou a stěnou všude stejná (i v rohu).
 
@@ -37,10 +35,8 @@ image::vrch-oblouky.png[height="300"]
 === Interface a argumenty
 
 
-[IMPORTANT]
-====
-V zadání se dříve objevovala hodnota [line-through]#thickeness#. Bylo to samozřejmě špatně a měli jsme na mysli *thickness*.
-====
+IMPORTANT: V zadání se dříve objevovala hodnota [line-through]#thickeness#.
+Bylo to samozřejmě špatně a měli jsme na mysli *thickness*.
 
 Váš model musí fungovat jako samostatný `module` pro OpenSCAD, použitelný pomocí direktivy `use` (nemsí obsahovat žádné konstanty mimo modul, ale je možné (a žádoucí) vytvořit si pomocné moduly). Musíte použít tento interface (včetně stejných výchozích hodnot!):
 
@@ -79,13 +75,13 @@ image::umisteni.png[height="300"]
 Ilustrační obrázek ukazuje umístění. Zvýrazněná stěna je předek.
 
 
-= Kód
+== Kód
 
 
 Kód musí splňovat určitou kvalitu, jednou z podmínek je logické dodržení odsazení (v celém souboru stejné). Opakované konstrukce musí být implementovány vlastními moduly a forcykly. Magické konstanty musí být samovysvětlující, nebo doplněné o komentář. Není možné použít žádné externí knihovny pro OpenSCAD, ani knihovnu MCAD. Manipulace s `$fn`, `$fs` a `$fa` je zakázána.
 
 
-= Odevzdávání a hodnocení
+== Odevzdávání a hodnocení
 
 
 Soubor pojmenujte cardholder.scad, uložte do archivu cardholder.zip (přímo do kořenového adresáře archivu) a nahrajte přímo do svého osobního namespacu na Eduxu. Musí jít stáhnout z odkazu `https://edux.fit.cvut.cz/courses/BI-3DT/_media/student/username/cardholder.zip` Na soubor do namespacu umístěte odkaz. V archivu kromě souboru cardholder.scad musí být pouze potřebné soubory (další vaše scad soubory s moduly, případné DXF nebo STL soubory k importování), do archivu nepatří vygenerované STL soubory stojánku. Správné pojmenování je důležité pro naše automatické testy. Nesprávně pojmenovaný soubor se nepovažuje za odevzdaný.
@@ -101,28 +97,28 @@ Počet (ne)úspěšných testů přímo ovlivňuje hodnocení. Testy budou po oh
 Před deadlinem proběhne několik kol odevzdání na nečisto. Cvičící vaše řešení nechá projet testy a upozorní vás například na to, že nějaká chyba rozbila většinu z nich, ale nemůže vám testy ukázat (tvořit úlohu přímo na míru testům by bylo příliš jednoduché). Tyto kola proběhnou 6.11., 13.11., 20.11., 23.11. a 27.11. vždy okolo 01:00 v noci. V tento čas musí být úloha odevzdaná na Edux. Zpětnou vazbu můžete očekávat v průběhu dne. Mimo tyto termíny není možné nechat úlohu projet testy.
 
 
-= Otázky od studentů
+== Otázky od studentů
 
 
-== Mají být zaoblené všechny přihrádky, stejně jako ta první?
+=== Mají být zaoblené všechny přihrádky, stejně jako ta první?
 
 
 Ano, doplněno do zadání.
 
 
-== Neměla by být poslední změna zarovnaná podle poslední přihrádky?
+=== Neměla by být poslední změna zarovnaná podle poslední přihrádky?
 
 
 Ano, doplněno do zadání, obrázek upraven.
 
 
-== Je rozdíl mezi dvěma úrovněmi delta, nebo delta + spacing?
+=== Je rozdíl mezi dvěma úrovněmi delta, nebo delta + spacing?
 
 
 ​Delta. Spacing nemá na posun karty vliv.
 
 
-== Parametr delta je udáván v % nebo v jednotkách?
+=== Parametr delta je udáván v % nebo v jednotkách?
 
 
 V jednotkách.

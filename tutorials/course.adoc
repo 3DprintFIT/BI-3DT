@@ -68,6 +68,8 @@ Odevzdává se na GitHub a zadání proběhne cca ve 4. týdnu (semestru).
 TIP: Domácí úkol tvoří 30 % xref:../classification#[hodnocení] předmětu,
 ale není povinná.
 
+Minulá zadání najdete v xref:../archive/index#[archívu].
+
 === Semestrální práce
 
 Semestrální práce je komplexní úloha, která kopíruje z předmětu známý workflow.
@@ -79,6 +81,8 @@ cvičení.
 
 TIP: Semestrálka tvoří 40 % xref:../classification#[hodnocení] předmětu,
 ale není povinná.
+
+Minulá zadání najdete v xref:../archive/index#[archívu].
 
 == Instalace programů
 

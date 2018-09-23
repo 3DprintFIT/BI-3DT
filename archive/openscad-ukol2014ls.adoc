@@ -10,7 +10,7 @@ Vaším úkolem je vytvořit parametrický model stojánku na telefon. Stojánek
 TIP: Naše automatické testy používají plný render (v apliakci zkratka F6). Netestujte váš kód pouze s F5. Pozor také na modifikátor % - v režimu plného renderu se takto prefixovaný kód neobjeví.
 
 
-= Náhled
+== Náhled
 
 
 image::openscad-ukol-ls1415/nahled-1.png[height="250"]
@@ -20,13 +20,13 @@ image::openscad-ukol-ls1415/nahled-2.png[height="250"]
 image::openscad-ukol-ls1415/nahled-3.png[height="250"]
 
 
-== Podstava
+=== Podstava
 
 
 image::openscad-ukol-ls1415/podstava.png[]
 
 
-= Vnější rozměry
+== Vnější rozměry
 
 
 image::openscad-ukol-ls1415/bokorys.png[height="368"]
@@ -41,7 +41,7 @@ angle_radius = 2*shell_thick + mob_thick + thick/2
 ----
 
 
-= Rozměry konektoru
+== Rozměry konektoru
 
 
 image::openscad-ukol-ls1415/bokorys-rez.png[height="368"]
@@ -49,7 +49,7 @@ image::openscad-ukol-ls1415/bokorys-rez.png[height="368"]
 image::openscad-ukol-ls1415/vrsek-rez.png[height="368"]
 
 
-= Interface
+== Interface
 
 
 [source,c]
@@ -105,13 +105,13 @@ Modul musí jít použít z externího souboru pomocí direktivy `use` - nesmí 
 Zachovejte výchozí hodnoty argumentů tak, jak jsou zadané!
 
 
-= Kód
+== Kód
 
 
 Kód musí splňovat určitou kvalitu, jednou z podmínek je logické dodržení odsazení (v celém souboru stejné). Opakované konstrukce musí být implementovány vlastními moduly a forcykly. Magické konstanty musí být samovysvětlující, nebo doplněné o komentář. Není možné použít žádné externí knihovny pro OpenSCAD, ani knihovnu MCAD. Manipulace s `$fn`, `$fs` a `$fa` je zakázána.
 
 
-= Odevzdávání a hodnocení
+== Odevzdávání a hodnocení
 
 
 Soubor pojmenujte stand.scad, uložte do archivu stand.zip (přímo do kořenového adresáře archivu) a nahrajte přímo do svého osobního namespacu na Eduxu. Musí jít stáhnout z odkazu `https://edux.fit.cvut.cz/courses/BI-3DT/_media/student/username/stand.zip` Na soubor do namespacu umístěte odkaz. V archivu kromě souboru stand.scad musí být pouze potřebné soubory (další vaše scad soubory s moduly, případné DXF nebo STL soubory k importování), do archivu nepatří vygenerované STL soubory stojánku.
@@ -123,7 +123,7 @@ Po ohodnocení (které proběhne až po termínu odevzdání) nelze úlohu oprav
 Při hodnocení se bude poloautomaticky testovat sada připravených argumentů obsahující především krajní případy. Doporučujeme proto modul vyzkoušet pro všemožné vstupy (nečíselné vstupy testovány nebudou). Na základě výsledku z testu a kvality kódu student může získat 0 až 20 bodů. V případě, že vyhodnotíme, že student úlohu opsal, případně vlastnímu kódu vůbec nerozumí, a ten neprokáže opak, bude úloha hodnocena -100 body, což znamená klasifikaci známkou F.
 
 
-= Otázky od studentů
+== Otázky od studentů
 
 
 _Zatím žádné dotazy nepadly. Neváhejte se zeptat svých cvičících._
