@@ -14,6 +14,6 @@ https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons
 Attribution-ShareAlike 4.0 International] license.
 
 _The 3D Printing Lab, Faculty of Information Technology_ shall be stated
-at the author of those materials.
+as the author of those materials.
 
 image:https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-sa.png[width=88,height=31]

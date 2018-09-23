@@ -23,7 +23,7 @@ xref:slic3r#[Slic3r], xref:kisslicer#[KISSlicer] |3
 
 |8. |20.11.2018 |xref:printing#[Tisk - Základy] |3
 
-|9. |27.11.2017 |xref:printing#[Tisk] - xref:bridges#[Mosty] |3
+|9. |27.11.2018 |xref:printing#[Tisk] - xref:bridges#[Mosty] |3
 
 |10. |4.12.2018 |xref:printing#[Tisk] - xref:supports#[Podpory] |3
 
