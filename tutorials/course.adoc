@@ -1,46 +1,50 @@
-Principy předmětu
------------------
+= Principy předmětu
 
-BI-3DT
-~~~~~~
+== BI-3DT
 
-* učí členové http://3dprint.fit.cvut.cz/[3Dprint Labu]
-* vždy uvítáme připomínky
-* naučíme kompletní workflow k 3D tisku
-** tvorba modelu → optimalizace / opravy → slicování → tisk → zpracování
+Předmět učí členové http://3dprint.fit.cvut.cz/[3Dprint Labu], tedy studenti
+a absolventi FITu. Předmět děláme pro vás, proto vždy uvítáme připomínky.
 
-RepRap
-~~~~~~
+V rámci předmětu se vás snažíme naučit kompletní workflow k 3D tisku, tedy
+tvorbu modelu → optimalizaci / opravy → slicování → tisk → zpracování.
 
-* učíme na tiskárnách RepRap, protože:
-** open-source software
-** open-source hardware
-** cenová dostupnost
-** rapidní vývoj
-* _více o projektu později_
+== RepRap
 
-Průběh
-~~~~~~
+V předmětu učíme na tiskárnách RepRap, protože se jedná o open-source software
+a open-source hardware, který je pro fakultu cenově dostupný, pro nás (a pro
+vás) hackovatelný. Tiskárny projektu RepRap za poslední roky zaznamenaly
+ohromný posun kupředu. Je pravděpodobné, že většinu složitostí, které s našimi
+tiskárnami zaznamenáte, již nikdy v budoucnu nebudete muset řešit.
 
-* *cvičení* -- zde v A1048
-* *tisk semestrálních prací* -- v labu A1153 ve zkouškovém období
-* harmonogram semestru je na stránce xref:./schedule#[Cvičení]
-* účast v zásadě nepovinná:
-** nevyhodíme vás za to, že jste nepřišli
-** úlohy na cvičeních jsou ale za body
+== Průběh výuky
 
-Hodnocení
-~~~~~~~~~
+Výuka předmětu se skládá pouze z *cvičení*, která probíhají zde v A1048.
+Kromě toho existuje pro někoho časově náročná práce na doma ve formě domácího
+úkolu a semestrální práce.
 
-* *30 bodů* Domácí parametrický úkol v programu OpenSCAD
+Semestrální práce je koncipována tak, aby se na ní dalo pracovat v prostojích
+na cvičeních v druhé části semestru, kdy budete tisknout (a tedy především
+čekat). Je na každém z vás, jestli tyto prostoje využije k práci na semestrálce,
+či na ni bude pracovat jindy.
+
+Tisk semestrálních prací proběhne ve 3D labu (A1153) ve zkouškovém období.
+
+Harmonogram semestru je na stránce xref:./schedule#[Cvičení].
+Účast na cvičeních je v zásadě nepovinná:
+
+** nevyhodíme vás za to, že jste nepřišli,
+** úlohy na cvičeních jsou ale za body.
+
+== Hodnocení
+
 * *30 bodů* Práce v semestru na cvičeních
+* *30 bodů* Domácí parametrický úkol v programu OpenSCAD
 * *40 bodů* Semestrální práce
 
-Informace na stránce xref:./classification#[Hodnocení] je vždy
-prioritní oproti informacím uvedených zde (informujte nás při neshodě).
+WARNING: Informace na stránce xref:../classification#[Hodnocení] je vždy
+prioritní oproti informacím uvedených zde (informujte nás prosím při neshodě).
 
-Cvičení
-~~~~~~~
+=== Cvičení
 
 Kopírují workflow tisku.
 
@@ -50,42 +54,55 @@ Kopírují workflow tisku.
 4.  *Tisk*: program OctoPrint
 5.  1 cvičení také *Programování*: ADMesh
 
-Domácí úkol
-~~~~~~~~~~~
+TIP: Práce na cvičeních tvoří 30 % xref:../classification#[hodnocení] předmětu,
+ale není povinná.
 
-* ověření schopnosti ovládat program OpenSCAD na úrovni mistra Yody
-* odevzdávání na GitHub
-* zadání ve 4. týdnu (snad)
-* parametrický model s pevně daným rozhraním
+=== Domácí úkol z OpenSCADu
 
-Semestrální práce
-~~~~~~~~~~~~~~~~~
+Součástí hodnocení je domácí úkol z modelování v OpenSCADu, který ověří vaše
+schopnosti ovládat program(a jazyk) OpenSCAD na úrovni mistra Yody.
+Jedná se o velmi parametrický 3D model s pevně daným rozhraním.
 
-* komplexní úloha
-* opět kopíruje známý workflow
-* zadání zveřejníme později
-* zakončeno tiskem:
-** zkouškové obdobní
-* 40 % xref:./classification#[hodnocení] předmětu
+Odevzdává se na GitHub a zadání proběhne cca ve 4. týdnu (semestru).
 
-Instalace programů
-~~~~~~~~~~~~~~~~~~
+TIP: Domácí úkol tvoří 30 % xref:../classification#[hodnocení] předmětu,
+ale není povinná.
 
-* viz xref:../apps#[Programy]
-* do příště za domácí úkol
-* příští cvičení konzultace případných problémů
+=== Semestrální práce
 
-Když se mi to nelíbí
-~~~~~~~~~~~~~~~~~~~~
+Semestrální práce je komplexní úloha, která kopíruje z předmětu známý workflow.
+Práce na semestrálce probíhá na cvičeních, doma a je zakončena tikem ve
+zkouškovém období, který může trvat až 5 hodin.
 
-* pokud se vám něco nelíbí
-** řekněte nám to hned, ne až v anketě
-* pokud se vám celý předmět nelíbí
-** odhlaste si ho do konce 2. týdne
-** dáte šanci jiným
+Zadání zveřejníme tak, abyste na semestrálce mohli pracovat v rámci tiskových
+cvičení.
 
-Facebook
-~~~~~~~~
+TIP: Semestrálka tvoří 40 % xref:../classification#[hodnocení] předmětu,
+ale není povinná.
+
+== Instalace programů
+
+Na fakultních počítačích v učebně jsou veškeré potřebné programy už nainstalovány.
+
+Pro práci ze svých počítačů důrazně doporučujeme nainstalovat několik
+potřebných programů, viz stránku xref:../apps#[Programy].
+
+CAUTION: Nainstalujte si programy co nejdříve a ověřte si jejich funkčnost!
+Setkali jsme se se situací, že student 45 minut na cvičení řešil instalaci
+Slic3ru a nestihl kvůli tomu samotnou práci. Za takovou situaci je student
+zodpovědný sám, pokud nás včas (cca týden předem) nepožádá o pomoc.
+
+== Když se mi to nelíbí
+
+Pokud se vám v průběhu předmětu něco nelíbí, řekněte nám to prosím hned,
+ne až v anketě. Pokud objevíte chybu v materiálech, založe issue na GitHubu
+nebo na GitLabu. Můžete navrhnout i úpravu (dobré úpravy hodnotíme body,
+vynikající úpravy můžou vést k odpuštění domácího úkolu nebo semestrální práce).
+
+TIP: Pokud už teď víte, že na předmět nebudete chodit, odhlaste si ho do
+konce 2. týdne, dáte šanci jiným. Děkujeme.
+
+== Facebook
 
 Na Facebooku existuje stránka
 https://www.facebook.com/groups/bi3dt/[Nechceme vypadnout z BI-3DT], na
@@ -93,8 +110,10 @@ které můžete konzultovat své problémy s ostatními studenty, případně i 
 námi (vyučující sami tuto stránku aktivně sledují, ale nespoléhejte na
 to).
 
-GitHub
-~~~~~~
+== Odevzdávání úloh přes GitHub
 
-Letos v předmětu experimentální odevzdávání všeho na GitHub. Na tomhle
-cvičení si to vyzkoušíme.
+V předmětu odevzdáváme všeho na GitHub.
+Na tomhle cvičení si to vyzkoušíme.
+
+V xref:index#[harmonogramu cvičení] najdete u každého cvičení počet bodů.
+Pokud je tento počet bodů odkazem, vede na zadání úlohy.
