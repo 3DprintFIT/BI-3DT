@@ -1,5 +1,5 @@
 = OpenSCAD: Domácí úkol ZS 2013/2014 
-:imagesdir: ../../media/classification/archive
+:imagesdir: media
 
 
 WARNING: Toto není aktuální zadání úkolu. Je zde pouze k účelům archivace.
@@ -10,7 +10,7 @@ WARNING: Toto není aktuální zadání úkolu. Je zde pouze k účelům archiva
 Úkolem je vytvořit v programu OpenSCAD pouzdro na mobilní telefon, které kryje zadní stěnu a hrany telefonu. Je však nutné nechat v zadní stěně díru na fotoaparát a na spodní hraně díru na konektor. Pouzdro na přední straně mírně přesahuje, nemusíte ale řešit, jak pak telefon do pouzdra dostat, předpokládejte například, že pouzdro je z gumy. Telefon má tvar kvádru se zaoblenými rohy podstavy (http://commons.wikimedia.org/wiki/File:Iphone_4G.jpg[podobně jako iPhone]).
 
 
-image::../smartphone.png["Schéma"]
+image::smartphone.png["Schéma"]
 
 Vaše implementace bude umožňovat změnu následujících parametrů:
 
@@ -54,4 +54,4 @@ Neošetřujte nevalidní vstup (záporné nebo nečíselné hodnoty nebo např. 
 Na následujícím obrázku průřezu je vidět několik možná nejasných věcí. Různou barvou je označeno, co je tloušťka pouzdra a co je přesah na přední straně. Zároveň je naznačeno, že v průhlednějších oblastech nehodnotíme, jestli jsou zaoblené, nebo pravoúhlé.
 
 
-image::../g10220.png[]
+image::g10220.png[]

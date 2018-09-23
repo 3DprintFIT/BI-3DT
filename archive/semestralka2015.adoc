@@ -1,5 +1,5 @@
 = Semestrální práce 2015/2016
-:imagesdir: ../../media/classification/archive
+:imagesdir: media
 :toc:
 
 
@@ -33,7 +33,7 @@ thorns_example = [[[0,0,0], 30, 3, 4], [[90,0,0], 25.5, 2.65, 7]];
 Každý hrot má podobný tvar jako na tomto obrázku (obrázek jde zvětšit):
 
 
-image::../rect10491.png[height="300"]
+image::rect10491.png[height="300"]
 
 Střed spodní strany leží na počátku souřadném. Před rotací hrot ukazuje směrem kolmo vzhůru (po kladné ose Z). Celková délka trnu je `height`, zlom je vzdálen třetí odmocninu `height` od vrchu. Trn má profil pravidelného ("rovnostranného") _n_-úhelníku, kde _n_ je `seg`. Kružnice opsaná tomuto _n_-úhelníku má v místě zlomu poloměr `circumr`, na spodku hrotu je pak poloměr třetinový. Hrot je následně rotován vektorem ``++[++rotx, roty, rotz++]++``.
 
@@ -42,7 +42,7 @@ Krystal je pouze směsicí těchto hrotů.
 Pro uvedený dvouhrotový příklad vypadá výsledek asi takto:
 
 
-image::../2example.png[height="300"]
+image::2example.png[height="300"]
 
 Dalším úkolem je modul generující náhodné krystaly. Nedostává na vstupu tedy konkrétní data, ale jen jejich meze (uzavřené intervaly) a počet hrotů.
 
@@ -59,7 +59,7 @@ Pro generování náhodných čísel můžete použít funkci https://en.wikiboo
 Pro výchozí hodnoty může vypadat krystal různě (je náhodný), například takto:
 
 
-image::../350example.png[height="300"]
+image::350example.png[height="300"]
 
 
 === Vaše krystaly

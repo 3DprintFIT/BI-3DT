@@ -1,5 +1,4 @@
 = OpenSCAD: Domácí úkol ZS 2017/2018 
-:imagesdir: ../media/classification
 
 
 [IMPORTANT]

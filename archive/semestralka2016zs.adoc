@@ -1,5 +1,5 @@
 = Semestrální práce ZS 2016/2017
-:imagesdir: ../../media/classification/archive
+:imagesdir: media
 :toc:
 
 
@@ -45,24 +45,24 @@ Poznámka: Na rozmístění odnoží nemá vliv počet jejich pod-odnoží. Při
 Na tomto obrázku je naznačeno, jak jednotlivé odnože vycházejí ze středu vločky směrem k opsané kouli (ta koule není součástí vločky, pouze rozměrová informace):
 
 
-image::../male.svg.png[]
+image::male.svg.png[]
 
 A zde vidíte jednotlivé rozměry a tvar jedné odnože. Proměnná `x` je třeba dopočítat vzhledem k pevně zadaným vstupům:
 
 
-image::../velke.svg.png[]
+image::velke.svg.png[]
 
 Jednotlivé pod-odnože jsou vytočené o úhel `ang` a rovnoměrně rozmístěné:
 
 
-image::../odnoz.png[]
+image::odnoz.png[]
 
 Pokud je pod-odnož jen jedna, je rovně (vytočení o `ang` se nekoná). Její délka není `5x` z obrázku výše, ale méně (tak aby dosáhla na, ale nepřesáhla opsanou kouli).
 
 Celkový pohled:
 
 
-image::../vlocka.png[]
+image::vlocka.png[]
 
 
 === Vaše vločky

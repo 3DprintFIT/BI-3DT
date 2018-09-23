@@ -1,5 +1,5 @@
 = OpenSCAD: Domácí úkol LS 2014/2015 
-:imagesdir: ../../media/classification/archive
+:imagesdir: media
 
 
 WARNING: Toto není aktuální zadání úkolu. Je zde pouze k účelům archivace.
@@ -13,25 +13,25 @@ TIP: Naše automatické testy používají plný render (v apliakci zkratka F6).
 = Náhled
 
 
-image::../openscad-ukol-ls1415/nahled-1.png[height="250"]
+image::openscad-ukol-ls1415/nahled-1.png[height="250"]
 
-image::../openscad-ukol-ls1415/nahled-2.png[height="250"]
+image::openscad-ukol-ls1415/nahled-2.png[height="250"]
 
-image::../openscad-ukol-ls1415/nahled-3.png[height="250"]
+image::openscad-ukol-ls1415/nahled-3.png[height="250"]
 
 
 == Podstava
 
 
-image::../openscad-ukol-ls1415/podstava.png[]
+image::openscad-ukol-ls1415/podstava.png[]
 
 
 = Vnější rozměry
 
 
-image::../openscad-ukol-ls1415/bokorys.png[height="368"]
+image::openscad-ukol-ls1415/bokorys.png[height="368"]
 
-image::../openscad-ukol-ls1415/vrsek.png[height="368"]
+image::openscad-ukol-ls1415/vrsek.png[height="368"]
 
 Hodnota __angle_radius__ není zadána číslem, ale je nutné ji vypočítat.
 
@@ -44,9 +44,9 @@ angle_radius = 2*shell_thick + mob_thick + thick/2
 = Rozměry konektoru
 
 
-image::../openscad-ukol-ls1415/bokorys-rez.png[height="368"]
+image::openscad-ukol-ls1415/bokorys-rez.png[height="368"]
 
-image::../openscad-ukol-ls1415/vrsek-rez.png[height="368"]
+image::openscad-ukol-ls1415/vrsek-rez.png[height="368"]
 
 
 = Interface

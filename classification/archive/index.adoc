@@ -1,2 +1,0 @@
-= Archív 
-:imagesdir: ../../media/classification/archive

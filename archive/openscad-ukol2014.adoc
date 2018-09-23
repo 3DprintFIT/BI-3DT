@@ -1,5 +1,5 @@
 = OpenSCAD: Domácí úkol ZS 2014/2015 
-:imagesdir: ../../media/classification/archive
+:imagesdir: media
 
 
 WARNING: Toto není aktuální zadání úkolu. Je zde pouze k účelům archivace.
@@ -13,7 +13,7 @@ TIP: Naše automatické testy používají plný render (v apliakci zkratka F6).
 = Půdorys
 
 
-image::../pudoris.png[width="400"]
+image::pudoris.png[width="400"]
 
 Použité argumenty: `x` a `y` jsou vnitřní rozměry, `rad` je poloměr zaoblení rohu (také vnitřní). V případě hodnot `x` nebo `y` <= 0 se krabička nevykreslí. V případě hodnoty `rad` <= 0 je vnitřní roh pravoúhlý. V případě, že se do rohů kružnice s poloměrem `rad` nevejde, zmenší se poloměr na mezní hodnotu.
 
@@ -21,21 +21,21 @@ Použité argumenty: `x` a `y` jsou vnitřní rozměry, `rad` je poloměr zaoble
 == wall_thick
 
 
-image::../roh.png[width="400"]
+image::roh.png[width="400"]
 
 
-image::../roh-bad.png[width="400"]
+image::roh-bad.png[width="400"]
 
 
-image::../roh-bad2.png[width="400"]
+image::roh-bad2.png[width="400"]
 
 Pro `rad` <= 0:
 
 
-image::../roh90.png[]
+image::roh90.png[]
 
 
-image::../roh90-bad.png[]
+image::roh90-bad.png[]
 
 Použité argumenty: `wall_thick` je tloušťka stěny. Musí být všude stejná, včetně rohu. Pro hodnoty <= 0 se krabička nevykreslí.
 
@@ -43,10 +43,10 @@ Použité argumenty: `wall_thick` je tloušťka stěny. Musí být všude stejn�
 = Bokorys
 
 
-image::../bokorys-vrsek.png[width="400"]
+image::bokorys-vrsek.png[width="400"]
 
 
-image::../bokorys-spodek.png[width="400"]
+image::bokorys-spodek.png[width="400"]
 
 Použité argumenty: `z1` a `z2` jsou výšky jednotlivých částí včetně podstav. `wall_thick` je stejný jako u půdorysu, jen se v rohu chová jinak, viz obrázek. Pro hodnoty `z1` nebo `z2` <= `wall_thick` (respektive `wall_thick` + `lock_z` pro `z1`, viz níže) se krabička vykreslí pouze na výšku dna/stropu a spojovacího mechanismu.
 
@@ -54,7 +54,7 @@ Použité argumenty: `z1` a `z2` jsou výšky jednotlivých částí včetně po
 == Detail spojení
 
 
-image::../lock.png[]
+image::lock.png[]
 
 Použité argumenty: `wall_thick` je stejný jako výše. `lock_z` je výše zubu, pozor na různý vztah k `z1` a `z2`. `reserve` je rozměr mezery mezi jednotlivými díly krabičky. Pro hodnoty < 0 se `reserve` a `lock_z` nastaví na 0. Pokud je `reserve` větší než `wall_thick`, zuby mechanismu se nevykreslí. `*` není argument, ale vyznačuje, že oba vyznačené rozměry jsou stejné (a to po celém obvodu krabičky/délce spoje).
 
@@ -123,7 +123,7 @@ Viz text „Pro hodnoty `z1` nebo `z2` <= `wall_thick` (respektive `wall_thick` 
 *Vypadá řez krabičkou asi takhle?*
 
 
-image::../box.jpg[width="400"]
+image::box.jpg[width="400"]
 
 ​Ano. Pro vhodně zvolené parametry.
 

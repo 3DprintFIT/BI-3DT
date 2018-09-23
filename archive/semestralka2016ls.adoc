@@ -1,5 +1,5 @@
 = Semestrální práce LS 2016/2017 
-:imagesdir: ../../media/classification/archive
+:imagesdir: media
 :toc:
 
 
@@ -45,7 +45,7 @@ Parametr `wall_thick` udává tloušťku stěny v celém objektu. Pokud tedy par
 === Profily trubek
 
 
-image::../profiles.png["Profily"]
+image::profiles.png["Profily"]
 
 Váš modul musí podporovat všechny zde uvedené profily trubek. Na otočení profilu záleží! Profily jsou znázorněny tak, že spodní strana leží dole (v rámci následnicích obrázků), jsou vždy kolmo na osu trubky a znázorňují pohled zevnitř ven. Druh profilu je určen řetězcem, například tedy `Square`. (Rozhraní nebude automaticky testováno, zvolte velikost písmen dne uvážení.)
 
@@ -60,14 +60,14 @@ Není možné použít externí knihovny (ani knihovnu MCAD). Na rozdíl od úko
 Při pohledu shora svírají trubky se sousedícími trubkami úhel 120°.
 
 
-image::../top-view.png["Pohled z vrchu"]
+image::top-view.png["Pohled z vrchu"]
 
 Proměnné na obrázky `l` a `d` jsou délky a průměry trubek. Indexy `a`, `b` a `c` označují jednotlivé trubky. Při pohledu shora jsou trubky řazeny kladným směrem (proti směru hodinových ručiček). Vhledem k absenci automatického testování je jedno, kterým směrem bude ukazovat první trubka.
 
 Při pohledu z boku svírá každá z trubek s podložkou úhel z intervalu (-30°,30°), zde na obrázku jsou dvě další trubky rovnoběžné s podložkou pro lepší znázornění, ale v praxi to tak vždy není. Středové osy trubek se protínají ve středu celé křižovatky. Kladné číslo zde znamená směr vzhůru, záporné dolů.
 
 
-image::../front-view.png["Pohled z boku"]
+image::front-view.png["Pohled z boku"]
 
 Vnější zakřivení trubek může být libovolné, zvolte jej ale tak, aby dávalo smyl a nesnižovalo průchodnost trubkou. Myslete na to, že váš model musí být parametrický.
 

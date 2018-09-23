@@ -1,5 +1,5 @@
 = OpenSCAD: Domácí úkol LS 2015/2016 
-:imagesdir: ../../media/classification/archive
+:imagesdir: media
 
 
 WARNING: Toto není aktuální zadání úkolu. Je zde pouze k účelům archivace.
@@ -18,12 +18,12 @@ Vaším úkolem je vytvořit parametrický model https://cs.wikipedia.org/wiki/J
 Ježek je koule s ostny, podobně jako na tomto obrázku. Obrázek je pouze ilustrační, ostny mohou vyrůstat z ježka po celém jeho povrchu.
 
 
-image::../hedgehog-01.png[]
+image::hedgehog-01.png[]
 
 Do ježka Jan Tleskač schoval plánek na létací kolo; na rozdíl od něj však nebudem mít ježka šroubovacího, ale pouze zaklapávajícího. Mechanismus je nakreslen na následujícím obrázku:
 
 
-image::../hedgehog-02.png[]
+image::hedgehog-02.png[]
 
 Je definována svislá vzdálenost od středu koule i velikost mezery v mechanismu. Všimněte si, že tato mezera má střed v této vzdálenosti. Ježek je samozřejmě dutý a tloušťka jeho stěny je také definována parametrem.
 Horní část koule není nikam odsunutá, z koule prostě část chybí.
@@ -33,27 +33,27 @@ Jednotlivé ostny mají společný průměr, ale různé směry a délky - toto 
 Jeden osten je vlastně válec se speciálním kulovitým zakončením, které je znázorněno na následujícím obrázku.
 
 
-image::../hedgehog-04.png[]
+image::hedgehog-04.png[]
 
 Klec pro ježka je složená s horního a dolního toroidu a sloupků.
 
 
-image::../hedgehog-05.png[width="350"]
+image::hedgehog-05.png[width="350"]
 
 Horní i spodní toroid má průřez obdélníku se zaoblenými rohy.
 
 
-image::../hedgehog-06.png[]
+image::hedgehog-06.png[]
 
 Jednotlivé sloupky mají stejnou tloušťku, jsou umístěny rovnoměrně po kružnici a leží na středu profilu toroidu. Abychom jejich pozici mohli testovat, začněte sloupy umisťovat od kladného směru osy X.
 
 
-image::../hedgehog-07.png[width="400"]
+image::hedgehog-07.png[width="400"]
 
 Klec umístíte tak, aby koule ježka ležela v jejím středu a sloupy vedly rovnoběžně s osou Z. Červený puntík na obrázku je počátek souřadný.
 
 
-image::../hedgehog-08.png[]
+image::hedgehog-08.png[]
 
 
 == Modul

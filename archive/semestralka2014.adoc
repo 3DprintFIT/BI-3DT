@@ -1,5 +1,5 @@
 = Semestrální práce 2014/2015
-:imagesdir: ../../media/classification/archive
+:imagesdir: media
 :toc:
 
 
@@ -39,7 +39,7 @@ bindings = [[0, 1], [1, 8], ...]; // příklad
 Vazba dvou aminokyselin je provedena pomocí středové koule, umístěné středem přesně doprostřed středů dvou aminokyselin, o poloměru `avg(ra,rb)/2`, kde `avg` je aritmetický průměr a `ra` (respektive `rb`) je poloměr první (respektive druhé) koule (aminokyseliny) figurující ve spojení. Se středovou koulí se provede `hull()` s oběma koulemi ve spojení - s každou ale *zvlášť*. Pro pochopení obrázek znázorněný ve 2D:
 
 
-image::../protein.png[width="600"]
+image::protein.png[width="600"]
 
 A a B jsou středy dvou koulí ve spojení. Bod S leží ve středu úsečky AB. Poloměr středové koule je půl aritmetického průměru krajních koulí. Obě krajní koule se _ohullí_ s tou prostřední, každá zvlášť.
 
@@ -87,9 +87,9 @@ protein([
 ----
 
 
-image::../protein-sample.png[width="400"]
+image::protein-sample.png[width="400"]
 
-image::../printed-protein.jpg[width="400"]
+image::printed-protein.jpg[width="400"]
 
 
 === Vaše proteiny

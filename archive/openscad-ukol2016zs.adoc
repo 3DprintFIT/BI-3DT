@@ -1,5 +1,5 @@
 = OpenSCAD: Domácí úkol ZS 2016/2017 
-:imagesdir: ../../media/classification/archive
+:imagesdir: media
 :toc:
 
 
@@ -17,7 +17,7 @@ Vaším úkolem je navrhnout plně parametricky model elektrické zásuvky / pro
 (Potřeba designerů po zásuvkách je smyšlená.)
 
 
-image::../plugs-photo.jpg[width="600"]
+image::plugs-photo.jpg[width="600"]
 
 
 = Rozhraní
@@ -70,17 +70,17 @@ Váš model musí fungovat jako samostatný module pro OpenSCAD, použitelný po
 Jednotlivé zásuvky vypadají takto:
 
 
-image::../plugs-multiple.svg.png[width="600"]
+image::plugs-multiple.svg.png[width="600"]
 
 Ale levá krajní vypadá jinak:
 
 
-image::../plugs-start.svg.png[width="600"]
+image::plugs-start.svg.png[width="600"]
 
 Celé tělo je 3D zaoblené, ale díry na zásuvky ne.
 
 
-image::../plugs-rounded.svg.png[width="600"]
+image::plugs-rounded.svg.png[width="600"]
 
 
 = Konkrétní popis parametrů
@@ -94,7 +94,7 @@ image::../plugs-rounded.svg.png[width="600"]
 * Pokud je šírka menší než průměr zásuvky tak se nic nevykreslí.
 
 
-image::../plugs-shape.svg.png[width="500"]
+image::plugs-shape.svg.png[width="500"]
 
 (Nevidíte-li na obrázku osy s popisky, dejte tvrdý refresh stránky, máte v cache starou verzi.)
 
@@ -107,7 +107,7 @@ image::../plugs-shape.svg.png[width="500"]
 * Z udává výšku těla zásuvky, bez případných kolíků, které někdy mohou trčet výše.
 
 
-image::../plugs-plug-depth.svg.png[width="600"]
+image::plugs-plug-depth.svg.png[width="600"]
 
 
 == Poloměr jedné zásuvky
@@ -140,7 +140,7 @@ image::../plugs-plug-depth.svg.png[width="600"]
 * Pokud je záporný, nic se nevykreslí
 
 
-image::../plugs-distance.svg.png[width="500"]
+image::plugs-distance.svg.png[width="500"]
 
 
 == Hloubka zásuvek
@@ -169,7 +169,7 @@ image::../plugs-distance.svg.png[width="500"]
 * Pokud je rozestup 0, kolík i díry jsou na stejném místě
 
 
-image::../plugs-pins.svg.png[width="300"]
+image::plugs-pins.svg.png[width="300"]
 
 
 == Úhel kolíku
@@ -178,7 +178,7 @@ image::../plugs-pins.svg.png[width="300"]
 * Jedná se o natočení kolíků (směr viz obrázek)
 
 
-image::../plugs-angle.svg.png[width="500"]
+image::plugs-angle.svg.png[width="500"]
 
 
 == Poloměr zaoblení
@@ -197,22 +197,22 @@ Pro naše poloautomatické testy je třeba objekt správně umístit v prostoru.
 Zásuvka leží více-méně na počátku (bod 0). Osa X prochází prostředkem objektu
 
 
-image::../plugs-xy.svg.png[width="600"]
+image::plugs-xy.svg.png[width="600"]
 
 Osa Y prochází prostředkem zásuvek (ne prostředkem objektu). Pokud máme sudý počet zásuvek:
 
 
-image::../plugs-xy-center-even.svg.png[width="300"]
+image::plugs-xy-center-even.svg.png[width="300"]
 
 Pokud máme lichý počet zásuvek:
 
 
-image::../plugs-xy-center-odd.svg.png[width="300"]
+image::plugs-xy-center-odd.svg.png[width="300"]
 
 Celý objekt leží na rovině XY, tzn nezasahuje do záporného Z:
 
 
-image::../plugs-z.svg.png[width="500"]
+image::plugs-z.svg.png[width="500"]
 
 
 == Poznámky

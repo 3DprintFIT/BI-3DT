@@ -1,5 +1,5 @@
 = OpenSCAD: Domácí úkol ZS 2015/2016 
-:imagesdir: ../../media/classification/archive
+:imagesdir: media
 :toc:
 
 
@@ -29,7 +29,7 @@ Zeleně je naznačena jedna karta vložená ve stojanu. Červeně a modře pak u
 *Doplněno pro upřesnění:* Stejně jako má nejpřednější držák karty zaoblené přední rohy, mají zaoblené rohy i další držáky, ale pouze v místě, kde převyšují držák před sebou. Viz obrázek.
 
 
-image::../vrch-oblouky.png[height="300"]
+image::vrch-oblouky.png[height="300"]
 
 *Doplněno pro upřesnění:* Poslední karta (najzadnější) nemá zadní stěnu vyvýšenou (viz obrázek).
 
@@ -74,7 +74,7 @@ Může se stát, že na vstupu dostanete divné údaje, v tom případě se zach
 Objekt bude stát na XY plošině (bude mít spodní hranu zarovnanou s Z = 0). Vycentrovaný vlevo/vpravo a dozadu/dopředu podle osy Z. Předek stojanu bude směřovat k negativní ose Y. Umístění je zásadní pro naše poloautomatické testy.
 
 
-image::../umisteni.png[height="300"]
+image::umisteni.png[height="300"]
 
 Ilustrační obrázek ukazuje umístění. Zvýrazněná stěna je předek.
 

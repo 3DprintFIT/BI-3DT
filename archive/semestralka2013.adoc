@@ -1,5 +1,5 @@
 = Semestrální práce 2013/2014 
-:imagesdir: ../../media/classification/archive
+:imagesdir: media
 :toc:
 
 
@@ -26,7 +26,7 @@ Tisknout můžete z jakéhokoli programu, kterým dokážete ovládat tiskárnu.
 == Profily trubek
 
 
-image::../profiles.png["Profily"]
+image::profiles.png["Profily"]
 
 Konkrétní typ tvaru a vnitřní průměr tří trubek bude vygenerován pseudonáhodně (viz dále). Na otočení profilu záleží! Profily jsou znázorněny tak, že spodní strana leží dole (v rámci následnicích obrázků), jsou vždy kolmo na osu trubky a znázorňují pohled zevnitř ven.
 
@@ -37,12 +37,12 @@ Konkrétní typ tvaru a vnitřní průměr tří trubek bude vygenerován pseudo
 Při pohledu shora svírají trubky se sousedícími trubkami úhel 120°.
 
 
-image::../top-view.png["Pohled z vrchu"]
+image::top-view.png["Pohled z vrchu"]
 
 Při pohledu z boku svírá jedna z trubek s podložkou úhel α z intervalu (-30°,30°), dvě další trubky jsou rovnoběžné z podložkou. Jejich středové osy jsou ve stejné výšce.
 
 
-image::../front-view.png["Pohled z boku"]
+image::front-view.png["Pohled z boku"]
 
 Konkrétní délka trubek a úhel, který svírá jedna trubka s podložkou bude vygenerován pseudonáhodně (viz dále).
 

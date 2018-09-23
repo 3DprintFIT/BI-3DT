@@ -1,5 +1,5 @@
 = OpenSCAD: Domácí úkol LS 2016/2017 
-:imagesdir: ../../media/classification/archive
+:imagesdir: media
 :toc:
 
 
@@ -36,12 +36,12 @@ Několik obrázků:
 Pohled shora:
 
 
-image::../../en/classification/body.svg.png[]
+image::../en/classification/body.svg.png[]
 
 Pohled ze strany:
 
 
-image::../../en/classification/body-side.svg.png[]
+image::../en/classification/body-side.svg.png[]
 
 
 Zakreslené osy jsou velmi podstatné pro umístění objektu v kartézském systému. na prvním obrázku si všimněte, že klávesnice jde ve směru *kladné osy X* a *záporné osy Y* (to vypadá divně, ale dává to smysl vzhledem k reprezentaci rozložení klávesnice). Klávesnice leží přímo na XY rovině, všechny Z souřadnice jsou nezáporné.
@@ -57,12 +57,12 @@ Jedna klávesa je hranol s obdélníkovou či čtvercovou podstavou a zaoblenou 
 Shora (přerušovaná čára značí okraj díry):
 
 
-image::../../en/classification/key-top-notext.svg.png[]
+image::../en/classification/key-top-notext.svg.png[]
 
 Ze strany (pohled *podél osy Y*):
 
 
-image::../../en/classification/1key.svg.png[]
+image::../en/classification/1key.svg.png[]
 
 Všimněte si parametru `keydip`. Ten je stejný pro klávesy libovolného rozměru, takže poloměr vykrojení se musí této hodnotě přizpůsobit. Zakřivení se děje pouze podél osy Y - nejedná se tedy o vykrojení kulovité, ale o válcovité.
 
@@ -71,20 +71,20 @@ Všimněte si parametru `keydip`. Ten je stejný pro klávesy libovolného rozm�
 Díry jsou odděleny stěnou o tloušťce `defaultspace` (pokud `defaultspace` není nula). Takhle bude vypadat více kláves (obrázek lze zvětšit po rozkliknutí odkazu):
 
 
-image::../../en/classification/keys-top.svg.png[width="600"]
+image::../en/classification/keys-top.svg.png[width="600"]
 
 Zde vidíte, jak určit velikost kláves větších než ``++[++1,1++]++``: Zabírají stejné místo, jaké by zabíralo několik kláves vedle sebe (včetně mezery mezi nimi). Klávesa ve spodním řádku má velikost ``++[++2,1++]++``:
 
 
-image::../../en/classification/keys-top-long.svg.png[width="600"]
+image::../en/classification/keys-top-long.svg.png[width="600"]
 
 Takto vypadají klávesy ze strany (na průřezu podél osy Y). Na prvním obrázku jsou tři klávesy velikosti ``++[++1,1++]++``, na druhém jedna klávesa velikosti ``++[++1,1++]++`` a jedna velikosti ``++[++2,1++]++``:
 
 
-image::../../en/classification/keys-side.svg.png[]
+image::../en/classification/keys-side.svg.png[]
 
 
-image::../../en/classification/keys-side-double.svg.png[]
+image::../en/classification/keys-side-double.svg.png[]
 
 Všimněte si, že stěna o tloušťce `defaultspace` je pouze mezi klávesami. Tloušťka stěny vedle krajních kláves je `basemargin`.
 Také si všimněte, že klávesy se vznášejí ve vzduchu; to je samozřejmě při 3D tisku celkem problematické, ale v domácím úkolu to tak stejně je a nemusí vás to nijak trápit.
@@ -96,7 +96,7 @@ Také si všimněte, že klávesy se vznášejí ve vzduchu; to je samozřejmě 
 Některé klávesy na sobě mohou obsahovat text. Z pohledu XY je text na klávese vycentrován:
 
 
-image::../../en/classification/key-top.svg.png[]
+image::../en/classification/key-top.svg.png[]
 
 I pokud jde o větší klávesu (např. ``++[++2,1++]++`` nebo třeba ``++[++5,10++]++``), text je stále v jejím středu.
 
@@ -106,7 +106,7 @@ Parametry pro celý modul `textsize` a `textz` ovlivňují velikost nápisu.
 `textsize` je třeba předat primitivě `text()` jako argument `size`. `textz` určuje hloubku písmene (podél osy Z, jak název napovídá).
 
 
-image::../../en/classification/text-side.svg.png[]
+image::../en/classification/text-side.svg.png[]
 
 
 Všimněte si, že nápis také obsahuje válcovité vykrojení, stejně jako klávesa samotná. Nesnažte se nápis „ohnout“, stačí jej vytáhnout směrem vzhůru a odkrojit z něj patřičný válec.
@@ -127,7 +127,7 @@ text("A", halign="center", valign="center", size=textsize);
 Pro lepší vizualizaci klávesy s nápisem přikládáme náhledy na 3D model klávesy s písmenem _A_:
 
 
-image::../../en/classification/a.png[width="600"]
+image::../en/classification/a.png[width="600"]
 
 *Pro-tip:* Když budete vytahovat 2D nápis a odečítat z něj nějaký jiný objekt, přidejte parametr `convexity=10` do volání `linear_extrude()` - vaše náhledy (_F5_) budou vypadat lépe. (Na testy to nemá vliv, ale bude se vám s tím příjemněji pracovat.)
 
@@ -170,7 +170,7 @@ Pojďme si ukázat nějaké příklady. pro začátek něco jednoduchého:
 ----
 
 
-image::../../en/classification/easylayout.png[width="200"]
+image::../en/classification/easylayout.png[width="200"]
 
 Rozvržení s klávesami přes více řádků:
 
@@ -187,7 +187,7 @@ Rozvržení s klávesami přes více řádků:
 ----
 
 
-image::../../en/classification/long.png[width="150"]
+image::../en/classification/long.png[width="150"]
 
 A něco zajímavějšího:
 
@@ -206,7 +206,7 @@ A něco zajímavějšího:
 ----
 
 
-image::../../en/classification/qwerty.png[width="600"]
+image::../en/classification/qwerty.png[width="600"]
 
 
 == Rozhraní modulu
