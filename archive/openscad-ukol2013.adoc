@@ -1,0 +1,57 @@
+= OpenSCAD: Domácí úkol ZS 2013/2014 
+:imagesdir: media
+
+
+WARNING: Toto není aktuální zadání úkolu. Je zde pouze k účelům archivace.
+
+
+== Pouzdro na telefon
+
+Úkolem je vytvořit v programu OpenSCAD pouzdro na mobilní telefon, které kryje zadní stěnu a hrany telefonu. Je však nutné nechat v zadní stěně díru na fotoaparát a na spodní hraně díru na konektor. Pouzdro na přední straně mírně přesahuje, nemusíte ale řešit, jak pak telefon do pouzdra dostat, předpokládejte například, že pouzdro je z gumy. Telefon má tvar kvádru se zaoblenými rohy podstavy (http://commons.wikimedia.org/wiki/File:Iphone_4G.jpg[podobně jako iPhone]).
+
+
+image::smartphone.png["Schéma"]
+
+Vaše implementace bude umožňovat změnu následujících parametrů:
+
+* rozměry telefonu (vnitřní rozměry pouzdra)
+** šířka
+** výška
+** hloubka
+* poloměr zaoblení rohu
+* tloušťka stěny pouzdra
+** všude stejná
+** není nutné meřit ji i v rozích mezi přední*zadní stěnou a bokem telefonu
+* pozice a velikost díry na fotoaparát
+** pozice se udává dvěma čísly
+*** vzdálenost středu díry od horního okraje telefonu
+*** vzdálenost středu díry od levého okraje telefonu při pohledu na zadní stěnu
+*** při vzdálenostech se nepočítá se zaoblením rohu (uvažujte zadní stěnu jako obdélník)
+*** vzdálenost se udává od okraje telefonu, nikoli od okraje pouzdra
+** velikost se udává jako poloměr - díra je vždy kruhová
+* pozice a velikost díry na konektor
+** vzdálenost levého okraje díry od levého okraje telefonu (nikoli pouzdra)
+** vzdálenost horního okraje díry od horního okraje telefonu (nikoli pouzdra)
+** šířka a výška díry
+** uvažujte telefon displejem nahoru, při vzdálenostech se nepočítá se zaoblením rohu
+* o kolik má pouzdro přesahovat na přední straně telefonu
+
+
+Všechny parametry předpokládejte v milimetrech.
+
+Vytvořte modul, který umožní vše nastavit přes vhodně pojmenované vstupní parametry. Všem nastavte vhodnou výchozí hodnotu, tak aby modul bez parametrů vyprodukoval validní model cca odpovídající rozměrům mobilního telefonu.
+
+Neošetřujte nevalidní vstup (záporné nebo nečíselné hodnoty nebo např. díru na fotoaparát větší než telefon samotný).
+
+
+== Odevzdání
+
+Úkol odevzdávejte do svého namespacu na Eduxu do *konce října*. Soubor(y) scad uložte do zipu pojmenovaného username-openscad.zip, např hroncmir-openscad.zip. Nahrávejte pouze zdrojový kód, vygenerované STL nahrávat nemusíte. Ve výchozí stránce vašeho namespacu na soubor uveďte odkaz.
+
+
+== Update
+
+Na následujícím obrázku průřezu je vidět několik možná nejasných věcí. Různou barvou je označeno, co je tloušťka pouzdra a co je přesah na přední straně. Zároveň je naznačeno, že v průhlednějších oblastech nehodnotíme, jestli jsou zaoblené, nebo pravoúhlé.
+
+
+image::g10220.png[]

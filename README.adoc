@@ -1,1 +1,19 @@
-index.adoc
+= BI-3DT
+
+Materials for the 3D printing course at the
+https://fit.cvut.cz/en[Faculty of Information Technology], CTU in
+Prague.
+
+Those materials are provided in Czech.
+
+== License
+
+All content in this repository, unless otherwise noted, is licensed
+under the terms of the
+https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons
+Attribution-ShareAlike 4.0 International] license.
+
+_The 3D Printing Lab, Faculty of Information Technology_ shall be stated
+as the author of those materials.
+
+image:https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-sa.png[width=88,height=31]
