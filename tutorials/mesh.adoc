@@ -1,8 +1,8 @@
-Práce s 3D modely ve formě meshí
---------------------------------
+= Práce s 3D modely ve formě meshí
+:imagesdir: ../images/mesh/
+:toc:
 
-Triangulární mesh
-~~~~~~~~~~~~~~~~~
+== Triangulární mesh
 
 Existuje mnoho způsobů, jak reprezentovat 3D modely. Například
 https://en.wikipedia.org/wiki/Constructive_solid_geometry[CSG strom],
@@ -18,23 +18,22 @@ tři body, neležící na jedné přímce, vždy tvoří trojúhelník (4 body
 nemusí v trojrozměrném prostoru ležet v jedné rovině a tvořit
 čtyřúhelník).
 
-image:../images/mesh/mesh.svg[Mesh]
+.Topologie meshe. Obrázek upraven z https://commons.wikimedia.org/wiki/File:Mesh_overview.svg[Wikipedie].
+image::mesh.svg[Mesh]
 
-_Obrázek upraven z
-https://commons.wikimedia.org/wiki/File:Mesh_overview.svg[Wikipedie]._
 
 Jednotlivé facety tvoří „vodotěsnou“ hranici mezi vnitřkem a vnějškem 3D
 modelu.
 
-image:../images/mesh/sphere.svg[Mesh reprezentující kouli]
+.Mesh reprezentující kouli
+image::sphere.svg[Koule]
 
 Na rozdíl od CSG stromu se mesh vyznačuje tím, že nenese informace o
 významu (není například parametrická), na druhou stranu je velmi rychlé
 ji vykreslit, nebo dále zpracovávat. V kontextu OpenSCADu můžete vnímat
 mesh jako výsledek kompilace.
 
-Formát STL
-~~~~~~~~~~
+== Formát STL
 
 Triangulární mesh lze ukládat v různých formátech. Nejpoužívanějším
 formátem pro FDM 3D tisk je *formát STL* (mezi další patří OBJ, AMF, 3MF
@@ -55,8 +54,7 @@ varianta.
 Formát STL není otevřeným formátem, ale je velmi rozšířen, podporuje jej
 mnoho programů nejen ze světa 3D tisku.
 
-ASCII STL soubor
-^^^^^^^^^^^^^^^^
+=== ASCII STL soubor
 
 Syntaxe textového STL souboru je poměrně upovídaná. Začíná klíčovým
 slovem `solid` a názvem meshe (který není často využívám a bývá
@@ -90,7 +88,8 @@ Pořadí vrcholů facetu musí splňovat pravidlo pravé ruky: Jestliže palce
 ukazuje ve směru normály (tedy ven z objektu), stočené prsty udávají
 pořadí vrcholů.
 
-image:../images/mesh/normal_vector.svg[Normálový vektor]
+.Normálový vektor
+image::normal_vector.svg[]
 
 Jednotlivá čísla se dají reprezentovat jak pomocí notace čísel s
 plovoucí desetinou čárkou, tak „lidštějším zápisem“, můžete se tak
@@ -119,14 +118,14 @@ solid OpenSCAD_Model
 endsolid OpenSCAD_Model
 ----
 
-image:../images/mesh/cube.svg[Mesh reprezentující kostku]
+.Mesh reprezentující kostku
+image::cube.svg[]
 
 http://en.wikipedia.org/wiki/STL_(file_format)#Binary_STL[Binární STL
 soubor] obsahuje stejné informace, pouze v úspornější podobě. Čísla jsou
 reprezentována datovým typem `float32` v pořadí little endian.
 
-Prohlížení STL souborů
-~~~~~~~~~~~~~~~~~~~~~~
+== Prohlížení STL souborů
 
 STL soubory lze prohlížet v mnoha programech:
 
@@ -140,10 +139,10 @@ Windows)
 https://github.com/3DprintFIT/netfabb-basic-download[Netfabb]
 * modelovací nástroje jako https://www.blender.org/[Blender] apod.
 
-image:../images/mesh/admeshgui.png[ADMeshGUI]
+.ADMeshGUI
+image::admeshgui.png[]
 
-Chyby v triangulární meshi
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+== Chyby v triangulární meshi
 
 I syntakticky naprosto správný STL soubor nemusí sémanticky dávat vůbec
 smysl. Mnoho STL souborů může vlivem různých faktorů obsahovat řadu
@@ -151,49 +150,48 @@ chyb. O meshi, která obsahuje chyby, se říká, že je nevalidní.
 
 Zde si představíme několik častých chyb v STL souborech:
 
-[[neuzavřená-mesh--díra-v-meshi]]
-Neuzavřená mesh / díra v meshi
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=== Neuzavřená mesh / díra v meshi
 
 Mesh není „vodotěsná“ a někde obsahuje díru.
 
-image:../images/mesh/mesh_hole.svg[Díra v meshi]
+.Díra v meshi
+image::mesh_hole.svg[]
 
 Často díra není způsobena chybějícím facetem, ale nepřesností v číslech
 s plovoucí desetinnou čárkou s malou přesností.
 
-image:../images/mesh/mesh_floaterror.svg[Díra v meshi způsobená
-floatovou chybou]
+.Díra v meshi způsobená floatovou chybou
+image::mesh_floaterror.svg[]
 
-Duplicitní facet
-^^^^^^^^^^^^^^^^
+=== Duplicitní facet
 
 Na stejném místě se nachází více facetů. Někdy jsou stejně orientované a
 plně se překrývají, jindy můžou takové facety tvořit část modelu s
 nulovým objemem.
 
-image:../images/mesh/mesh_duplicate.svg[Duplicitní facet]
+.Duplicitní facet
+image::mesh_duplicate.svg[]
 
-Špatně orientovaný facet
-^^^^^^^^^^^^^^^^^^^^^^^^
+=== Špatně orientovaný facet
+
 
 Orientace facetu je dána pořadím vrcholů a normálou. Tyto informace si
 tedy mohou protiřečit. Někdy je také část 3D modelu nebo celý model
 otočen „vnitřkem ven“.
 
-image:../images/mesh/mesh_flipped.svg[Špatně orientovaný facet]
+.Špatně orientovaný facet
+image::mesh_flipped.svg[]
 
-Sdílená hrana či stěna
-^^^^^^^^^^^^^^^^^^^^^^
+=== Sdílená hrana či stěna
 
 Na první pohled nevinná chyba, která ale rozporuje fyzické reprezentaci
 3D modelu. Je mezi těmito kostkami úzká mezera, nebo jde úzkou mezerou
 projít z jedné kostky do druhé?
 
-image:../images/mesh/mesh_commonedge.svg[Sdílená hrana]
+.Sdílená hrana
+image::mesh_commonedge.svg[]
 
-Protínající se facety
-^^^^^^^^^^^^^^^^^^^^^
+=== Protínající se facety
 
 Při spojování více skořepin často vniká chyba, kdy se facety navzájem
 protínají.
@@ -201,18 +199,17 @@ protínají.
 Na obrázku jsou nesprávně (vlevo) a správně (vpravo) spojené koule, díra
 v meshi je zde jen pro lepší náhled dovnitř.
 
-image:../images/mesh/mesh_intersect.png[Protínající se facete]
+.Protínající se facet
+image::mesh_intersect.png[]
 
-Oprava chyb v triangulární meshi
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+== Oprava chyb v triangulární meshi
 
 Existuje mnoho programů, které umožňují výše zmíněné chyby opravovat.
 Někdy jde o programy na modelování, které „navíc“ umožňují takové chyby
 detekovat a poloautomaticky opravovat, někdy jde o specializované
 programy.
 
-Blender
-^^^^^^^
+=== Blender
 
 Z první kategorie zmíníme program Blender, který obsahuje nástroje k
 opravě a anylýze meshí. Existuje i
@@ -220,8 +217,7 @@ https://store.blender.org/product/blender-for-3d-printing/[výukové DVD]
 pro Blender zabývající se 3D tiskem. Pro studenty FIT ČVUT jej máme k
 dispozici.
 
-ADMesh
-^^^^^^
+=== ADMesh
 
 Mezi programy, které se snaží automaticky opravovat chyby v triangulární
 meshi patří command line nástroj http://github.com/admesh/admesh[ADMesh]
@@ -229,8 +225,7 @@ meshi patří command line nástroj http://github.com/admesh/admesh[ADMesh]
 https://github.com/admesh/ADMeshGUI[ADMeshGUI]. Výsledky ale nejsou
 příliš dobré.
 
-Netfabb Basic
-^^^^^^^^^^^^^
+=== Netfabb Basic
 
 Nejlepší zkušenost s opravou meshí máme v programu *Netfabb Basic*.
 Bohužel tento program není open source a již nadále neexistuje.
@@ -248,8 +243,7 @@ Na cvičení používáme tento program.
 .Pro program Netfabb Basic je k dispozici tento https://www.youtube.com/watch?v=bl1AIYqPvcE[videotutoriál].
 video::bl1AIYqPvcE[youtube]
 
-Soubory
-~~~~~~~
+== Soubory
 
 * link:../stls/mesh/cube_bad.stl[cube_bad.stl] – kostka z videa s
 chybami
