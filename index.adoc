@@ -11,7 +11,7 @@
 z BI-3DT]
 * 🦁 https://gitlab.fit.cvut.cz/BI-3DT/bi-3dt[GitLab]
 * 🐙 https://github.com/3DprintFIT/BI-3DT[GitHub]
-* 👮 xref:tutorials/index#[Souhlas se zpracováním osobních údajů]
+* 👮 xref:gdpr#[Souhlas se zpracováním osobních údajů]
 
 Všechny materiály, není-li uvedeno jinak, jsou dostupné pod svobodnou licencí
 https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons
