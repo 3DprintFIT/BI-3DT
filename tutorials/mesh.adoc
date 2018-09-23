@@ -18,7 +18,7 @@ tři body, neležící na jedné přímce, vždy tvoří trojúhelník (4 body
 nemusí v trojrozměrném prostoru ležet v jedné rovině a tvořit
 čtyřúhelník).
 
-image:../images/mesh/mesh.svg.png[Mesh]
+image:../images/mesh/mesh.svg[Mesh]
 
 _Obrázek upraven z
 https://commons.wikimedia.org/wiki/File:Mesh_overview.svg[Wikipedie]._
@@ -26,7 +26,7 @@ https://commons.wikimedia.org/wiki/File:Mesh_overview.svg[Wikipedie]._
 Jednotlivé facety tvoří „vodotěsnou“ hranici mezi vnitřkem a vnějškem 3D
 modelu.
 
-image:../images/mesh/sphere.svg.png[Mesh reprezentující kouli]
+image:../images/mesh/sphere.svg[Mesh reprezentující kouli]
 
 Na rozdíl od CSG stromu se mesh vyznačuje tím, že nenese informace o
 významu (není například parametrická), na druhou stranu je velmi rychlé
@@ -90,7 +90,7 @@ Pořadí vrcholů facetu musí splňovat pravidlo pravé ruky: Jestliže palce
 ukazuje ve směru normály (tedy ven z objektu), stočené prsty udávají
 pořadí vrcholů.
 
-image:../images/mesh/normal_vector.svg.png[Normálový vektor]
+image:../images/mesh/normal_vector.svg[Normálový vektor]
 
 Jednotlivá čísla se dají reprezentovat jak pomocí notace čísel s
 plovoucí desetinou čárkou, tak „lidštějším zápisem“, můžete se tak
@@ -119,7 +119,7 @@ solid OpenSCAD_Model
 endsolid OpenSCAD_Model
 ----
 
-image:../images/mesh/cube.svg.png[Mesh reprezentující kostku]
+image:../images/mesh/cube.svg[Mesh reprezentující kostku]
 
 http://en.wikipedia.org/wiki/STL_(file_format)#Binary_STL[Binární STL
 soubor] obsahuje stejné informace, pouze v úspornější podobě. Čísla jsou
@@ -157,12 +157,12 @@ Neuzavřená mesh / díra v meshi
 
 Mesh není „vodotěsná“ a někde obsahuje díru.
 
-image:../images/mesh/mesh_hole.svg.png[Díra v meshi]
+image:../images/mesh/mesh_hole.svg[Díra v meshi]
 
 Často díra není způsobena chybějícím facetem, ale nepřesností v číslech
 s plovoucí desetinnou čárkou s malou přesností.
 
-image:../images/mesh/mesh_floaterror.svg.png[Díra v meshi způsobená
+image:../images/mesh/mesh_floaterror.svg[Díra v meshi způsobená
 floatovou chybou]
 
 Duplicitní facet
@@ -172,7 +172,7 @@ Na stejném místě se nachází více facetů. Někdy jsou stejně orientované
 plně se překrývají, jindy můžou takové facety tvořit část modelu s
 nulovým objemem.
 
-image:../images/mesh/mesh_duplicate.svg.png[Duplicitní facet]
+image:../images/mesh/mesh_duplicate.svg[Duplicitní facet]
 
 Špatně orientovaný facet
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -181,7 +181,7 @@ Orientace facetu je dána pořadím vrcholů a normálou. Tyto informace si
 tedy mohou protiřečit. Někdy je také část 3D modelu nebo celý model
 otočen „vnitřkem ven“.
 
-image:../images/mesh/mesh_flipped.svg.png[Špatně orientovaný facet]
+image:../images/mesh/mesh_flipped.svg[Špatně orientovaný facet]
 
 Sdílená hrana či stěna
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -190,7 +190,7 @@ Na první pohled nevinná chyba, která ale rozporuje fyzické reprezentaci
 3D modelu. Je mezi těmito kostkami úzká mezera, nebo jde úzkou mezerou
 projít z jedné kostky do druhé?
 
-image:../images/mesh/mesh_commonedge.svg.png[Sdílená hrana]
+image:../images/mesh/mesh_commonedge.svg[Sdílená hrana]
 
 Protínající se facety
 ^^^^^^^^^^^^^^^^^^^^^
