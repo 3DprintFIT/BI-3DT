@@ -1,0 +1,51 @@
+= GDPR
+
+Vzhledem k tomu, že k výuce používáme služby třetích stran, vyzýváme studenty
+k dobrovolnému souhlasu se zpracováním osobních údajů v následujícím znění:
+
+Studenti tohoto předmětu explicitní souhlas udělují na první vyučovací hodině,
+na které jsou přítomni.
+
+== Souhlas se zpracování osobních údajů
+
+Udělujete tímto souhlas laboratoři 3D tisku při Fakultě informačních
+technologií ČVUT, se sídlem Thákurova 9, 160 00 Praha 6, IČO: 68407700 (dále
+jen „Správce“), aby ve smyslu zákona č.101/2000 Sb., o ochraně osobních údajů
+(dále jen „zákon o ochraně osobních údajů“) zpracovávala tyto osobní údaje nad
+rámec běžných údajů souvisejících se studiem na FIT ČVUT:
+
+* uživatelské jméno v rámci ČVUT,
+* uživatelské jméno na službě GitHub,
+* zdrojové kódy a jiný digitální obsah vytvořený v rámci práce na předmětu BI-3DT.1.
+
+Poskytnuté osobní údaje je nutné zpracovat za účelem hodnocení předmětu.
+Tyto údaje budou Správcem použity pro tyto konkrétní účely a budou dále
+zpracovávány po dobu maximálně 1 roku.
+
+S výše uvedeným zpracováním udělujete svůj výslovný souhlas. Souhlas lze vzít
+kdykoliv zpět, a to například zasláním e-mailu z fakultní e-mailové adresy na
+3dprint@fit.cvut.cz.
+
+Zpracování osobních údajů je prováděno Správcem.
+Osobní údaje budou dále zpracovávat:
+
+* **GitHub, Inc.** (88 Colin P Kelly Jr St, San Francisco, CA 9410 USA),
+* **AjTy, s.r.o.** (Antala Staška 1074/53A, Krč, 140 00 Praha, IČO 28948742).
+
+Úlohy se odevzdávají na GitHub a jejich automatické hodnocení probíhá pomocí
+Jenkins CI nasazeného na serveru firmy AjTy (majitel Tomáš Sýkora, učitel
+předmětu BI-3DT.1). Pokud se zpracováním dat třetí stranou nesouhlasíte,
+bere na vědomí, že máte právo zúčastnit se předmětu i bez toho.
+Z technických důvodů může ale hodnocení úloh trvat déle.
+
+Vezměte na vědomí, že podle zákona o ochraně osobních údajů máte právo:
+
+* vzít souhlas kdykoliv zpět,
+* požadovat po nás informaci, jaké vaše osobní údaje zpracováváme, požadovat
+  po nás vysvětlení ohledně zpracování osobních údajů,
+* vyžádat si u nás přístup k těmto údajům a tyto nechat aktualizovat nebo opravit,
+* požadovat po nás výmaz těchto osobních údajů,
+* v případě pochybností o dodržování povinností souvisejících se zpracováním
+  osobních údajů obrátit se na nás, na FIT ČVUT nebo na
+  Úřad pro ochranu osobních údajů.
+
