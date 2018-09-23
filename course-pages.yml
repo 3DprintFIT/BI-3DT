@@ -15,3 +15,5 @@ navigation:
     - README.*
     - LICENSE
     - tutorials/openscad/
+excludedFiles:
+  - _build
