@@ -8,7 +8,7 @@ Využijeme získané teoretické znalosti a uplatníme je prakticky.
 Seznámíme se s tiskárnou, vysvětlíme si, k čemu jsou určeny její jednotlivé části a připravíme ji k tisku. 
 Seznámíme se s nástroji, kterými budeme přenášet tisková data a spouštět tisk a závěrečně na tiskárnách něco vytiskneme.
  
-_Pokud již 3D tiskárny znáte, můžete některé kapitoly v textu vynechat, ale nevynechávejte kapitolu <<_příprava-tiskárny>>, je povinná pro všechny. Až pak můžete pokračovat čtením xref:_zadání-úkolů[zadaných úkolů]._
+_Pokud již 3D tiskárny znáte, můžete některé kapitoly v textu vynechat, ale nevynechávejte kapitolu <<Příprava tiskárny>>, je povinná pro všechny. Až pak můžete pokračovat čtením <<Zadání úkolů, zadaných ukolů>>._
 
 
 == Seznámení se s tiskárnou
@@ -95,7 +95,7 @@ V rozbalovacím menu jsou pro rychlé nastavení přednastavené hodnoty pro ABS
 
 ==== Tisk
 
-Návod k tisku popisuje kapitola <<_tisk-krok-za-krokem>>. 
+Návod k tisku popisuje kapitola <<Tisk krok za krokem>>. 
 Přečtěte si nyní zadání úkolů, abyste věděli co se od vás očekává, a pak pokračujte návodem jak tisknout krok za krokem.
 
 
@@ -146,16 +146,16 @@ V případě, že tiskárnu nezkontrolujeme, můžeme skončit se špatným výt
 
 . Vizuálně se ujistěte, že tiskárna není nijak zjevně poškozená (porovnejte např. s fotografií výše).
 . Očistěte tiskovou desku od nečistot či pozůstatcích předchozích výtisků.
-. Zkontrolujte a případně xref:#_zavedení-filamentu[zaveďte filament]. Ujistěte se, že se špule může při tisknu volně otáčet a nezasekne se.
+. Zkontrolujte a případně <<Zavedení filamentu, zaveďte filament>>. Ujistěte se, že se špule může při tisknu volně otáčet a nezasekne se.
 . Zajistěte, aby deska při tisku nenarážela do věcí na stole. Buď je může shodit, nebo se o ně zaseknout a tisk se pak nepovede.
 
 
 ==== Vyjmutí filamentu
 
-Abychom mohli vyjmout filament z tiskárny, musí xref:#_předehřátí-tiskárny[být zahřátá] na teplotu tání materiálu.
+Abychom mohli vyjmout filament z tiskárny, musí <<Předehřátí tiskárny, být zahřátá>> na teplotu tání materiálu.
 Pokud byste tiskárnu nezahřáli, mohl by se filament v extruderu zlomit a způsobit problémy.
 
-Zahřejte tiskárnu na požadovanou teplotu a v rozhraní OctoPrint se přepněte na kartu xref:#_ruční-ovládání[ručního ovládání], a klikněte na tlačítko `Retract`.
+Zahřejte tiskárnu na požadovanou teplotu a v rozhraní OctoPrint se přepněte na kartu <<Ruční ovládání, ručního ovládání>>, a klikněte na tlačítko `Retract`.
 
 Po celou dobu vytahování mějte ruku poblíž struny, jelikož po jejím úplném vytažení má struna tendenci vystřelit a zamotat se. Vyjmutou strunu vložte do malého očka na špuli, aby se filament nezačal zamotávat. Buďte při manipulaci s filamentem opatrní. Špuli sundejte z držáku a filament odložte.
 
@@ -174,7 +174,7 @@ Zkontrolujte zakončení filamentu na závady. Filament může být:
 
 V každém případě takovou část uřízněte, nebo odlomte.
 
-Zařízněte filament do špičky a vložte jej do otvoru na extruderu. Netlačte filament do tiskárny násilím, stačí jen vložit a jemně přitlačit a v OctoPrintu na kartě xref:#_ruční-ovládání[ručního ovládání] klikněte na tlačítko `Extrude`.
+Zařízněte filament do špičky a vložte jej do otvoru na extruderu. Netlačte filament do tiskárny násilím, stačí jen vložit a jemně přitlačit a v OctoPrintu na kartě <<Ruční ovládání, ručního ovládání>> klikněte na tlačítko `Extrude`.
 
 Ve chvíli, kdy tiskárna uchopí filament můžete jej pustit. Extrudujte filament tak dlouho, dokud nezačne z trysky vytékat plast. Dále extrudujte plast tak dlouho, dokud nezačne z trysky vytékat plast správné barvy (v trysce mohly být pozůstatky filamentu jiné barvy).
 
