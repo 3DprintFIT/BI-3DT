@@ -1,8 +1,8 @@
-OpenSCAD
---------
+= OpenSCAD
+:imagesdir: ../images/openscad/
+:toc:
 
-Nezbytný úvod
-~~~~~~~~~~~~~
+== Nezbytný úvod
 
 * http://cs.wikipedia.org/wiki/Constructive_solid_geometry[CSG
 modelování]
@@ -13,15 +13,13 @@ modelování]
 * http://en.wikibooks.org/wiki/OpenSCAD_User_Manual[manuál v angličtině]
 -- velmi vyčerpávající, použijte jako referenci
 
-CSG strom
-~~~~~~~~~
+== CSG strom
 
-image:../images/openscad/csg_tree.png[Ukázka]
+image::csg_tree.png[Ukázka]
 
 (http://commons.wikimedia.org/wiki/File:Csg_tree.png[pic by Zottie])
 
-User interface
-~~~~~~~~~~~~~~
+== User interface
 
 * myší v oblasti s renderem
 * *F5* - rychlý náhled (nepřesný)
@@ -29,8 +27,7 @@ User interface
 * Automatic reload and compile
 * možnosti zobrazení (*F9*, *F12*, osy)
 
-Syntax
-~~~~~~
+== Syntax
 
 * *podobné C/C++* -- středníky, chlupaté závorky, komentáře
 ** *čísla* buď celá nebo desetinná -- `1`, `0`, `-5`, `5.3`, `9.99998`,
@@ -48,8 +45,7 @@ PI
 * nejedná se o programovací ale deskriptivní jazyk!
 * přehledný cheat sheet http://www.openscad.org/cheatsheet/
 
-Primitiva
-~~~~~~~~~
+== Primitiva
 
 * `cube(size,center);` -- kvádr (`size=[1,2,3]`) nebo krychle (`size=5`)
 * `sphere(r);` -- koule
@@ -58,19 +54,15 @@ Primitiva
 * `polyhedron(...);` -- mnohostěn, nešahat
 * parametry vhodné pojmenovávat, např. `cylinder(r=5,h=2)`
 
-Příklad: Primitiva
-~~~~~~~~~~~~~~~~~~
-
 [source,cpp]
 ----
   cube(150,center=true);
   sphere(100);
 ----
 
-image:../images/openscad/ex1.png[Ukázka]
+image::ex1.png[Ukázka]
 
-Transformace
-~~~~~~~~~~~~
+== Transformace
 
 * `scale()` vs. `resize()` -- poměr, absolutní hdonota
 * `rotate([deg,deg,deg])` nebo `rotate(deg,[1,1,0])`
@@ -80,26 +72,19 @@ Transformace
 * `color()` -- na 3D tisk nefunguje
 * vše kolem počátku
 
-Příklad: Transformace
-~~~~~~~~~~~~~~~~~~~~~
-
 [source,cpp]
 ----
   color("green") rotate([0,0,60]) translate([30,0,0]) cube(5);
   color("red") translate([30,0,0]) rotate([0,0,60]) cube(5);
 ----
 
-image:../images/openscad/ex2.png[Ukázka]
+image::ex2.png[Ukázka]
 
-CSG modelování
-~~~~~~~~~~~~~~
+== CSG modelování
 
 * `union()` -- sloučení: provádí se implicitně na celek
 * `difference()` -- rozdíl: od prvního objektu odečte všechny další
 * `intersection()` -- průnik: průnik všech objektů
-
-Příklad: Sjednocení
-~~~~~~~~~~~~~~~~~~~
 
 [source,cpp]
 ----
@@ -109,10 +94,7 @@ Příklad: Sjednocení
   }
 ----
 
-image:../images/openscad/ex1.png[Ukázka]
-
-Příklad: Rozdíl
-~~~~~~~~~~~~~~~
+image::ex1.png[Ukázka]
 
 [source,cpp]
 ----
@@ -122,10 +104,7 @@ Příklad: Rozdíl
   }
 ----
 
-image:../images/openscad/ex3.png[Ukázka]
-
-Příklad: Průnik
-~~~~~~~~~~~~~~~
+image::ex3.png[Ukázka]
 
 [source,cpp]
 ----
@@ -135,10 +114,9 @@ Příklad: Průnik
   }
 ----
 
-image:../images/openscad/ex4.png[Ukázka]
+image::ex4.png[Ukázka]
 
-Cykly a podmínky
-~~~~~~~~~~~~~~~~
+== Cykly a podmínky
 
 * `for (z = [-1, 1])` -- pro z v hodnotách -1 a 1
 * `for (i = [0 : 5])` -- pro i od 0 do 5
@@ -149,9 +127,6 @@ Cykly a podmínky
 `intersection()`
 * podobně `if (a > b)` nebo třeba `if (center == true)`
 
-Příklad: Cyklus s průnikem
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 [source,cpp]
 ----
   intersection_for(n = [1 : 6]) {
@@ -159,22 +134,18 @@ Příklad: Cyklus s průnikem
   }
 ----
 
-image:../images/openscad/ex6.png[Ukázka]
+image::ex6.png[Ukázka]
 
-Moduly
-~~~~~~
+== Moduly
 
 * `module foo(bar)` -- jako funkce nebo metoda
 * "vrací" 3D objekt
 * přijímá parametry, můžou nabývat výchozích hodnot
 * může přijímat `children()`
-* můžete je mít v jiných souborech a použít `include`<f.scad>`;` nebo
-`use`<f.scad>`;`
+* můžete je mít v jiných souborech a použít `include <f.scad>;` nebo
+`use <f.scad>;`
 ** `use` umožňuje použít moduly, * `include` rovnou vykreslí, co se v
 souboru vykreslí
-
-Příklad: Modul
-~~~~~~~~~~~~~~
 
 [source,cpp]
 ----
@@ -187,17 +158,13 @@ Příklad: Modul
   roundcube([50,80,80],corner=5);
 ----
 
-image:../images/openscad/ex7.png[Ukázka]
+image::ex7.png[Ukázka]
 
-children()
-~~~~~~~~~~
+== children()
 
 * `children(0)` .. `children($children-1)`
 * `children([start : step : end])`
 * `children()`
-
-Příklad: children()
-~~~~~~~~~~~~~~~~~~~
 
 [source,cpp]
 ----
@@ -208,16 +175,12 @@ Příklad: children()
   elongate() {sphere(30); cube(45,center=true); cylinder(r=10,h=50);}
 ----
 
-image:../images/openscad/ex8.png[Ukázka]
+image::ex8.png[Ukázka]
 
-Debugging
-~~~~~~~~~
+== Debugging
 
 * `%` - F5 vykreslí poloprůhledně, F6 nevykreslí
 * `#` - F5 vykreslí poloprůhledně, F6 normálně
-
-Příklad modifikátoru
-~~~~~~~~~~~~~~~~~~~~
 
 [source,cpp]
 ----
@@ -227,17 +190,13 @@ Příklad modifikátoru
   }
 ----
 
-image:../images/openscad/ex9.png[Ukázka]
+image::ex9.png[Ukázka]
 
-Pomocníčci
-~~~~~~~~~~
+== Pomocníčci
 
 * `minkowski()` "objede" první objekt druhým, pak případně třetím...
 * `hull()` "opláští" objekty co nejmenším pláštěm
 * obojí může být poměrně pomalé
-
-Příklad: minkowski() a hull()
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 [source,cpp]
 ----
@@ -251,10 +210,9 @@ Příklad: minkowski() a hull()
   }
 ----
 
-image:../images/openscad/ex5.png[Ukázka]
+image::ex5.png[Ukázka]
 
-Dvourozměrný subsystém
-~~~~~~~~~~~~~~~~~~~~~~
+== Dvourozměrný subsystém
 
 * je možné vyvářet 2D primitivy
 ** `circle()`, `square()`, `polygon()`
@@ -266,33 +224,26 @@ manuálu]
 * 2D objekty se tváří jako malé úzké 3D objekty, ale nejdou tak
 vyrendrovat
 
-[[2d-primitiva]]
-2D primitiva
-~~~~~~~~~~~~
+=== 2D primitiva
 
 * `square()` jako alternativa `cube()`
 * `circle()` jako alternativa `sphere()`
 * `polygon()` jako alternativa `polyhedron()`
 
-offset()
-~~~~~~~~
+=== offset()
 
 * `offset()`
 * `r` pro zaoblené rohy
 * `delta` pro špičaté rohy
 * `chamfer` (bool, jen s `delta`) "uřízne" rohy
 
-linear_extrude()
-~~~~~~~~~~~~~~~~
+=== linear_extrude()
 
 * vytáhne 2D tvar do prostoru
 * `height` -- výška vytažení
 * `center` -- false jede jen nahoru, true na oba směry
 * `twist` -- o kolik stupňů se 2D tvar otočí na `height`
 * `slices` -- počet kroků u `twist`
-
-Příklad: linear_extrude()
-~~~~~~~~~~~~~~~~~~~~~~~~~
 
 [source,cpp]
 ----
@@ -302,29 +253,23 @@ Příklad: linear_extrude()
   }
 ----
 
-image:../images/openscad/ex11.png[Ukázka]
+image::ex11.png[Ukázka]
 
-rotate_extrude()
-~~~~~~~~~~~~~~~~
+=== rotate_extrude()
 
 * rotuje 2D tvar do prostoru
 * kolem osy Y, potom "vzpřímení" na Z
 * záleží na pozici
 * nezáleží na rotaci
 
-Příklad: rotate_extrude()
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
 [source,cpp]
 ----
   rotate_extrude($fn=200) polygon(points=[[0,0],[2,1],[1,2],[1,3],[3,4],[0,5]]);
 ----
 
-image:../images/openscad/ex10.png[Ukázka]
+image::ex10.png[Ukázka]
 
-[[2d-import]]
-2D import
-~~~~~~~~~
+=== 2D import
 
 * můžete importovat DXF soubory
 * lze
@@ -332,25 +277,18 @@ http://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Other_2D_formats#SVG[převést
 z SVG na DXF]
 ** zmrší to velikost, je třeba použít resize()
 
-Příklad: import() na 2D
-~~~~~~~~~~~~~~~~~~~~~~~
-
 [source,cpp]
 ----
   rotate_extrude() resize([20,0],[true,true]) import("bottle.dxf");
 ----
 
-image:../images/openscad/ex12.png[Ukázka]
+image::ex12.png[Ukázka]
 
-projection()
-~~~~~~~~~~~~
+=== projection()
 
 * promítne 3D objekt na rovinu XY
 * `cut` -- true zobrazí jen průnik s rovinou XY
 * výsledkem je 2D tvar
-
-Příklad: projection()
-~~~~~~~~~~~~~~~~~~~~~
 
 [source,cpp]
 ----
@@ -358,18 +296,14 @@ Příklad: projection()
   linear_extrude(20) projection() rotate([90,0,0]) example002();
 ----
 
-image:../images/openscad/ex13.png[Ukázka]
+image::ex13.png[Ukázka]
 
-import()
-~~~~~~~~
+== import()
 
 * kromě DXF lze importovat i STL soubory
 * ne vždy se povedou vyrendrovat
 ** je třeba je opravit
 ** viz xref:mesh#[oprava meshe]
-
-Příklad: import() na 3D
-~~~~~~~~~~~~~~~~~~~~~~~
 
 [source,cpp]
 ----
@@ -380,21 +314,19 @@ Příklad: import() na 3D
   }
 ----
 
-image:../images/openscad/ex14.png[Ukázka]
+image::ex14.png[Ukázka]
 
-surface()
-~~~~~~~~~
+== surface()
 
 * `surface(file = "smiley.png", center = true);`
 
-image:../images/openscad/surface.png[Ukázka]
+image::surface.png[Ukázka]
 
 _obrázek
 https://commons.wikimedia.org/wiki/File:OpenSCAD_surface_example.png[pochází]
 z OpenSCAD manuálu, autorem je Torsten Paul_
 
-Rozlišení
-~~~~~~~~~
+== Rozlišení
 
 * `$fn`, `$fa` a `$fs` nastavuje rozlišení, viz
 http://en.wikibooks.org/wiki/OpenSCAD_User_Manual/The_OpenSCAD_Language#.24fa.2C_.24fs_and_.24fn[manuál]
@@ -402,16 +334,12 @@ http://en.wikibooks.org/wiki/OpenSCAD_User_Manual/The_OpenSCAD_Language#.24fa.2C
 ** nebo uvnitř chlupatých závorek
 ** může se předat jako parametr čemukoli -- modulu nebo primitivě
 
-Simple - 2-Manifold
-~~~~~~~~~~~~~~~~~~~
+== Simple - 2-Manifold
 
 * pro export STL je potřeba aby byl model 2-Manifold
 * skoro vše řeší výsledný `union()`
 * problém: společná hrana -- nereálné
 * jinak lze zanést chybu polyhedronem
-
-Příklad: nemanifoldní model
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 [source,cpp]
 ----
@@ -419,10 +347,9 @@ Příklad: nemanifoldní model
     // i=0.0001; cube(20); translate([20-i,20-i,0]) cube(20);
 ----
 
-image:../images/openscad/ex15.png[Ukázka]
+image::ex15.png[Ukázka]
 
-Knihovna MCAD
-~~~~~~~~~~~~~
+== Knihovna MCAD
 
 * spousta elementárních i pokročilých věcí
 * nové jakože primitivy
@@ -432,23 +359,18 @@ Knihovna MCAD
 * je třeba `include`, ne `use`!
 * https://github.com/elmom/MCAD/blob/master/README.markdown[info]
 
-Příklad: MCAD
-~~~~~~~~~~~~~
-
 [source,cpp]
 ----
-  include `<MCAD/stepper.scad>`
+  include <MCAD/stepper.scad>
   motor(Nema17);
 ----
 
-image:../images/openscad/ex16.png[Ukázka]
+image::ex16.png[Ukázka]
 
-Pokročilá práce s proměnnými
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+== Pokročilá práce s proměnnými
 
 * xref:openscad/openscad-vars#[příklady chování]
 
-Příklady ze cvičení
-~~~~~~~~~~~~~~~~~~~
+== Příklady ze cvičení
 
 * xref:openscad/openscad-molecule#[molekula]
