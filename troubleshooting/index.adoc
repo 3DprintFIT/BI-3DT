@@ -1,5 +1,4 @@
 = Troubleshooting
-Marián Hlaváč <marian.hlavac@fit.cvut.cz>
 
 Pokud nenosíte v peněžence čtyřlístek, nebo si na cvičení nenosíte talisman pro štěstí, pravděpodobně se stane, že se něco nepovede nebo se na něčem zaseknete.
 
