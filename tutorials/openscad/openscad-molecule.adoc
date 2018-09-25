@@ -1,7 +1,7 @@
 OpenSCAD: Molekula
 ------------------
 
-[source,cpp]
+[source,scad]
 ----
 module molecule(ar=2, ac=6, ad=5, tr=0.5) {
     for(x=[0:(ac-1)],y=[0:(ac-1)],z=[0:(ac-1)]) {
@@ -21,7 +21,7 @@ module trc(tv, rc, ch, cr) {
 molecule();
 ----
 
-[source,cpp]
+[source,scad]
 ----
 module molecule(ar=3, ac=4, ad=8, rr=0.5) {
     for (x = [0:ac-1], y = [0:ac-1], z = [0:ac-1]) {
