@@ -6,20 +6,18 @@ Marián Hlaváč <marian.hlavac@fit.cvut.cz>
 
 Pokud se nelze na tiskárnu připojit...
 
-1. Zkontrolujte, že jste připojeni do správné sítě (WiFi síť BI-3DT).
-2. Ujistěte se, že se připojujete na správnou adresu.
-3. Zkuste ručně zadat IP adresu.
-4. Tiskárnu restartujte jejím vypnutím a opětovným zapnutím.
-
-IP adresa tiskárny je *192.168.0.XXX*, kde XXX je číslo vaší tiskárny. 
-
-TODO: IP adresa není correct
+1. Zkontrolujte, že je počítač připojen k síti a že sedíte u školního počítače (z vlastního počítače se nelze připojit).
+2. Ujistěte se, že se připojujete na správnou adresu. Zadávejte do počítače explicitně celou adresu, včetně `http://`.
+4. Tiskárnu restartujte jejím vypnutím a opětovným zapnutím (vypojením a zapojením do elektřiny).
 
 Pokud nic z toho nepomůže, požádejte cvičícího o pomoc.
 
 == Nemohu se k tiskárně přihlásit.
 
-TODO: Nutné informace o přihlašování od @hany
+Ujistěte se, že přihlašovací údaje zadáváte správně (caps lock, cz/en klávesnice). Přihlašovací údaje jsou:
+
+Jméno:: student
+Heslo:: _sdělí cvičící_
 
 == Z extruderu nevytéká žádný plast.
 
@@ -37,8 +35,8 @@ Přivolejte cvičícího pro asistenci.
 == Tiskárna vydává divný hlasitý zvuk.
 
 Tiskárny jsou obecně velmi hlučné.
-Pokud si však všimnete velmi nezvyklého hluku při tisku, zastavte tisk, abyste zabránili poškození tiskárny a přivolejte cvičícího.
+Pokud si však všimnete velmi nezvyklého hluku při tisku, nebojte se přivolat cvičícího.
 
 == Z tiskárny se kouří / hoří / je viditelně fyzicky poškozená.
 
-Okamžitě upozorněte cvičícího. I pokud si nejste jistí, zda je to problém, raději přivolejte cvičícího.
+Okamžitě upozorněte cvičícího. I pokud si nejste jistí, zda je to problém, raději přivolejte cvičícího. Nestačí se hlásit, rovnou křičte.
