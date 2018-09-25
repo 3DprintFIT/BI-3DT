@@ -1,0 +1,11 @@
+= Troubleshooting
+
+Pokud nenosíte v peněžence čtyřlístek, nebo si na cvičení nenosíte talisman pro štěstí, pravděpodobně se stane, že se něco nepovede nebo se na něčem zaseknete.
+
+V této sekci naleznete přehledně nejčastější problémy a jejich řešení, formou Q&A.
+Problémy jsou rozděleny do tématických celků.
+
+== Oblasti problémů
+
+xref:printing#[Tisk]::
+  Problémy s připojením k tiskárně, ovládání či jiné hardware issues
