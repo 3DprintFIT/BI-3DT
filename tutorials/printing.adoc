@@ -13,9 +13,7 @@ _Pokud již 3D tiskárny znáte, můžete některé kapitoly v textu vynechat, a
 
 == Seznámení se s tiskárnou
 
-Na stole před vámi by měla ležet FDM tiskárna _RebeliX_ a jedna či dvě špule materiálu ABS.
-
-TODO: Krátká specifikace tiskárny?
+Na stole před vámi by měla ležet FDM tiskárna http://reprap4u.cz/rebelix/[_RebeliX_] a jedna či dvě špule materiálu ABS.
 
 Na fotografii níže se seznamte s pojmy, které budou dále ve studijním textu zmíněny.
 
