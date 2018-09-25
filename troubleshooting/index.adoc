@@ -7,5 +7,5 @@ Problémy jsou rozděleny do tématických celků.
 
 == Oblasti problémů
 
-TODO: Zde budou odkazy na jednotlivé kategorie problémů a jejich stručný popis
-
+* xref:printing#[Tisk]
+** Problémy s připojením k tiskárně, ovládání či jiné hardware issues
