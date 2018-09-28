@@ -1,5 +1,4 @@
-Tomáš Sýkora
-------------
+= Tomáš Sýkora
 
 * e-mail: tomas.sykora@fit.cvut.cz
 * twitter: @syky27

@@ -1,5 +1,4 @@
-Marián Hlaváč
--------------
+= Marián Hlaváč
 
 * e-mail: marian.hlavac@fit.cvut.cz
 * telefon: +420 605 347 542
