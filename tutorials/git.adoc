@@ -1,0 +1,26 @@
+Git Tutorial
+------------
+
+Odevzdávání veškeré práce, která je ve virtuální podobě během BI-3DT, 
+probíhá pomocí gitu. Git server který se používá je GitHub.
+Tento tutorial je pouze rychlý úvod jak s gitem pracovat pro potřeby předmětu, 
+rozhodně toto není vše co by jste měli znát. Ale to co je tu dočtete Vám bude stačit
+k tomu aby jste odevzdali vše co budete potřebovat.
+
+Počáteční stav
+~~~~~~~~~~~~~~
+
+Na každém cvičení budete mit připraveny link, který Vám vygeneruje nový repozitář 
+na GitHubu. Pokud nemáte GitHub účet tak Vás server vyzve k jeho vytvoření 
+po navštívení linku generujicí repozitář. Repozitáře se generují pod organizací 
+https://github.com/3DprintFIT[3DprintFIT] a jsou privátní, to znamená že do nich
+máte přístup pouze vy a my jako učitelé.
+
+Po automatickém vytvoření nového repozitáře uvidíte toto:
+
+image:../images/git/new_repo.jpg[New Repo]
+
+
+
+
+
