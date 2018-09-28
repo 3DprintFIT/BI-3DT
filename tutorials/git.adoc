@@ -22,5 +22,72 @@ image:../images/git/new_repo.jpg[New Repo]
 
 
 
+Nastavení SSH klíče
+~~~~~~~~~~~~~~~~~~~
+
+Aby jste mohli komunikovat s git serverem, je potřeba zajistit vaši identifikaci,
+k tomu slouží SSH klíč.
+
+Nemáte řádný vlastní SSH klíč
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Vytvořte ho pomocí:
+
+[source,console]
+----
+[syky@virtu-fedora ~]$ ssh-keygen
+----
+
+Budete dotazani na umistění public/private páru klíče a na passphrase, je zcela
+na Vás co zvolíte, defaultni cesta ke klíči je `~/.ssh/` a passphrase může být 
+i prázdný string.
+
+Výsledek by měl vypadat nejak takto:
+
+[source,console]
+----
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/syky/.ssh/id_rsa):
+Created directory '/home/syky/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/syky/.ssh/id_rsa.
+Your public key has been saved in /home/syky/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:6hIZxGQ2Xmctitvr5D3U+XQv7+B6hZclhJMkLIGHG4U syky@virtu-fedora
+The key's randomart image is:
++---[RSA 2048]----+
+|   o= .==+...o   |
+|   +ooEo+ o.+ .  |
+|   ... = o   o   |
+|    o o       . .|
+|     =  S. .   oo|
+|    + ... o . o.o|
+|     .oo   o ..+ |
+|    .+...   ..o..|
+|     o+ ..  .o.+o|
++----[SHA256]-----+
+----
 
 
+Zobrazte si **PUBLIC** klíč (ten co končí `.pub`)
+[source,console]
+----
+[syky@virtu-fedora ~]$ cat ~/.ssh/id_rsa.pub
+----
+
+Vysledek celý zkopírujte do scránky a předěte na https://github.com/settings/ssh/new[zadání klíče na GitHub]
+
+[source,console]
+----
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCiFJ+V+CUF1u1ZRhphaLUU92auMtpJrjWxOMZF8Dqxc6E4cOfWsUNeCLjzeeOT7786DBLBVn60yjEPHcfRcl6hycOJkREpW1WOUTvzMU9nrBde0PTHoB2tV0acWpu+dgyvhMd82VZ6maCojnvvqv99HkQ4wb/HJHAWzTJvHslYXmOiukCxM7zdUaqGkCVvgx8HiCU32Fo3lYkf/7hLs2I8i/P6urNX9ui3vHpeTKXgFHt7vr2U33YcGzkitO8s6KGqWwom29vduXlIWRQMOCLRUTH8OlEm61A0Xful4Xtt1CKSlXDo9TOK6tfEPVI6kKUfCf+2py7glps+wAZ2dy0b syky@virtu-fedora
+----
+
+Klíč pastněte do do správného pole, Title pole je nepovinné a uložte.
+
+image:../images/git/new_ssh_rsa.png[Add key to GitHub]
+
+
+Uvididíte něco podobného:
+
+image:../images/git/added_ssh_rsa.png[Added key to GitHub]
