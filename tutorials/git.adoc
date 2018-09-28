@@ -1,0 +1,313 @@
+= Git: Tutoriál
+:toc:
+:imagesdir: ../images/git/
+
+Odevzdávání veškeré práce během BI-3DT (kromě fyzických výtisků),
+probíhá pomocí Gitu.
+Git server, který se používá, je GitHub.
+Tento tutoriál je pouze rychlý úvod do práce s Gitem pro potřeby předmětu, 
+rozhodně to není kompletní návod ke Gitu;
+důrazně doporučujeme začít Git aktivně využívat na všechny vaše projekty nejen
+v rámci fakulty.
+To, co se tu dočtete, vám bude stačit k odevzdávání úloh na předmět BI-3DT.
+
+== Počáteční stav
+
+Ke každému zadání budete mít připravený odkaz,
+který vygeneruje nový repozitář na GitHubu.
+Pokud nemáte GitHub účet, server vás vyzve k jeho vytvoření.
+Repozitáře se generují pod organizací 
+https://github.com/3DprintFIT[3DprintFIT] a jsou privátní, to znamená,
+že do nich máte přístup pouze vy a xref:../teachers/index#[učitelé BI-3DT].
+
+Po automatickém vytvoření nového repozitáře uvidíte toto:
+
+.Nový repozitář je připraven
+image::new_repo.png[]
+
+
+== Instalace gitu
+
+[source,console]
+[syky@fedora ~]$ git
+bash: git: command not found
+
+* https://git-scm.com/download/linux[Linux] 🐧
+* https://git-scm.com/download/mac[macOS] (odkaz zahájí stahování instalátoru)
+* https://git-scm.com/download/win[Windows] (odkaz zahájí stahování instalátoru)
+
+Po instalaci:
+
+[source,console]
+[syky@fedora ~]$ git
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+...
+
+
+== Nastavení SSH klíče
+
+Abyste mohli komunikovat s Git serverem,
+je potřeba zajistit vaši identifikaci,
+k tomu slouží SSH klíč.
+Existuje i varianta použití jména a hesla,
+ale tu důrazně nedoporučujeme.
+GitHub ostatně nabízí i dvoufaktorovu autentizaci,
+kterou chcete začít používat.
+
+=== Pokud ještě nemáte SSH klíč
+
+Vytvořte ho pomocí:
+
+[source,console]
+[syky@fedora ~]$ ssh-keygen -t rsa -b 4096
+
+Budete dotázáni na umístění klíče a na heslo (passphrase),
+je zcela na vás, co zvolíte,
+výchozí cesta ke klíči je `~/.ssh/id_rsa` a passphrase může být prázdná.
+
+Výsledek by měl vypadat nějak takto:
+
+[source,console]
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/syky/.ssh/id_rsa):
+Created directory '/home/syky/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/syky/.ssh/id_rsa.
+Your public key has been saved in /home/syky/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:6hIZxGQ2Xmctitvr5D3U+XQv7+B6hZclhJMkLIGHG4U syky@fedora
+The key's randomart image is:
++---[RSA 2048]----+
+|   o= .==+...o   |
+|   +ooEo+ o.+ .  |
+|   ... = o   o   |
+|    o o       . .|
+|     =  S. .   oo|
+|    + ... o . o.o|
+|     .oo   o ..+ |
+|    .+...   ..o..|
+|     o+ ..  .o.+o|
++----[SHA256]-----+
+
+
+CAUTION: Nikdy, *nikdy*, *NIKDY* nikam nekopírujte svůj soukromý klíč
+(ten, co **ne**končí na `.pub`). Veřejný klíč klidně vystavte na web.
+
+=== Pokud již máte SSH klíč (třeba právě vyrobený)
+
+Zobrazte si **veřejný** klíč (ten, co končí `.pub`).
+[source,console]
+[syky@fedora ~]$ cat ~/.ssh/id_rsa.pub
+
+Vysledek celý zkopírujte do schránky a přejděte na
+https://github.com/settings/ssh/new[zadání klíče na GitHubu].
+
+[source,console]
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCiFJ+V+CUF1u1ZRhphaLUU92auMtpJrjWxOMZF8Dqxc6E4cOfWsUNeCLjzeeOT7786DBLBVn60yjEPHcfRcl6hycOJkREpW1WOUTvzMU9nrBde0PTHoB2tV0acWpu+dgyvhMd82VZ6maCojnvvqv99HkQ4wb/HJHAWzTJvHslYXmOiukCxM7zdUaqGkCVvgx8HiCU32Fo3lYkf/7hLs2I8i/P6urNX9ui3vHpeTKXgFHt7vr2U33YcGzkitO8s6KGqWwom29vduXlIWRQMOCLRUTH8OlEm61A0Xful4Xtt1CKSlXDo9TOK6tfEPVI6kKUfCf+2py7glps+wAZ2dy0b syky@fedora
+
+Klíč vložte do pole pro klíč (název je nepovinný) a uložte.
+
+.Přidání klíče na GitHub
+image::new_ssh_rsa.png[]
+
+
+Uvidíte něco podobného:
+
+.Úspěšně přidaný SSH klíč
+image::added_ssh_rsa.png[]
+
+
+== Práce s repozitářem
+
+
+Doporučujeme si vytvořit jednu složku pro vaše Github repozitáře pro BI-3DT.
+
+[source,console]
+[syky@fedora ~]$ mkdir BI-3DT && cd BI-3DT
+
+Pro naklonování použijte *SSH URL*, (začíná `git@`)
+a repozitář naklonuje k sobě na počítač.
+Naklonování znamená vytvoření lokální kopie.
+
+.SSH URL
+image::get_ssh_url.png[]
+
+
+[source,console]
+[syky@fedora BI-3DT]$ git clone git@github.com:3DprintFIT/B181AS-Username-syky27.git
+Cloning into 'B181AS-Username-syky27'...
+The authenticity of host 'github.com (192.30.253.112)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+RSA key fingerprint is MD5:16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.253.112' (RSA) to the list of known hosts.
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 4 (delta 0), reused 4 (delta 0), pack-reused 0
+Receiving objects: 100% (4/4), done.
+[syky@fedora BI-3DT]$
+
+
+Vytvoří se  složka s repozitářem:
+
+[source,console]
+[syky@fedora BI-3DT]$ ll
+total 0
+drwxrwxr-x. 3 syky syky 54 Sep 28 13:05 B181AS-Username-syky27
+
+Uvnitř naleznete veškeré soubory,
+které byly v repozitáři na serveru v době klonování.
+
+[source,console]
+[syky@fedora BI-3DT]$ cd B181AS-Username-syky27
+[syky@fedora B181AS-Username-syky27]$ ll
+total 8
+-rw-rw-r--. 1 syky syky 196 Sep 28 13:05 Jenkinsfile
+-rw-rw-r--. 1 syky syky 152 Sep 28 13:05 README.md
+
+[IMPORTANT]
+====
+Jestli používáte Git z více míst
+(například ze svého počítače a z učebnového počítače)
+a máte repozitář naklonován z dřívějška,
+před započetím práce vždy proveďte `pull` pro aktualizaci souborů,
+abyste předešli konfliktům mezi vzdálenými a lokálními změnami.
+
+[source,console]
+[syky@fedora B181AS-Username-syky27]$ git pull
+Already up to date.
+====
+
+
+Vytvořím nový soubor:
+
+[source,console]
+[syky@fedora B181AS-Username-syky27]$ echo "My super secret username" > USERNAME
+[syky@fedora B181AS-Username-syky27]$ ll
+total 12
+-rw-rw-r--. 1 syky syky 196 Sep 28 13:05 Jenkinsfile
+-rw-rw-r--. 1 syky syky 152 Sep 28 13:05 README.md
+-rw-rw-r--. 1 syky syky  25 Sep 28 13:10 USERNAME
+
+Git mi umožňuje podívat se na změny, které proběhly od minulého commitu:
+
+[source,console]
+----
+[syky@fedora B181AS-Username-syky27]$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	USERNAME
+
+nothing added to commit but untracked files present (use "git add" to track)
+----
+
+Vidím, že se vytvořil nový soubor `USERNAME`, řeknu Gitu,
+že chci, aby ho trackoval:
+
+
+[source,console]
+----
+[syky@fedora B181AS-Username-syky27]$ git add USERNAME
+[syky@fedora B181AS-Username-syky27]$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   USERNAME
+----
+
+Popíši změnu pomocí commitu:
+
+[source,console]
+----
+[syky@fedora B181AS-Username-syky27]$ git commit -am"USERNAME file with my username"
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'syky@fedora.(none)')
+----
+
+Pokud vidím tuto chybu, znamená to, že musím Gitu říci, kdo jsem. Čili:
+
+[source,console]
+$ git config --global user.email "sykorto6@fit.cvut.cz"
+$ git config --global user.name "Tomáš Sýkora"
+
+Poté zopakuji vytvoření commitu:
+
+[source,console]
+[syky@fedora B181AS-Username-syky27]$ git commit -am"USERNAME file with my username"
+[master 2078a00] USERNAME file with my username
+ 1 file changed, 1 insertion(+)
+ create mode 100644 USERNAME
+
+Commit je vytvořen, mohu se podívat, co se v něm změnilo:
+
+[source,console]
+----
+[syky@fedora B181AS-Username-syky27]$ git show
+commit 2078a007fa2d91e7bc2bb40d802bfa4eb17fd05c (HEAD -> master)
+Author: Tomáš Sýkora <sykorto6@fit.cvut.cz>
+Date:   Fri Sep 28 13:21:39 2018 +0200
+
+    USERNAME file with my username
+
+diff --git a/USERNAME b/USERNAME
+new file mode 100644
+index 0000000..ac11935
+--- /dev/null
++++ b/USERNAME
+@@ -0,0 +1 @@
++My super secret username
+----
+
+
+Následně nahraji změny na GitHub:
+
+[source,console]
+[syky@fedora B181AS-Username-syky27]$ git push
+Warning: Permanently added the RSA host key for IP address '192.30.253.113' to the list of known hosts.
+Counting objects: 3, done.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 362 bytes | 362.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To github.com:3DprintFIT/B181AS-Username-syky27.git
+   dc5189b..2078a00  master -> master
+
+.Změny jsou na GitHubu vidět
+image::pushed_changes.png[]
+
+U repozitáře na kartě *Issues* vidíte výsledek našeho systému,
+který částečně automaticky hodnotí úlohy.
+Pokud máte hotovo a vyhodnoceno (a úloha je bodovaná),
+přihlaste se cvičícímu o body.
+
+.Seznam issues, nejnovější je nahoře
+image::issues.png[]
+
+.Detail jedné issue: Něco se nepovedlo, pokračujte dále ve snaze, nebo se poraďte s cvičícím
+image::issue_detail.png[]
+
+NOTE: V názvu issue je _commit hash_: jednoznačý identifikátor commitu,
+který systém hodnotil.
+Pokud čekáte na ohodnocení déle než 5 minut, kontaktujete cvičícího.
