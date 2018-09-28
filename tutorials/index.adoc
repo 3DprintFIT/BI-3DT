@@ -1,6 +1,7 @@
 = Cvičení
 
 Změna programu vyhrazena.
+U cvičeních označených 🚧 se dají v průběhu semestru předpokládat změny v obsahu.
 
 [cols="s,2,4,",options="header",]
 |=======================================================================
@@ -10,28 +11,28 @@ xref:reprap#[RepRap], xref:git#[Git] |0
 
 |2. |9.10.2018 |xref:openscad#[OpenSCAD: Základy] |3
 
-|3. |16.10.2018 |xref:openscad#[OpenSCAD: Pokročilé] |3
+|3. |16.10.2018 |🚧 xref:openscad#[OpenSCAD: Pokročilé] |3
 
 |4. |23.10.2018 |xref:mesh#[Mesh] |3
 
-|5. |30.10.2018 |xref:admesh#[ADMesh] - Programová manipulace s meshí |3
+|5. |30.10.2018 |🚧 xref:admesh#[ADMesh] - Programová manipulace s meshí |3
 
-|6. |6.11.2018 |xref:slicing#[Slicing], xref:gcode#[GCode],
+|6. |6.11.2018 |🚧 xref:slicing#[Slicing], xref:gcode#[GCode],
 xref:slic3r#[Slic3r], xref:kisslicer#[KISSlicer] |3
 
-|7. |13.11.2018 |xref:scan#[Skenování] |3
+|7. |13.11.2018 |🚧 xref:scan#[Skenování] |3
 
-|8. |20.11.2018 |xref:printing#[Tisk - Základy] |3
+|8. |20.11.2018 |🚧 xref:printing#[Tisk - Základy] |3
 
-|9. |27.11.2018 |xref:printing#[Tisk] - xref:bridges#[Mosty] |3
+|9. |27.11.2018 |🚧 xref:printing#[Tisk] - xref:bridges#[Mosty] |3
 
-|10. |4.12.2018 |xref:printing#[Tisk] - xref:supports#[Podpory] |3
+|10. |4.12.2018 |🚧 xref:printing#[Tisk] - xref:supports#[Podpory] |3
 
-|11. |11.12.2018 |xref:printing#[Tisk] - xref:multicolor#[Vícebarevný tisk] |3
+|11. |11.12.2018 |🚧 xref:printing#[Tisk] - xref:multicolor#[Vícebarevný tisk] |3
 
-|12. |18.12.2018 |xref:printing#[Tisk] - co si přejete vyzkoušet
+|12. |18.12.2018 |🚧 xref:printing#[Tisk] - co si přejete vyzkoušet
 ohledně semestrální práce |0
 
 2+d|Domácí příprava vhodná k semestrálce
-|xref:meshmixer#[MeshMixer a řezání STL souborů] |0
+|🚧 xref:meshmixer#[MeshMixer a řezání STL souborů] |0
 |=======================================================================
