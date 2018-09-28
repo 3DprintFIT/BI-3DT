@@ -154,3 +154,185 @@ image:../images/git/new_ssh_rsa.png[Add key to GitHub]
 Uvididíte něco podobného:
 
 image:../images/git/added_ssh_rsa.png[Added key to GitHub]
+
+
+Práce s repozitářem
+-------------------
+
+
+Vytvořte si ideálně složku pro vaše Github repozitáře pro BI-3DT, a naclonujte si
+repo, clonování znamená vytvoření lokání kopie, git je decentralizovaný verzovací
+systém.
+
+[source,console]
+----
+[syky@virtu-fedora ~]$ mkdir bi_3dt && cd "$_"
+----
+
+Naleznete **SSH URL**, (začíná `git@`) a naclonujte
+
+image:../images/git/get_ssh_url.png[SSH URL]
+
+
+[source,console]
+----
+[syky@virtu-fedora bi_3dt]$ git clone git@github.com:3DprintFIT/B181AS-Username-syky27.git
+Cloning into 'B181AS-Username-syky27'...
+The authenticity of host 'github.com (192.30.253.112)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+RSA key fingerprint is MD5:16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.253.112' (RSA) to the list of known hosts.
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 4 (delta 0), reused 4 (delta 0), pack-reused 0
+Receiving objects: 100% (4/4), done.
+[syky@virtu-fedora bi_3dt]$
+----
+
+
+Vytvoří se Vám, složka s repozitářem viz
+
+[source,console]
+----
+[syky@virtu-fedora bi_3dt]$ ll
+total 0
+drwxrwxr-x. 3 syky syky 54 Sep 28 13:05 B181AS-Username-syky27
+----
+
+Uvnitř naleznete veškeré soubory, které byli na serveru v době clonování
+
+
+[source,console]
+----
+[syky@virtu-fedora B181AS-Username-syky27]$ ll
+total 8
+-rw-rw-r--. 1 syky syky 196 Sep 28 13:05 Jenkinsfile
+-rw-rw-r--. 1 syky syky 152 Sep 28 13:05 README.md
+----
+
+Vytvořím, nový soubor:
+
+[source,console]
+----
+[syky@virtu-fedora B181AS-Username-syky27]$ echo "My super secret username" > USERNAME
+[syky@virtu-fedora B181AS-Username-syky27]$ ll
+total 12
+-rw-rw-r--. 1 syky syky 196 Sep 28 13:05 Jenkinsfile
+-rw-rw-r--. 1 syky syky 152 Sep 28 13:05 README.md
+-rw-rw-r--. 1 syky syky  25 Sep 28 13:10 USERNAME
+----
+
+Git mi umožňuje podivat se na změny u souboru virtu
+
+[source,console]
+----
+[syky@virtu-fedora B181AS-Username-syky27]$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	USERNAME
+
+nothing added to commit but untracked files present (use "git add" to track)
+----
+
+Vidím, že se vytvořil nový soubor `USERNAME`, přidám ho trackovaných souborů gitem
+
+
+[source,console]
+----
+[syky@virtu-fedora B181AS-Username-syky27]$ git add USERNAME
+[syky@virtu-fedora B181AS-Username-syky27]$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   USERNAME
+----
+
+Popíši změnu pomoci commitu
+
+[source,console]
+----
+[syky@virtu-fedora B181AS-Username-syky27]$ git commit -am"USERNAME file with my username"
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'syky@virtu-fedora.(none)')
+----
+
+Pokud dostanu tento erro znamená to, že musím gitu řící kdo jsem čili:
+
+[source,console]
+----
+git config --global user.email "someone@fit.cvut.cz"
+git config --global user.name "Someone of Someone"
+----
+
+Poté zopakuji vytvoření commitu
+
+[source,console]
+----
+[syky@virtu-fedora B181AS-Username-syky27]$ git commit -am"USERNAME file with my username"
+[master 2078a00] USERNAME file with my username
+ 1 file changed, 1 insertion(+)
+ create mode 100644 USERNAME
+----
+
+Commit vytvořen mohu se podivat co se změnilo
+
+[source,console]
+----
+[syky@virtu-fedora B181AS-Username-syky27]$ git show
+commit 2078a007fa2d91e7bc2bb40d802bfa4eb17fd05c (HEAD -> master)
+Author: Someone of Someone <someone@fit.cvut.cz>
+Date:   Fri Sep 28 13:21:39 2018 +0200
+
+    USERNAME file with my username
+
+diff --git a/USERNAME b/USERNAME
+new file mode 100644
+index 0000000..ac11935
+--- /dev/null
++++ b/USERNAME
+@@ -0,0 +1 @@
++My super secret username
+----
+
+
+Následně nahraji změny na GitHub
+
+[source,console]
+----
+[syky@virtu-fedora B181AS-Username-syky27]$ git push
+Warning: Permanently added the RSA host key for IP address '192.30.253.113' to the list of known hosts.
+Counting objects: 3, done.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 362 bytes | 362.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To github.com:3DprintFIT/B181AS-Username-syky27.git
+   dc5189b..2078a00  master -> master
+----
+
+
+
+image:../images/git/pushed_changes.png[Pushed Changes]
+
+U repozitáře v Issues, uvidíte výsledek CI, který částečne automaticky hodnotí úlohy.
+
+image:../images/git/issues.png[Issues list]
+image:../images/git/issue_detail.png[Issues detail]
