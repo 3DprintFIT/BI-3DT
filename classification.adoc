@@ -17,7 +17,7 @@ na studijních materiálech. Jedná se ale vždy o individuální dohodu, není 
 očekávat toto automaticky.
 
 Vaše hodnocení naleznete na
-https://grades.fit.cvut.cz/courses/BI-3DT.1/classification[grades.fit.cvut.cz].
+https://grades.fit.cvut.cz/courses/BI-3DT.1/my-classification[grades.fit.cvut.cz].
 
 == Celkové hodnocení
 

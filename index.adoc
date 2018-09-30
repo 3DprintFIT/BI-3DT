@@ -4,7 +4,7 @@
 
 * 📆 xref:tutorials/index#[Harmonogram cvičení]
 * 🎓 xref:classification#[Pravidla hodnocení]
-* 💰 https://grades.fit.cvut.cz/courses/BI-3DT.1/classification[Body z předmětu]
+* 💰 https://grades.fit.cvut.cz/courses/BI-3DT.1/my-classification[Body z předmětu]
 * 💂 xref:teachers/index#[Učitelé]
 * 🕢 https://timetable.fit.cvut.cz/new/courses/BI-3DT.1[Rozvrh]
 * ⁉️ https://www.facebook.com/groups/bi3dt/[Facebook: Nechceme vypadnout
