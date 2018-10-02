@@ -7,7 +7,8 @@ U cvičeních označených 🚧 se dají v průběhu semestru předpokládat zm�
 |=======================================================================
 |Cvičení |Datum |Téma |Body
 |1. |2.10.2018 |xref:course#[Principy předmětu],
-xref:reprap#[RepRap], xref:git#[Git] |0
+xref:reprap#[RepRap], xref:git#[Git]
+|https://github.com/3DprintFIT/B181A-Username-Assignment[0]
 
 |2. |9.10.2018 |xref:openscad#[OpenSCAD: Základy] |3
 
