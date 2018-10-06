@@ -18,7 +18,7 @@ Na stole před vámi by měla ležet FDM tiskárna http://reprap4u.cz/rebelix/[_
 Na fotografii níže se seznamte s pojmy, které budou dále ve studijním textu zmíněny.
 
 .Tiskána RebeliX
-image::../images/rebelix-photo-annotated.jpg[Rebelix, width=720, link=../images/rebelix-photo-annotated.jpg]
+image::../images/printing/rebelix-photo-annotated.jpg[Rebelix, width=720, link=../images/printing/rebelix-photo-annotated.jpg]
 <1> Tisková deska (heatbed)
 <2> Raspberry Pi
 <3> Extruder
@@ -55,11 +55,11 @@ CAUTION: Po připojení se ujistěte, že se jedná o rozhraní pro vaši tiská
 https://github.com/foosel/OctoPrint[OctoPrint] je jednoduché a přehledné webové rozhraní pro ovládání tiskáren připojených k počítači (v našem případě k Raspberry Pi). Umožňuje tiskárnu ručně ovládat, zobrazit přehledně její stav a odesílat tisková data na tiskárnu.
 
 .Snímek prohlížece s otevřeným OctoPrint rozhraním
-image::../images/octoprint-main.png[OctoPrint]
+image::../images/printing/octoprint-main.png[OctoPrint]
 
 
 .Ruční ovládání v OctoPrint
-image::../images/octoprint-control.png[Karta ručního ovládání, 250, float="right"]
+image::../images/printing/octoprint-control.png[Karta ručního ovládání, 250, float="right"]
 ==== Ruční ovládání
 
 Na kartě ručního ovládání (Control) lze, jak název napovídá, ručně ovládat tiskárnu.
@@ -80,7 +80,7 @@ V posledním sloupci je užitečné tlačítko `Motors off`, který vypne krokov
 
 
 .Ovládání teplot v OctoPrint
-image::../images/octoprint-temps.png[Ovládací prvek teplot, 250, float="right"]
+image::../images/printing/octoprint-temps.png[Ovládací prvek teplot, 250, float="right"]
 ==== Předehřátí tiskárny
 
 Předehřívání trvá v řádech minut. 
@@ -163,7 +163,7 @@ Po celou dobu vytahování mějte ruku poblíž struny, jelikož po jejím úpln
 
 Pravidlo předehřáté tiskárny platí úplně stejně jako u vytahování filamentu.
 
-image::../images/filamentguide.svg[Jak má filament vypadat, 300, float="right"]
+image::../images/printing/filamentguide.svg[Jak má filament vypadat, 300, float="right"]
 
 Zkontrolujte zakončení filamentu na závady. Filament může být:
 
