@@ -100,12 +100,14 @@ Přečtěte si nyní zadání úkolů, abyste věděli co se od vás očekává,
 == Zadání úkolů
 
 Pro dnešní sadu úkolů se vtělte do pracovitého zaměstnance QC oddělení fiktivní firmy "Pepa Prča Research", kontrolující výstupní kvalitu 3D tiskáren.
-Vaším úkolem bude ověřit, zda tiskárna tiskne správně a dále ověřit, jak velký převis bez podpor vaše tiskárna zvládne vytisknout.
+Vaším úkolem bude ověřit, zda tiskárna tiskne správně a jak dobře.
 
 
 === Úkol 1 (1 bod)
 
-*Potřebujete ověřit, zda tiskárna skutečně vytiskne stejné rozměry, které jsou v modelu.*
+Vašim prvním úkolem je *ověřit, zda tiskárna skutečně vytiskne stejné rozměry, které jsou v modelu.*
+
+image::../images/printing/20mm-box.png[width=160, float=right]
 
 Jako testovací objekt jste si vybrali link:../stls/printing/20mm-box.stl[model kostky o přesných rozměrech 20×20×10 mm].
 K tiskárně jste dostali tiskový profil, který na ní byl doteď používán. 
@@ -116,14 +118,13 @@ Abyste ušetřili materiál, nastavte tisk tak, aby se vytiskly kostky 4 a každ
 
 === Úkol 2 (2 body)
 
-*Dále chcete ověřit, jaký největší převis bez využití podpor tiskárna zvládne vytisknout.*
+Dále chcete *ověřit jak moc malý předmět tiskárna zvládne vytisknout*. 
 
-Vytiskněte model z portálu Thingiverse -- https://www.thingiverse.com/thing:1564848[Overhang Angle Test Object] (link:../stls/printing/Overhang_Angle_Test_Object.zip[mirror zde]) bez podpor. 
-Zjistěte jaký největší úhel převisu je tiskárna schopna vytisknout.
+image::../images/printing/CuteOcto.png[width=160, float=right]
 
-Po vytištění přidejte do modelu podpory, ale pouze na místech, kde je to potřeba. Upravená tisková data vytiskněte.
+Jako testovací objekt jste si vybrali https://www.thingiverse.com/thing:27053["Cute Octopus Says Hello"] (CC BY 3.0) od MakerBot ze serveru Thingiverse.com (link:../stls/printing/CuteOcto.stl[mirror zde]), profil použijete stejný jako výše. Abyste ušetřili materiál, začnete na poloviční velikosti předmětu (scale 50%) a budete dále zkoušet menší velikosti, podle toho, kolik vám zbyde času (zkuste pak např. 33%, 25%, 15% atd.).
 
-Výsledkem by měl být jeden selhaný tisk pro zjištění limit tiskárny a jeden úspěšný tisk s minimálními podporami.
+Odevzdávat budete jednu poloviční velikost (scale 50%) a druhou libovolně menší (scale <50%), ale povedenou. Další menší velikosti můžete odevzdat dobrovolně, ale neovlivní výsledný počet bodů
 
 
 === Úkol 3 (0 bodů, ale povinný)
