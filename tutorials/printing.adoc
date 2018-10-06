@@ -38,7 +38,7 @@ K připojení do sítě ve které jsou tiskárny přístupné, využijte školn�
 Na každé tiskárně lze nalézt štítek uvádějící číslo tiskárny. 
 Připojte se na svou tiskárnu nahrazením `X` za číslo vaší tiskárny v níže uvedené adrese.
 
-Adresa tiskárny:: http://printerX.local
+Adresa tiskárny:: http://printerX.ucebny
 
 K přihlášení použijte níže uvedené přihlašovací údaje. Heslo sděluje cvičící.
 
