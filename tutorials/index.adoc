@@ -10,7 +10,8 @@ U cvičeních označených 🚧 se dají v průběhu semestru předpokládat zm�
 xref:reprap#[RepRap], xref:git#[Git]
 |https://github.com/3DprintFIT/B181A-Username-Assignment[0]
 
-|2. |9.10.2018 |xref:openscad#[OpenSCAD: Základy] |3
+|2. |9.10.2018 |xref:openscad#[OpenSCAD: Základy]
+|https://github.com/3DprintFIT/B181A-OpenSCAD1-Assignment[3]
 
 |3. |16.10.2018 |🚧 xref:openscad#[OpenSCAD: Pokročilé] |3
 
