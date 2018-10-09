@@ -13,7 +13,7 @@ xref:reprap#[RepRap], xref:git#[Git]
 |2. |9.10.2018 |xref:openscad#[OpenSCAD: Základy]
 |https://github.com/3DprintFIT/B181A-OpenSCAD1-Assignment[3]
 
-|3. |16.10.2018 |🚧 xref:openscad#[OpenSCAD: Pokročilé] |3
+|3. |16.10.2018 |xref:openscad#[OpenSCAD: Pokročilé] |3
 
 |4. |23.10.2018 |xref:mesh#[Mesh] |3
 

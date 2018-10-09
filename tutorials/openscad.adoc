@@ -30,7 +30,7 @@ již otočené.
 .CSG strom. © http://commons.wikimedia.org/wiki/File:Csg_tree.png[Zottie], GNU FDL
 image::csg_tree.png[width=555]
 
-OpenSCAD umožňuje takové stromy zapsat pomocí kódu a vyrendorvat z nich výsledný
+OpenSCAD umožňuje takové stromy zapsat pomocí kódu a vyrenderovat z nich výsledný
 3D model ve formě xref:mesh#[triangulární meshe] (o té se budeme učit později).
 
 == Uživatelské rozhraní
@@ -151,7 +151,7 @@ zabalením objektů do chlupatých závorek a předsazením před ně.
 .Transformace aplikovaná na více objektů současně
 [source,scad]
 ----
-transformce() {
+transformace() {
   objekt1();
   objekt2();
 }
@@ -536,179 +536,307 @@ image::ex9.png[]
 == Pomocníčci
 
 WARNING: Zde zhruba končí obsah druhého cvičení a pokračuje obsah třetího.
-Materiály níže se ještě budou upravovat a jsou zatím k dispozici pouze v bodech.
 
-* `minkowski()` "objede" první objekt druhým, pak případně třetím...
-* `hull()` "opláští" objekty co nejmenším pláštěm
-* obojí může být poměrně pomalé
+Speciálními operacemi v OpenSCADu jsou  `minkowski()` a `hull()`.
+Pomocí nich můžete vyvářet složité tvary,
+které by se jinak vytvářely velice obtížně.
 
+=== Minkowského suma
+
+https://en.wikipedia.org/wiki/Minkowski_addition[Minkowského suma] je množinová operace,
+kdy všechny body z jedné množiny sečtete se všemi body z druhé množiny.
+Nejlépe to vystihuje následující obrázek:
+
+.Minkowského suma ©  https://en.wikipedia.org/wiki/File:Сумма_Минковского.svg[Tosha] (Public Domain)
+image::minkowski.svg[width=500]
+
+Můžete si to představit tak,
+že jeden z objektů uchopíte za počátek souřadný
+a objíždíte s ním po povrchu druhého objektu, zanechávajíc za sebou stopu.
+Jedná se o operaci komutativní a asociativní, je tedy jedno,
+kterým objektem jezdíte po kterém.
+V praxi se tato operace používá většinou s koulí pro zaoblení,
+ale pozor, zaoblený objekt se zvětší.
+
+.Operace `minkowski()`
 [source,scad]
-----
 minkowski() {
-  hull() {
-    rotate([120,0,0]) cylinder(h=1,r=10);
-    translate([0,30,0]) rotate([-120,0,0]) cylinder(h=1,r=13);
-    translate([0,15,25]) cylinder(h=1,r=8);
-  }
-  sphere(3);
+  cube(300);
+  sphere(30);
 }
-----
 
-image::ex5.png[]
+.Vlevo operandy, vpravo výsledek operace `minkowski()`
+image::ex5.png[width=500]
+
+WARNING: Vypočtení minkowského sumy může trvat **velmi dlouho**.
+
+=== Konvexní obal
+
+Konvexní obal (__convex hull__) objektů je takový nejmenší konvexní objekt,
+který pojme všechny objekty v něm.
+Opět se jedná o komutativní a asociativní https://en.wikipedia.org/wiki/Convex_hull[množinovou operaci].
+
+.Operace `hull()`
+[source,scad]
+hull() {
+  cube(100);
+  sphere(30);
+}
+
+.Vlevo operandy, vpravo výsledek operace `hull()`
+image::ex5a.png[width=500]
+
+WARNING: Vypočtení konvexního obalu může trvat celkem dlouho.
 
 == Dvourozměrný subsystém
 
-* je možné vyvářet 2D primitivy
-** `circle()`, `square()`, `polygon()`
-** poté `linear_extrude()` nebo `rotate_extrude()`
-* `projection()` slouží k projekci 3D objektů do 2D
-* více info
-http://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Using_the_2D_Subsystem[v
-manuálu]
-* 2D objekty se tváří jako malé úzké 3D objekty, ale nejdou tak
-vyrendrovat
+Zatím jsme vytvářeli jen trojrozměrné objekty.
+V OpenSCADu se dá ale využít dvourozměrný subsystém,
+ve kterém se pracuje jen na jedné rovině.
+
+V 2D subsystému je možné vyvářet 2D primitiva:
+`circle()`, `square()` a `polygon()`.
+
+Pomocí `linear_extrude()` nebo `rotate_extrude()` jde z 2D objektu vytvořit 3D objekt.
+Naopak `projection()` slouží k projekci 3D objektů do 2D.
+
+NOTE: 2D objekty v náhledu vypadají jako malé úzké 3D objekty,
+ale nejdou tak vyrenderovat. Nelze ve stromu spojovat 2D a 3D objekty.
+(`WARNING: Mixing 2D and 3D objects is not supported.`
+`WARNING: Ignoring 3D child object for 2D operation.`)
+
+Když pracujete ve 2D subsystému, lze použít vše, co již znáte,
+jen API některých operací se náležitě změní
+(např. `translate()` bere vektor 2 hodnot, `rotate()` bere jen jeden úhel…).
+
+.Dvourozměrný subsystém
+[source,scad]
+hull() {
+  rotate(45) square([25, 15]);
+  translate([12, 7]) circle(7);
+}
+
+.Dvourozměrný subsystém
+image::ex11a.png[]
+
+Operace `hull()` a `minkowski()` jsou ve 2D subsystému relativně rychlé.
+Pokud to jde, je tedy lepší provádět je v něm.
 
 === 2D primitiva
 
-* `square()` jako alternativa `cube()`
-* `circle()` jako alternativa `sphere()`
-* `polygon()` jako alternativa `polyhedron()`
+`square()`::
+  alternativa ke `cube()`
+
+`circle()`::
+  alternativa ke `sphere()`
+
+`polygon()`::
+  alternativa k `polyhedron()`
 
 === offset()
 
-* `offset()`
-* `r` pro zaoblené rohy
-* `delta` pro špičaté rohy
-* `chamfer` (bool, jen s `delta`) "uřízne" rohy
+K zaoblení dvourozměrných tvarů lze použít `offset()`.
+Ten má několik způsobů použití:
+
+.Použití kladného offsetu v závislosti na použitých argumentech a jejich hodnotách © https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/The_OpenSCAD_Language#offset[Torsten Paul] (CC BY-SA)
+image::offset_out.svg[width=500]
+
+.Použití záporného offsetu v závislosti na použitých argumentech a jejich hodnotách © https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/The_OpenSCAD_Language#offset[Torsten Paul] (CC BY-SA)
+image::offset_in.svg[width=500]
+
 
 === linear_extrude()
 
-* vytáhne 2D tvar do prostoru
-* `height` -- výška vytažení
-* `center` -- false jede jen nahoru, true na oba směry
-* `twist` -- o kolik stupňů se 2D tvar otočí na `height`
-* `slices` -- počet kroků u `twist`
+Operace `linear_extrude()` vytáhne 2D tvar do prostoru a vytvoří tedy 3D tvar.
+Lze nastavit několik parametrů:
 
+`height`::
+  výška vytažení
+
+`center`::
+  `false` vytahuje jen nahoru, `true` na oba směry (každý o polovinu výšky)
+
+`twist`::
+  o kolik stupňů se 2D tvar při vytažení otočí
+
+`slices`::
+  počet kroků u `twist`
+
+`scale`::
+  kolikrát se 2D tvar při vytažení zvětší
+
+`convexity`::
+  hodnota ovlivňující náhled; kuchař radí: „nevíš-li, dej tam 10“
+
+.Použití `linear_extrude()`
 [source,scad]
-----
-linear_extrude(height=20,twist=180,slices=100,center=true) {
+linear_extrude(height=20, twist=180, slices=100, center=true) {
   square(5);
-  square(5,true);
+  square(5, center=true);
 }
-----
 
+.Použití `linear_extrude()`
 image::ex11.png[]
 
 === rotate_extrude()
 
-* rotuje 2D tvar do prostoru
-* kolem osy Y, potom "vzpřímení" na Z
-* záleží na pozici
-* nezáleží na rotaci
+Další možností, jak převést 2D tvar na 3D tvar, je rotovat ho.
+K tomu slouží `rotate_extrude()`, které rotuje 2D tvar do prostoru.
 
+Rotace probíhá kolem osy Y, ale objekt se „vzpřímí“ kolem osy Z
+(dodnes nevíme proč).
+
+NOTE: Použitý 2D tvar nesmí zasahovat zároveň do kladné a záporné části osy Y.
+Přesněji řečeno, buďto musí všechny body mít X souřadnici nezápornou,
+nebo všechny nekladnou.
+
+.Použití `rotate_extrude()`
 [source,scad]
-----
-rotate_extrude($fn=200) polygon(points=[[0,0],[2,1],[1,2],[1,3],[3,4],[0,5]]);
-----
+rotate_extrude()
+  polygon(points=[[0,0],[20,10],[10,20],[10,30],[30,40],[0,50]]);
 
+.Použití `rotate_extrude()`
 image::ex10.png[]
-
-=== 2D import
-
-* můžete importovat DXF soubory
-* lze
-http://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Other_2D_formats#SVG[převést
-z SVG na DXF]
-** zmrší to velikost, je třeba použít resize()
-
-[source,scad]
-----
-rotate_extrude() resize([20,0],[true,true]) import("bottle.dxf");
-----
-
-image::ex12.png[]
 
 === projection()
 
-* promítne 3D objekt na rovinu XY
-* `cut` -- true zobrazí jen průnik s rovinou XY
-* výsledkem je 2D tvar
+Projekce (`projection()`) promítne 3D objekt na rovinu XY.
+Parametr `cut` umožní použít jen průnik s rovinou XY.
+Výsledkem projekce je vždy 2D tvar;
+ten pak můžete využít opět k vytvoření 3D tvaru.
 
+.Parabola pomocí `projection()`
 [source,scad]
-----
-use </usr/share/openscad/examples/example002.scad>
-linear_extrude(20) projection() rotate([90,0,0]) example002();
-----
+projection(cut=true)
+  translate([0, 0, -15])
+    rotate([45, 0, 0])
+      cylinder(r1=0, r2=500, h=500);
 
+.Parabola pomocí `projection()`
 image::ex13.png[]
 
 == import()
 
-* kromě DXF lze importovat i STL soubory
-* ne vždy se povedou vyrendrovat
-** je třeba je opravit
-** viz xref:mesh#[oprava meshe]
+Pro použití již existujících 2D nebo 3D tvarů můžete použít `import()`,
+pomocí něhož lze do CSG stromu vložit STL a DXF soubory.
+Argumentem je cesta k souboru (relativní či absolutní).
 
+Při importování 2D tvarů (DXF) si dejte především pozor na výslednou velikost,
+je vhodné použít `resize()`.
+
+.Použití 2D tvaru ze souboru
 [source,scad]
-----
-difference() {
-  import("kangaroo5.stl");
-  // http://www.thingiverse.com/thing:33273 CC BY-NC-SA
-  translate([0,-10,80]) cube(30,true);
-}
-----
+rotate_extrude() 
+  resize([20, 0], auto=[false, true])
+    import("bottle.dxf");
 
+.Použití 2D tvaru ze souboru
+image::ex12.png[]
+
+Importované soubory lze využít k jakýmkoliv dalším operacím.
+Cizí STL soubory se ne vždy povedou vyrenderovat,
+je třeba je nejprve opravit,
+k tomu se dostaneme ve cvičení o xref:mesh#[opravě meshe].
+
+.Použití 3D tvaru ze souboru
+[source,scad]
+difference() {
+  import("kangaroo.stl"); // http://www.thingiverse.com/thing:33273 CC BY-NC-SA
+  translate([0, -10, 80])
+    cube(30, center=true);
+}
+
+.Použití 3D tvaru ze souboru
 image::ex14.png[]
 
 == surface()
 
-* `surface(file = "smiley.png", center = true);`
+Alternativním způsobem využité externích souborů je `surface()`,
+který slouží k převodu obrázků do výškové mapy.
 
+.`surface(file="smiley.png", center=true);` © https://commons.wikimedia.org/wiki/File:OpenSCAD_surface_example.png[Torsten Paul] (CC BY-SA)
 image::surface.png[]
-
-_obrázek
-https://commons.wikimedia.org/wiki/File:OpenSCAD_surface_example.png[pochází]
-z OpenSCAD manuálu, autorem je Torsten Paul_
 
 == Rozlišení
 
-* `$fn`, `$fa` a `$fs` nastavuje rozlišení, viz
-http://en.wikibooks.org/wiki/OpenSCAD_User_Manual/The_OpenSCAD_Language#.24fa.2C_.24fs_and_.24fn[manuál]
-** může se nastavit globálnbě
-** nebo uvnitř chlupatých závorek
-** může se předat jako parametr čemukoli -- modulu nebo primitivě
+Jistě jste si všimli, že kulaté věci jsou v OpenSCADu hranaté.
+Čím menší jsou, tím je to více poznat.
 
-== Simple - 2-Manifold
+.Koule velikosti 1
+image::ex16a.png[]
 
-* pro export STL je potřeba aby byl model 2-Manifold
-* skoro vše řeší výsledný `union()`
-* problém: společná hrana -- nereálné
-* jinak lze zanést chybu polyhedronem
+Pomocí speciálních proměnných `$fn`, `$fa` a `$fs` lze rozlišení měnit,
+viz http://en.wikibooks.org/wiki/OpenSCAD_User_Manual/The_OpenSCAD_Language#.24fa.2C_.24fs_and_.24fn[manuál].
+V praxi se nejčastěji nastavuje proměnná `$fn`,
+která nastaví absolutní počet hran na kruh (minimálně 3).
+Tvary jsou vytvořené tak, že zadaná velikost je velikost opsané kružnice.
+Proměnou `$fn` lze využít například k vytvoření __n__-úhelníku.
 
-[source,scad]
-----
-cube(20); translate([20,20,0]) cube(20);
-// i=0.0001; cube(20); translate([20-i,20-i,0]) cube(20);
-----
+Tyto speciální proměnné se mohou nastavit globálně, ve scopu nebo argumentem
+libovolné operaci, primitivu či modulu.
+Při vytváření modulů není třeba tyto proměnné uvádět v předpisu.
 
+.`for (fn=[1:10]) translate([fn*2.1,0,0]) circle($fn=fn);`
+image::fn.png[]
+
+== Simple – 2-Manifold
+
+Pro správný export STL souboru je potřeba,
+aby byl model Simple – https://en.wikipedia.org/wiki/2-manifold[2-Manifold].
+To mj. znamená, že stěny modelu se nemohou všelijak protínat.
+Skoro všechny možné problémy řeší výsledný implicitní `union()`.
+Nějaké problémy ale přece jen můžou vzniknout,
+například při nesprávném použití polyhedronu.
+
+Jedním z problémů, který může nastat jednoduše,
+je společná hrana dvou objektů.
+Pokud si představíte dvě kostky (např. z obrázku níže),
+v reálném světě nemohou mít společnou hranu.
+Buďto jde „projít“ z jedné kostky do druhé, nebo „jde projít“ mezi nimi;
+jinými slovy buďto to jsou dvě kostky nebo jedna dvoukostka.
+
+.Dvě kostky nemohou sdílet hranu
 image::ex15.png[]
+
+.Takhle to nejde
+[source,scad]
+cube(20);
+translate([20, 20, 0]) cube(20);
+
+.Jde to takhle
+[source,scad]
+e=0.0001;
+cube(20);
+translate([20-e, 20-e, 0]) cube(20);
+
+.Nebo takhle
+[source,scad]
+e=0.0001;
+cube(20);
+translate([20+e, 20+e, 0]) cube(20);
 
 == Knihovna MCAD
 
-* spousta elementárních i pokročilých věcí
-* nové jakože primitivy
-* vhodné věci pro RepRap
-** motorky
-** řemeničky
-* je třeba `include`, ne `use`!
-* https://github.com/elmom/MCAD/blob/master/README.markdown[info]
+Pomocí modulů lze pro OpenSCAD vytvářet různé knihovny.
+Některé již existují, jednou z nich je knihovna
+https://github.com/openscad/MCAD#openscad-mcad-library[MCAD],
+která bývá často distribuovaná společně s OpenSCADem.
 
+Knihovna MCAD obsahuje spoustu elementárních i pokročilých věcí:
+
+* nové tvary, 
+* vhodné věci pro RepRap:
+** motorky,
+** řemeničky…
+
+Pro použití knihovny MCAD je potřeba použít `include`, ne `use`.
+
+.Použití knihovny MCAD
 [source,scad]
-----
 include <MCAD/stepper.scad>
 motor(Nema17);
-----
 
+.Je libo motor NEMA 17?
 image::ex16.png[]
 
 == Pokročilá práce s proměnnými
