@@ -81,7 +81,7 @@ Nejprve je třeba soubor načíst z disku do struktury `stl_file`.
 #include <admesh/stl.h>
 
 int main(void) {
-  stl stl; // <1>
+  stl_file stl; // <1>
   char *filename = "directory/model.stl"; // <2>
   stl_open(&stl, filename); // <3>
   stl_exit_on_error(&stl); // <4>
