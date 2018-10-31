@@ -1,46 +1,230 @@
-Slicing
--------
+= Slicing
+Marián Hlaváč <marian.hlavac@fit.cvut.cz>
+:toc:
 
-Proč slicing?
-~~~~~~~~~~~~~
+3D tiskárna je ve výsledku celkem jednoduché zařízení. Nefunguje jako krabička, na kterou pošleme 3D model v libovolném formátu a z tiskárny začne vytékat plast ve tvaru zadaného 3D modelu. Pro tisk potřebujeme na tiskárnu odeslat přesná tisková data.
 
-image:../images/slicing/sliced_apple.jpg["Slicnuté" jablko]
+Funguje to podobně jako u 2D tiskáren, na tiskárnu také neodesíláme přímo .pdf nebo .tex dokumenty, ale musejí být převedeny do https://en.wikipedia.org/wiki/PostScript[PostScriptu]. 2D tiskárny jsou ale o něco chytřejší než 3D tiskárny, jelikož jim stačí pouze ta PostScriptová data, nikoliv přímé instrukce kdy a kde má tiskárna pohnout tiskovou hlavou nebo posunout válec.
 
-(© https://www.flickr.com/photos/vanf/5336855585/[Daniel Novta], CC BY)
+Tiskovými daty pro 3D tiskárny jsou tak přesné instrukce kdy, odkud, kam a jak rychle se má tryska tiskárny pohnout a v jaký moment a kolik vyteče plastu. Tyto příkazy tiskárna poslouchá a "hloupě" je provádí (až na vyjímky -- některé firmwary provádějí optimalizaci) bez ohledu na to, aby měla tiskárna ponětí o tom, co vlastně ve výsledku tiskne. Takové informace dodáváme ve https://en.wikipedia.org/wiki/G-code[formátu GCode].
 
-Rasterizace
-~~~~~~~~~~~
+."Naslicovaný" model chobotničky
+image::../images/slicing/octo-layers.jpg[Vrstvy naslicovaného modelu, width=320, link=../images/slicing/octo-layers.jpg, float=right]
 
-Při zobrazení reálného modelu ve světových souřadnicích na výstupní
-zařízení (rastrové, vektorové) potřebujeme zajistit co nejvěrnější
-podobnost reálného a zobrazovaného modelu.
+Tisková data musíme tiskárně připravit a jedná se o netriviální úkol. Úspěšná příprava dat totiž definuje jak úspěšný výsledek tisku bude. "Ve hře" je mnoho faktorů, které je nutné nastavit -- rychlosti, teploty, správné pohyby, tisk struktur, které nejsou součásti 3D modelu apod.
 
-image:../images/slicing/rasterization.png[Rasterizace]
+== GCode 
 
-(Nedokážeme dohledat původ obrázku, pomůžete nám? Na internetu zmizel.)
+GCode je textový soubor, člověkem relativně čitelný (popisuje však body v prostoru, které se z čísel dají představit těžce), primárně však určen pro strojové zpracování.
 
-Rasterizace 3D modelu
-~~~~~~~~~~~~~~~~~~~~~
+GCode existoval dříve, než 3D tiskárny (první implementace se objevila v 50. letech) a byl používán pro https://en.wikipedia.org/wiki/Numerical_control[CNC stroje] (3D tiskárna je ovšem v podstatě také CNC stroj). Pro účely 3D tisku jsou do GCodu přidány https://reprap.org/wiki/G-code#M-commands[specifické kódy] (začínající na `M`), které definují ovládání funkcí, které jsou určeny pro 3D tisk (teplota trysky, průtok plastu).
 
-image:../images/slicing/whistle_3dview.png[3D View píšťalka]
+Každý řádek představuje instrukci. Ta je popsána kódem, který je uveden jako první (např. `G1`) a za ním následují parametry (některé instrukce parametry nemají) oddělené mezerou (např. `E4.00000 F3000.00000`).
 
-(Model CC BY-NC 3.0 © https://www.thingiverse.com/thing:1046[Eberhard
-Rensch].)
+.Útržek z ukázkového souboru GCode
+[source, gcode]
+...
+M900 K200
+G21
+G90
+M83
+G1 Z0.200 F10800.000
+G1 E-4.00000 F4800.00000
+G1 Z0.800 F10800.000
+G1 X83.160 Y86.215
+G1 Z0.200
+G1 E4.00000 F3000.00000
+M204 S1000
+G1 F1800
+G1 X83.537 Y85.576 E0.03743
+G1 X83.991 Y85.070 E0.03433
+G1 X107.449 Y63.321 E1.61475
+G1 X108.199 Y62.760 E0.04729
+G1 X108.903 Y62.398 E0.03996
+G1 X109.644 Y62.175 E0.03905
+G1 X110.427 Y62.102 E0.03971
+G1 X142.209 Y63.237 E1.60533
+G1 X143.311 Y63.369 E0.05600
+...
 
-Přenos 3D modelu do reálného světa
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+== Nástroje pro tvorbu GCode
 
-image:../images/slicing/whistle_printed.png[Vytištěná píšťalka]
+Generovat výše popsaný GCode ručně by bylo nejen nepraktické, ale u složitějších modelů pro běžného smrtelníka až nemožné. K tvorbě tiskových dat nám pomáhají programy označované jako *slicery*. Jejich název je odvozen ze slova "slice" (v překladu "plátek"). Protože se tisk provádí po vrstvách, je vstupem těchto programů nějaký 3D model a výstupem "naplátkovaný" 3D model určený pro tisk. Proto se tento proces nazývá "slicing" ("naplátkování").
 
-(Foto CC BY-NC 3.0 © https://www.thingiverse.com/thing:1046[Eberhard
-Rensch].)
+Slicerů existuje řada, některé jsou lepší, jiné horší, některé mají dobré UI ale neodvádějí tak dobrou práci, jiné jsou zase výbornými slicery ale mají příšerné UI. Najdou se i ty, které disponují obojím. Slicer může být samostatný software, nebo některé softwary mají integrovaný slicer v sobě.
 
-* Snažíme se najít hranici při které je ještě snesitelná doba tisku a
-objekt vypadá „dobře“
+V předmětu BI-3DT budeme k výuce používat program *Slic3r*. Řadí se mezi nejpoužívanější, je open-source a kvalita výstupu je dobrá.
 
-Ideální parametry
-~~~~~~~~~~~~~~~~~
+=== Slic3r
 
-* Tloušťka stěny
-* Výška vrstvy
-* Množství výplně
+http://slic3r.org[Slic3r] je od roku 2011 vyvíjen komunitou okolo projektu RepRap. Je dostupný pro všechny populární operační systémy. 
+
+http://slic3r.org/download[Ke stažení na stránce slic3r.org].
+
+Do tohoto programu budeme importovat STL model, který chceme tisknout, dále nastavíme správnou konfiguraci tiskárny (její rozměry a jakými funkcemi disponuje) a nastavíme parametry tisku (teploty, rychlosti, atd.). Výstupem je GCode soubor -- tisková data, která mohou být odeslána na tiskárnu.
+
+Na cvičení budeme používat poslední verzi Slic3ru (>=1.3.0). V této verzi lze jednotlivé panely otevřít v nabídce `Settings`.
+
+.Výchozí okno programu Slic3r (verze 1.3)
+image::../images/slicing/slic3r.png[Okno Slic3ru, width=720, link=../images/slicing/slic3r.png]
+
+[[config-file]]
+==== Konfigurační soubor pro tiskárny
+
+.Položka "Load Config Bundle"
+image::../images/slicing/load-bundle.png[Nabídka file, width=320, float=right, link=../images/slicing/load-bundle.png]
+
+Stáhněte si konfigurační bundle pro tiskárny RebeliX, které používáme na cvičení.
+
+*link:../configs/printing/slic3r_config_bundle.ini[slic3r_config_bundle.ini]*
+
+Tento soubor načtěte pomocí `File > Load Config Bundle`. Po načtení config bundlu je často nutné program restartovat. Úspěšné načtení config bundle poznáte podle nových položek vpravo nahoře (ve filamentu se objeví na výběr "ABS ESUN 1.75mm" a v tiskárnách "RebeliX").
+
+CAUTION: *Nastavit správný konfigurační soubor je důležité.* Nevhodně zvolená konfigurace může způsobit, že se v GCode objeví instrukce nevhodné pro danou tiskárnu (např. se může začít tisknout mimo tisknutelnou oblast) a takové instrukce mohou zapříčinit neúspěšný tisk, nebo v horším případě *poškodit tiskárnu*.
+
+== Podpůrné struktury
+
+Kromě samotného 3D modelu, který sliceru dodáte, může slicer přidat další struktury, které nejsou v 3D modelu. Jde o struktury, které pomáhají při tisku -- pro lepší přilnavost, pro tisk převisů apod. 
+
+=== Vnitřek modelu
+
+.Vnitřek naslicovaného modelu chobotničky
+image::../images/slicing/octo-infill.jpg[Vnitřek modelu, width=350, link=../images/slicing/octo-infill.jpg, float=right]
+
+V minulých cvičeních jste se dozvěděli, že meshí popisujeme pouze plášť objektu, nikoliv jeho vnitřek. Fyzicky na tiskárně však nelze vytisknout pouze tento plášť. Slicer se postará o vytvoření správné výplně objektu. Tato výplň se označuje slovem _"infill"_.
+
+Předměty se běžně netisknou duté (vršek objektu by se neměl na co tisknout), ani plné (plýtvání filamentem a vzniká v předmětu pnutí, které narušuje integritu výtisku). Vyšší hustota infillu dělá předmět odolnější, těžší, ale také dražší a déle se tiskne. Nízká hustota naopak může zapříčinit nevzhledný výtisk (plášť objektu se může na některých místech propadat). V praxi se infill nenastavuje na nižší hodnotu než 10%.
+
+=== Supports
+
+.Naslicovaný držák s podporami (zelená barva)
+image::../images/slicing/supports.svg[Supporty, width=350, float=right, link=../images/slicing/supports.svg]
+
+Často se stává, že potřebujeme vytisknout model s převisy. Ze zřejmých fyzikálních důvodů takový tisk u FDM tiskáren není možný (tiskárna by tiskla do vzduchu).
+
+Často lze tyto problémy řešit otočením modelu, nebo jeho rozdělením na více částí a následným ručním slepením po dokončení tisku. Někdy takové úpravy však nejsou možné a tak může slicer přidat k našemu modelu podpůrné struktury, které se po dokončení tisku odlomí, odřežou či jinak odstraní.
+
+[[structs]]
+=== Rafts, skirts, brims
+
+Určité typy výtisků mají problém s přilnavostí k povrchu tiskové plochy. Uprostřed tisku se pak mohou odlepit a v tu chvíli se tisk stává neúspěšným.
+
+.Odlepený základ výtisku uprostřed nehlídaného tisku může skončit katastrofou (nebo moderním uměním, záleží na úhlu pohledu)
+image::../images/slicing/IMG_20181017_093537.jpg[width=80%, link=../images/slicing/IMG_20181017_093537.jpg]
+
+Problémové jsou především takové modely, které mají příliš malou styčnou plochu s tiskovou deskou a plocha, která předmět drží je příliš malá (představte si např. model stolu který začínáme tisknout od nohou -- celý předmět drží pouze na čtyřech malých čtverečcích).
+
+*Raft* je struktura umístěná pod výtiskem vylepšující přilnavost k tiskové ploše. Rafty jsou určeny především pro ABS materiály, kterým se kraje výtisku při tisku zkroutí. Jsou užitečné i pro modely, které mají příliš malou styčnou plochu s tiskovou deskou. Vytvoří pro ně mnohem větší přilnavý základ.
+
+*Skirt* je obrysová struktura zajišťující stabilní průtok plastu při prvních vrstvách tisku. Tiskne se dříve, než první vrstva předmětu a díky tomu jsou vytlačeny všechny vzduchové bubliny v trysce a stabilizuje se průtok plastu. Některé slicery k těmto účelům využívají jiných struktur (např. Prusa Slic3r dělá linku o šířce tiskové plochy na úplném kraji desky). Skirtu lze nastavit i vyšší počet vrstev a dá se tak využít i pro ochranu tisku před průvanem a následným popraskáním, ale v praxi se tento způsob příliš nepoužívá, neboť se tím zbytečně zvyšuje spotřeba materiálu a doba tisku.
+
+*Brim* je další ze struktur vylepšující přilnavost k tiskové ploše a redukující zkroucení krajů. Technicky jde o skirt s nulovou vzdáleností od modelu a s výškou jedné vrstvy. Nenachází se pod výtiskem, ale pouze rozšiřuje první vrstvu o zadanou velikost. Brim nenabídne takové vylepšení přilnavosti jako Raft, nicméně je mnohem rychlejší, jednodušší, narozdíl od Raftu nenechává na spodku modelu nerovnosti a pro většinu případů je dostačující.
+
+[cols=2, frame=none, grid=none]
+|===
+a|
+
+.Raft
+image::../images/slicing/raft.svg[width=100%, link=../images/slicing/raft.svg]
+
+a|
+
+.Skirt a brim
+image::../images/slicing/skirt-brim.svg[width=100%, link=../images/slicing/skirt-brim.svg]
+
+|===
+
+
+== Konfigurace tisku v programu Slic3r
+
+Nyní přejdeme k tomu, co lze nastavit v programu Slic3r a k čemu je to dobré.
+
+=== Panel "Plater"
+
+Na panelu plater pracujete s objekty, které chcete tisknout. Tlačítkem `Add` můžete přidat STL soubor. V 3D náhledu můžete objekty rozložit po tiskové ploše. Dalšími tlačítky ve vrchním panelu můžete vybraný objekt manipulovat (otáčet tlačítky `Rotate`, či měnit jeho velikost tlačítkem `Scale`).
+
+Vpravo dole se zobrazují informace o vybraném objektu. Lze vidět jeho velikost v milimetrech (pro kontrolu) a další vlastnosti.
+
+Dole lze vybírat z několik pohledů, pro nás jsou především důležité pohledy "3D" a "Preview". V 3D pohledu lze pracovat s rozpoložením objektů, pohled "Preview" vám ukáže, jak bude výsledný tisk vypadat, jaké struktury se vytisknou a lze vidět i náznak jednotlivých vrstev.
+
+=== Panel "Print Settings"
+
+.Panel "Print Settings"
+image::../images/slicing/print-settings.png[Print Settings, width=320, link=../images/slicing/print-settings.png, float=right]
+
+Panelu "Print Settings" věnujte největší pozornost. Zatímco většinu důležitých hodnot v ostatních panelech za vás nastavil <<Konfigurační soubor pro tiskárny, konfigurační soubor>>, který jste si stáhli výše, nastavení tisku bude vaši hlavní úlohou při práci na cvičeních.
+
+Níže uvedeme všechny důležité parametry, které budete při tisku na cvičeních používat. Pokud se chcete něco dozvědět o parametrech, které neuvádíme, doporučujeme pro samostudium vybrat jeden klidný večer nad http://manual.slic3r.org[Slic3r manuálem].
+
+==== Stránka "Layers and perimeters"
+
+Layer height:: Ovlivňuje výšku vrstvy -- přímo ovlivňuje kvalitu a dobu trvání tisku. Rozsah smysluplných hodnot ovlivňuje průměr trysky, která je nainstalovaná na tiskárně.
+
+First layer height:: Ovlivní výšku první vrstvy. Nastavuje se na menší hodnotu než zbytek modelu pro lepší přilnutí k tiskové ploše.
+
+.Porovnání kvality tisku podle výšky vrstvy (https://www.flickr.com/photos/creative_tools/8616820648[Creative Tools, CC BY 2.0])
+image::../images/slicing/8616820648_6e067ceb0f_o.jpg[width=80%, link=../images/slicing/8616820648_6e067ceb0f_o.jpg]
+
+Perimeters:: Počet perimetrů na krajích tisku (neovlivňuje rovné plochy na spodku a vršku předmětu).
+
+Solid layers:: Počet vrstev s plnou výplní na spodku a vršku. Čím více vrstev zvolíme, tím pevnější bude vrchní a spodní povrch a tím lépe se podaří zakrýt nastavený infill. Vysoká čísla však zvýší dobu tisku.
+
+.Jak ovlivňuje tisk nastavení perimetrů
+image::../images/slicing/perimeters.svg[width=80%, link=../images/slicing/perimeters.svg]
+
+==== Stránka "Infill"
+
+Na této stránce lze nastavit vlastnosti infillu, o kterém víme z kapitoly <<Vnitřek modelu>>.
+
+Fill density:: Určuje hustotu vnitřní výplně.
+
+Fill pattern:: Určuje vzorek výplně.
+
+External infill pattern:: Určuje vzorek výplně na vrchních a spodních plochách zvenčí.
+
+Solid infill every:: Zesílí odolnost předmětu vytisknutím plné výplně (100%) každých n vrstev.
+
+Fill angle:: Úhel vzorku výplně.
+
+Solid infill threshold area:: V malých částech předmětu (např. nějaké tenké trubičky či spojovník) slicer vyplňuje plnou výplní (100%). Tato hodnota určuje práh při které se část předmětu považuje jako malá.
+
+.Různé hustoty infillu
+image::../images/slicing/infill.svg[width=80%, link=../images/slicing/infill.svg]
+
+==== Stránka "Skirt"
+
+Na této stránce lze nastavit <<structs, Skirt či Brim>>.
+
+Loops:: Počet obrysů skirtu. Pro běžné použití k vyčištění trysky před tiskem první vrstvy stačí ve většině případů jeden až dva.
+
+Distance from object:: Vzdálenost skirtu od objektu.
+
+Skirt height:: Kolik vrstev bude skirt vysoký. Pro vyčištění trysky se většinou používá pouze jeden.
+
+Exterior brim width:: Nenulová hodnota vygeneruje brim kolem předmětu o zadané velikosti.
+
+==== Stránka "Support material"
+
+Na této stránce lze nastavit <<Supports, supporty>>, nebo <<structs, raft>>.
+
+Generate support material:: Zapne generování podpor.
+
+Overhang threshold:: Určuje hranici, do jak příkrých převisů chcete podpory generovat. Čím vyšší číslo, tím více podpor se vygeneruje.
+
+Raft layers:: Určuje kolik vrstev raftu chcete pod model vytisknout.
+
+=== Ostatní panely
+
+Panel "Filament Settings", jak název napovídá, skrývá nastavení vztahující se k filamentu. Ze jsou nejdůležitějšími položkami "Diameter" určující průměr struny a nastavení teplot, které se liší podle materiálu (jak se dozvíte v prvním cvičení věnující se tisku). Na stránce "Cooling" pak lze definovat chování ventilátoru k dodatečnému chlazení výtisku (některé materiály jej potřebují).
+
+Panel "Printer Settings" slouží k nastavení parametrů tiskárny (velikost a tvar tiskové plochy, počet extruderů atd.). Zatímco položky na panelech "Print Settings" a "Filament Settings" měníte prakticky při každém tisku, položky na tomto panelu zůstávají povětšinou netknuté, dokud nezměníte konfiguraci tiskárny.
+
+Většinu těchto parametrů nastavuje náš <<Konfigurační soubor pro tiskárny, konfigurační soubor>>. I přesto však doporučujeme zběžně tyto parametry projít, zájemce, kteří chtějí parametry podrobně zkoumat opět odkážeme na http://manual.slic3r.org[Slic3r manuál].
+
+[discrete]
+== Credits
+
+Na obrázcích se objevovaly modely:
+
+* https://www.thingiverse.com/thing:27053[Cute Octopus Says Hello] by MakerBot (CC BY 3.0)
+* https://www.thingiverse.com/thing:2120591[Phone Stand] by GoAftens (CC BY 3.0)
