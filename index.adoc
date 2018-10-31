@@ -13,6 +13,10 @@ z BI-3DT]
 * 🐙 https://github.com/3DprintFIT/BI-3DT[GitHub]
 * 👮 xref:gdpr#[Souhlas se zpracováním osobních údajů]
 
+== Rychlé odkazy
+
+* xref:tutorials/slicing#config-file[Konfigurační soubor pro Slic3r]
+
 Všechny materiály, není-li uvedeno jinak, jsou dostupné pod svobodnou licencí
 https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons
 Attribution-ShareAlike 4.0 International].
