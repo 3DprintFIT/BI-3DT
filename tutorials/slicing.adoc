@@ -99,7 +99,7 @@ Předměty se běžně netisknou duté (vršek objektu by se neměl na co tiskno
 === Podpory (supports)
 
 .Naslicovaný držák s podporami (zelená barva)
-image::supports.svg[Supporty, width=350, float=right, link=supports.svg]
+image::supports.jpg[Supporty, width=350, float=right, link=supports.jpg]
 
 Často se stává, že potřebujeme vytisknout model s převisy. Ze zřejmých fyzikálních důvodů takový tisk u FDM tiskáren není možný (tiskárna by tiskla do vzduchu).
 
@@ -126,12 +126,12 @@ Brim:: Další ze struktur vylepšující přilnavost k tiskové ploše a reduku
 a|
 
 .Raft
-image::raft.svg[width=100%, link=raft.svg]
+image::raft.jpg[width=100%, link=raft.jpg]
 
 a|
 
 .Skirt a brim
-image::skirt-brim.svg[width=100%, link=skirt-brim.svg]
+image::skirt-brim.jpg[width=100%, link=skirt-brim.jpg]
 
 |===
 
@@ -171,7 +171,7 @@ Perimeters:: Počet perimetrů na krajích tisku (neovlivňuje rovné plochy na 
 Solid layers:: Počet vrstev s plnou výplní na spodku a vršku. Čím více vrstev zvolíme, tím pevnější bude vrchní a spodní povrch a tím lépe se podaří zakrýt nastavený infill. Vysoká čísla však zvýší dobu tisku a spotřebu materiálu.
 
 .Jak ovlivňuje tisk nastavení perimetrů
-image::perimeters.svg[width=80%, link=perimeters.svg]
+image::perimeters.jpg[width=80%, link=perimeters.jpg]
 
 ==== Stránka __Infill__
 
@@ -190,7 +190,7 @@ Fill angle:: Úhel vzorku výplně.
 Solid infill threshold area:: V malých částech předmětu (např. nějaké tenké trubičky či spojovník) slicer vyplňuje plnou výplní (100 %). Tato hodnota určuje práh plochy, při které se část předmětu považuje za malou.
 
 .Různé hustoty infillu
-image::infill.svg[width=80%, link=infill.svg]
+image::infill.jpg[width=80%, link=infill.jpg]
 
 ==== Stránka __Skirt__
 
