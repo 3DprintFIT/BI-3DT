@@ -1,6 +1,7 @@
 = Slicing
 Marián Hlaváč <marian.hlavac@fit.cvut.cz>
 :toc:
+:imagesdir: ../images/slicing/
 
 3D tiskárna je ve výsledku celkem jednoduché zařízení. Nefunguje jako krabička, na kterou pošleme 3D model v libovolném formátu a z tiskárny začne vytékat plast ve tvaru zadaného 3D modelu. Pro tisk potřebujeme na tiskárnu odeslat přesná tisková data.
 
@@ -9,7 +10,7 @@ Funguje to podobně jako u 2D tiskáren, na tiskárnu také neodesíláme přím
 Tiskovými daty pro 3D tiskárny jsou tak přesné instrukce kdy, odkud, kam a jak rychle se má tryska tiskárny pohnout a v jaký moment a kolik se vytlačí plastu. Tyto příkazy tiskárna poslouchá a „hloupě“ je provádí (až na výjimky -- některé firmwary provádějí optimalizaci) bez ohledu na to, aby měla tiskárna ponětí o tom, co vlastně ve výsledku tiskne. Takové informace dodáváme ve https://en.wikipedia.org/wiki/G-code[formátu GCode].
 
 .Naslicovaný model chobotničky
-image::../images/slicing/octo-layers.jpg[Vrstvy naslicovaného modelu, width=320, link=../images/slicing/octo-layers.jpg, float=right]
+image::octo-layers.jpg[Vrstvy naslicovaného modelu, width=320, link=octo-layers.jpg, float=right]
 
 Tisková data musíme tiskárně připravit a jedná se o netriviální úkol. Úspěšná příprava dat totiž definuje jak úspěšný výsledek tisku bude. Ve hře je mnoho faktorů, které je nutné nastavit -- rychlosti, teploty, správné pohyby, tisk struktur, které nejsou součásti 3D modelu apod.
 
@@ -66,13 +67,13 @@ Do tohoto programu budeme importovat STL model, který chceme tisknout, dále na
 Na cvičení budeme používat poslední verzi Slic3ru ≥ 1.3.0. V této verzi lze jednotlivé karty otevřít v nabídce __Settings__.
 
 .Výchozí okno programu Slic3r (verze 1.3.0)
-image::../images/slicing/slic3r.png[Okno Slic3ru, width=720, link=../images/slicing/slic3r.png]
+image::slic3r.png[Okno Slic3ru, width=720, link=slic3r.png]
 
 [[config-file]]
 ==== Konfigurační soubor pro tiskárny
 
 .Položka __Load Config Bundle__
-image::../images/slicing/load-bundle.png[Nabídka file, width=320, float=right, link=../images/slicing/load-bundle.png]
+image::load-bundle.png[Nabídka file, width=320, float=right, link=load-bundle.png]
 
 Stáhněte si konfigurační bundle pro tiskárny RebeliX, které používáme na cvičení.
 
@@ -89,7 +90,7 @@ Kromě samotného 3D modelu, který sliceru dodáte, může slicer přidat dalš
 === Vnitřek modelu
 
 .Vnitřek naslicovaného modelu chobotničky
-image::../images/slicing/octo-infill.jpg[Vnitřek modelu, width=350, link=../images/slicing/octo-infill.jpg, float=right]
+image::octo-infill.jpg[Vnitřek modelu, width=350, link=octo-infill.jpg, float=right]
 
 V minulých cvičeních jste se dozvěděli, že meshí popisujeme pouze plášť objektu, nikoliv jeho vnitřek. Fyzicky na tiskárně však nelze vytisknout pouze tento plášť. Slicer se postará o vytvoření správné výplně objektu. Tato výplň se označuje slovem „infill“ (výplň).
 
@@ -98,7 +99,7 @@ Předměty se běžně netisknou duté (vršek objektu by se neměl na co tiskno
 === Podpory (supports)
 
 .Naslicovaný držák s podporami (zelená barva)
-image::../images/slicing/supports.svg[Supporty, width=350, float=right, link=../images/slicing/supports.svg]
+image::supports.svg[Supporty, width=350, float=right, link=supports.svg]
 
 Často se stává, že potřebujeme vytisknout model s převisy. Ze zřejmých fyzikálních důvodů takový tisk u FDM tiskáren není možný (tiskárna by tiskla do vzduchu).
 
@@ -110,7 +111,7 @@ image::../images/slicing/supports.svg[Supporty, width=350, float=right, link=../
 Určité typy výtisků mají problém s přilnavostí k povrchu tiskové plochy. V průběhu tisku se pak mohou odlepit a v tu chvíli se tisk stává neúspěšným.
 
 .Odlepený základ výtisku uprostřed nehlídaného tisku může skončit katastrofou (nebo moderním uměním, záleží na úhlu pohledu)
-image::../images/slicing/IMG_20181017_093537.jpg[width=80%, link=../images/slicing/IMG_20181017_093537.jpg]
+image::IMG_20181017_093537.jpg[width=80%, link=IMG_20181017_093537.jpg]
 
 Problémové jsou především takové modely, které mají příliš malou styčnou plochu s tiskovou deskou a plocha, která předmět drží, je příliš malá (představte si např. model stolu který začínáme tisknout od nohou -- celý předmět drží pouze na čtyřech malých čtverečcích).
 
@@ -125,12 +126,12 @@ Problémové jsou především takové modely, které mají příliš malou sty�
 a|
 
 .Raft
-image::../images/slicing/raft.svg[width=100%, link=../images/slicing/raft.svg]
+image::raft.svg[width=100%, link=raft.svg]
 
 a|
 
 .Skirt a brim
-image::../images/slicing/skirt-brim.svg[width=100%, link=../images/slicing/skirt-brim.svg]
+image::skirt-brim.svg[width=100%, link=skirt-brim.svg]
 
 |===
 
@@ -150,7 +151,7 @@ Dole lze vybírat z několik pohledů, pro nás jsou především důležité po
 === Karta __Print Settings__
 
 .Karta __Print Settings__
-image::../images/slicing/print-settings.png[Print Settings, width=320, link=../images/slicing/print-settings.png, float=right]
+image::print-settings.png[Print Settings, width=320, link=print-settings.png, float=right]
 
 Kartě __Print Settings__ věnujte největší pozornost. Zatímco většinu důležitých hodnot v ostatních kartách za vás nastavil <<Konfigurační soubor pro tiskárny, konfigurační soubor>>, který jste si stáhli výše, nastavení tisku bude vaši hlavní úlohou při práci na cvičeních.
 
@@ -163,14 +164,14 @@ Layer height:: Ovlivňuje výšku vrstvy -- přímo ovlivňuje kvalitu a dobu tr
 First layer height:: Ovlivní výšku první vrstvy. Nastavuje se na menší hodnotu než zbytek modelu pro lepší přilnutí k tiskové ploše.
 
 .Porovnání kvality tisku podle výšky vrstvy (https://www.flickr.com/photos/creative_tools/8616820648[Creative Tools, CC BY 2.0])
-image::../images/slicing/8616820648_6e067ceb0f_o.jpg[width=80%, link=../images/slicing/8616820648_6e067ceb0f_o.jpg]
+image::8616820648_6e067ceb0f_o.jpg[width=80%, link=8616820648_6e067ceb0f_o.jpg]
 
 Perimeters:: Počet perimetrů na krajích tisku (neovlivňuje rovné plochy na spodku a vršku předmětu).
 
 Solid layers:: Počet vrstev s plnou výplní na spodku a vršku. Čím více vrstev zvolíme, tím pevnější bude vrchní a spodní povrch a tím lépe se podaří zakrýt nastavený infill. Vysoká čísla však zvýší dobu tisku a spotřebu materiálu.
 
 .Jak ovlivňuje tisk nastavení perimetrů
-image::../images/slicing/perimeters.svg[width=80%, link=../images/slicing/perimeters.svg]
+image::perimeters.svg[width=80%, link=perimeters.svg]
 
 ==== Stránka __Infill__
 
@@ -189,7 +190,7 @@ Fill angle:: Úhel vzorku výplně.
 Solid infill threshold area:: V malých částech předmětu (např. nějaké tenké trubičky či spojovník) slicer vyplňuje plnou výplní (100 %). Tato hodnota určuje práh plochy, při které se část předmětu považuje za malou.
 
 .Různé hustoty infillu
-image::../images/slicing/infill.svg[width=80%, link=../images/slicing/infill.svg]
+image::infill.svg[width=80%, link=infill.svg]
 
 ==== Stránka __Skirt__
 
