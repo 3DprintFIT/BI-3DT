@@ -210,7 +210,7 @@ Na této stránce lze nastavit <<Supports, supporty>>, nebo <<structs, raft>>.
 
 Generate support material:: Zapne generování podpor.
 
-Overhang threshold:: Určuje hranici, do jak příkrých převisů chcete podpory generovat. Čím vyšší číslo, tím více podpor se vygeneruje.
+Overhang threshold:: Určuje hranici, do jak příkrých převisů chcete podpory generovat. Dá se nastavit v procentech: o kolik procent perimetru ještě smí další vrstva přesahovat vrstvu pod ní (čím vyšší číslo, tím méně podpor); případně ve stupních (náklon od podložky, čím vyšší úhel, tím více podpor).
 
 Raft layers:: Určuje kolik vrstev raftu chcete pod model vytisknout.
 
