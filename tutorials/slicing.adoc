@@ -111,7 +111,7 @@ image::supports.svg[Supporty, width=350, float=right, link=supports.svg]
 Určité typy výtisků mají problém s přilnavostí k povrchu tiskové plochy. V průběhu tisku se pak mohou odlepit a v tu chvíli se tisk stává neúspěšným.
 
 .Odlepený základ výtisku uprostřed nehlídaného tisku může skončit katastrofou (nebo moderním uměním, záleží na úhlu pohledu)
-image::IMG_20181017_093537.jpg[width=80%, link=IMG_20181017_093537.jpg]
+image::failed-print.jpg[width=80%, link=failed-print.jpg]
 
 Problémové jsou především takové modely, které mají příliš malou styčnou plochu s tiskovou deskou a plocha, která předmět drží, je příliš malá (představte si např. model stolu který začínáme tisknout od nohou -- celý předmět drží pouze na čtyřech malých čtverečcích).
 
@@ -164,7 +164,7 @@ Layer height:: Ovlivňuje výšku vrstvy -- přímo ovlivňuje kvalitu a dobu tr
 First layer height:: Ovlivní výšku první vrstvy. Nastavuje se na menší hodnotu než zbytek modelu pro lepší přilnutí k tiskové ploše.
 
 .Porovnání kvality tisku podle výšky vrstvy (https://www.flickr.com/photos/creative_tools/8616820648[Creative Tools, CC BY 2.0])
-image::8616820648_6e067ceb0f_o.jpg[width=80%, link=8616820648_6e067ceb0f_o.jpg]
+image::layer-height-frogs.jpg[width=80%, link=layer-height-frogs.jpg]
 
 Perimeters:: Počet perimetrů na krajích tisku (neovlivňuje rovné plochy na spodku a vršku předmětu).
 
