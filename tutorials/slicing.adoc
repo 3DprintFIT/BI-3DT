@@ -9,10 +9,10 @@ Funguje to podobně jako u 2D tiskáren, na tiskárnu také neodesíláme přím
 
 Tiskovými daty pro 3D tiskárny jsou tak přesné instrukce kdy, odkud, kam a jak rychle se má tryska tiskárny pohnout a v jaký moment a kolik se vytlačí plastu. Tyto příkazy tiskárna poslouchá a „hloupě“ je provádí (až na výjimky -- některé firmwary provádějí optimalizaci) bez ohledu na to, aby měla tiskárna ponětí o tom, co vlastně ve výsledku tiskne. Takové informace dodáváme ve https://en.wikipedia.org/wiki/G-code[formátu GCode].
 
-.Naslicovaný model chobotničky
-image::octo-layers.jpg[Vrstvy naslicovaného modelu, width=320, link=octo-layers.jpg, float=right]
-
 Tisková data musíme tiskárně připravit a jedná se o netriviální úkol. Úspěšná příprava dat totiž definuje jak úspěšný výsledek tisku bude. Ve hře je mnoho faktorů, které je nutné nastavit -- rychlosti, teploty, správné pohyby, tisk struktur, které nejsou součásti 3D modelu apod.
+
+.Naslicovaný model chobotničky
+image::octo-layers.jpg[Vrstvy naslicovaného modelu, width=500, link=octo-layers.jpg]
 
 == GCode 
 
