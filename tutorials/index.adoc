@@ -22,7 +22,8 @@ xref:reprap#[RepRap], xref:git#[Git]
 |5. |30.10.2018 |xref:admesh#[ADMesh] - Programová manipulace s meshí
 |https://github.com/3DprintFIT/B181A-ADMesh-Assignment[3]
 
-|6. |6.11.2018 |xref:slicing#[Slicing] |3
+|6. |6.11.2018 |xref:slicing#[Slicing]
+|https://github.com/3DprintFIT/B181A-Slicing-Assignment[3]
 
 |7. |13.11.2018 |🚧 xref:scan#[Skenování] |3
 
