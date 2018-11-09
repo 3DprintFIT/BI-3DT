@@ -1,11 +1,13 @@
-Skenování
----------
+= Skenování
+:imagesdir: ../images/scan/
+:toc:
+:experimental:
+// experimental for the kbd macro
 
 3D skenování je proces digitalizace fyzického objektu do počítačového 3D
 modelu.
 
-Motivace
-~~~~~~~~
+== Motivace
 
 3D skenování již dávno není novou technologií. Využívání 3D skenování
 zasahuje do čím dál širšího okruhu odvětví jako např. architektura,
@@ -15,11 +17,10 @@ využití jako jsou například různé čelistní, pánevní nebo neb
 náhrady přímo na míru pacienta. Je možné také archivovat ohrožené
 památky pro budoucí generace, nebo naopak pomocí 3D skenování je možné
 rekonstruovat různá historická obydlí podle vykopávek. Nedílnou součástí
-jsou 3Dskenery v oblasti geodetického měření, digitalizace budov,
+jsou 3D skenery v oblasti geodetického měření, digitalizace budov,
 kontrole kvality nebo zabezpečovacích systémů.
 
-Rozdělení 3D skenerů
-~~~~~~~~~~~~~~~~~~~~
+== Rozdělení 3D skenerů
 
 Rozdělení 3D skenerů je možné mnohými způsoby. Vybrané rozdělení bere
 jako hlavní kritérium dotykové a bezdotykové metody skenování.
@@ -28,19 +29,15 @@ mohou spadat i do metod aktivních optických využívající triangulaci 
 metodu měření doby letu. V taxonomii na obrázku jsou laserové metody
 vyčleněny zvlášť.
 
-image:../images/scan/rozdeleni.png[Rozdělení 3D skenerů]
+.Rozdělení 3D skenerů © https://www.vutbr.cz/www_base/zav_prace_soubor_verejne.php?file_id=103850[Jan Čermák]
+image::rozdeleni.png[]
 
-(Obrázek
-https://www.vutbr.cz/www_base/zav_prace_soubor_verejne.php?file_id=103850[Jan
-Čermák].)
 
-Kontaktní
-^^^^^^^^^
+=== Kontaktní
 
 Dochází ke kontaktu skeneru a skenovaného modelu.
 
-Destruktivní
-++++++++++++
+==== Destruktivní
 
 Tento typ skenerů je poněkud atypický, protože jde v podstatě o frézku s
 kamerou. Na začátku je potřeba měřený objekt zalít do bloku tak, aby
@@ -55,8 +52,7 @@ vyextrahuje okrajovou křivku. Tato křivka je reprezentována jako body v
 rovině. Pokud se spojí křivky ze všech odfrézovaných hladin, pak
 dostaneme 3D mrak bodů.
 
-Nedestruktivní
-++++++++++++++
+==== Nedestruktivní
 
 Nedestruktivní kontaktní skenery zahrnují všechny narozdíl od
 destruktivních metod objekt není při digitalizaci nijak poškozen.
@@ -65,18 +61,12 @@ dotyku. Zatímco objekt zůstává v klidu připevněný k podložce, po
 rameno, na kterém je upevněna bodová nebo kuličková sonda umožňuje
 uživateli bodově snímat 3D data z fyzického objektu.
 
-image:../images/scan/micro_scribe.png[Micro Scribe]
+.http://charlesschimp.blogspot.cz/2011/02/roland-microscribe.html[Micro Scribe]
+image::micro_scribe.png[Micro Scribe]
 
-(Obrázek
-http://charlesschimp.blogspot.cz/2011/02/roland-microscribe.html[Micro
-Scribe].)
+=== Bezkontaktní
 
-Bezkontaktní
-^^^^^^^^^^^^
-
-[[magnetické-skenery]]
-Magnetické skenery
-++++++++++++++++++
+==== Magnetické skenery
 
 Můžeme je rozdělit na skenery s magnetickou sondou nebo skenery
 využívající magnetickou rezonanci. Použitím druhého zmíněného typu
@@ -86,9 +76,7 @@ magnetické rezonance požívané ve zdravotnictví. Zařízení jsou ve
 mobilní a používají se např. ke kontrole potrubí, kotlů nebo jiných
 uzavřených nádob.
 
-[[transmisivní-skenery]]
-Transmisivní skenery
-++++++++++++++++++++
+==== Transmisivní skenery
 
 Zástupcem transmisivních skenerů jsou skenery využívající technologii
 počítačové tomografie (CT). Stejně jako u skenerů využívajících
@@ -99,30 +87,25 @@ použití používá vyšší intenzita záření. Tyto zařízeni�
 vzácné, to dokazuje i fakt, že se v České republice vyskytuje pouze
 jeden exemplář.
 
-[[reflexivní-skenery]]
-Reflexivní skenery
-++++++++++++++++++
+==== Reflexivní skenery
 
 Do této kategorie spadají skenery akustické (např. sonar), laserové, ale
 především optické. Optické skenery jsou nejrozšířenější a
 nejpoužívanější větev 3D skenerů. Z toho vyplývá i největší množství
 různých technologických řešení a tím i dalšího dělení.
 
-Optické - aktivní 3D skenery
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+==== Optické -- aktivní 3D skenery
 
 Aktivní optické metody se dále dělí podle toho, jaká fyzikální vlastnost
 daného záření se použije pro výpočet prostorové souřadnice bodu
 
-Time of flight
-++++++++++++++
+===== Time of flight
 
 Nejjednodušší metoda se nazývá „time of flight“. Tato metoda je založená
 na měření času, za jakou dobu se vyslaný paprsek vrátí zpět na snímač po
 odrazu od objektu.
 
-Triangulace
-+++++++++++
+===== Triangulace
 
 Další možností je metoda „triangulation“, která na základě známého úhlu
 mezi projektorem a snímačem, známé vzdálenosti projektoru od snímače a
@@ -131,11 +114,10 @@ prostorový bod na povrchu objektu.
 
 Triangulace může být:
 
-* Aktivní
-* Pasivní
+* aktivní
+* pasivní
 
-Structured light
-++++++++++++++++
+===== Structured light
 
 Další aktivní optickou metodou je „structured light“. Ta používá
 projekci pravidelného vzoru na objekt a na základě deformace tohoto
@@ -156,57 +138,199 @@ V praxi je možné se s touto technologií setkat například u
 ** Kinect
 ** RealSense
 
-CloudCompare
-~~~~~~~~~~~~
+== CloudCompare
 
 http://www.cloudcompare.org[CloudCompare] je open-source program pro
 editaci a úpravu mračna bodů a 3D modelů. Zároveň program umožňuje
 počítat zajímavé údaje o podobnostech nebo měřit různé vzdálenosti a
 statistky.
 
-* stáhnout pro Windows, macOS, Ubuntu a další (balík snap) na odkazu
-výše
-* https://copr.fedorainfracloud.org/coprs/churchyard/CloudCompare/[repozitář
-pro Fedoru] by @hroncok
-* kdo nemá, použije školní počítač
+V oblasti 3D skenování jej použijeme především k převodu mračna bodů na
+triangulární mesh.
 
-Ukázka v programu
-^^^^^^^^^^^^^^^^^
+=== Ukázky práce s programem
 
-____________________________________
-Tato ukázka proběhne živě na cvičení
-____________________________________
+==== Rekonstrukce modelu nohy
 
-* Základní popis programu
-* Ukázka 1 (Model nohy)
-** Potřebné modely jsou link:../stls/scan/foot_scan.bin[sken] a
-link:../stls/scan/foot_reference.stl[reference]
-*** Model nohy je z portálu
-https://www.thingiverse.com/thing:1615359[Thingiverse, CC BY-NC 3.0]
-** Nahrání mračna bodů
-** Ukázka rekonstrukce 3D modelu
-** Ukázka shaderu
-* Ukázka 2 (Model zahrady)
-** Potřebné modely jsou link:../stls/scan/garden1.bin[sken 1] a
-link:../stls/scan/garden2.bin[sken 2]
-*** Stažené přímo z projektu
+Potřebné modely jsou link:../stls/scan/foot_scan.bin[foot_scan.bin] a
+link:../stls/scan/foot_reference.stl[foot_reference.stl].
+Model nohy je z portálu
+https://www.thingiverse.com/thing:1615359[Thingiverse, CC BY-NC 3.0 Voodoo Manufacturing].
+
+V souboru link:../stls/scan/foot_scan.bin[foot_scan.bin] je mračno bodů vzniklé
+naskenováním modelu nohy. Otevřete jej v aplikaci CloudCompare.
+
+.Model skenu nohy jako mračno bodů v programu CloudCompare
+image::cc_foot_points.png[width=600]
+
+Pro práci s modelem je potřeba jej vybrat v levé horní části programu (_DB Tree_).
+Zaškrtávací políčko slouží k zobrazení (respektive skrytí) modelu.
+Vybraný model je zvýrazněn.
+
+Pro rekonstrukci nejprve použijeme celé mračno.
+Pro slabší počítače se toto nedoporučuje, mračno má cca milion bodů
+a mohlo by to trvat dlouho.
+Dále si ukážeme, jak zrekonstruovat model z menšího poštu bodů.
+
+Nejprve je potřeba spočítat normály pomocí _Edit → Normals → Compute_.
+Pro naše potřeby postačí použít výchozí hodnoty.
+
+._Edit → Normals → Compute_
+image::cc_foot_normals_menu.png[]
+
+.Compute normals
+image::cc_foot_normals_modal.png[]
+
+.Normals computation
+image::cc_foot_normals_progress.png[]
+
+.Černé normály ukazují dovnitř
+image::cc_foot_points_normals.png[width=600]
+
+Někdy se normály spočítají obráceně (jsou zobrazeny černě).
+V takovém případě je třeba je invertovat.
+Pokud bychom to neudělali, zrekonstruovaný model bude převrácen naruby.
+Normály se invertují pomocí _Edit → Normals → Invert_.
+
+._Edit → Normals → Invert_
+image::cc_foot_normals_invert.png[]
+
+.Normály po převrácení již nejsou zobrazeny černě
+image::cc_foot_normals_inverted.png[width=600]
+
+
+Když máme normály, můžeme použít _Plugins → Poisson Surface Reconstruction_.
+
+._Plugins → Poisson Surface Reconstruction_
+image::cc_foot_poisson_menu.png[]
+
+.Opět stačí ponechat výchozí hodnoty
+image::cc_foot_poisson_modal.png[]
+
+.Poisson Reconstruction
+image::cc_foot_poisson_progress.png[]
+
+.Zelená mesh, šedé mračno
+image::cc_foot_reconstructed.png[]
+
+Pokud je mračno příliš velké, můžeme ho před rekonstrukcí samplovat:
+tedy získat jen část bodů. Pro naši nohu stačí cca sto tisíc bodů.
+
+._Edit → Subsample_
+image::cc_foot_subsample_menu.png[]
+
+.Lze volit různé metody, volba _Random_ je poměrně rychlá
+image::cc_foot_subsample_modal.png[]
+
+.Body prořídly
+image::cc_foot_subsample.png[]
+
+.Zrekonstruovaná mesh z desetiny bodů je zde dost dobrá
+image::cc_foot_subsampled_reconstructed.png[]
+
+Někdy se stane, že výsledná mesh je příliš zrnitá.
+Je možné ji „podle chuti“ zjemnit pomocí _Edit → Mesh → Smooth (Laplacian)_.
+
+._Edit → Mesh → Smooth (Laplacian)_
+image::cc_smooth_mesh.png[]
+
+Do programu je možné načíst i hotovou mesh ze souboru
+link:../stls/scan/foot_reference.stl[foot_reference.stl] (stačí soubor otevřít).
+
+.Načtená mesh není moc dobře vidět
+image::cc_foot_reference.png[]
+
+Pro zpřehlednění zobrazení meshe můžete použít _Plugins → P. C. V. (Ambient Occlusion)_.
+
+._Plugins → P. C. V. (Ambient Occlusion)_
+image::cc_pcv.png[]
+
+.Po použití _P. C. V._ je mesh lépe rozeznatelná očima
+image::cc_foot_reference_pcv.png[]
+
+Když zrekonstruovanou a referenční mesh napozicujeme na stejné místo,
+můžeme je porovnat. Na cvičení si to ukážeme, pokud materiály čtete z domova,
+více se dozvíte v další ukázce.
+
+.Rozdíly ve skenu a originálu
+image::cc_foot_reference_distances.png[]
+
+==== Model zahrady: Registrace dvou skenů
+
+Potřebné modely jsou link:../stls/scan/garden1.bin[garden1.bin] a
+link:../stls/scan/garden2.bin[garden2.bin],
+stažené přímo z projektu
 http://www.cloudcompare.org/samples/CloudCompareGardenData.7z[CloudCompare,
-GPL 2+]
-** Importovat 2 point cloudy se zahradou
-** Ukázka automatické registrace
-** Ukázka počítaní vzdáleností
-* Ukázka 3 (Model zahrady + segmentace)
-** Potřebné modely jsou link:../stls/scan/garden1.bin[sken 1] a
-link:../stls/scan/garden2.bin[sken 2]
-*** Stažené přímo z projektu
-http://www.cloudcompare.org/samples/CloudCompareGardenData.7z[CloudCompare,
-GPL 2+]
-** Ukázka segmentace
-** Ukázka ručního výběru bodů pro registraci
-** Připomenutí si měření vzdáleností
+GPL 2+].
 
-Užitečné odkazy
-^^^^^^^^^^^^^^^
+.Ukázka na cvičení víceméně dle https://www.youtube.com/watch?v=MQiD4HjhpAU[videotutoriálu]
+video::MQiD4HjhpAU[youtube]
+
+Stručný sled kroků (předpokládá shlédnutí videa nebo účast na cvičení):
+
+. Otevřít oba soubory.
+. V _Properties_ zvolit u obou _Colors → RGB_.
+. Pomocí _Translate/rotate_ nástroje v horní liště se pokusit skeny
+  napozicovat blíže na sebe.
+. (volitleně) Prohlédnout _Edit → Apply transformation_.
+. Zvolit oba soubory kliknutím s klávesou kbd:[Crtl] v _DB Tree_.
+. Z nástrojové lišty vybrat tlačítko _Register enitites_ (v novější verzi
+  __Finely register already (roughly) aligned entities (cloud or meshes)__).
+. _Error difference_ či _EMS difference_ nastavit na `1e-20`.
+. _Random sampling limit_ nastavit na `60000`.
+. _OK_.
+. V _Properties_ opět zvolit u obou _Colors → RGB_.
+. Z nástrojové lišty vybrat tlačítko _Compute cloud/cloud distance_.
+. Jako referenci nastavit model 1, _Compute_, _OK_.
+. Zobrazit a vybrat pouze druhý model.
+. V _Properties_ zkontrolovat _Colors → Scalar field_, obsahuje napočítané
+  vzdálenosti.
+. _Properties → Color Scale → Visible_.
+. _SF display params_: hýbat táhly, dokud výsledek nebude „nejlepší“.
+
+.Registrace 2 skenů
+image::cc_register.png[]
+
+.Spočítání vzdálenosti dvou mračen
+image::cc_distance.png[]
+
+.Táhla u barevné škály
+image::cc_display_params.png[]
+
+.Porovnání dvou 3D skenů
+image::cc_garden1.png[width=600]
+
+==== Model zahrady: Segmentace, vyrovnání podle referenčních bodů
+
+Potřebné modely jsou stejné jako výše:
+link:../stls/scan/garden1.bin[garden1.bin] a
+link:../stls/scan/garden2.bin[garden2.bin].
+
+.Ukázka na cvičení víceméně dle https://www.youtube.com/watch?v=2mySiAS0Tfw[videotutoriálu]
+video::2mySiAS0Tfw[youtube]
+
+Nejprve potřebujeme dva skeny, které si nejsou tak moc podobné jsou výše.
+Abychom to předvedli, vyřízneme pouze část s hlínou pomocí nástroje _Segment_.
+
+.Nástroj _Segment_
+image::cc_segment_tool.png[]
+
+Nástroj se ovládá levým tlačítkem myši, pro potvrzení se použije pravé tlačítko.
+Poté vyberte symbol vyříznutého polygonu a potvrďte fajfkou.
+Operace vytvoří dvě nová mračna ve stromu.
+
+.Volby nástroje _Segment_
+image::cc_segment_options.png[]
+
+Poté je třeba pomocí nástroje _Align two clouds by picking (at least 4)
+equivalents point pairs_.
+
+Dále se dá pokračovat jako u minulé ukázky.
+
+._Align two clouds by picking (at least 4) equivalents point pairs_
+image::cc_align.png[]
+
+== Užitečné odkazy
 
 Návod na rekonstrukci modelu pomocí MeshLabu nebo CloudComparu:
 https://storage.googleapis.com/bqcom15.statics.bq.com/prod/resources/manual/Horus_Guide_to_post-processing_of_the_point_cloud-1475833823.pdf[Horus_Guide_to_post-processing_of_the_point_cloud.pdf]
