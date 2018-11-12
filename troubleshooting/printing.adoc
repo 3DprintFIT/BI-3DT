@@ -19,6 +19,8 @@ Ujistěte se, že přihlašovací údaje zadáváte správně (caps lock, cz/en 
 Jméno:: student
 Heslo:: _sdělí cvičící_
 
+Jméno není vaše ČVUT přihlašovací jméno, ale text "student".
+
 == Z extruderu nevytéká žádný plast
 
 Pokud jste právě zavedli filament, chvíli to trvá, než se z extruderu vytlačí veškerý vzduch a začne vytékat plast.
