@@ -103,7 +103,7 @@ Přečtěte si nyní zadání úkolů, abyste věděli co se od vás očekává,
 Pro dnešní sadu úkolů se vtělte do pracovitého zaměstnance QC oddělení fiktivní firmy "Pepa Prča Research", kontrolující výstupní kvalitu 3D tiskáren.
 Vaším úkolem bude ověřit, zda tiskárna tiskne správně a jak dobře.
 
-
+[[ukol-1]]
 === Úkol 1 (1 bod)
 
 Vašim prvním úkolem je *ověřit, zda tiskárna skutečně vytiskne stejné rozměry, které jsou v modelu.*
@@ -116,7 +116,7 @@ Předpokládejme, že není potřeba ho upravovat po kalibrační stránce (hodn
 
 Abyste ušetřili materiál, nastavte tisk tak, aby se vytiskly kostky 4 a každá z nich byla dutá, měla jednu obvodovou vrstvu a žádnou vrchní vrstvu (ve výsledku byste měli dostat 4 hranaté kalíšky).
 
-
+[[ukol-2]]
 === Úkol 2 (2 body)
 
 Dále chcete *ověřit jak moc malý předmět tiskárna zvládne vytisknout*. 
@@ -127,7 +127,7 @@ Jako testovací objekt jste si vybrali https://www.thingiverse.com/thing:27053["
 
 Odevzdávat budete jednu poloviční velikost (scale 50%) a druhou libovolně menší (scale <50%), ale povedenou. Další menší velikosti můžete odevzdat dobrovolně, ale neovlivní výsledný počet bodů
 
-
+[[ukol-3]]
 === Úkol 3 (0 bodů, ale povinný)
 
 *Ukliďte po sobě své pracoviště.* Kdo po sobě neuklidí, nedostane žádné body.
