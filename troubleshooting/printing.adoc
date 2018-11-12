@@ -2,7 +2,7 @@
 Marián Hlaváč <marian.hlavac@fit.cvut.cz>
 :toc:
 
-== Na tiskárnu se nelze připojit.
+== Na tiskárnu se nelze připojit
 
 Pokud se nelze na tiskárnu připojit...
 
@@ -12,14 +12,14 @@ Pokud se nelze na tiskárnu připojit...
 
 Pokud nic z toho nepomůže, požádejte cvičícího o pomoc.
 
-== Nemohu se k tiskárně přihlásit.
+== Nemohu se k tiskárně přihlásit
 
 Ujistěte se, že přihlašovací údaje zadáváte správně (caps lock, cz/en klávesnice). Přihlašovací údaje jsou:
 
 Jméno:: student
 Heslo:: _sdělí cvičící_
 
-== Z extruderu nevytéká žádný plast.
+== Z extruderu nevytéká žádný plast
 
 Pokud jste právě zavedli filament, chvíli to trvá, než se z extruderu vytlačí veškerý vzduch a začne vytékat plast.
 
@@ -32,11 +32,11 @@ Pokud je filament na místě a nejde dovnitř, znamená to, že je extruder ucpa
 Pokud nic nepomůže, je nutné extruder vyčistit.
 Přivolejte cvičícího pro asistenci.
 
-== Tiskárna vydává divný hlasitý zvuk.
+== Tiskárna vydává divný hlasitý zvuk
 
 Tiskárny jsou obecně velmi hlučné.
 Pokud si však všimnete velmi nezvyklého hluku při tisku, nebojte se přivolat cvičícího.
 
-== Z tiskárny se kouří / hoří / je viditelně fyzicky poškozená.
+== Z tiskárny se kouří / hoří / je viditelně fyzicky poškozená
 
 Okamžitě upozorněte cvičícího. I pokud si nejste jistí, zda je to problém, raději přivolejte cvičícího. Nestačí se hlásit, rovnou křičte.
