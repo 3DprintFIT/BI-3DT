@@ -31,13 +31,13 @@ image::rebelix-photo-annotated.jpg[Rebelix, width=720, link={imagesdir}rebelix-p
 
 Tiskárnu nebudeme ovládat přímým připojením k počítači, ale zodpovědnost za přenos tiskových dat přenecháme mini-počítači https://en.wikipedia.org/wiki/Raspberry_Pi[Raspberry Pi], který je součástí každé tiskárny v učebně.
 
-Každé Raspberry Pi je připojeno do školní sítě a je možné jej na dálku instruovat, jak má ovládat tiskárnu a která data přenášet. Tento úkol nám usnadní webové rozhraní OctoPrint.
+Každé Raspberry Pi je připojeno do školní sítě a je možné jej na dálku instruovat, jak má ovládat tiskárnu a která data přenášet. Tento úkol nám usnadní webové rozhraní https://octoprint.org/[OctoPrint].
 
 
 === Připojení k tiskárně
 
-K připojení do sítě ve které jsou tiskárny přístupné, využijte školní počítače.
-Na každé tiskárně lze nalézt štítek uvádějící číslo tiskárny. 
+K připojení do sítě, ve které jsou tiskárny přístupné, využijte školní počítače.
+Na každé tiskárně lze nalézt štítek uvádějící číslo tiskárny (je přilepen na Raspberry Pi). 
 Připojte se na svou tiskárnu nahrazením `X` za číslo vaší tiskárny v níže uvedené adrese.
 
 Adresa tiskárny:: http://printerX.ucebny
@@ -49,7 +49,7 @@ Heslo:: _sdělí cvičící_
 
 Pokud se na tiskárnu nelze připojit, vyzkoušejte xref:../troubleshooting/printing.adoc#_na-tiskárnu-se-nelze-připojit[jiné možnosti].
 
-CAUTION: Po připojení se ujistěte, že se jedná o rozhraní pro vaši tiskárnu, která vám leží na stole. Ač sabotování tisku spolužákům se může zdát jako legrace, vězte, že není.
+CAUTION: Po připojení se ujistěte, že se jedná o rozhraní pro vaši tiskárnu, která vám leží na stole. Ač se sabotování tisku spolužákům může zdát jako legrace, vězte, že není.
 
 
 === OctoPrint
@@ -60,22 +60,22 @@ https://github.com/foosel/OctoPrint[OctoPrint] je jednoduché a přehledné webo
 image::octoprint-main.png[OctoPrint]
 
 
-.Ruční ovládání v OctoPrint
+.Ruční ovládání v OctoPrintu
 image::octoprint-control.png[Karta ručního ovládání, 250, float="right"]
 ==== Ruční ovládání
 
-Na kartě ručního ovládání (Control) lze, jak název napovídá, ručně ovládat tiskárnu.
+Na kartě ručního ovládání (_Control_) lze, jak název napovídá, ručně ovládat tiskárnu.
 Můžete posouvat tiskovou hlavu ve všech třech osách a také ovládat extruder. 
 
-První sloupec je velmi intuitivní, šipky představují směry, do kterých můžete tiskovou hlavu posunout.
-Ikona domečku představuje akci "home", která vyresetuje pozici tiskárny na `[0, 0, 0]` a zároveň sesynchronizuje fyzickou pozici tiskové hlavy s údaji v kontroléru tiskárny.
+Pomocí prvního sloupce můžete hýbat extruderem ve směrech X (z vašeho pohledu doleva/doprava) a Y (z vašeho pohledu dozadu a dopředu (fyzicky se hýbe deska, ne hlava).
+Ikona domečku představuje akci _home_, která vyresetuje pozici tiskárny na `[0, 0, 0]` a zároveň sesynchronizuje fyzickou pozici tiskové hlavy s údaji v kontroléru tiskárny.
 
-Tlačítka `0.1`, `1`, `10` a `100` představují hodnotu o kterou posunete tiskovou hlavu následným kliknutím na šipku směru.
-Před posunem tlačítky je však nutné tiskárnu vždy uvést do stavu "home", aby tiskárna nevyjela mimo hranice.
+Tlačítka `0.1`, `1`, `10` a `100` představují hodnotu, o kterou posunete tiskovou hlavu následným kliknutím na šipku směru.
+Před posunem tlačítky je však nutné tiskárnu vždy uvést do stavu _home_, aby tiskárna nevyjela mimo hranice.
 Pokud byste násilím posouvali osy mimo hranice, můžete tiskárnu poškodit.
 
 V druhém sloupci lze ovládat extruder. 
-V číselném poli lze nastavit kolik milimetrů materiálu bude extrudováno/retractováno a tlačítky pod ním lze příslušnou akci provést.
+V číselném poli lze nastavit kolik milimetrů materiálu bude extrudováno/retractováno a tlačítky pod ním lze příslušnou akci provést. Tohle se dá dělat, jen když je nahřáto! O teplotách se toho dozvíte více dále.
 Ovládání extruderu je zvláště užitečné při vyjímání či zavádění filamentu.
 
 V posledním sloupci je užitečné tlačítko `Motors off`, který vypne krokové motory tiskárny a s tiskovou deskou a extruderem lze hýbat ručně.
@@ -88,26 +88,26 @@ image::octoprint-temps.png[Ovládací prvek teplot, 250, float="right"]
 Předehřívání trvá v řádech minut. 
 Pro urychlení práce nebo pro zavedení či vyjmutí filamentu je nutné tiskárnu zahřát.
 
-Ve spodní části na kartě "Temperature" je možné nastavit teplotu, na kterou se má tiskárna zahřát.
-Vepsáním teploty do číselného pole ve sloupic "Target" a kliknutím na "Set" lze nastavit teplotu. 
-V rozbalovacím menu jsou pro rychlé nastavení přednastavené hodnoty pro ABS a PLA.
+Ve spodní části na kartě _Temperature_ je možné nastavit teplotu, na kterou se má tiskárna zahřát.
+Vepsáním teploty do číselného pole ve sloupci _Target_ a kliknutím na _Set_ lze nastavit teplotu. 
+V rozbalovacím menu jsou pro rychlé nastavení přednastavené hodnoty pro některé plastové materiály (u nás jen ABS).
 
 
 ==== Tisk
 
 Návod k tisku popisuje kapitola <<Tisk krok za krokem>>. 
-Přečtěte si nyní zadání úkolů, abyste věděli co se od vás očekává, a pak pokračujte návodem jak tisknout krok za krokem.
+Přečtěte si nyní zadání úkolů, abyste věděli, co se od vás očekává, a pak pokračujte návodem jak tisknout krok za krokem.
 
 
 == Zadání úkolů
 
-Pro dnešní sadu úkolů se vtělte do pracovitého zaměstnance QC oddělení fiktivní firmy "Pepa Prča Research", kontrolující výstupní kvalitu 3D tiskáren.
+Pro dnešní sadu úkolů se vtělte do pracovitého zaměstnance QC oddělení fiktivní firmy „Pepa Prča Research“, kontrolující výstupní kvalitu 3D tiskáren.
 Vaším úkolem bude ověřit, zda tiskárna tiskne správně a jak dobře.
 
 [[ukol-1]]
 === Úkol 1 (1 bod)
 
-Vašim prvním úkolem je *ověřit, zda tiskárna skutečně vytiskne stejné rozměry, které jsou v modelu.*
+Vašim prvním úkolem je *ověřit, zda tiskárna skutečně vytiskne stejné rozměry, které jsou v modelu*.
 
 image::20mm-box.png[width=160, float=right]
 
@@ -120,7 +120,7 @@ Abyste ušetřili materiál, nastavte tisk tak, aby se vytiskly kostky 4 a každ
 [[ukol-2]]
 === Úkol 2 (2 body)
 
-Dále chcete *ověřit jak moc malý předmět tiskárna zvládne vytisknout*. 
+Dále chcete *ověřit, jak moc malý předmět tiskárna zvládne vytisknout*. 
 
 image::CuteOcto.png[width=160, float=right]
 
@@ -133,6 +133,18 @@ Odevzdávat budete jednu poloviční velikost (scale 50%) a druhou libovolně me
 
 *Ukliďte po sobě své pracoviště.* Kdo po sobě neuklidí, nedostane žádné body.
 
+Pokud po tomto cvičení již nenásleduje další, tiskárnu ukliďte do skříně.
+Nejprve se ujistěte, že tryska má méně než 100° C. Poté tiskárnu odpojte a zaneste do její police.
+Každá tiskárna má svoje místo (místa pro tiskárny > 12 vám případně sdělí cvičící).
+
+[options="header", cols="^,^,^"]
+|========
+3+|Umístění tiskáren ve skříni
+|1 |5 |9
+|2 |6 |10
+|3 |7 |11
+|4 |8 |12
+|========
 
 == Tisk krok za krokem
 
@@ -143,7 +155,7 @@ Většinu z těchto informací se dozvítě osobně na cvičení, nicméně poku
 === Příprava tiskárny
  
 Před spuštěním tisku je potřeba dodržet několik kroků. 
-V případě, že tiskárnu nezkontrolujeme, můžeme skončit se špatným výtiskem, nebo v horším případě s poškozenou tiskárnou.
+V případě, že tiskárnu nezkontrolujete, můžete skončit se špatným výtiskem, nebo v horším případě s poškozenou tiskárnou.
 
 . Vizuálně se ujistěte, že tiskárna není nijak zjevně poškozená (porovnejte např. s fotografií výše).
 . Očistěte tiskovou desku od nečistot či pozůstatcích předchozích výtisků.
@@ -158,7 +170,7 @@ Pokud byste tiskárnu nezahřáli, mohl by se filament v extruderu zlomit a způ
 
 Zahřejte tiskárnu na požadovanou teplotu a v rozhraní OctoPrint se přepněte na kartu <<Ruční ovládání, ručního ovládání>>, a klikněte na tlačítko `Retract`.
 
-Po celou dobu vytahování mějte ruku poblíž struny, jelikož po jejím úplném vytažení má struna tendenci vystřelit a zamotat se. Vyjmutou strunu vložte do malého očka na špuli, aby se filament nezačal zamotávat. Buďte při manipulaci s filamentem opatrní. Špuli sundejte z držáku a filament odložte.
+Po celou dobu vytahování mějte ruku poblíž struny, jelikož po jejím úplném vytažení má struna tendenci vystřelit a zamotat se. *Vyjmutou strunu vložte do malého očka na špuli, aby se filament nezačal zamotávat*. Buďte při manipulaci s filamentem opatrní. Špuli sundejte z držáku a filament odložte.
 
 
 ==== Zavedení filamentu
@@ -169,20 +181,20 @@ image::filamentguide.svg[Jak má filament vypadat, 300, float="right"]
 
 Zkontrolujte zakončení filamentu na závady. Filament může být:
 
-. Nerovný či polámaný
-. Mít roztavené zakončení
-. Být "nahlodaný" od ozubení extruderu
+. Nerovný či polámaný.
+. Mít roztavené zakončení.
+. Být „nahlodaný“ od ozubení extruderu.
 
 V každém případě takovou část uřízněte, nebo odlomte.
 
 Zařízněte filament do špičky a vložte jej do otvoru na extruderu. Netlačte filament do tiskárny násilím, stačí jen vložit a jemně přitlačit a v OctoPrintu na kartě <<Ruční ovládání, ručního ovládání>> klikněte na tlačítko `Extrude`.
 
-Ve chvíli, kdy tiskárna uchopí filament můžete jej pustit. Extrudujte filament tak dlouho, dokud nezačne z trysky vytékat plast. Dále extrudujte plast tak dlouho, dokud nezačne z trysky vytékat plast správné barvy (v trysce mohly být pozůstatky filamentu jiné barvy).
+Ve chvíli, kdy tiskárna uchopí filament jej můžete pustit. Extrudujte filament tak dlouho, dokud nezačne z trysky vytékat plast. Dále extrudujte plast tak dlouho, dokud nezačne z trysky vytékat plast správné barvy (v trysce mohly být pozůstatky filamentu jiné barvy).
 
 
 ==== ABS Juice
 
-K vylepšení přilnavosti tiskové desky se používají různé materiály - lepidla, ABS Juice, laky.
+K vylepšení přilnavosti tiskové desky se používají různé materiály -- lepidla, ABS Juice, laky.
 
 Pokud tisknete předmět, který by se mohl v průběhu tisku odlepit, naaplikujte na desku *jemnou vrstvu* ABS Juice. 
 V učebně je k dispozici ABS Juice, používejte, prosím, na tiskárny v učebně pouze ten. 
@@ -194,11 +206,11 @@ WARNING: ABS Juice je malé množství ABS rozpuštěné v acetonu. Aceton je ne
 
 === Tisk
 
-Nahrajte tisková data (ve formátu GCode) na Raspberry Pi použitím ovládacího prvku "Files" v levém dolním rohu rozhraní OctoPrintu. Přípravou tiskových dat do formátu GCode se zabývala kapitola xref:./slicing#[Slicing].
+Nahrajte tisková data (ve formátu GCode) na Raspberry Pi použitím ovládacího prvku _Files_ v levém dolním rohu rozhraní OctoPrintu. Přípravou tiskových dat do formátu GCode se zabývala kapitola xref:./slicing#[Slicing].
 
 Pokud máte vše připraveno, můžete kliknout ikonku tisku u vašeho právě nahraného souboru.
 Pokud chcete zkontrolovat váš gcode, klikněte na ikonku složky.
-Tím se váš soubor nastaví jako aktivní, můžete si prohlédnout načtené statistiky, či ověřit jeho správnost na kartě "GCode Viewer" a tisk spustit až následným kliknutím na větší tlačítko "Print" v části rozhraní nazvané "State". 
+Tím se váš soubor nastaví jako aktivní, můžete si prohlédnout načtené statistiky, či ověřit jeho správnost na kartě _GCode Viewer_ a tisk spustit až následným kliknutím na větší tlačítko _Print_ v části rozhraní nazvané _State_. 
 
 Pokud při tisku narazíte na jakýkoliv problém, konzultujte se cvičícím, nebo zkuste problém najít v xref:../troubleshooting/index#[troubleshootingu].
 
