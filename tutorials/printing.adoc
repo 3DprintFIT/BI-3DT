@@ -191,14 +191,10 @@ Není nutné nanášet ABS Juice na desku ve velkém množství. Tlusté nánosy
 WARNING: ABS Juice je malé množství ABS rozpuštěné v acetonu. Aceton je nebezpečná látka, dbejte zvýšené opatrnosti. *V případě kontaktu s nekrytou částí těla okamžitě kontaktujte cvičícího.* Při manipulaci zkontrolujte, že je otevřené okno. Ihned po vyjmutí štětce nádobu zavřete. Ponechání otevřené nádoby s acetonem bez dozoru je vážné porušení BOZP.
 
 
-=== Příprava tiskových dat
-
-Přípravou tiskových dat se zabývala kapitola link:#[Slicing]. TODO
-
-
 === Tisk
 
-Nahrajte tisková data (ve formátu gcode) na Raspberry Pi použitím ovládacího prvku "Files" v levém dolním rohu rozhraní OctoPrintu.
+Nahrajte tisková data (ve formátu GCode) na Raspberry Pi použitím ovládacího prvku "Files" v levém dolním rohu rozhraní OctoPrintu. Přípravou tiskových dat do formátu GCode se zabývala kapitola xref:./slicing#[Slicing].
+
 Pokud máte vše připraveno, můžete kliknout ikonku tisku u vašeho právě nahraného souboru.
 Pokud chcete zkontrolovat váš gcode, klikněte na ikonku složky.
 Tím se váš soubor nastaví jako aktivní, můžete si prohlédnout načtené statistiky, či ověřit jeho správnost na kartě "GCode Viewer" a tisk spustit až následným kliknutím na větší tlačítko "Print" v části rozhraní nazvané "State". 
@@ -216,4 +212,4 @@ Dávejte pozor, abyste nepoškodili svůj výtisk nebo tiskovou desku.
 
 WARNING: Dodržujte pravidla bezpečné práce, abychom předcházeli zranění. Nože jsou ostré a hotendy tiskárny jsou po dokončení tisku stále horké a hrozí popálení. Buďte opatrní. *Pokud ke zranění dojde, okamžitě kontaktuje cvičícího.*
 
-Po skončení tisku a práce s tiskárnou (na konci cvičení) nezapomeňte své pracoviště uklidit. Vyčkejte, než tryska vychladne (cca pod 100℃) a odpojte ji od elektrické sítě.
+Po skončení tisku a práce s tiskárnou (na konci cvičení) nezapomeňte <<ukol-3, své pracoviště uklidit>>. Vyčkejte, než tryska vychladne (cca pod 100℃) a odpojte ji od elektrické sítě.
