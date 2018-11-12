@@ -1,6 +1,7 @@
 = Tisk
 Marián Hlaváč <marian.hlavac@fit.cvut.cz>
 :toc:
+:imagesdir: ../images/printing/
 
 Tento týden se konečně dostaneme k tomu, na co jsme se všichni jistě celou dobu těšili. 
 Využijeme získané teoretické znalosti a uplatníme je prakticky.
@@ -19,7 +20,7 @@ Na stole před vámi by měla ležet FDM tiskárna http://reprap4u.cz/rebelix/[_
 Na fotografii níže se seznamte s pojmy, které budou dále ve studijním textu zmíněny.
 
 .Tiskána RebeliX
-image::../images/printing/rebelix-photo-annotated.jpg[Rebelix, width=720, link=../images/printing/rebelix-photo-annotated.jpg]
+image::rebelix-photo-annotated.jpg[Rebelix, width=720, link={imagesdir}rebelix-photo-annotated.jpg]
 <1> Tisková deska (heatbed)
 <2> Raspberry Pi
 <3> Extruder
@@ -56,11 +57,11 @@ CAUTION: Po připojení se ujistěte, že se jedná o rozhraní pro vaši tiská
 https://github.com/foosel/OctoPrint[OctoPrint] je jednoduché a přehledné webové rozhraní pro ovládání tiskáren připojených k počítači (v našem případě k Raspberry Pi). Umožňuje tiskárnu ručně ovládat, zobrazit přehledně její stav a odesílat tisková data na tiskárnu.
 
 .Snímek prohlížece s otevřeným OctoPrint rozhraním
-image::../images/printing/octoprint-main.png[OctoPrint]
+image::octoprint-main.png[OctoPrint]
 
 
 .Ruční ovládání v OctoPrint
-image::../images/printing/octoprint-control.png[Karta ručního ovládání, 250, float="right"]
+image::octoprint-control.png[Karta ručního ovládání, 250, float="right"]
 ==== Ruční ovládání
 
 Na kartě ručního ovládání (Control) lze, jak název napovídá, ručně ovládat tiskárnu.
@@ -81,7 +82,7 @@ V posledním sloupci je užitečné tlačítko `Motors off`, který vypne krokov
 
 
 .Ovládání teplot v OctoPrint
-image::../images/printing/octoprint-temps.png[Ovládací prvek teplot, 250, float="right"]
+image::octoprint-temps.png[Ovládací prvek teplot, 250, float="right"]
 ==== Předehřátí tiskárny
 
 Předehřívání trvá v řádech minut. 
@@ -108,7 +109,7 @@ Vaším úkolem bude ověřit, zda tiskárna tiskne správně a jak dobře.
 
 Vašim prvním úkolem je *ověřit, zda tiskárna skutečně vytiskne stejné rozměry, které jsou v modelu.*
 
-image::../images/printing/20mm-box.png[width=160, float=right]
+image::20mm-box.png[width=160, float=right]
 
 Jako testovací objekt jste si vybrali link:../stls/printing/20mm-box.stl[model kostky o přesných rozměrech 20×20×10 mm].
 K tiskárně jste dostali tiskový profil, který na ní byl doteď používán. 
@@ -121,7 +122,7 @@ Abyste ušetřili materiál, nastavte tisk tak, aby se vytiskly kostky 4 a každ
 
 Dále chcete *ověřit jak moc malý předmět tiskárna zvládne vytisknout*. 
 
-image::../images/printing/CuteOcto.png[width=160, float=right]
+image::CuteOcto.png[width=160, float=right]
 
 Jako testovací objekt jste si vybrali https://www.thingiverse.com/thing:27053["Cute Octopus Says Hello"] (CC BY 3.0) od MakerBot ze serveru Thingiverse.com (link:../stls/printing/CuteOcto.stl[mirror zde]), profil použijete stejný jako výše. Abyste ušetřili materiál, začnete na poloviční velikosti předmětu (scale 50%) a budete dále zkoušet menší velikosti, podle toho, kolik vám zbyde času (zkuste pak např. 33%, 25%, 15% atd.).
 
@@ -164,7 +165,7 @@ Po celou dobu vytahování mějte ruku poblíž struny, jelikož po jejím úpln
 
 Pravidlo předehřáté tiskárny platí úplně stejně jako u vytahování filamentu.
 
-image::../images/printing/filamentguide.svg[Jak má filament vypadat, 300, float="right"]
+image::filamentguide.svg[Jak má filament vypadat, 300, float="right"]
 
 Zkontrolujte zakončení filamentu na závady. Filament může být:
 
