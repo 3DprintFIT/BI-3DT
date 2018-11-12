@@ -8,7 +8,8 @@ Využijeme získané teoretické znalosti a uplatníme je prakticky.
 Seznámíme se s tiskárnou, vysvětlíme si, k čemu jsou určeny její jednotlivé části a připravíme ji k tisku. 
 Seznámíme se s nástroji, kterými budeme přenášet tisková data a spouštět tisk a závěrečně na tiskárnách něco vytiskneme.
  
-_Pokud již 3D tiskárny znáte, můžete některé kapitoly v textu vynechat, ale nevynechávejte kapitolu <<Příprava tiskárny>>, je povinná pro všechny. Až pak můžete pokračovat čtením <<Zadání úkolů, zadaných ukolů>>._
+[.noclear]
+TIP: Pokud již 3D tiskárny znáte, můžete některé kapitoly v textu vynechat, ale nevynechávejte kapitolu <<Příprava tiskárny>>, je povinná pro všechny. Až pak můžete pokračovat čtením <<Zadání úkolů, zadaných ukolů>>.
 
 
 == Seznámení se s tiskárnou
