@@ -12,6 +12,7 @@ z BI-3DT]
 * 🦁 https://gitlab.fit.cvut.cz/BI-3DT/bi-3dt[GitLab]
 * 🐙 https://github.com/3DprintFIT/BI-3DT[GitHub]
 * 👮 xref:gdpr#[Souhlas se zpracováním osobních údajů]
+* 🤹 xref:tasks#[Zadání úloh]
 
 == Rychlé odkazy
 
