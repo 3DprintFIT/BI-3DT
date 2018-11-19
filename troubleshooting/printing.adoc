@@ -18,17 +18,17 @@ Ujistěte se, že přihlašovací údaje zadáváte správně (caps lock, cz/en 
 Jméno:: student
 Heslo:: _sdělí cvičící_
 
-Jméno není vaše ČVUT přihlašovací jméno, ale text "student".
+Jméno není vaše ČVUT přihlašovací jméno, ale text „student“.
 
-== Z extruderu nevytéká žádný plast
+== Z extruderu není vytlačován žádný plast
 
-Pokud jste právě zavedli filament, chvíli to trvá, než se z extruderu vytlačí veškerý vzduch a začne vytékat plast.
+Pokud jste právě zavedli filament, chvíli to trvá, než se z extruderu vytlačí veškerý vzduch a začne se vytlačovat plast.
 
-Jemně uchopte filament při extrudování a zkontrolujte hmatem, zda filament bez problémů je vtahován dovnitř extruderu.
+Jemně uchopte filament při extrudování a zkontrolujte hmatem, zda je filament bez problémů vtahován dovnitř extruderu.
 Pokud je filament na místě a nejde dovnitř, znamená to, že je extruder ucpaný.
 
-1. Zkontrolujte správnost nastavených teplot
-2. Zkuste filament vyjmout a zavést znova
+1. Zkontrolujte správnost nastavených teplot.
+2. Zkuste filament vyjmout a zavést znova.
 
 Pokud nic nepomůže, je nutné extruder vyčistit.
 Přivolejte cvičícího pro asistenci.

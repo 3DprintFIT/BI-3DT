@@ -124,9 +124,13 @@ Dále chcete *ověřit, jak moc malý předmět tiskárna zvládne vytisknout*.
 
 image::CuteOcto.png[width=160, float=right]
 
-Jako testovací objekt jste si vybrali https://www.thingiverse.com/thing:27053["Cute Octopus Says Hello"] (CC BY 3.0) od MakerBot ze serveru Thingiverse.com (link:../stls/printing/CuteOcto.stl[mirror zde]), profil použijete stejný jako výše. Abyste ušetřili materiál, začnete na poloviční velikosti předmětu (scale 50%) a budete dále zkoušet menší velikosti, podle toho, kolik vám zbyde času (zkuste pak např. 33%, 25%, 15% atd.).
+Jako testovací objekt jste si vybrali https://www.thingiverse.com/thing:27053[Cute Octopus Says Hello] (CC BY 3.0) od firmy MakerBot ze serveru Thingiverse.com (link:../stls/printing/CuteOcto.stl[mirror zde]), profil použijete stejný jako výše. Abyste ušetřili materiál, začnete na poloviční velikosti předmětu (scale 50%) a budete dále zkoušet menší velikosti, podle toho, kolik vám zbyde času (zkuste pak např. 33%, 25%, 15% atd.).
 
-Odevzdávat budete jednu poloviční velikost (scale 50%) a druhou libovolně menší (scale <50%), ale povedenou. Další menší velikosti můžete odevzdat dobrovolně, ale neovlivní výsledný počet bodů
+Odevzdávat budete jednu poloviční velikost (scale 50%) a druhou libovolně menší (scale <50%), ale povedenou. Další menší velikosti můžete odevzdat dobrovolně, ale neovlivní výsledný počet bodů.
+
+TIP: Jestliže je výtisk příliš „rozplizlý“, znamená to, že materiál nestíhá chladnout.
+ABS se prakticky nedá aktivně chladit a jeko řešení tohoto problému se často používá workaround:
+vytiskněte více malých věcí najednou.
 
 [[ukol-3]]
 === Úkol 3 (0 bodů, ale povinný)
@@ -189,7 +193,7 @@ V každém případě takovou část uřízněte, nebo odlomte.
 
 Zařízněte filament do špičky a vložte jej do otvoru na extruderu. Netlačte filament do tiskárny násilím, stačí jen vložit a jemně přitlačit a v OctoPrintu na kartě <<Ruční ovládání, ručního ovládání>> klikněte na tlačítko `Extrude`.
 
-Ve chvíli, kdy tiskárna uchopí filament jej můžete pustit. Extrudujte filament tak dlouho, dokud nezačne z trysky vytékat plast. Dále extrudujte plast tak dlouho, dokud nezačne z trysky vytékat plast správné barvy (v trysce mohly být pozůstatky filamentu jiné barvy).
+Ve chvíli, kdy tiskárna uchopí filament, jej můžete pustit. Extrudujte filament tak dlouho, dokud nezačne z trysky vylézat plast. Dále extrudujte plast tak dlouho, dokud nezačne z trysky vylézat plast správné barvy (v trysce mohly být pozůstatky filamentu jiné barvy).
 
 
 ==== ABS Juice
@@ -209,7 +213,7 @@ WARNING: ABS Juice je malé množství ABS rozpuštěné v acetonu. Aceton je ne
 Nahrajte tisková data (ve formátu GCode) na Raspberry Pi použitím ovládacího prvku _Files_ v levém dolním rohu rozhraní OctoPrintu. Přípravou tiskových dat do formátu GCode se zabývala kapitola xref:./slicing#[Slicing].
 
 Pokud máte vše připraveno, můžete kliknout ikonku tisku u vašeho právě nahraného souboru.
-Pokud chcete zkontrolovat váš gcode, klikněte na ikonku složky.
+Pokud chcete zkontrolovat váš GCode, klikněte na ikonku složky.
 Tím se váš soubor nastaví jako aktivní, můžete si prohlédnout načtené statistiky, či ověřit jeho správnost na kartě _GCode Viewer_ a tisk spustit až následným kliknutím na větší tlačítko _Print_ v části rozhraní nazvané _State_. 
 
 Pokud při tisku narazíte na jakýkoliv problém, konzultujte se cvičícím, nebo zkuste problém najít v xref:../troubleshooting/index#[troubleshootingu].
