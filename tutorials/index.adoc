@@ -28,7 +28,7 @@ xref:reprap#[RepRap], xref:git#[Git]
 |7. |13.11.2018 |xref:scan#[Skenování]
 |https://github.com/3DprintFIT/B181A-Scanning-Assignment[3]
 
-|8. |20.11.2018 |🚧 xref:printing#[Tisk - Základy] |3
+|8. |20.11.2018 |xref:printing#[Tisk - Základy] |3
 
 |9. |27.11.2018 |🚧 xref:printing#[Tisk] - xref:bridges#[Mosty] |3
 
