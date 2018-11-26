@@ -1,4 +1,5 @@
 = Programová manipulace s STL soubory
+:imagesdir: ../images/admesh/
 :toc:
 
 Kromě ručního zpracování meshe v programech, jako je Netfabb Basic, je
@@ -36,6 +37,8 @@ příkazovou řádku je k dispozici také knihovní API, které ale původně
 nevzniklo s úmyslem znovupoužitelnosti, takže je mnohdy jeho použití
 neintuitivní.
 
+.Program ADMesh vnikl v roce 1995 jako aplikace pro příkazovou řádku
+image::admesh.png[ADMesh]
 
 === Instalace knihovny
 
