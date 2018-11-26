@@ -148,6 +148,9 @@ I syntakticky naprosto správný STL soubor nemusí sémanticky dávat vůbec
 smysl. Mnoho STL souborů může vlivem různých faktorů obsahovat řadu
 chyb. O meshi, která obsahuje chyby, se říká, že je nevalidní.
 
+.Každá mesh musí jasně oddělovat vnitřek a vnějšek objektu. Zodpovědný 3D tiskař řekne ne https://cs.wikipedia.org/wiki/Kleinova_l%C3%A1hev[Kleinově láhvi]. Obrázek z https://twitter.com/3DPrintedPanda/status/1066688569400586241[tohoto tweetu]
+image::klein.jpg[Kleinova lahev]
+
 Zde si představíme několik častých chyb v STL souborech:
 
 === Neuzavřená mesh / díra v meshi
