@@ -1,72 +1,103 @@
-Mosty
------
+= Tisk: Mosty
+:toc:
+:imagesdir: ../images/bridges/
 
-Pro tisk přemostění je důležité mít správně nastavený profil ve sliceru.
-Správný most by měl vypadat jako na obrázku níže. Není žádoucí, aby byl
-most prověšený, nebo aby měl přetrhaná vlákna.
+V minulých cvičeních jsme si vysvětlili,
+že klasické FDM tiskárny z fyzikálních důvodů nemohou tisknout do vzduchu
+a tak je potřeba mít pod aktuálně tištěnou částí tiskovou desku nebo již vytištěnou část objektu.
+Ukázali jsme si, jak přidat podpory pro části modelu,
+které by vyžadovaly tisk do prázdného místa.
 
-image:../images/bridges/bridge.jpg[Most]
+Ne všechny situace však vyžadují plýtvat materiálem na tisk podpor.
+Pokud jste zkoumali, jak vypadá infill a co se děje po vytištění infillu,
+pak jste si jistě všimli, že někdy přeci jen dochází k tisku do vzduchu.
+Pokud máme 15% infill a chceme jej z vrchu zakrýt,
+pak logicky tiskneme v 85 % času do vzduchu.
+Jak to tedy může fungovat?
 
-(Obrázek z https://www.youtube.com/watch?v=wK2APNwEoSk[videa] © BCN3D
-Technologies.)
+WARNING: Dodržujte všechna bezpečnostní pravidla z xref:printing.adoc#[minulého cvičení].
+Zejména nikoho nebodejte nožem a nepijte aceton.
 
-Správně nastavený most
-~~~~~~~~~~~~~~~~~~~~~~
+== Mosty
+
+.Most – Obrázek z https://www.youtube.com/watch?v=wK2APNwEoSk[videa] © BCN3D Technologies
+image::bridge.jpg[Most, width=450, float=right]
+
+Situaci, kdy tiskneme z jednoho pevného bodu do druhého („z břehu na břeh“)
+rychlým jednoduchým lineárním „tahem“ nazýváme *přemostění* (anglicky bridging).
+
+Při přemostění se spoléháme na to, že vlákno plastu stále ještě vytéká z trysky (tzv. „visí“) a za danou dobu,
+kdy vlákno na trysce drží, se stihne tryska přesunout do druhého pevného bodu
+(na „protější břeh“), kde se vlákno uchytí.
+Tuhnutí a smršťování plastu pak ještě zařídí, že se dané vlákno napne a je rovné.
+
+Velkou roli při tisku mostů hraje rychlost posunu trysky a množství vytlačeného plastu.
+*Při příliš nízké rychlosti se vlákno prověsí dolů, nebo z trysky upadne.
+Vysoká rychlost zase může vlákno přetrhnout dříve, než dorazí k druhému bodu.*
+
+Logicky není žádoucí, aby byl most prověšený nebo měl přetrhaná vlákna.
+
+=== Nastavení mostu ve Slic3ru
 
 Pro kalibraci mostu se upravuje hodnota v aplikaci Slic3r v sekcích:
 
-* Print Settings→Speed→Bridges
-* Print Settings→Advanced→Flow.
+* _Print Settings → Speed → Bridges_
+* _Print Settings → Advanced → Flow_
 
-Pro dnešní cvičení si stáhnětě nový
-link:../configs/bridges/slic3r_config_bundle.ini[config].
+NOTE: Nastavení lze měnit poklepáním na určitý objekt,
+můžete tedy najednou tisknout více mostů s různými nastaveními.
+Dejte si ale pozor, ať víte, který je který.
 
-Úkol
-~~~~
+IMPORTANT: Pro dnešní cvičení si stáhněte 
+link:../configs/bridges/slic3r_config_bundle.ini[config určený pro tisk mostů].
 
-Zuří XLIII. světová válka v roce 2297. Již v roce 2015 bylo možné 3D
-tisknout mosty, proto vás nyní velitelství pověřilo vytisknout most na
-3D tiskárně. V naší výcvikové budově máme zmenšenou kopii 3D tiskárny,
+== Úkol
+
+Zuří XLIII. světová válka v roce 2297.
+Již v roce 2018 bylo možné 3D tisknout mosty,
+proto vás nyní velitelství pověřilo úkolem vytisknout most na 3D tiskárně.
+V naší výcvikové budově máme zmenšenou kopii 3D tiskárny,
 která bude poté na bitevním poli tisknout skutečné mosty.
 
-Každý most má svoje ohodnocení. Čím hodnotnější most se vám podaří
-vytisknout, tím lépe se ubráníte zlým kryptofašistům. Ohodnocení mostu
-ale není stejně rovnoměrné co se týče jeho výšky/šířky. Most široký 20 a
-dlouhý 30 není stejně ohodnocený jako most široký 30 a dlouhý 20.
-Hodnotnější je delší most. Jinak řečeno, pro zisk bodů se vyplatí dělat
-mosty spíše delší než širší.
+Každý most má svoje ohodnocení.
+Čím hodnotnější most se vám podaří vytisknout,
+tím lépe se ubráníte zlým kryptofašistům.
+Ohodnocení mostu ale není stejně rovnoměrné co se týče jeho výšky/šířky.
+Most široký 20 a dlouhý 30 není stejně ohodnocený jako most široký 30 a dlouhý 20.
+Hodnotnější je delší most. Jinak řečeno, pro zisk bodů se vyplatí dělat mosty spíše delší než širší.
 
-Jako generátor mostu použijte soubor
-link:../stls/bridges/bridge.scad[bridge.scad] a mosty generujte v
-OpenSCADu (úprava implementace modulu za účelem získání více bodů je
-považována za podvod). Jednotky jsou v milimetrech a jedná se pouze o
-velikost mostu bez velikosti pilířů. Pilíře se nesnažte podříznout,
-negativně by to ovlivnilo tiskové vlastnosti.
+Jako generátor mostu použijte soubor link:../stls/bridges/bridge.scad[bridge.scad] a mosty generujte v OpenSCADu (úprava implementace modulu za účelem získání více bodů je považována za podvod).
+Jednotky jsou v milimetrech a jedná se pouze o velikost mostu bez velikosti pilířů.
+Pilíře se nesnažte podříznout, negativně by to ovlivnilo tiskové vlastnosti.
 
-Vycházejte z konfigurace pro Slic3r
-link:../configs/bridges/slic3r_config_bundle.ini[slic3r_config_bundle.ini]
-(pozor, jiný bundle než minule!).
+Nezapomeňte použít link:../configs/bridges/slic3r_config_bundle.ini[config bundle určený pro tisk mostů] (pozor, jde o jiný config bundle, než jsme používali minule).
+
+Jinak postupujte podle návodu xref:printing.adoc#_tisk-krok-za-krokem[tisk krok za krokem].
 
 Ohodnocení mostu je vždy vidět na jeho horní straně.
 
-Hodnocení
-^^^^^^^^^
+NOTE: Pilíře mostu se musí udržet na tiskové desce.
+Použijte vhodné techniky, které znáte z kapitoly xref:slicing.adoc#structs[slicing].
 
-1.  bod za vytištění opravdu ošklivého propadlého mostu
-2.  bod za vytištění ošklivého mostu
-3.  bod za vytištění hezkého mostu
+=== Hodnocení
 
-Výše uvedené body se nesčítají. Kdo po sobě neuklidí, nemá na body
-nárok. Bodované mosty musí být aspoň 30 mm dlouhé.
+- 1 bod za vytištění opravdu ošklivého propadlého mostu
+- 2 bod za vytištění ošklivého mostu
+- 3 bod za vytištění hezkého mostu
 
-Bonus
-^^^^^
+Výše uvedené body se nesčítají.
+Kdo po sobě xref:printing.adoc#ukol-3[neuklidí], nemá na body nárok.
+Bodované mosty musí být aspoň 30 mm dlouhé.
 
-Armádní studentské dvojici, které se podaří vytisknout nejhodnotnější
-most, budou započítány 3 bonusové body. 2. nejlepší 2 body 3. nejlepší 1
-bod.
+=== Bonus
 
-Tato soutěž probíhá napříč všemi paralelkami. Průběžné výsledky *nejsou
-sdělovány soutěžícím*. Do soutěže vstupují pouze mosty, za které jste
-dostali body výše. Není tedy možné např. odevzdat hezký krátký most za 3
-body a zároveň soutěžit s opravdu ošklivým propadlým mostem.
+Armádní studentské dvojici,
+které se podaří vytisknout nejhodnotnější most,
+budou započítány 3 bonusové body.
+Druhé nejlepší dvojici 2 body a třetí nejlepší dvojici 1 bod.
+
+Tato soutěž probíhá napříč všemi paralelkami.
+Průběžné výsledky *nejsou sdělovány soutěžícím*.
+Do soutěže vstupují pouze mosty, za které jste dostali body výše.
+Není tedy možné např. odevzdat hezký krátký most za 3 body
+a zároveň soutěžit s opravdu ošklivým propadlým mostem.
