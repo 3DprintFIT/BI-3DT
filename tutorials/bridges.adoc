@@ -79,11 +79,15 @@ Ohodnocení mostu je vždy vidět na jeho horní straně.
 NOTE: Pilíře mostu se musí udržet na tiskové desce.
 Použijte vhodné techniky, které znáte z kapitoly xref:slicing.adoc#structs[slicing].
 
+WARNING: Zkontrolujte si, že pilíře nejsou plné, ale mají infill.
+V nastavení případně snižte hodnotu _Solid infill threshold area_.
+Dva perimetry budou stačit.
+
 === Hodnocení
 
-- 1 bod za vytištění opravdu ošklivého propadlého mostu
-- 2 bod za vytištění ošklivého mostu
-- 3 bod za vytištění hezkého mostu
+- 1. bod za vytištění opravdu ošklivého propadlého mostu
+- 2. bod za vytištění ošklivého mostu
+- 3. bod za vytištění hezkého mostu
 
 Výše uvedené body se nesčítají.
 Kdo po sobě xref:printing.adoc#ukol-3[neuklidí], nemá na body nárok.
