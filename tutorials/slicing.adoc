@@ -222,6 +222,57 @@ Karta __Printer Settings__ slouží k nastavení parametrů tiskárny (velikost 
 
 Většinu těchto parametrů nastavuje náš <<Konfigurační soubor pro tiskárny, konfigurační soubor>>. I přesto však doporučujeme zběžně tyto parametry projít, zájemce, kteří chtějí parametry podrobně zkoumat opět odkážeme na http://manual.slic3r.org[Slic3r manuál].
 
+== Slicing krok za krokem
+
+V této kapitole si ukážeme celý proces slicingu na jednom jednoduchém ukázkovém modelu.
+Pro slicing použijeme velmi zjednodušený https://www.thingiverse.com/thing:15451[model Eiffelovy věže],
+který půjde bezpečně škálovat.
+
+Model chceme vytisknout čtyřikrát: jednou v dvojnásobné velikosti,
+jednou v plné velikosti a dvakrát s poloviční velikosti (1× 200 %, 1× 100 %, 2× 50 %).
+U plné velikosti se však obáváme, že bude věž vyšší, než kam dosáhne tiskárna,
+takže tuto variantu rozdělíme na dvě části a po dotištění ji slepíme.
+Tisk budeme považovat jako pokusný a tak nastavíme parametry tak,
+aby byl tisk co nejrychlejší, ale zároveň se podařil a výsledek byl alespoň minimálně estetický
+(nemělo by to být škaredé).
+Obáváme se, že převisy na spodku Eiffelovy věže tiskárna nezvládne,
+proto přidáme podpůrné struktury.
+Díle máme obavy, že se při tisku mohou nožičky odlepit od tiskové podložky,
+takže přidáme struktury pro vylepšení přilnavosti.
+
+IMPORTANT: Před samotnou přípravou tiskových dat se ujistíme,
+že máme ve Slic3ru naimportovaný **správný config bundle**.
+Ten lze stáhnout xref:#config-file[na této stránce].
+Do Slic3ru jej importujeme pomocí položky __Load Config Bundle__, nikoliv pomocí __Load config__.
+
+=== Načtení modelu a jednoduché úpravy
+
+.Po první fázi by to mohlo vypadat nějak takto
+image::slicing-sbs-01.png[float=right, width=480]
+
+1. Na kartě __Plater__ pomocí tlačítka __Add__ ve vrchní nástrojové liště přidáme STL soubor na tiskovou desku.
+2. Tlačítkem __More__ v nástrojové liště zduplikujeme model do dvou kopií.
+3. Tlačítkem __Scale__ v nástrojové liště nastavíme velikost objektu na `25 %`. Jde o velikost objektu relativní k originální velikosti. Číslo je tedy udává danou velikost, pokud dvakrát nastavíme velikost na `50 %`, výsledná velikost nebude `25 %`, ale stále `50 %`.
+4. Levým tlačítkem v okénku s 3D náhledem rozložíme objekty podle potřeby. Tlačítkem __Arrange__ si můžeme nechat rozložit objekty automaticky.
+5. Škálování objektu ovlivňuje vždy všechny kopie vytvořené pomocí tlačítka __More__ (to platí obecně pro všechny úpravy objektu). Abychom mohli vložit dvě různé velikosti stejného objektu, musíme tlačítkem __Add__ nahrát STL soubor znovu a tím vytvořit nový objekt, který už bude mít samostatné nastavení velikosti. Tomu nastavíme velikost `50 %`.
+6. Jako poslední vložíme znovu další stejný objekt tlačítkem __Add__ a provedeme rozpůlení. K tomu slouží tlačítko __Cut__ v nástrojové liště. Otevře se dialog, ve kterém nastavíme požadovanou výšku, ve které se řez provede. Zaškrtneme obě zaškrtávátka __Upper part__ a __Lower part__, jelikož si po řezu chceme ponechat obě části.
+7. Výsledek by měl vypadat podobně jako na ukázkovém screenshotu. Pokud jsme s rozložením tisku spokojeni, můžeme přejít k nastavení parametrům tisku.
+
+=== Nastavení vlastností tisku
+
+.Výsledek slicingu
+image::slicing-sbs-02.png[float=right, width=480]
+
+1. Ve spodní části karty __Plater__ se nacházejí tlačítka pro výběr pohledu. Při nastavování parametrů tisku je užitečný pohled __Preview__, který nejen dává náhled, jak bude výsledný tisk vypadat, ale také zobrazí všechny přídavné struktury, které v parametrech tisku nastavíme. Sliderem umístěným napravo od náhledového okénka můžeme náhled blíže prozkoumat. Posouváním slideru zespoda nahoru simulujeme průběh tisku. Každou změnu v nastavení tisku tak můžeme na této kartě kontrolovat.
+2. Otevřeme kartu __Print settings__ v nabídce _Settings → Print Settings_.
+3. Na stránce __Layers and perimeters__ nastavíme počet perimetrů na `2` (položka __Perimeters__), plné vrstvy na spodku a vršku také na `2` (položka __Solid layers__).
+4. Na stránce __Infill__ nastavíme výplň na `15 %`. 
+5. Na stránce __Skirt and brim__ zařídíme, aby se tiskla struktura pro lepší přilnavost. Nastavíme __Exterior brim width__ na `2 mm`.
+6. Na stránce __Support material__ necháme tisknout podpory na místech, kde je velký převis. Zaškrtneme možnost __Generate support material__. Tiskárně víceméně důvěřujeme, a věříme, že zvládne převisy od 10° a více. Nastavíme položku __Overhand threshold__ na `10°`.
+7. Na stránce __Speed__ zrychlíme tisk na úkor kvality. Rychlost tisku perimetrů zvýšíme o `5 mm/s` a rychlost tisku infillu zvýšíme o `10 mm/s`. Nastavíme __Perimeters__ na `40 mm/s` a __Infill__ na `55 mm/s`.
+
+1. Výsledek vyexportujeme pomocí tlačítka __Export G-code...__ na pravé straně rozhraní.
+
 [discrete]
 == Credits
 
@@ -229,3 +280,4 @@ Na obrázcích se objevovaly modely:
 
 * https://www.thingiverse.com/thing:27053[Cute Octopus Says Hello] by MakerBot (CC BY 3.0)
 * https://www.thingiverse.com/thing:2120591[Phone Stand] by GoAftens (CC BY 3.0)
+* https://www.thingiverse.com/thing:15451[Eiffel Tower] by bmfinn (CC BY-SA 3.0)
