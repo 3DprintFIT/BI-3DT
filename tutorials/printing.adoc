@@ -196,6 +196,7 @@ Zařízněte filament do špičky a vložte jej do otvoru na extruderu. Netlačt
 Ve chvíli, kdy tiskárna uchopí filament, jej můžete pustit. Extrudujte filament tak dlouho, dokud nezačne z trysky vylézat plast. Dále extrudujte plast tak dlouho, dokud nezačne z trysky vylézat plast správné barvy (v trysce mohly být pozůstatky filamentu jiné barvy).
 
 
+[[abs-juice]]
 ==== ABS Juice
 
 K vylepšení přilnavosti tiskové desky se používají různé materiály -- lepidla, ABS Juice, laky.

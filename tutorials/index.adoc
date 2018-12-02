@@ -32,7 +32,7 @@ xref:reprap#[RepRap], xref:git#[Git]
 
 |9. |27.11.2018 |xref:bridges#[Tisk: Mosty] |3
 
-|10. |4.12.2018 |🚧 xref:printing#[Tisk] - xref:supports#[Podpory] |3
+|10. |4.12.2018 |xref:supports#[Tisk: Podpory] |3
 
 |11. |11.12.2018 |🚧 xref:printing#[Tisk] - xref:multicolor#[Vícebarevný tisk] |3
 
