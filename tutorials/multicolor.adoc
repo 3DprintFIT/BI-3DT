@@ -41,7 +41,7 @@ Další možností je do jedné trysky vhánět střídavě více různých plas
 .Tiskárna Prusa i3 MK2 multi material © Prusa Research s.r.o.
 image::mk2_multi_material.png[MK2 MM, width=450]
 
-Při vyměněn materiálu v jedné trysce se ale musí někde provést vytlačení přebytečného starého plastu.
+Při výměně materiálu v jedné trysce se ale musí někde provést vytlačení přebytečného starého plastu.
 Většinou se tak děje do odpadního objektu, který může být finančně velmi ztrátový.
 
 .Odpad z výtisku na tiskárně Prusa i3 MK2 multi material, obrázek z https://youtu.be/MnOWX4Ujtv8[videa] Joela Tellinga
