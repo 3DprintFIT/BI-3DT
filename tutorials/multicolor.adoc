@@ -81,6 +81,14 @@ souborů.
 6. Až dotiskne první barva, můžeme tryskou odjet do strany, zavést nový materiál a spustit další soubor.
 7. Takto tiskneme další Gcode soubory dokud nedotiskneme celý objekt.
 
+NOTE: Na tiskárnách opatřených LCD displayem a tlačítkem můžete využít Gcode příkaz
+https://reprap.org/wiki/G-code#M600:_Filament_change_pause[M600].
+Tento příkaz tisk pozastaví, odjede tryskou na stranu, vypne motor na extruderu a informuje uživatele,
+že je potřeba vyměnit filament (často i pomocí hlasitého a nepříjemného pípání).
+Po výměně plastu stačí stisknout tlačítko, tisková hlava se vrátí zpět a tisk pokračuje.
+Místo rozdělení souboru na dva pak stačí do Gcodu přidat jeden řádek navíc,
+existují na to i https://www.prusaprinters.org/color-print/[sofistikované aplikace].
+
 === Postup 2 -- rozdělení modelu
 
 Rozdělení samotného modelu na více barevných částí. Vyžaduje bohužel
