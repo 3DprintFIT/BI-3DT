@@ -69,6 +69,9 @@ IMPORTANT: Před tiskem si vždy prohlédněte Gcode.
 WARNING: Jestliže se tisk testovacího modelu hned napoprvé vytiskne bez podpor,
 znamená to, že tiskárna vytiskne cokoliv, nebo že jste provedli nedostatečný test?
 
+NOTE: Šetřete čas. Při tisku této úlohy můžete rovnou tisknout i medvěda z úlohy další.
+Jak to ovlivní celkovou dobu tisku a proč?
+
 === Jak to nedělat? (1 bod)
 
 Vaším úkolem za jeden bod je vytisknout link:../stls/supports/bear.stl[medvěda] bez podpor.
