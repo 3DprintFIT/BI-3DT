@@ -39,5 +39,5 @@ xref:reprap#[RepRap], xref:git#[Git]
 |12. |18.12.2018 |Tisk - co si přejete vyzkoušet ohledně semestrální práce |0
 
 2+d|Domácí příprava vhodná k semestrálce
-|🚧 xref:meshmixer#[MeshMixer a řezání STL souborů] |0
+|xref:meshmixer#[MeshMixer a řezání STL souborů] |0
 |=======================================================================
