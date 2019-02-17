@@ -1,0 +1,306 @@
+= Semestrální práce ZS 2018/2019
+:toc:
+:imagesdir: media/
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+== Intro
+To, že Vánoce znovu přicházejí víme už od půlky října podle větších obchodních
+domů. Samozřejmě, že i my se potřebujeme na přicházející svátky patřičně
+připravit.
+
+Maminky vás poprosily, jestli byste nemohli sehnat vánoční hvězdu
+na stromek. Protože se již cítíte jako zdatní 3D tiskaři, tak jste se
+rozhodli, že si vlastní hvězdu naprogramujete v programu OpenSCAD a následně
+si ji na 3D tiskárně vytisknete.
+
+Protože po vás nechtějí hvězdy jen maminky, ale také tety a sousedky, potřebujete
+udělat hvězdu parametrickou, abyste si jich mohli vytisknout více a s jiným
+vzorem.
+
+Jelikož jste nakupovali moc dárků a zbylo vám jen pár korun na filament,
+rozhodli jste se udělat hvězdu děrovanou a dutou. Ušetříte tedy na filamentu
+a dokonce by to mohlo vypadat i hezky.
+
+== Děrovaná hvězda
+Vaší semestrální prací je generování děrovaných 3D hvězd. Tuto práci vypracujte
+v programu OpenSCAD, ve kterém naprogramujte modul, který bude umět
+vygenerovat modely děrovaných 3D hvěz na základě vstupních dat. Dále si
+vyberte jednu z přidělených hvězd, tu připravte k tisku a vytiskněte na 3D
+tiskárně a popřípadě dodatečně upravte. 
+
+=== Generátor děrovaných hvězd
+V programu OpenSCAD napište modul `star`, který vytvoří 3D model děrované hvězdy
+a bude mít následující rozhraní.
+
+```cpp
+module star(holes=[], rmain=15, r1=10, r2=5, slen=35, holer=2.5, reduc=0.3,
+thick = 2.5) { ... }
+```
+
+Vektor (pole) `holes` obsahuje malá přirozená čísla. Pro každý prvek tohoto
+pole bude mít hvězda jednu špičku, která v sobě bude mít N*4 (krát 4, aby
+byly díry do všech stran špičky), kde N je hodnota prvku. Například pro pole
+[2, 2, 3, 5] bude hvězda mít 4 špičky. Dvě budou mít 2*4 děr, jedna 3*4 děr
+a jedna na 5*4 děr. První díra je u hlavní
+koule a další se rovnoměrně rozloží po špičce v závislosti na parametru `slen`.
+
+
+Číslo `rmain` je poloměr hlavní koule, že které jdou špičky hvězdy. Číslo `r1` je poloměr vnitřní koule
+špičky. Číslo `r2` je poloměr vnější koule špičky. Číslo `slen` je délka špičky
+mezi polomery vnitřní a vnější koule špičky. Číslo `holer` je poloměr díry v
+kouli. Číslo `reduc` je konstanta, o kterou se změnšují díry na špičce. Číslo
+`thick` je šířka stěny hvězdy.
+Lepší představu pravděpodobně získáte z dalšího popisu a nákresů.
+
+
+Špičky hvězdy musí ze středu hvězdy vycházet do různých směrů tak, aby byly co
+nejlépe rozdistribuované. Pokud bychom měli 2D hvězdu, stačilo by
+špičky rozmístit tak, aby mezi sebou měli úhel `360/(počet špiček)`,
+protože ale máme hvězdu 3D, není tento problém úplně triviální.
+
+TIP: Zajímají vás algoritmy který umí rovnoměrně rozmístit N bodů na povrchu
+koule, které již existují, jen je třeba je adaptovat pro OpenSCAD (ten neumí
+inkrementovat hodnoty průchodem cyklu) (tip: `cos()` a `sin()` v
+OpenSCADu očekává vstup ve stupních, konstanta `PI` již existuje).
+
+NOTE: Vaším úkolem není vymyslet, jak tyto špičky rozdistribuovat po kouli,
+ale najít vhodné řešení a použít ho pro tyto účely. Pokud ale najdete
+nějakou myšlenku, nezapomeňte uvést zdroj.
+
+== Nákresy hvězdy
+Na prvním obrázku je vyznačeno, jak by měla hvězda vypadat. Poloměr hlavní koule
+`rmain` je vyznačen červeně. přerušovanou čarou je vyznačeno, která část koule
+bude dutá. Šířka stěny koule je `thick` (fialově).
+
+Na kouli je n špiček, kde jejich počet je dán délkou pole `holes`. Špička je
+tvořena ze dvou koulí, přičemž "první koule", kterou definujeme polomerem `r1`
+(zeleně), je uvnitř hlavní koule a dotýká se jí. Mezi středy "první koule" a
+"druhé koule" (definovanou `r2` (modře)) je vzdálenost `slen` (žlutě).
+Usečka mezi středy první a druhé koule je kolmá na hlavní kouli.
+
+.Obecný vzhled hvězdy
+image::star_example.png[]
+
+Na druhém obrázku je vidět, že šířka stěny `thick` ovlivňuje nějen hlavní kouli,
+ale také všechny špičky.
+
+.Vzhled spičky hvězdy a znárornění dutosti
+image::star_spike_example.png[]
+ 
+Třetí obrázek je trochu zajímavější. Ukazuje totiž, jak mají být rozložené
+díry ve špičce. Počet děr je dán i-tým prvkem v poli `holes[i]`. Na obrázku
+je znázorněno, jak by to vypadalo pro `holes[i] == 4`. 
+
+Díry jsou rovnoměrně
+rozložené podle počtu po celé špičce od hrany hlavní koule do středu
+"druhé koule" (s polomerem `r2`).
+
+Díry se ale také otáčejí podle počtu o určitý počet stupňů. Pro špičku holes[i]
+je to o hodnotu (360/holes[i]) stupňů. Na obrázku je to vyznačeno barvami děr.
+Pro hodnotu holes[i] == 4 se díry otáčejí o (360/4), tedy 90 stupňů. Pro
+holes[i] == 3 by to bylo 120 stupňů. Na obrázku je to znázorněno barvami
+jednotlivých děr.
+
+Počítání úhlů děr nemusíte řešit. Stačí aby byly kolmé na úsečku mezi středy
+"velké a malé koule".
+
+Poloměr díry je `holer` - ``reduc``++*++``j``, kde `j` je index díry (indexujeme od 0).
+Například pro holes[i] == 3, je poloměr první díry (nejblíže hlavní koule)
+rovna (`holer` - `reduc` +*+ 0), druhý (`holer` - `reduc` +*+ 1), třetí
+(`holer` - `reduc` * 2) a tak dále.
+
+.Rozložení děr na špičce
+image::star_spike_holes_example.png[]
+
+
+Výsledná hvězda by mohla vypadat například takto:
+
+.Možný výsledek
+image::star_example_animated.gif[]
+
+
+== Vaše hvězdy
+
+Každému z vás jsou přiděleny tři náhodně vygenerované multisety
+`holes`. Je na vás, který z nich si vyberete k tisku. Hvězdy se
+tisknou s ostatními argumenty nastavenými na výchozí hodnoty.
+
+```
+ba.....n [6, 3, 5, 6, 4, 4, 6], [6, 6, 5, 3, 3, 5, 5, 5, 5], [3, 5, 6, 5, 5, 5, 6, 5, 3, 3, 4]
+b......a [3, 3, 4, 4, 3, 4, 3], [4, 5, 3, 5, 5, 4, 5, 3, 5], [5, 3, 4, 3, 3, 4, 4, 5, 6, 4, 4]
+b......k [4, 3, 6, 6, 6, 3, 4], [5, 3, 4, 3, 6, 5, 6, 5, 3], [4, 4, 4, 3, 5, 3, 4, 6, 4, 4, 4]
+br.....n [4, 3, 4, 6, 4, 4, 3], [3, 5, 6, 6, 6, 3, 5, 4, 6], [3, 5, 4, 6, 4, 4, 6, 5, 5, 4, 5]
+c......7 [4, 3, 4, 6, 4, 3, 4], [3, 5, 6, 4, 3, 3, 3, 6, 3], [6, 4, 4, 4, 6, 6, 3, 5, 3, 3, 6]
+c......6 [3, 3, 4, 3, 4, 3, 5], [5, 4, 3, 5, 6, 6, 4, 4, 4], [6, 3, 3, 6, 6, 3, 6, 5, 3, 5, 5]
+d......t [3, 3, 3, 5, 6, 6, 4], [5, 6, 5, 4, 4, 5, 3, 3, 5], [6, 3, 6, 4, 6, 3, 5, 3, 5, 6, 4]
+d......8 [6, 4, 4, 5, 3, 3, 5], [6, 6, 3, 3, 4, 3, 6, 5, 4], [6, 4, 5, 4, 5, 4, 6, 4, 4, 5, 3]
+e......r [4, 6, 3, 4, 5, 4, 4], [4, 5, 6, 3, 6, 4, 4, 3, 3], [5, 5, 3, 3, 3, 4, 4, 5, 4, 3, 5]
+g......l [4, 5, 4, 4, 4, 6, 6], [4, 3, 6, 3, 6, 5, 4, 6, 4], [5, 3, 3, 4, 6, 5, 5, 5, 3, 4, 5]
+h......6 [4, 4, 3, 6, 5, 3, 5], [4, 3, 3, 3, 3, 4, 5, 3, 6], [5, 3, 6, 3, 4, 4, 5, 4, 3, 3, 3]
+h......5 [6, 4, 6, 6, 4, 4, 4], [4, 4, 4, 5, 5, 6, 6, 5, 6], [4, 3, 4, 3, 5, 4, 6, 5, 5, 6, 5]
+h......m [4, 4, 4, 6, 4, 5, 6], [3, 6, 3, 5, 4, 3, 5, 5, 6], [5, 5, 3, 3, 5, 3, 3, 3, 4, 5, 6]
+h......j [5, 6, 4, 3, 4, 4, 5], [3, 5, 6, 4, 6, 6, 3, 6, 5], [6, 6, 5, 5, 3, 4, 3, 4, 3, 3, 6]
+h......i [6, 5, 4, 5, 5, 6, 3], [6, 5, 4, 3, 4, 5, 6, 5, 5], [5, 3, 3, 6, 3, 5, 3, 3, 5, 6, 5]
+c......1 [4, 6, 4, 3, 4, 5, 4], [3, 3, 6, 6, 6, 6, 3, 6, 3], [5, 4, 5, 4, 3, 5, 5, 3, 6, 4, 5]
+c......m [6, 3, 5, 5, 3, 5, 6], [4, 6, 5, 6, 6, 3, 5, 6, 6], [4, 6, 3, 6, 4, 6, 5, 6, 5, 4, 3]
+c......v [6, 4, 3, 3, 6, 3, 3], [6, 6, 6, 6, 6, 6, 5, 4, 3], [6, 4, 6, 3, 4, 3, 6, 6, 3, 4, 5]
+j......k [4, 6, 4, 6, 5, 6, 4], [4, 3, 4, 4, 6, 3, 6, 6, 6], [6, 4, 6, 6, 4, 3, 4, 4, 4, 6, 5]
+j......t [5, 3, 4, 5, 4, 3, 6], [3, 4, 5, 5, 6, 6, 6, 6, 4], [3, 4, 4, 4, 4, 3, 6, 3, 5, 3, 4]
+j......j [4, 5, 3, 5, 5, 4, 6], [6, 3, 3, 4, 6, 3, 4, 5, 5], [4, 4, 6, 6, 4, 5, 4, 4, 4, 6, 3]
+k......k [5, 5, 5, 6, 6, 3, 4], [5, 3, 5, 5, 6, 3, 6, 5, 6], [4, 6, 5, 6, 5, 5, 4, 4, 5, 6, 6]
+k......d [6, 3, 3, 4, 3, 6, 6], [4, 6, 6, 4, 4, 5, 3, 3, 6], [4, 6, 4, 4, 5, 5, 5, 5, 4, 3, 6]
+k......e [6, 4, 3, 3, 6, 6, 4], [3, 5, 4, 3, 5, 4, 3, 5, 5], [5, 4, 4, 5, 4, 5, 3, 6, 4, 5, 6]
+ko.....1 [5, 6, 4, 4, 4, 3, 4], [6, 4, 4, 5, 3, 4, 5, 5, 3], [6, 6, 4, 3, 3, 3, 4, 6, 4, 5, 6]
+ku.....1 [4, 5, 5, 6, 4, 3, 6], [4, 5, 3, 5, 5, 4, 4, 3, 3], [5, 5, 6, 4, 4, 3, 5, 6, 6, 5, 3]
+k......n [6, 5, 4, 6, 6, 4, 4], [3, 3, 3, 3, 4, 4, 3, 4, 4], [5, 3, 6, 3, 6, 4, 6, 3, 3, 6, 3]
+l......1 [5, 3, 3, 6, 5, 5, 4], [5, 4, 6, 4, 4, 6, 3, 5, 6], [4, 3, 5, 5, 5, 3, 3, 4, 3, 4, 4]
+m......1 [6, 6, 6, 6, 5, 4, 6], [4, 5, 3, 3, 5, 6, 5, 3, 4], [3, 6, 3, 6, 3, 3, 4, 4, 6, 4, 4]
+p......1 [5, 6, 3, 5, 3, 5, 4], [6, 3, 3, 6, 6, 5, 4, 3, 3], [3, 6, 5, 4, 6, 6, 4, 6, 5, 5, 3]
+p......n [5, 5, 5, 6, 6, 6, 6], [4, 6, 5, 5, 6, 6, 6, 5, 3], [4, 3, 6, 4, 5, 3, 3, 3, 6, 4, 5]
+p......k [5, 6, 3, 5, 3, 6, 4], [5, 6, 6, 3, 3, 6, 4, 3, 4], [3, 4, 5, 3, 5, 3, 4, 6, 6, 4, 5]
+p......4 [6, 4, 3, 5, 3, 3, 6], [6, 3, 4, 5, 5, 4, 3, 3, 5], [4, 4, 3, 6, 5, 4, 3, 5, 3, 4, 6]
+p......t [4, 4, 5, 5, 6, 4, 4], [3, 3, 3, 6, 4, 4, 4, 5, 4], [6, 5, 5, 4, 4, 6, 6, 4, 5, 6, 4]
+r......s [3, 6, 3, 6, 6, 3, 4], [5, 5, 3, 6, 5, 5, 6, 5, 6], [4, 3, 3, 3, 6, 4, 6, 5, 4, 5, 3]
+s......k [5, 6, 4, 4, 3, 5, 4], [3, 3, 4, 6, 6, 3, 5, 6, 4], [6, 6, 3, 4, 5, 5, 4, 5, 5, 3, 6]
+si.....n [5, 5, 3, 3, 5, 4, 5], [5, 3, 3, 3, 6, 6, 5, 3, 5], [6, 5, 3, 6, 3, 6, 4, 6, 3, 6, 4]
+s......t [3, 5, 3, 3, 3, 3, 5], [4, 6, 4, 5, 6, 5, 3, 4, 6], [6, 5, 3, 5, 5, 6, 6, 4, 3, 5, 4]
+s......a [5, 5, 5, 5, 6, 5, 5], [4, 6, 4, 6, 6, 4, 4, 6, 3], [5, 4, 6, 3, 4, 4, 5, 4, 5, 4, 3]
+sl.....n [5, 5, 4, 6, 4, 3, 4], [6, 5, 6, 6, 6, 5, 6, 3, 4], [5, 6, 4, 6, 5, 4, 4, 3, 6, 6, 4]
+s......o [5, 5, 4, 3, 6, 5, 5], [3, 5, 3, 4, 6, 3, 5, 4, 3], [5, 6, 4, 4, 6, 6, 4, 6, 6, 3, 5]
+s......4 [6, 5, 6, 3, 6, 4, 6], [5, 6, 5, 6, 6, 5, 5, 4, 5], [6, 6, 5, 5, 4, 6, 5, 5, 3, 6, 4]
+te.....3 [3, 5, 6, 5, 3, 4, 4], [4, 3, 5, 3, 6, 6, 4, 5, 6], [3, 3, 5, 4, 5, 6, 5, 5, 5, 3, 6]
+t......n [4, 4, 5, 4, 5, 3, 3], [4, 6, 6, 3, 3, 6, 6, 6, 4], [5, 6, 3, 4, 5, 6, 3, 3, 4, 6, 6]
+tu.....3 [5, 5, 3, 5, 4, 5, 5], [4, 6, 4, 6, 3, 5, 5, 4, 4], [3, 5, 4, 5, 6, 5, 6, 3, 5, 3, 4]
+v......1 [5, 3, 6, 6, 6, 4, 4], [4, 6, 4, 5, 3, 6, 3, 4, 6], [6, 3, 5, 5, 4, 3, 3, 3, 5, 3, 6]
+va.....d [6, 5, 4, 3, 5, 4, 6], [4, 6, 3, 4, 3, 4, 4, 6, 4], [3, 4, 6, 6, 4, 6, 5, 6, 3, 6, 3]
+vo.....d [6, 5, 6, 3, 5, 3, 5], [3, 6, 5, 4, 5, 5, 3, 3, 6], [5, 3, 5, 6, 4, 5, 3, 5, 5, 6, 5]
+z......a [6, 3, 3, 3, 5, 6, 4], [6, 3, 3, 3, 6, 5, 4, 3, 4], [6, 6, 3, 4, 5, 5, 5, 4, 3, 5, 3]
+z......4 [3, 3, 6, 4, 5, 4, 4], [4, 5, 4, 4, 3, 3, 4, 6, 6], [4, 3, 5, 4, 4, 5, 3, 6, 4, 5, 4]
+```
+
+== Předzpracování
+
+Vyberte si libovolný (podle vás nejednodušší nebo nejzajímavější) z
+vašich tří multisetů a připravte hvězdu z něj vygenerovanou pro tisk
+(můžete si zvýšit `$fn`, aby byla vaše hvězda hezčí). Můžete s ní dělat
+prakticky cokoliv (opravovat, otáčet, krájet, přidávat podpůrné
+struktury), ale je třeba zachovat při tisku rozměry a tvar hvězdy dle
+zadaných pravidel a dat. Výstupem je jeden nebo více STL souborů
+připravených na slicing a velmi stručný popis toho, **co** jste
+udělali a **proč** (ne nutně písemně, ale při odevzdávání je třeba
+postup vysvětlit a to i několik týdnů po vykonání vašich změn).
+
+**Jak řezat STL soubory?** Jde to jistě i v OpenSCADu, ale to je zbytečně
+komplikované. Připravili jsme proto https://github.com/3DprintFIT/BI-3DT/blob/master/tutorials/meshmixer.adoc[krátký
+návod pro program MeshMixer], případně můžete využít Slic3r.
+
+Pokud jste spíše fanoušci Blenderu, tak se dá s objekty manipulovat i tam.
+Zde je tedy
+https://www.youtube.com/watch?v=ndQTn8mCweA[návod na řezání] a 
+https://www.youtube.com/watch?v=0pfTDzAaXp4[návod na otočení
+objektu, aby ležel na desce].
+
+
+**Nejde vám v Meshmixeru nebo Blenderu dobře alignovat?** Zkuste program
+https://ultimaker.com/en/products/ultimaker-cura-software[Cura].
+Obsahuje funkci *Lay flat*.
+
+== Slicing
+
+Naslicujte libovolným programem vámi připravená tisková STLka s použitím
+vhodných nastavení. Pro Slic3r vyjděte z profilů ze cvičení.
+Profily pro případné jiné programy pro vás nemáme,
+ale smíte si vytvořit svoje. Výstupem je použitý slicovací profil
+vyexportovaný z programu a jeden nebo více GCODE souborů. Jednotlivé
+části můžete tisknout najednou (pokud se vejdou na tiskovou plochu a
+pokud vám to připadá vhodné) nebo postupně, případě kombinaci obojího.
+
+== Tisk a postprocessing
+
+V zápočtových akcích vypsaných v KOSu, probíhajících ve zkouškovém
+období, budete v laboratoři z ABS tisknout hvězdy z vámi připravených
+GCODE souborů. Po dotisknutí je třeba výtisk náležitě opracovat -
+oddělat podpory, slepit atp. Výsledná hvězda by měla vypadat co
+nejpodobněji požadovanému modelu. Na jeden termín je celkem maximálně 5
+hodin (tisk + postproccessing).
+
+V případě absolutního selhání při tisku je možné tisk opakovat s novým
+GCODEm, ale pouze jednou. V případě technického problému na naší straně
+se samozřejmě o promarněný pokus nejedná.
+
+== Odevzdání, hodnocení a termíny
+
+Toto je finální verze zadání. Případné opravy chyb v zadání budou opatřeny erratou a oznámeny e-mailem.
+
+Odevzdává se na GitHub, repozitář vytvoříte na odkazu https://classroom.github.com/a/LZ3xHcBU
+
+Veškeré slovní popisy uveďte přímo do README (či README.md apod.) v
+repozitáři. **Tentokrát nečekejte žádnou automatickou issue.**
+
+V repozitáři odevzdávejte:
+
+- scad soubor s modulem `star` jeho deklarací/definicí
+- scad soubor **volající** modul `star` s vašimi vybranými daty (bez deklarace/definice modulu `star`)
+- STL soubor s vaší hvězdou, tak jak byl vygenerován OpenSCADem
+- Tiskové STL soubory
+- Tiskové GCODE soubory
+- Profil pro slicovací program, který jste použili
+- Případné další potřebné soubory
+
+Pokud máte jakékoliv dotazy, či naleznete chyby, napište je prosím do https://github.com/3DprintFIT/B181CW-Assignment/issues[Issues] v tomto repozitáři.
+
+Termín odevzdání na GitHub je **20.1.2019 včetně** (případně začátek
+vašeho zápočtového termínu, pokud se tento koná dřív), tisknout můžete i
+potom. Možnost pozdního odevzdání: Za každý další započatý týden (byť o
+vteřinu) je z celkového hodnocení strženo 10 bodů. Pokud je celkový
+součet menší než 0, je hodnocení za semestrální práci 0. V době započetí
+termínu klasifikovaného zápočtu (tisk v laboratoři), již musí být
+odevzdáno na GitHub.
+
+Zkouškové končí 16.2.2019, nemáme nic proti odevzdání a zápočtovým
+termínům i po tomto datu, ale je třeba se na tom explicitně domluvit a
+přijmout rizika z toho plynoucí.
+
+Hodnocení dle následující tabulky:
+
+|===
+| **Část** | **body** | **poznámka** 
+| **Moduly pro OpenSCAD:** | **10** |
+| Modul `star` funguje podle zadání | 7 | povinný v rámci části
+| Zdrojový kód je vhodně členěn a komentován | 3 |
+| **Příprava na tisk:** | **10** |
+| Vhodně připravená tisková STLka | 5 | povinný v rámci části
+| Mesh ve všech tiskových STL je v pořádku | 5 |
+| **Slicing:** | **10** |
+| Podpory (nejsou potřeba (5 b.), vhodné užití* (2.5 b.), zbytečné užití (0 b.)) | 5 |
+| Vhodné nastavení parametrů tisku (perimetry, výplň, výška vrstvy) | 5 |
+| **Tisk:** | **10** |
+| Jedná se o výtisk modelu dle zadání, výtisk je opracovaný (např. bez podpor, slepený atp.) | 4 | povinný v rámci části
+| Výtisk neobsahuje vady zjevně způsobené nevhodnou přípravou modelu | 3 |
+| Výtisk neobsahuje vady zjevně způsobené nevhodnou přípravou tiskárny (příprava tiskové plochy, nevhodné teploty) | 3|
+|===
+
+* Pouze za podpory vygenerované při slicování se strhávají body. Protože jsme v části slicing.
+
+NOTE: Podstatou semestrální práce není absolutní rigoróznost vašeho OpenSCAD řešení,
+k tomu slouží domácí úkol. Je třeba dodržet podstatu zadání a reagovat rozumně na parametry.
+
+IMPORTANT: Pro ovládání tiskárny při odevzdávání potřebujete vlastní počítač se
+schopností připojit se na WiFi nebo kabelem do lokální sítě. Také
+potřebuje znát (umět dohledat) svou MAC adresu.
+
+
+Hodnocení je rozděleno na 4 dílčí části. *Povinný v rámci části*
+znamená, že bez splnění tohoto úkolu student za danou část nedostane
+žádné body. V případě opravného tisku se již neopravují hodnoty bodů v
+ostatních dílčích částech. Pokud tedy například nezvládnete slicing,
+dostanete z něj nula bodů a (celkem logicky) fatálně selže i tisk,
+můžete v náhradním termínu dostat body za tisk, za slicing už ale žádné
+body nedostanete.
+
