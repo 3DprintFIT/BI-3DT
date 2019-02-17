@@ -6,37 +6,37 @@ U cvičeních označených 🚧 se dají v průběhu semestru předpokládat zm�
 [cols="s,2,4,",options="header",]
 |=======================================================================
 |Cvičení |Datum |Téma |Body
-|1. |2.10.2018 |xref:course#[Principy předmětu],
+|1. |18.02.2019 |xref:course#[Principy předmětu],
 xref:reprap#[RepRap], xref:git#[Git]
 |https://github.com/3DprintFIT/B181A-Username-Assignment[0]
 
-|2. |9.10.2018 |xref:openscad#[OpenSCAD: Základy]
+|2. |25.02.2019 |xref:openscad#[OpenSCAD: Základy]
 |https://github.com/3DprintFIT/B181A-OpenSCAD1-Assignment[3]
 
 |3. |16.10.2018 |xref:openscad#[OpenSCAD: Pokročilé]
 |https://github.com/3DprintFIT/B181A-OpenSCAD2-Assignment[3]
 
-|4. |23.10.2018 |xref:mesh#[Mesh]
+|4. |04.03.2019 |xref:mesh#[Mesh]
 |https://github.com/3DprintFIT/B181A-Mesh-Assignment[3]
 
-|5. |30.10.2018 |xref:admesh#[ADMesh] - Programová manipulace s meshí
+|5. |11.03.2019 |xref:admesh#[ADMesh] - Programová manipulace s meshí
 |https://github.com/3DprintFIT/B181A-ADMesh-Assignment[3]
 
-|6. |6.11.2018 |xref:slicing#[Slicing]
+|6. |18.03.2019 |xref:slicing#[Slicing]
 |https://github.com/3DprintFIT/B181A-Slicing-Assignment[3]
 
-|7. |13.11.2018 |xref:scan#[Skenování]
+|7. |25.03.2019 |xref:scan#[Skenování]
 |https://github.com/3DprintFIT/B181A-Scanning-Assignment[3]
 
-|8. |20.11.2018 |xref:printing#[Tisk: Základy] |3
+|8. |01.04.2019 |xref:printing#[Tisk: Základy] |3
 
-|9. |27.11.2018 |xref:bridges#[Tisk: Mosty] |3
+|9. |08.04.2019 |xref:bridges#[Tisk: Mosty] |3
 
-|10. |4.12.2018 |xref:supports#[Tisk: Podpory] |3
+|10. |15.04.2019 |xref:supports#[Tisk: Podpory] |3
 
-|11. |11.12.2018 |xref:multicolor#[Tisk: Vícebarevný tisk] |3
+|11. |29.04.2019 |xref:multicolor#[Tisk: Vícebarevný tisk] |3
 
-|12. |18.12.2018 |Tisk - co si přejete vyzkoušet ohledně semestrální práce |0
+|12. |06.05.2019 |Tisk - co si přejete vyzkoušet ohledně semestrální práce |0
 
 2+d|Domácí příprava vhodná k semestrálce
 |xref:meshmixer#[MeshMixer a řezání STL souborů] |0
