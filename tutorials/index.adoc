@@ -8,22 +8,22 @@ U cvičeních označených 🚧 se dají v průběhu semestru předpokládat zm�
 |Cvičení |Datum |Téma |Body
 |1. |18.02.2019 |xref:course#[Principy předmětu],
 xref:reprap#[RepRap], xref:git#[Git]
-|https://github.com/3DprintFIT/B181A-Username-Assignment[0]
+|https://github.com/3DprintFIT/B182A-Username-Assignment[0]
 
 |2. |25.02.2019 |xref:openscad#[OpenSCAD: Základy]
-|https://github.com/3DprintFIT/B181A-OpenSCAD1-Assignment[3]
+|3
 
 |3. |16.10.2018 |xref:openscad#[OpenSCAD: Pokročilé]
 |https://github.com/3DprintFIT/B181A-OpenSCAD2-Assignment[3]
 
 |4. |04.03.2019 |xref:mesh#[Mesh]
-|https://github.com/3DprintFIT/B181A-Mesh-Assignment[3]
+|3
 
 |5. |11.03.2019 |xref:admesh#[ADMesh] - Programová manipulace s meshí
-|https://github.com/3DprintFIT/B181A-ADMesh-Assignment[3]
+|3
 
 |6. |18.03.2019 |xref:slicing#[Slicing]
-|https://github.com/3DprintFIT/B181A-Slicing-Assignment[3]
+|3
 
 |7. |25.03.2019 |xref:scan#[Skenování]
 |https://github.com/3DprintFIT/B181A-Scanning-Assignment[3]
