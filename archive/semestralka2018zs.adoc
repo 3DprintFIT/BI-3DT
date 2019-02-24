@@ -9,6 +9,13 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 
+[WARNING]
+====
+Toto není aktuální zadání semestrální práce. Je zde pouze k účelům archivace.
+
+Další starší zadání můžete vidět v xref:index#[archívu].
+====
+
 == Intro
 To, že Vánoce znovu přicházejí víme už od půlky října podle větších obchodních
 domů. Samozřejmě, že i my se potřebujeme na přicházející svátky patřičně
