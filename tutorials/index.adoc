@@ -1,7 +1,6 @@
 = Cvičení
 
 Změna programu vyhrazena.
-U cvičeních označených 🚧 se dají v průběhu semestru předpokládat změny v obsahu.
 
 [cols="s,2,4,",options="header",]
 |=======================================================================
@@ -13,30 +12,30 @@ xref:reprap#[RepRap], xref:git#[Git]
 |2. |25.02.2019 |xref:openscad#[OpenSCAD: Základy]
 |3
 
-|3. |16.10.2018 |xref:openscad#[OpenSCAD: Pokročilé]
-|https://github.com/3DprintFIT/B181A-OpenSCAD2-Assignment[3]
-
-|4. |04.03.2019 |xref:mesh#[Mesh]
+|3. |04.03.2019 |xref:openscad#[OpenSCAD: Pokročilé]
 |3
 
-|5. |11.03.2019 |xref:admesh#[ADMesh] - Programová manipulace s meshí
+|4. |11.03.2019 |xref:mesh#[Mesh]
 |3
 
-|6. |18.03.2019 |xref:slicing#[Slicing]
+|5. |18.03.2019 |xref:admesh#[ADMesh] - Programová manipulace s meshí
 |3
 
-|7. |25.03.2019 |xref:scan#[Skenování]
+|6. |25.03.2019 |xref:slicing#[Slicing]
 |3
 
-|8. |01.04.2019 |xref:printing#[Tisk: Základy] |3
+|7. |01.04.2019 |xref:scan#[Skenování]
+|3
 
-|9. |08.04.2019 |xref:bridges#[Tisk: Mosty] |3
+|8. |08.04.2019 |xref:printing#[Tisk: Základy] |3
 
-|10. |15.04.2019 |xref:supports#[Tisk: Podpory] |3
+|9. |15.04.2019 |xref:bridges#[Tisk: Mosty] |3
 
-|11. |29.04.2019 |xref:multicolor#[Tisk: Vícebarevný tisk] |3
+|10. |29.04.2019 |xref:supports#[Tisk: Podpory] |3
 
-|12. |06.05.2019 |Tisk - co si přejete vyzkoušet ohledně semestrální práce |0
+|11. |06.05.2019 |xref:multicolor#[Tisk: Vícebarevný tisk] |3
+
+|12. |13.05.2019 |Tisk - co si přejete vyzkoušet ohledně semestrální práce |0
 
 2+d|Domácí příprava vhodná k semestrálce
 |xref:meshmixer#[MeshMixer a řezání STL souborů] |0
