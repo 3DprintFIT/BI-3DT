@@ -341,7 +341,7 @@ for (xpos=[0:3], ypos=[2,4,6]) { // <2>
 Vzhledem k tomu, jak cyklus for v OpenSCADu funguje, zde vypichujeme několik
 informací, na které pozorný čtenář jistě již přišel sám:
 
-* Každá „iterace“ cyklu má vlastní cope, jakékoliv nastavení proměnných
+* Každá „iterace“ cyklu má vlastní scope, jakékoliv nastavení proměnných
   v další iteraci (a také po skončení cyklu) pozbývá platnosti.
 * Z předchozího bodu plyne, že v cyklu se nedá nic iterativně počítat,
   je možné pouze použít matematické výrazy s řídící proměnnou.
@@ -397,7 +397,7 @@ Tuto vlastnost OpenSCADu lze obejít jedině ternárním operátorem.
 === Ternární operátor
 
 Ternární operátor, je jediný způsob,
-jak nastavit nějakou hodnotu s dlouhodobou platností.
+jak podmíněně nastavit nějakou hodnotu s dlouhodobou platností.
 
 .Ternární operátor
 [source,scad]
@@ -430,9 +430,9 @@ Ekvivalentem k funkci pro CSG strom je *modul*.
 Modul se více podobá funkcím, jak je známe z programovacích jazyků,
 s tím rozdílem, že nevrací žádnou hodnotu, ale uzel (či hranu) CSG stromu.
 
-Laicky řečeno: model něco „nakreslí“ tam, kde se použije.
+Laicky řečeno: modul něco „nakreslí“ tam, kde se použije.
 
-Stejně jako funkce, přijímá model parametry,
+Stejně jako funkce, přijímá modul parametry,
 které mohou nabývat výchozích hodnot.
 Navíc může přijímat (zpracovávat) `children()`.
 
