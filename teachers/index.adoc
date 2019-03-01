@@ -6,7 +6,7 @@ První cvičení od 9:15::
 
 Druhé cvičení od 11:45::
   * xref:hroncmir#[Miro Hrončok] (garant předmětu)
-  * xref:hanusji8#[Jiří „Hany“ Hanuš]
+  * xref:borskjir#[Jiří „Zub“ Borský]
 
 Na předmětu se dále podílejí a vypomáhají::
   * xref:sykorto6#[Tomáš „Syky“ Sýkora]
@@ -25,3 +25,5 @@ V minulosti se na předmětu podíleli také::
   * Jakub Průša
   * Ivo Háleček
   * Janusz Wijas
+  * xref:hanusji8#[Jiří „Hany“ Hanuš]
+  
