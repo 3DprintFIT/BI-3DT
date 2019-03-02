@@ -2,15 +2,16 @@
 
 První cvičení od 9:15::
   * xref:hroncmir#[Miro Hrončok] (garant předmětu)
-  * xref:hlavam30#[Marián Hlaváč]
+  * xref:borskjir#[Jiří „Zub“ Borský]  
 
 Druhé cvičení od 11:45::
   * xref:hroncmir#[Miro Hrončok] (garant předmětu)
-  * xref:hanusji8#[Jiří „Hany“ Hanuš]
+  * xref:hlavam30#[Marián Hlaváč]
 
 Na předmětu se dále podílejí a vypomáhají::
   * xref:sykorto6#[Tomáš „Syky“ Sýkora]
   * Marek Reimer
+  * xref:hanusji8#[Jiří „Hany“ Hanuš]
 
 Kontaktní informace::
   * Telefon do labu: +420 224 358 714
