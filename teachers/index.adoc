@@ -2,11 +2,11 @@
 
 První cvičení od 9:15::
   * xref:hroncmir#[Miro Hrončok] (garant předmětu)
-  * xref:borskjir#[Jiří „Zub“ Borský]  
+  * xref:hlavam30#[Marián Hlaváč]
 
 Druhé cvičení od 11:45::
   * xref:hroncmir#[Miro Hrončok] (garant předmětu)
-  * xref:hlavam30#[Marián Hlaváč]
+  * xref:borskjir#[Jiří „Zub“ Borský] 
 
 Na předmětu se dále podílejí a vypomáhají::
   * xref:sykorto6#[Tomáš „Syky“ Sýkora]
