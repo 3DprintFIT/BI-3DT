@@ -22,7 +22,7 @@ xref:reprap#[RepRap], xref:git#[Git]
 |https://github.com/3DprintFIT/B182A-ADMesh-Assignment[3]
 
 |6. |25.03.2019 |xref:slicing#[Slicing]
-|3
+|https://github.com/3DprintFIT/B182A-Slicing-Assignment[3]
 
 |7. |01.04.2019 |xref:scan#[Skenování]
 |3
