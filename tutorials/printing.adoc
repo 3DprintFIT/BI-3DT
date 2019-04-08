@@ -124,7 +124,7 @@ Dále chcete *ověřit, jak moc malý předmět tiskárna zvládne vytisknout*.
 
 image::CuteOcto.png[width=160, float=right]
 
-Jako testovací objekt jste si vybrali https://www.thingiverse.com/thing:27053[Cute Octopus Says Hello] (CC BY 3.0) od firmy MakerBot ze serveru Thingiverse.com (link:../stls/printing/CuteOcto.stl[mirror zde]), profil použijete stejný jako výše. Abyste ušetřili materiál, začnete na poloviční velikosti předmětu (scale 50%) a budete dále zkoušet menší velikosti, podle toho, kolik vám zbyde času (zkuste pak např. 33%, 25%, 15% atd.).
+Jako testovací objekt jste si vybrali https://www.thingiverse.com/thing:27053[Cute Octopus Says Hello] (CC BY 3.0) od firmy MakerBot ze serveru Thingiverse.com (link:../stls/printing/CuteOcto.stl[mirror zde]). Abyste ušetřili materiál, začnete na poloviční velikosti předmětu (scale 50%) a budete dále zkoušet menší velikosti, podle toho, kolik vám zbyde času (zkuste pak např. 33%, 25%, 15% atd.).
 
 Odevzdávat budete jednu poloviční velikost (scale 50%) a druhou libovolně menší (scale <50%), ale povedenou. Další menší velikosti můžete odevzdat dobrovolně, ale neovlivní výsledný počet bodů.
 
