@@ -49,7 +49,7 @@ můžete tedy najednou tisknout více mostů s různými nastaveními.
 Dejte si ale pozor, ať víte, který je který.
 
 IMPORTANT: Pro dnešní cvičení si stáhněte 
-link:../configs/bridges/slic3r_config_bundle.ini[config určený pro tisk mostů].
+link:../configs/bridges/slic3r_config_bundle_bridges.ini[config bundle určený pro tisk mostů].
 
 == Úkol
 
@@ -70,7 +70,7 @@ Jako generátor mostu použijte soubor link:../stls/bridges/bridge.scad[bridge.s
 Jednotky jsou v milimetrech a jedná se pouze o velikost mostu bez velikosti pilířů.
 Pilíře se nesnažte podříznout, negativně by to ovlivnilo tiskové vlastnosti.
 
-Nezapomeňte použít link:../configs/bridges/slic3r_config_bundle.ini[config bundle určený pro tisk mostů] (pozor, jde o jiný config bundle, než jsme používali minule).
+Nezapomeňte použít link:../configs/bridges/slic3r_config_bundle_bridges.ini[config bundle určený pro tisk mostů] (pozor, jde o jiný config bundle, než jsme používali minule).
 
 Jinak postupujte podle návodu xref:printing.adoc#_tisk-krok-za-krokem[tisk krok za krokem].
 
