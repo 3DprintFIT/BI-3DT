@@ -3,7 +3,7 @@
 Pokud chcete doma či při cvičení používat vlastní počítač, nutně budete
 potřebovat tyto programy:
 
-* http://openscad.org[OpenSCAD] 2015.03
+* http://openscad.org[OpenSCAD] 2019.05
 * https://github.com/3DprintFIT/netfabb-basic-download/releases[netfabb Basic]
 * https://github.com/kliment/Printrun[Printrun]
 * http://slic3r.org/[Slic3r]

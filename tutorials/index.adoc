@@ -5,37 +5,31 @@ Změna programu vyhrazena.
 [cols="s,2,4,",options="header",]
 |=======================================================================
 |Cvičení |Datum |Téma |Body
-|1. |18.02.2019 |xref:course#[Principy předmětu],
+|1. |18.02.2020 |xref:course#[Principy předmětu],
 xref:reprap#[RepRap], xref:git#[Git]
-|https://github.com/3DprintFIT/B182A-Username-Assignment[0]
+|https://github.com/3DprintFIT/B192A-Username-Assignment[0]
 
-|2. |25.02.2019 |xref:openscad#[OpenSCAD: Základy]
-|https://github.com/3DprintFIT/B182A-OpenSCAD1-Assignment[3]
+|2. |25.02.2020 |xref:openscad#[OpenSCAD: Základy] |3
 
-|3. |04.03.2019 |xref:openscad#[OpenSCAD: Pokročilé]
-|https://github.com/3DprintFIT/B182A-OpenSCAD2-Assignment[3]
+|3. |03.03.2020 |xref:openscad#[OpenSCAD: Pokročilé] |3
 
-|4. |11.03.2019 |xref:mesh#[Mesh]
-|https://github.com/3DprintFIT/B182A-Mesh-Assignment[3]
+|4. |10.03.2020 |xref:mesh#[Mesh] |3
 
-|5. |18.03.2019 |xref:admesh#[ADMesh] - Programová manipulace s meshí
-|https://github.com/3DprintFIT/B182A-ADMesh-Assignment[3]
+|5. |17.03.2020 |xref:admesh#[ADMesh] - Programová manipulace s meshí |3
 
-|6. |25.03.2019 |xref:slicing#[Slicing]
-|https://github.com/3DprintFIT/B182A-Slicing-Assignment[3]
+|6. |24.03.2020 |xref:slicing#[Slicing] |3
 
-|7. |01.04.2019 |xref:scan#[Skenování]
-|https://github.com/3DprintFIT/B182A-Scanning-Assignment[3]
+|7. |31.03.2020 |xref:scan#[Skenování] |3
 
-|8. |08.04.2019 |xref:printing#[Tisk: Základy] |3
+|8. |07.04.2020 |xref:printing#[Tisk: Základy] |3
 
-|9. |15.04.2019 |xref:bridges#[Tisk: Mosty] |3
+|9. |14.04.2020 |xref:bridges#[Tisk: Mosty] |3
 
-|10. |29.04.2019 |xref:supports#[Tisk: Podpory] |3
+|10. |21.04.2020 |xref:supports#[Tisk: Podpory] |3
 
-|11. |06.05.2019 |xref:multicolor#[Tisk: Vícebarevný tisk] |3
+|11. |28.04.2020 |xref:multicolor#[Tisk: Vícebarevný tisk] |3
 
-|12. |13.05.2019 |Tisk - co si přejete vyzkoušet ohledně semestrální práce |0
+|12. |05.05.2020 |Tisk - co si přejete vyzkoušet ohledně semestrální práce |0
 
 2+d|Domácí příprava vhodná k semestrálce
 |xref:meshmixer#[MeshMixer a řezání STL souborů] |0
