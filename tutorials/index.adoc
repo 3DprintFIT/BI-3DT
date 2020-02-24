@@ -9,7 +9,8 @@ Změna programu vyhrazena.
 xref:reprap#[RepRap], xref:git#[Git]
 |https://github.com/3DprintFIT/B192A-Username-Assignment[0]
 
-|2. |25.02.2020 |xref:openscad#[OpenSCAD: Základy] |3
+|2. |25.02.2020 |xref:openscad#[OpenSCAD: Základy]
+|https://github.com/3DprintFIT/B192A-OpenSCAD1-Assignment[3]
 
 |3. |03.03.2020 |xref:openscad#[OpenSCAD: Pokročilé] |3
 
