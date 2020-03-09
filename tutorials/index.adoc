@@ -2,6 +2,10 @@
 
 Změna programu vyhrazena.
 
+WARNING: Cvičení označená symbolem 🦠 (v pravém sloupci) probíhají „korespondenčně“.
+Termín vypracování úkolu je v takovém případě 1 týden od původního data cvičení.
+V případě zájmu o konzultace nás neváhejte xref:../teachers/index#[kontaktovat].
+
 [cols="s,2,4,",options="header",]
 |=======================================================================
 |Cvičení |Datum |Téma |Body
@@ -15,9 +19,10 @@ xref:reprap#[RepRap], xref:git#[Git]
 |3. |03.03.2020 |xref:openscad#[OpenSCAD: Pokročilé]
 |https://github.com/3DprintFIT/B192A-OpenSCAD2-Assignment[3]
 
-|4. |10.03.2020 |xref:mesh#[Mesh] |3
+|4. |10.03.2020 |xref:mesh#[Mesh]
+|https://github.com/3DprintFIT/B192A-Mesh-Assignment[3] 🦠
 
-|5. |17.03.2020 |xref:admesh#[ADMesh] - Programová manipulace s meshí |3
+|5. |17.03.2020 |xref:admesh#[ADMesh] - Programová manipulace s meshí |3 🦠
 
 |6. |24.03.2020 |xref:slicing#[Slicing] |3
 
