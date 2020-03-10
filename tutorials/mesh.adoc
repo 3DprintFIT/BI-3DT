@@ -84,7 +84,7 @@ endfacet
 endsolid name
 ----
 
-Pořadí vrcholů facetu musí splňovat pravidlo pravé ruky: Jestliže palce
+Pořadí vrcholů facetu musí splňovat pravidlo pravé ruky: Jestliže palec
 ukazuje ve směru normály (tedy ven z objektu), stočené prsty udávají
 pořadí vrcholů.
 
