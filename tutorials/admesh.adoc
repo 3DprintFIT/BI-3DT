@@ -7,6 +7,15 @@ možné mesh zpracovávat i programově – tedy vytvářet programy, které s
 meshí něco více či méně zajímavého provádějí. Protože jsme na Fakultě
 informačních technologií, byla by škoda tento přístup neprozkoumat.
 
+.Všeobecné pokyny ke cvičení https://www.youtube.com/watch?v=XrgnOqyj-d4[ve formě videa].
+video::XrgnOqyj-d4[youtube]
+
+.https://www.youtube.com/watch?v=-DjdzhACgnM[Videotutoriál].
+video::-DjdzhACgnM[youtube]
+
+.https://www.youtube.com/watch?v=BFj5UDsDz-M[Dovysvětlení úlohy].
+video::BFj5UDsDz-M[youtube]
+
 == Možnosti zpracování meshe ve formátu STL
 
 Formát STL je velmi jednoduchý. Jeho popis najdete ve
