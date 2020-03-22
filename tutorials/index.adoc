@@ -25,7 +25,8 @@ xref:reprap#[RepRap], xref:git#[Git]
 |5. |17.03.2020 |xref:admesh#[ADMesh] - Programová manipulace s meshí
 |https://github.com/3DprintFIT/B192A-ADMesh-Assignment[3] 🦠
 
-|6. |24.03.2020 |xref:slicing#[Slicing] |3 🦠
+|6. |24.03.2020 |xref:slicing#[Slicing] 
+|https://github.com/3DprintFIT/B192A-Slicing-Assignment[3] 🦠 https://www.youtube.com/watch?v=C51JWbLgJu0[live]
 
 |7. |31.03.2020 |xref:scan#[Skenování] |3 🦠
 
