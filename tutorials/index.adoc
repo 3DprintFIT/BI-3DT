@@ -31,15 +31,15 @@ xref:reprap#[RepRap], xref:git#[Git]
 |7. |31.03.2020 |xref:scan#[Skenování]
 |https://github.com/3DprintFIT/B192A-Scanning-Assignment[3] 🦠
 
-|8. |07.04.2020 |xref:printing#[Tisk: Základy] |3
+|8. |odloženo |xref:printing#[Tisk: Základy] |3
 
-|9. |14.04.2020 |xref:bridges#[Tisk: Mosty] |3
+|9. |odloženo |xref:bridges#[Tisk: Mosty] |3
 
-|10. |21.04.2020 |xref:supports#[Tisk: Podpory] |3
+|10. |odloženo |xref:supports#[Tisk: Podpory] |3
 
-|11. |28.04.2020 |xref:multicolor#[Tisk: Vícebarevný tisk] |3
+|11. |odloženo |xref:multicolor#[Tisk: Vícebarevný tisk] |3
 
-|12. |05.05.2020 |Tisk - co si přejete vyzkoušet ohledně semestrální práce |0
+|12. |odloženo |Tisk - co si přejete vyzkoušet ohledně semestrální práce |0
 
 2+d|Domácí příprava vhodná k semestrálce
 |xref:meshmixer#[MeshMixer a řezání STL souborů] |0
