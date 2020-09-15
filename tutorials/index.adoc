@@ -26,20 +26,20 @@ xref:reprap#[RepRap], xref:git#[Git]
 |https://github.com/3DprintFIT/B192A-ADMesh-Assignment[3] 🦠
 
 |6. |24.03.2020 |xref:slicing#[Slicing] 
-|https://github.com/3DprintFIT/B192A-Slicing-Assignment[3] 🦠 https://www.youtube.com/watch?v=C51JWbLgJu0[live]
+|https://github.com/3DprintFIT/B192A-Slicing-Assignment[3] 🦠
 
 |7. |31.03.2020 |xref:scan#[Skenování]
 |https://github.com/3DprintFIT/B192A-Scanning-Assignment[3] 🦠
 
-|8. |odloženo |xref:printing#[Tisk: Základy] |3
+|8. |termín v KOSu |xref:printing#[Tisk: Základy] |3
 
-|9. |odloženo |xref:bridges#[Tisk: Mosty] |3
+|9. |termín v KOSu |xref:bridges#[Tisk: Mosty] |3
 
-|10. |odloženo |xref:supports#[Tisk: Podpory] |3
+|10. |termín v KOSu |xref:supports#[Tisk: Podpory] |3
 
-|11. |odloženo |xref:multicolor#[Tisk: Vícebarevný tisk] |3
+|11. |termín v KOSu |xref:multicolor#[Tisk: Vícebarevný tisk] |3
 
-|12. |odloženo |Tisk - co si přejete vyzkoušet ohledně semestrální práce |0
+|12. |zrušeno |Tisk - co si přejete vyzkoušet ohledně semestrální práce |0
 
 2+d|Domácí příprava vhodná k semestrálce
 |xref:meshmixer#[MeshMixer a řezání STL souborů] |0
