@@ -1,0 +1,5 @@
+# Allow anyone to access site from all branches.
+access:
+  '*':
+    /:
+      allow: [ANONYMOUS]
