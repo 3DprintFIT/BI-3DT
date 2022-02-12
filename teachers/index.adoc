@@ -1,17 +1,11 @@
 = Učitelé
 
-První cvičení od 9:15::
+Obě cvičení::
   * xref:hroncmir#[Miro Hrončok] (garant předmětu)
-  * xref:hlavam30#[Marián Hlaváč]
+  * xref:sykorto6#[Tomáš „Syky“ Sýkora] (vedoucí laboratoře 3D tisku)
 
-Druhé cvičení od 11:45::
-  * xref:hroncmir#[Miro Hrončok] (garant předmětu)
-  * xref:borskjir#[Jiří „Zub“ Borský] 
-
-Na předmětu se dále podílejí a vypomáhají::
-  * xref:sykorto6#[Tomáš „Syky“ Sýkora]
+Na předmětu se dále podílejí a vypomáhají členové laboratoře::
   * Marek Reimer
-  * xref:hanusji8#[Jiří „Hany“ Hanuš]
 
 Kontaktní informace::
   * Telefon do labu: +420 224 358 714
@@ -24,5 +18,8 @@ Kontaktní informace::
 V minulosti se na předmětu podíleli také::
   * Marek Žehra
   * Jakub Průša
+  * Marián Hlaváč
+  * Jiří „Zub“ Borský
+  * Jiří „Hany“ Hanuš
   * Ivo Háleček
   * Janusz Wijas
