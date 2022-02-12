@@ -11,7 +11,7 @@ Tiskovými daty pro 3D tiskárny jsou tak přesné instrukce kdy, odkud, kam a j
 
 Tisková data musíme tiskárně připravit a jedná se o netriviální úkol. Úspěšná příprava dat totiž definuje jak úspěšný výsledek tisku bude. Ve hře je mnoho faktorů, které je nutné nastavit -- rychlosti, teploty, správné pohyby, tisk struktur, které nejsou součásti 3D modelu apod.
 
-.https://www.youtube.com/watch?v=C51JWbLgJu0[Videotutoriál].
+.https://www.youtube.com/watch?v=C51JWbLgJu0[Záznam z online cvičení z roku 2020].
 video::C51JWbLgJu0[youtube]
 
 .Naslicovaný model chobotničky
