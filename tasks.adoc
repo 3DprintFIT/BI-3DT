@@ -1,5 +1,5 @@
 = Zadání
 
 - Zadání úloh na cvičení najdete na stránce xref:tutorials/index#[Cvičení].
-- Zadání domácího úkolu: 🐙 https://github.com/3DprintFIT/B192HW-Assignment[B192HW-Assignment]
-- Zadání semestrální práce: 🐙 https://github.com/3DprintFIT/B192CW-Assignment[B192CW-Assignment]
+- Zadání domácího úkolu: 🚧
+- Zadání semestrální práce: 🚧

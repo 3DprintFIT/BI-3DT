@@ -1,5 +1,10 @@
 = BI-3DT
 
+WARNING: Kvůli nepředvídatelnosti koronavirových opatření 🦠 nejsme schopni garantovat,
+že výuka BI-3DT bude probíhat tento semestr bez obtíží.
+Druhá polovina harmonogramu nelze učit distančně.
+**V případě zákazu prezenční výuky může být předmět zrušen bez náhrady.**
+
 == Rozcestník
 
 * 📆 xref:tutorials/index#[Harmonogram cvičení]
