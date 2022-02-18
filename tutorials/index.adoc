@@ -14,7 +14,8 @@ Druhá polovina harmonogramu nelze učit distančně.
 xref:reprap#[RepRap], xref:git#[Git]
 |https://github.com/3DprintFIT/B212A-Username-Assignment[0]
 
-|2. |21.02.2022 |xref:openscad#[OpenSCAD: Základy] |3
+|2. |21.02.2022 |xref:openscad#[OpenSCAD: Základy]
+|https://github.com/3DprintFIT/B212A-OpenSCAD1-Assignment[3]
 
 |3. |28.02.2022 |xref:openscad#[OpenSCAD: Pokročilé] |3
 
