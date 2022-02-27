@@ -17,7 +17,8 @@ xref:reprap#[RepRap], xref:git#[Git]
 |2. |21.02.2022 |xref:openscad#[OpenSCAD: Základy]
 |https://github.com/3DprintFIT/B212A-OpenSCAD1-Assignment[3]
 
-|3. |28.02.2022 |xref:openscad#[OpenSCAD: Pokročilé] |3
+|3. |28.02.2022 |xref:openscad#[OpenSCAD: Pokročilé]
+|https://github.com/3DprintFIT/B212A-OpenSCAD2-Assignment[3]
 
 |4. |07.03.2022 |xref:mesh#[Mesh] |3
 
