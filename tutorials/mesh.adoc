@@ -182,7 +182,7 @@ Orientace facetu je dána pořadím vrcholů a normálou. Tyto informace si
 tedy mohou protiřečit. Někdy je také část 3D modelu nebo celý model
 otočen „vnitřkem ven“.
 
-.Špatně orientovaný facet
+.Špatně orientované facety
 image::mesh_flipped.svg[]
 
 === Sdílená hrana či stěna
