@@ -60,7 +60,7 @@ Syntaxe textového STL souboru je poměrně upovídaná. Začíná klíčovým
 slovem `solid` a názvem meshe (který není často využívám a bývá
 nahrazován názvem programu, který byl použit k vygenerování souboru).
 Poté následuje definice všech facetů a soubor končí direktivou
-`endfacet` a opět názvem meshe.
+`endsolid` a opět názvem meshe.
 
 (Soubor teoreticky může obsahovat více bloků `solid`, ale v praxi se s
 tím často nesetkáte.)
