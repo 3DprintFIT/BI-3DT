@@ -240,7 +240,7 @@ aby byl tisk co nejrychlejší, ale zároveň se podařil a výsledek byl alespo
 (nemělo by to být škaredé).
 Obáváme se, že převisy na spodku Eiffelovy věže tiskárna nezvládne,
 proto přidáme podpůrné struktury.
-Díle máme obavy, že se při tisku mohou nožičky odlepit od tiskové podložky,
+Dále máme obavy, že se při tisku mohou nožičky odlepit od tiskové podložky,
 takže přidáme struktury pro vylepšení přilnavosti.
 
 IMPORTANT: Před samotnou přípravou tiskových dat se ujistíme,
