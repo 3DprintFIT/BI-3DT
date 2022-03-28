@@ -53,7 +53,7 @@ G1 X143.311 Y63.369 E0.05600
 
 == Nástroje pro tvorbu GCode
 
-Generovat výše popsaný GCode ručně by bylo nejen nepraktické, ale u složitějších modelů pro běžného smrtelníka až nemožné. K tvorbě tiskových dat nám pomáhají programy označované jako *slicery*. Jejich název je odvozen ze slova „slice“ (v překladu „plátek“). Protože se tisk provádí po vrstvách, je vstupem těchto programů nějaký 3D model a výstupem [naplátkovaný) 3D model určený pro tisk. Proto se tento proces nazývá „slicing“ („naplátkování“).
+Generovat výše popsaný GCode ručně by bylo nejen nepraktické, ale u složitějších modelů pro běžného smrtelníka až nemožné. K tvorbě tiskových dat nám pomáhají programy označované jako *slicery*. Jejich název je odvozen ze slova „slice“ (v překladu „plátek“). Protože se tisk provádí po vrstvách, je vstupem těchto programů nějaký 3D model a výstupem (naplátkovaný) 3D model určený pro tisk. Proto se tento proces nazývá „slicing“ („naplátkování“).
 
 Slicerů existuje řada, některé jsou lepší, jiné horší, některé mají dobré UI ale neodvádějí tak dobrou práci, jiné jsou zase výbornými slicery ale mají příšerné UI. Najdou se i ty, které disponují obojím. Slicer může být software samostatný, nebo integrovaný v nějakém větším celku (např. v ovládacím softwaru pro 3D tiskárnu).
 
