@@ -21,7 +21,7 @@ z BI-3DT]
 
 == Rychlé odkazy
 
-* xref:tutorials/slicing#config-file[Konfigurační soubor pro Slic3r]
+* xref:tutorials/printing#config-file[Konfigurační soubor pro Slic3r, tiskárna Hybrix]
 
 Všechny materiály, není-li uvedeno jinak, jsou dostupné pod svobodnou licencí
 https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons

@@ -213,6 +213,18 @@ WARNING: ABS Juice je malé množství ABS rozpuštěné v acetonu. Aceton je ne
 
 Nahrajte tisková data (ve formátu GCode) na Raspberry Pi použitím ovládacího prvku _Files_ v levém dolním rohu rozhraní OctoPrintu. Přípravou tiskových dat do formátu GCode se zabývala kapitola xref:./slicing#[Slicing].
 
+[[config-file]]
+
+Stáhněte si konfigurační bundle pro tiskárny Hybrix, které používáme na tiskových cvičení.
+
+*link:../configs/printing/slic3r_config_bundle.ini[slic3r_config_bundle.ini]*
+
+CAUTION: Na tomto cvičení používáme konfigurační soubor pro tiskárny Hybrix,
+ale na slicovacím cvičení jsme používali jiný soubor!
+*Nastavit správný konfigurační soubor je důležité.* Nevhodně zvolená konfigurace může způsobit, že se v GCode objeví instrukce nevhodné pro danou tiskárnu (např. se může začít tisknout mimo tisknutelnou oblast) a takové instrukce mohou zapříčinit neúspěšný tisk, nebo v horším případě *poškodit tiskárnu*.
+Zkontrolujte, že načtené a zvolené nastavení pro tiskárnu je pojmenované *Hybrix*.
+
+
 Pokud máte vše připraveno, můžete kliknout ikonku tisku u vašeho právě nahraného souboru.
 Pokud chcete zkontrolovat váš GCode, klikněte na ikonku složky.
 Tím se váš soubor nastaví jako aktivní, můžete si prohlédnout načtené statistiky, či ověřit jeho správnost na kartě _GCode Viewer_ a tisk spustit až následným kliknutím na větší tlačítko _Print_ v části rozhraní nazvané _State_. 

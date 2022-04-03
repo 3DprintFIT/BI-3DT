@@ -30,8 +30,8 @@ i když často v menší míře.
 .Model medvěda se zvýrazněnými převisy -- tam bude potřeba support
 image::bear.png[Medvěd, width=450]
 
-IMPORTANT: Pro dnešní cvičení si stáhněte obecný xref:slicing#config-file[Config Bundle pro Slic3r],
-tedy nepoužívejte ten ze cvičení o mostech.
+IMPORTANT: Pro dnešní cvičení si stáhněte obecný xref:printing#config-file[Config Bundle pro Slic3r],
+tedy nepoužívejte ten ze cvičení o mostech nebo  slicingu.
 
 WARNING: Dodržujte všechna bezpečnostní pravidla z xref:printing.adoc#[tiskového cvičení].
 Zejména nezapalujte aceton a nevrhejte nože.

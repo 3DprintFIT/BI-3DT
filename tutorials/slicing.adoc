@@ -72,15 +72,17 @@ Na cvičení budeme používat poslední verzi Slic3ru ≥ 1.3.0. V této verzi 
 .Výchozí okno programu Slic3r (verze 1.3.0)
 image::slic3r.png[Okno Slic3ru, width=720, link=../images/slicing/slic3r.png]
 
-[[config-file]]
 ==== Konfigurační soubor pro tiskárny
 
 .Položka __Load Config Bundle__
 image::load-bundle.png[Nabídka file, width=320, float=right, link=../images/slicing/load-bundle.png]
 
-Stáhněte si konfigurační bundle pro tiskárny RebeliX, které používáme na cvičení.
+Stáhněte si konfigurační bundle pro tiskárny RebeliX, které používáme na tomto cvičení.
 
-*link:../configs/printing/slic3r_config_bundle.ini[slic3r_config_bundle.ini]*
+CAUTION: Na tomto cvičení používáme konfigurační soubor pro tiskárny RebeliX,
+ale na tiskovém cvičení budeme používat jiný soubor!
+
+*link:../configs/slicing-tutorial/slic3r_config_bundle.ini[slic3r_config_bundle.ini]*
 
 Tento soubor načtěte pomocí __File → Load Config Bundle__. Po načtení config bundlu je často nutné program restartovat. Úspěšné načtení config bundle poznáte podle nových položek vpravo nahoře (ve filamentu se objeví na výběr **ABS ESUN 1.75mm** a v tiskárnách **RebeliX**).
 
