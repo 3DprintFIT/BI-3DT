@@ -25,7 +25,7 @@ Na aktualizaci materiálů pracujeme.
 .Tiskána RebeliX
 image::rebelix-photo-annotated.jpg[Rebelix, width=720, link={imagesdir}rebelix-photo-annotated.jpg]
 <1> Tisková deska (heatbed)
-<2> Raspberry Pi
+<2> Raspberry Pi (na tiskárně Hybrix není)
 <3> Extruder
 <4> Tryska (hotend)
 
