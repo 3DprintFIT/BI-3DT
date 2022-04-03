@@ -34,7 +34,7 @@ IMPORTANT: Pro dnešní cvičení si stáhněte obecný xref:printing#config-fil
 tedy nepoužívejte ten ze cvičení o mostech nebo  slicingu.
 
 WARNING: Dodržujte všechna bezpečnostní pravidla z xref:printing.adoc#[tiskového cvičení].
-Zejména nezapalujte aceton a nevrhejte nože.
+Zejména nezapalujte přítomné chemikálie v učebně/laboratoři a nerozebírejte plastovou krytku zdroje tiskárny.
 
 
 == Úkoly
@@ -62,7 +62,6 @@ Pro případ výpadku portálu Thingiverse.com máme některé modely k dispozic
 
 NOTE: Testovací model se musí udržet na tiskové desce.
 Použijte vhodné techniky, které znáte z kapitoly xref:slicing.adoc#structs[slicing].
-V případě potřeby aplikujte xref:printing.adoc#abs-juice[ABS Juice].
 
 IMPORTANT: Před tiskem si vždy prohlédněte Gcode.
 

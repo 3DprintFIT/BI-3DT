@@ -11,15 +11,6 @@ Pokud se nelze na tiskárnu připojit...
 
 Pokud nic z toho nepomůže, požádejte cvičícího o pomoc.
 
-== Nemohu se k tiskárně přihlásit
-
-Ujistěte se, že přihlašovací údaje zadáváte správně (caps lock, cz/en klávesnice). Přihlašovací údaje jsou:
-
-Jméno:: student
-Heslo:: _sdělí cvičící_
-
-Jméno není vaše ČVUT přihlašovací jméno, ale text „student“.
-
 == Z extruderu není vytlačován žádný plast
 
 Pokud jste právě zavedli filament, chvíli to trvá, než se z extruderu vytlačí veškerý vzduch a začne se vytlačovat plast.

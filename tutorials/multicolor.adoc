@@ -62,7 +62,7 @@ image::multicolor_cone.jpg[Kužel]
 IMPORTANT: Pro dnešní cvičení si stáhněte obecný xref:printing#config-file[Config Bundle pro Slic3r].
 
 WARNING: Dodržujte všechna bezpečnostní pravidla z xref:printing.adoc#[tiskového cvičení].
-Zejména nikoho neřezejte nožem a nesahejte na rozpálenou trysku tiskárny.
+Zejména nejezte filament a nesahejte na rozpálenou trysku tiskárny.
 
 Existují dva možné přístupy (námi vyzkoušené) jak vytisknout vícebarevný
 objekt s jednou tryskou. V obou případech předpokládejme, že chceme
