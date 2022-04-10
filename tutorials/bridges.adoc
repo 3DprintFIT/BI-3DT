@@ -31,9 +31,10 @@ kdy vlákno na trysce drží, se stihne tryska přesunout do druhého pevného b
 (na „protější břeh“), kde se vlákno uchytí.
 Tuhnutí a smršťování plastu pak ještě zařídí, že se dané vlákno napne a je rovné.
 
-Velkou roli při tisku mostů hraje rychlost posunu trysky a množství vytlačeného plastu.
+Velkou roli při tisku mostů hraje větrák, rychlost posunu trysky a množství vytlačeného plastu.
 *Při příliš nízké rychlosti se vlákno prověsí dolů, nebo z trysky upadne.
 Vysoká rychlost zase může vlákno přetrhnout dříve, než dorazí k druhému bodu.*
+Foukáním na některé druhy materiálů (PLA) můžeme proces chladnutí urychlit.
 
 Logicky není žádoucí, aby byl most prověšený nebo měl přetrhaná vlákna.
 
@@ -43,25 +44,25 @@ Pro kalibraci mostu se upravuje hodnota v aplikaci Slic3r v sekcích:
 
 * _Print Settings → Speed → Bridges_
 * _Print Settings → Advanced → Flow_
+* _Filament Settings → Cooling_
 
 NOTE: Nastavení lze měnit poklepáním na určitý objekt,
 můžete tedy najednou tisknout více mostů s různými nastaveními.
 Dejte si ale pozor, ať víte, který je který.
 
 IMPORTANT: Pro dnešní cvičení si stáhněte 
-link:../configs/bridges/slic3r_config_bundle_bridges.ini[config bundle určený pro tisk mostů].
+link:../configs/bridges/slic3r_config_bundle_bridges.ini[config bundle určený pro tisk mostů]
+a použijte nastavení _Bridges_, _PLA_Bridges_, _Hybrix_.
 
 == Úkol
 
-Zuří XLIII. světová válka v roce 2297.
-Již v roce 2018 bylo možné 3D tisknout mosty,
-proto vás nyní velitelství pověřilo úkolem vytisknout most na 3D tiskárně.
-V naší výcvikové budově máme zmenšenou kopii 3D tiskárny,
-která bude poté na bitevním poli tisknout skutečné mosty.
+Během teraformace Marsu vás velitelství mise pověřilo úkolem vytisknout na 3D tiskárně most.
+V naší základně máme zmenšenou kopii 3D tiskárny,
+která bude poté na Marsu tisknout skutečné mosty.
 
 Každý most má svoje ohodnocení.
 Čím hodnotnější most se vám podaří vytisknout,
-tím lépe se ubráníte zlým kryptofašistům.
+tím rychleji můžeme teraformovat Mars.
 Ohodnocení mostu ale není stejně rovnoměrné co se týče jeho výšky/šířky.
 Most široký 20 a dlouhý 30 není stejně ohodnocený jako most široký 30 a dlouhý 20.
 Hodnotnější je delší most. Jinak řečeno, pro zisk bodů se vyplatí dělat mosty spíše delší než širší.
@@ -95,7 +96,7 @@ Bodované mosty musí být aspoň 30 mm dlouhé.
 
 === Bonus
 
-Armádní studentské dvojici,
+Studentské dvojici,
 které se podaří vytisknout nejhodnotnější most,
 budou započítány 3 bonusové body.
 Druhé nejlepší dvojici 2 body a třetí nejlepší dvojici 1 bod.
@@ -105,3 +106,10 @@ Průběžné výsledky *nejsou sdělovány soutěžícím*.
 Do soutěže vstupují pouze mosty, za které jste dostali body výše.
 Není tedy možné např. odevzdat hezký krátký most za 3 body
 a zároveň soutěžit s opravdu ošklivým propadlým mostem.
+
+=== Mosty z ABS
+
+Pokud chcete, můžete si nesoutěžně vyzkoušet i tisk mostů z ABS.
+ABS má větší tepelnou roztažnost a hůře se na něj fouká.
+Pilíře mostu mají větší tendenci se odtrhnout během tisku od desky.
+Pokud máte jinak hotovo a chcete tisknout z ABS, zeptejte se cvičících na detaily.

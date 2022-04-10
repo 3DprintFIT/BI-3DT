@@ -40,24 +40,22 @@ Každá tiskárna je připojena do školní sítě a je možné ji ovládat pře
 === Připojení k tiskárně
 
 K připojení do sítě, ve které jsou tiskárny přístupné, využijte školní počítače.
-Na každé tiskárně lze nalézt štítek uvádějící číslo tiskárny. 
-Připojte se na svou tiskárnu nahrazením `X` za číslo vaší tiskárny v níže uvedené adrese.
+Na každé tiskárně lze nalézt štítek uvádějící adresu tiskárny.
+Připojte se na svou tiskárnu ze školního počítače použitím adresy na štítku.
+Adresa vypadá takto (kde `XX` je číslo od `01` do `14`):
 
-Adresa tiskárny:: 🚧
+Adresa tiskárny:: https://printer-XX.3dprintlab.in.fit.cvut.cz/
 
 Pokud se na tiskárnu nelze připojit, vyzkoušejte xref:../troubleshooting/printing.adoc#_na-tiskárnu-se-nelze-připojit[jiné možnosti].
 
 CAUTION: Po připojení se ujistěte, že se jedná o rozhraní pro vaši tiskárnu, která vám leží na stole. Ač se sabotování tisku spolužákům může zdát jako legrace, vězte, že není.
 
 .Ruční ovládání ve webovém rozhraní
-image::movement.jpg[Panel ručního ovládání, 450, float="right", link={imagesdir}movement.jpg]
+image::movement.png[Panel ručního ovládání, 450, float="right", link={imagesdir}movement.png]
 ==== Ruční ovládání
 
 V prostřední části webového rozhaní lze ručně ovládat tiskárnu.
 Můžete posouvat tiskovou hlavu ve všech třech osách a také ovládat extruder.
-
-🚧
-
 
 .Ovládání teploty
 image::tools-extra.png[Ovládání teploty, 450, float="right", link={imagesdir}tools-extra.png]
@@ -182,7 +180,7 @@ Ve chvíli, kdy tiskárna uchopí filament, jej můžete pustit. Extrudujte fila
 
 === Tisk
 
-Nahrajte tisková data (ve formátu GCode) do webového rozhraní použitím ovládacího prvku 🚧.
+Nahrajte tisková data (ve formátu GCode) do webového rozhraní a spusťe tisk použitím ovládacího prvku `Upload & Start.
 Přípravou tiskových dat do formátu GCode se zabývala kapitola xref:./slicing#[Slicing].
 
 [[config-file]]
@@ -195,9 +193,6 @@ CAUTION: Na tomto cvičení používáme konfigurační soubor pro tiskárny Hyb
 ale na slicovacím cvičení jsme používali jiný soubor!
 *Nastavit správný konfigurační soubor je důležité.* Nevhodně zvolená konfigurace může způsobit, že se v GCode objeví instrukce nevhodné pro danou tiskárnu (např. se může začít tisknout mimo tisknutelnou oblast) a takové instrukce mohou zapříčinit neúspěšný tisk, nebo v horším případě *poškodit tiskárnu*.
 Zkontrolujte, že načtené a zvolené nastavení pro tiskárnu je pojmenované *Hybrix*.
-
-
-Pokud máte vše připraveno, můžete zahájit tisk kliknutím na 🚧.
 
 Pokud při tisku narazíte na jakýkoliv problém, konzultujte se cvičícím, nebo zkuste problém najít v xref:../troubleshooting/index#[troubleshootingu].
 

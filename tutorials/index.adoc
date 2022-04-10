@@ -34,7 +34,7 @@ xref:reprap#[RepRap], xref:git#[Git]
 
 |8. |04.04.2022 |xref:printing#[Tisk: Základy] |3
 
-|9. |11.04.2022 |xref:bridges#[Tisk: Mosty] 🚧 |3
+|9. |11.04.2022 |xref:bridges#[Tisk: Mosty] |3
 
 |🐤 |18.04.2022 |Velikonoční pondělí |🐇
 
