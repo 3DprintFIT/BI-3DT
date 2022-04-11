@@ -92,7 +92,7 @@ Dva perimetry budou stačit.
 
 Výše uvedené body se nesčítají.
 Kdo po sobě xref:printing.adoc#ukol-3[neuklidí], nemá na body nárok.
-Bodované mosty musí být aspoň 30 mm dlouhé.
+Bodované mosty musí být aspoň 30 mm dlouhé a mít ohodnocení alespoň 300.
 
 === Bonus
 
