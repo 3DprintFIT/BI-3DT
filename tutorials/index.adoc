@@ -38,7 +38,7 @@ xref:reprap#[RepRap], xref:git#[Git]
 
 |🐤 |18.04.2022 |Velikonoční pondělí |🐇
 
-|10. |25.04.2022 |xref:supports#[Tisk: Podpory] 🚧 |3
+|10. |25.04.2022 |xref:supports#[Tisk: Podpory] |3
 
 |11. |02.05.2022 |xref:multicolor#[Tisk: Vícebarevný tisk] 🚧 |3
 

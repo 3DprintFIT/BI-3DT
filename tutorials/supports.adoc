@@ -22,19 +22,17 @@ teplotě okolí a aktivním chlazení.
 image::slic3r.png[Slic3r, width=500]
 
 NOTE: Obecně platí, že čím víc se na objekt fouká, tím větší převisy se dají vytisknout a méně supportu je potřeba.
-Bohužel na ABS se prakticky foukat nedá, protože by vzniklo příliš velké pnutí a objekt by popraskal.
-My tedy na BI-3DT máme v tomto ohledu trochu smůlu (těžko na cvičišti).
-Při tisknutí z jiných materiálů (PLA, PETG) je ale support také zapotřebí,
-i když často v menší míře.
+Na některé materiály (např. na ABS) se prakticky foukat nedá, protože by vzniklo příliš velké pnutí a objekt by popraskal.
+Pokud tisknete z PLA, je tedy často možné podpory relativně omezit.
 
 .Model medvěda se zvýrazněnými převisy -- tam bude potřeba support
 image::bear.png[Medvěd, width=450]
 
 IMPORTANT: Pro dnešní cvičení si stáhněte obecný xref:printing#config-file[Config Bundle pro Slic3r],
-tedy nepoužívejte ten ze cvičení o mostech nebo  slicingu.
+tedy nepoužívejte ten ze cvičení o mostech nebo slicingu.
 
 WARNING: Dodržujte všechna bezpečnostní pravidla z xref:printing.adoc#[tiskového cvičení].
-Zejména nezapalujte přítomné chemikálie v učebně/laboratoři a nerozebírejte plastovou krytku zdroje tiskárny.
+Zejména nejezte vteřinové lepidlo a nerozebírejte plastovou krytku zdroje tiskárny.
 
 
 == Úkoly
@@ -71,10 +69,10 @@ znamená to, že tiskárna vytiskne cokoliv, nebo že jste provedli nedostatečn
 TIP: Šetřete čas. Při tisku této úlohy můžete rovnou tisknout i medvěda z úlohy další.
 Jak to ovlivní celkovou dobu tisku a proč?
 
-=== Jak to nedělat? (1 bod)
+=== Jak se podporám vyhnout? (1 bod)
 
 Vaším úkolem za jeden bod je vytisknout link:../stls/supports/bear.stl[medvěda] bez podpor.
-Musíte ho vhodně nařezat, vytisknout a poté (nepovinně) slepit acetonem.
+Musíte ho vhodně nařezat, vytisknout a poté (nepovinně) slepit vteřinovým lepidlem.
 Pro nařezání můžete použít Slic3r, před podélným řezem můžete objektem otáčet.
 
 ==== Návod
@@ -87,7 +85,7 @@ image::slic3r_cut.png[Slic3r: Řez, width=500]
 
 IMPORTANT: Lepení je poměrně náročné, snažte se medvěda rozřezat na co nejmenší počet dílů.
 
-WARNING: Při práci s acetonem dbejte zvýšené opatrnosti.
+WARNING: Při práci s lepidlem dbejte zvýšené opatrnosti a nepoškoďte zařízení učebny.
 
 
 === Úklid (povinný)
