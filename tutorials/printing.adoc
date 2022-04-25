@@ -44,7 +44,7 @@ Na každé tiskárně lze nalézt štítek uvádějící adresu tiskárny.
 Připojte se na svou tiskárnu ze školního počítače použitím adresy na štítku.
 Adresa vypadá takto (kde `XX` je číslo od `01` do `14`):
 
-Adresa tiskárny:: https://printer-XX.3dprintlab.in.fit.cvut.cz/
+Adresa tiskárny:: http://printer-XX.3dprintlab.in.fit.cvut.cz/
 
 Pokud se na tiskárnu nelze připojit, vyzkoušejte xref:../troubleshooting/printing.adoc#_na-tiskárnu-se-nelze-připojit[jiné možnosti].
 
