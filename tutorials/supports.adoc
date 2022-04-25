@@ -61,7 +61,8 @@ Pro případ výpadku portálu Thingiverse.com máme některé modely k dispozic
 NOTE: Testovací model se musí udržet na tiskové desce.
 Použijte vhodné techniky, které znáte z kapitoly xref:slicing.adoc#structs[slicing].
 
-IMPORTANT: Před tiskem si vždy prohlédněte Gcode.
+IMPORTANT: Před tiskem si vždy prohlédněte náhled Gcodu a zkontrolujte,
+že se support opravdu nachází tam, kde ho očekáváte.
 
 WARNING: Jestliže se tisk testovacího modelu hned napoprvé vytiskne bez podpor,
 znamená to, že tiskárna vytiskne cokoliv, nebo že jste provedli nedostatečný test?
