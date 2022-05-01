@@ -40,7 +40,7 @@ xref:reprap#[RepRap], xref:git#[Git]
 
 |10. |25.04.2022 |xref:supports#[Tisk: Podpory] |3
 
-|11. |02.05.2022 |xref:multicolor#[Tisk: Vícebarevný tisk] 🚧 |3
+|11. |02.05.2022 |xref:multicolor#[Tisk: Vícebarevný tisk] |3
 
 |12. |09.05.2022 |Tisk - co si přejete vyzkoušet ohledně semestrální práce |0
 

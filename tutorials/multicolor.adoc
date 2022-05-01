@@ -57,29 +57,23 @@ který můžeme s trochou šikovnosti provést a to rozdělení podél vrstvy:
 .Obrázek z https://replicatore.wordpress.com/2014/11/19/il-progetto-slic3r-e-appena-iniziato-parola-di-alessandro-ranellucci/[rozhovoru] s autorem Slic3ru © davidesher
 image::multicolor_cone.jpg[Kužel]
 
-== Postupy
+== Postup
 
 IMPORTANT: Pro dnešní cvičení si stáhněte obecný xref:printing#config-file[Config Bundle pro Slic3r].
 
 WARNING: Dodržujte všechna bezpečnostní pravidla z xref:printing.adoc#[tiskového cvičení].
 Zejména nejezte filament a nesahejte na rozpálenou trysku tiskárny.
 
-Existují dva možné přístupy (námi vyzkoušené) jak vytisknout vícebarevný
-objekt s jednou tryskou. V obou případech předpokládejme, že chceme
-vytisknout dopravní kužel.
-
-=== Postup 1 -- rozdělení tisku
-
-Rozdělení tisku na více částí myslíme rozdělení samotného GCode na více
-souborů.
+Základní myšlenka: Rozdělíme GCode na více souborů, abychom mezi nimi mohli filament vyměnit.
+Předpokládáme tisk dopravního kuželu z obrázku výše.
 
 1. Necháme si vygenerovat GCode celého kuželu.
-2. Najdeme příhodnou vrstvu, kde chceme, aby končila jedna barva a začínala druhá, rozdělíme Gcode na dva soubory.
+2. Najdeme příhodnou vrstvu, kde chceme, aby končila jedna barva a začínala druhá, rozdělíme Gcode na dva soubory (viz níže).
 3. Opakujeme předchozí krok tolikrát, kolikrát se mění barvy.
 4. Do každého nově vzniklého GCode přidáme na začátek a na konec příkaz `G28 X0 Y0` (_home_ os X a Y).
 5. Spustíme tisk prvního souboru.
-6. Až dotiskne první barva, můžeme tryskou odjet do strany, zavést nový materiál a spustit další soubor.
-7. Takto tiskneme další Gcode soubory dokud nedotiskneme celý objekt.
+6. Až dotiskne první barva, vyměníme materiál a spustíme další soubor.
+7. Takto měníme materiál a tiskneme další Gcode soubory dokud nedotiskneme celý objekt.
 
 NOTE: Na tiskárnách opatřených LCD displayem a tlačítkem můžete využít Gcode příkaz
 https://reprap.org/wiki/G-code#M600:_Filament_change_pause[M600].
@@ -89,66 +83,55 @@ Po výměně plastu stačí stisknout tlačítko, tisková hlava se vrátí zpě
 Místo rozdělení souboru na dva pak stačí do Gcodu přidat jeden řádek navíc,
 existují na to i https://www.prusaprinters.org/color-print/[sofistikované aplikace].
 
-=== Postup 2 -- rozdělení modelu
-
-Rozdělení samotného modelu na více barevných částí. Vyžaduje bohužel
-přidání „kotvítka“, které je umístěno vždy na stejném místě v nulté
-vrstvě.
-
-1. Rozdělíme 3D model na více částí podle barev, do každé části přidáme „na zem“ kotvítko.
-2. Z každého modelu vytvoříme samostatný GCode.
-3. Spustíme první tiskovou dávku.
-4. Po dotisknutí odstraníme kotvítko.
-5. Vyměníme materiál.
-6. Tiskneme další model.
-7. Vhodně opakujeme, dokud nedotiskneme celý objekt.
-
-NOTE: Tento postup má oproti postupu 1 řadu nevýhod a není vhodný pro tisk úlohy na cvičení.
-
-== Kde rozdělit GCode?
+=== Kde rozdělit GCode?
 
 Abyste správně rozdělili GCode soubor, je potřeba ho rozdělit v tom správném místě.
 Správné místo je v našem případě těsně po příkazu určujícím přechod na další vrstvu.
-Zde je kus Gcodu, kde předpokládáme, že vše od 7,25 mm výšky nahoru má být z jiného materiálu.
+Zde je kus Gcodu, kde předpokládáme, že vše od 5,1 mm výšky nahoru má být z jiného materiálu.
 
 .Soubor Gcode k rozdělení (fragment)
 [source,gcode]
 ----
 ...
-G1 X34.580 Y81.292 E0.03309
-G1 X33.164 Y82.708 E0.10878
-G1 X33.773 Y82.708 E0.03309
-G1 X34.708 Y81.773 E0.07183
-G1 X34.708 Y82.382 E0.03309
-G1 X34.382 Y82.708 E0.02504
-G1 E-1.00000 F1800.00000
-G1 Z7.250 F7800.000 // <1>
-G1 X165.036 Y82.964 F7800.000
-G1 E1.00000 F1800.00000
-G1 F2100
-G1 X155.036 Y82.964 E0.52847
-G1 X155.036 Y81.036 E0.10188
-G1 X166.964 Y81.036 E0.63035
-G1 X166.964 Y88.964 E0.41896
-G1 X165.036 Y88.964 E0.10188
-G1 X165.036 Y83.024 E0.31391
-G1 X164.617 Y83.383 F7800.000
+G1 X119.919 Y103.127 E0.03280
+G1 X118.373 Y101.581 E0.11756
+G1 X118.373 Y102.191 E0.03280
+G1 X119.309 Y103.127 E0.07117
+G1 X118.699 Y103.127 E0.03280
+G1 X118.373 Y102.801 E0.02479
+;BEFORE_LAYER_CHANGE // <1>
+G92 E0.0
+;5.1
+G1 Z5.100 F12000.000 // <2>
+;AFTER_LAYER_CHANGE // <3>
+;5.1
+G1 X126.883 Y103.383 F12000.000
+G1 F900
+G1 X118.117 Y103.383 E0.45795
+G1 X118.117 Y94.617 E0.45795
+G1 X126.883 Y94.617 E0.45795
+G1 X126.883 Y103.323 E0.45482
+G1 X127.280 Y103.780 F12000.000
 ...
 ----
-<1> tento řádek je zásadní -- *za ním* soubor rozdělíme
+<1> komentář vygenerovaný Slic3rem, ne v každém Gcodu musí být
+<2> tento řádek je zásadní -- *za ním* soubor rozdělíme
+<3> komentář vygenerovaný Slic3rem, ne v každém Gcodu musí být
 
 .Konec prvního Gcode souboru po rozdělení
 [source,gcode]
 ----
 ...
-G1 X34.580 Y81.292 E0.03309
-G1 X33.164 Y82.708 E0.10878
-G1 X33.773 Y82.708 E0.03309
-G1 X34.708 Y81.773 E0.07183
-G1 X34.708 Y82.382 E0.03309
-G1 X34.382 Y82.708 E0.02504
-G1 E-1.00000 F1800.00000
-G1 Z7.250 F7800.000 // <1>
+G1 X119.919 Y103.127 E0.03280
+G1 X118.373 Y101.581 E0.11756
+G1 X118.373 Y102.191 E0.03280
+G1 X119.309 Y103.127 E0.07117
+G1 X118.699 Y103.127 E0.03280
+G1 X118.373 Y102.801 E0.02479
+;BEFORE_LAYER_CHANGE
+G92 E0.0
+;5.1
+G1 Z5.100 F12000.000 // <1>
 G28 X0 Y0 // <2>
 ----
 <1> přechod na novou vrstvu
@@ -158,16 +141,15 @@ G28 X0 Y0 // <2>
 [source,gcode]
 ----
 G28 X0 Y0 // <1>
-G1 X165.036 Y82.964 F7800.000
-G1 E1.00000 F1800.00000
-G1 F2100
-G1 X155.036 Y82.964 E0.52847
-G1 X155.036 Y81.036 E0.10188
-G1 X166.964 Y81.036 E0.63035
-G1 X166.964 Y88.964 E0.41896
-G1 X165.036 Y88.964 E0.10188
-G1 X165.036 Y83.024 E0.31391
-G1 X164.617 Y83.383 F7800.000
+;AFTER_LAYER_CHANGE
+;5.1
+G1 X126.883 Y103.383 F12000.000
+G1 F900
+G1 X118.117 Y103.383 E0.45795
+G1 X118.117 Y94.617 E0.45795
+G1 X126.883 Y94.617 E0.45795
+G1 X126.883 Y103.323 E0.45482
+G1 X127.280 Y103.780 F12000.000
 ...
 ----
 <1> _home_ po osách X a Y (ve správné výšce už tryska je)
@@ -176,11 +158,10 @@ G1 X164.617 Y83.383 F7800.000
 == Úkol
 
 Vytiskněte libovolné množství (nejméně však jedno) dvoubarevného
-link:../stls/multicolor/3dprintlab-logo.stl[loga laboratoře]. Použijte
-na to jeden z dvou postupů popsaných výše, ideálně ale první. Nastavení
+link:../stls/multicolor/3dprintlab-logo.stl[loga laboratoře]. Nastavení
 tisku zvolte dle potřeby, vycházejte však z tiskového profilu _Normal_.
-Pokud nebudete mít u tiskárny připraveno, požádejte cvičícího o dvě
-různé barvy materiálu.
+Domluvte se s kolegy v učebně na výměně barvy filamentu,
+případně požádejte cvičící o náhradní barvu.
 
 .Ukázkový výtisk loga laboratoře
 image::logo.jpg[Logo]
