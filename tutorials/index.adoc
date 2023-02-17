@@ -2,47 +2,40 @@
 
 Změna programu vyhrazena.
 
-WARNING: Kvůli nepředvídatelnosti koronavirových opatření 🦠 nejsme schopni garantovat,
-že výuka BI-3DT bude probíhat tento semestr bez obtíží.
-Druhá polovina harmonogramu nelze učit distančně.
-**V případě zákazu prezenční výuky může být předmět zrušen bez náhrady.**
-
 [cols="s,2,4,",options="header",]
 |=======================================================================
 |Cvičení |Datum |Téma |Body
-|1. |14.02.2022 |xref:course#[Principy předmětu],
+|1. |20.02.2023 |xref:course#[Principy předmětu],
 xref:reprap#[RepRap], xref:git#[Git]
-|https://github.com/3DprintFIT/B212A-Username-Assignment[0]
+|https://github.com/3DprintFIT/B222A-Username-Assignment[0]
 
-|2. |21.02.2022 |xref:openscad#[OpenSCAD: Základy]
-|https://github.com/3DprintFIT/B212A-OpenSCAD1-Assignment[3]
+|2. |27.02.2023 |xref:openscad#[OpenSCAD: Základy]
+|https://github.com/3DprintFIT/B222A-OpenSCAD1-Assignment[3]
 
-|3. |28.02.2022 |xref:openscad#[OpenSCAD: Pokročilé]
-|https://github.com/3DprintFIT/B212A-OpenSCAD2-Assignment[3]
+|3. |06.03.2023 |xref:openscad#[OpenSCAD: Pokročilé]
+|https://github.com/3DprintFIT/B222A-OpenSCAD2-Assignment[3]
 
-|4. |07.03.2022 |xref:mesh#[Mesh]
-|https://github.com/3DprintFIT/B212A-Mesh-Assignment[3]
+|4. |13.03.2023 |xref:mesh#[Mesh]
+|https://github.com/3DprintFIT/B222A-Mesh-Assignment[3]
 
-|5. |14.03.2022 |xref:admesh#[ADMesh] - Programová manipulace s meshí
-|https://github.com/3DprintFIT/B212A-ADMesh-Assignment[3]
+|5. |20.03.2023 |xref:admesh#[ADMesh] - Programová manipulace s meshí
+|https://github.com/3DprintFIT/B222A-ADMesh-Assignment[3]
 
-|6. |21.03.2022 |xref:scan#[Skenování]
-|https://github.com/3DprintFIT/B212A-Scanning-Assignment[3]
+|6. |27.03.2023 |xref:scan#[Skenování]
+|https://github.com/3DprintFIT/B222A-Scanning-Assignment[3]
 
-|7. |28.03.2022 |xref:slicing#[Slicing]
-|https://github.com/3DprintFIT/B212A-Slicing-Assignment[3]
+|7. |03.04.2023 |xref:slicing#[Slicing]
+|https://github.com/3DprintFIT/B222A-Slicing-Assignment[3]
 
-|8. |04.04.2022 |xref:printing#[Tisk: Základy] |3
+|8. |06.04.2023 🐤 čtvrtek |xref:printing#[Tisk: Základy] |3
 
-|9. |11.04.2022 |xref:bridges#[Tisk: Mosty] |3
+|9. |17.04.2023 |xref:bridges#[Tisk: Mosty] |3
 
-|🐤 |18.04.2022 |Velikonoční pondělí |🐇
+|10. |24.04.2023 |xref:supports#[Tisk: Podpory] |3
 
-|10. |25.04.2022 |xref:supports#[Tisk: Podpory] |3
+|11. |02.05.2023 ⚒️ úterý |xref:multicolor#[Tisk: Vícebarevný tisk] |3
 
-|11. |02.05.2022 |xref:multicolor#[Tisk: Vícebarevný tisk] |3
-
-|12. |09.05.2022 |Tisk - co si přejete vyzkoušet ohledně semestrální práce |0
+|12. |15.05.2023 |Tisk - co si přejete vyzkoušet ohledně semestrální práce |0
 
 2+d|Domácí příprava vhodná k semestrálce
 |xref:meshmixer#[MeshMixer a řezání STL souborů] |0
