@@ -7,7 +7,6 @@ potřebovat tyto programy:
 * https://github.com/3DprintFIT/netfabb-basic-download/releases[netfabb Basic]
 * https://github.com/kliment/Printrun[Printrun]
 * http://slic3r.org/[Slic3r]
-* http://kisslicer.com/[KiSSlicer]
 * https://github.com/admesh/admesh[ADMesh] >= 0.98 (včetně devel balíků,
 pokud instalujete z repozitářů)
 
@@ -17,6 +16,7 @@ Dále by se vám mohlo hodit:
 * http://meshlab.sourceforge.net/[Meshlab]
 * https://www.danielgm.net/cc/[CloudCompare]
 * https://github.com/admesh/ADMeshGUI[ADMeshGUI] na prohlížení STL souborů
+* http://kisslicer.com/[KiSSlicer]
 
 == Instalace v Linuxu
 

@@ -50,7 +50,7 @@ Kopírují workflow tisku.
 
 1.  *Tvorba modelů*: program OpenSCAD
 2.  *Optimalizace* a *opravy*: program netfabb Basic
-3.  *Slicování*: programy Slic3r (a KISSlicer)
+3.  *Slicování*: program Slic3r
 4.  *Tisk*: program OctoPrint
 5.  1 cvičení také *Programování*: ADMesh
 
