@@ -66,7 +66,7 @@ Jedná se o velmi parametrický 3D model s pevně daným rozhraním.
 Odevzdává se na GitHub a zadání proběhne cca ve 4. týdnu (semestru).
 
 TIP: Domácí úkol tvoří 30 % xref:../classification#[hodnocení] předmětu,
-ale není povinná.
+ale není povinný.
 
 Minulá zadání najdete v xref:../archive/index#[archívu].
 
