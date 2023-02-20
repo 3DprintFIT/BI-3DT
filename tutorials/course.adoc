@@ -27,7 +27,7 @@ na cvičeních v druhé části semestru, kdy budete tisknout (a tedy předevš�
 čekat). Je na každém z vás, jestli tyto prostoje využije k práci na semestrálce,
 či na ni bude pracovat jindy.
 
-Tisk semestrálních prací proběhne ve 3D labu (A1153) ve zkouškovém období.
+Tisk semestrálních prací proběhne ve zkouškovém období.
 
 Harmonogram semestru je na stránce xref:./schedule#[Cvičení].
 Účast na cvičeních je v zásadě nepovinná:
