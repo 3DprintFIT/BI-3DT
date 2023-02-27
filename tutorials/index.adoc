@@ -15,7 +15,7 @@ xref:reprap#[RepRap], xref:git#[Git]
 |3. |06.03.2023 |xref:openscad#[OpenSCAD: Pokročilé]
 |https://github.com/3DprintFIT/B222A-OpenSCAD2-Assignment[3]
 
-|4. |13.03.2023 |xref:mesh#[Mesh]
+|4. |13.03.2023 |xref:mesh#[Mesh] – 🖱️  s sebou
 |https://github.com/3DprintFIT/B222A-Mesh-Assignment[3]
 
 |5. |20.03.2023 |xref:admesh#[ADMesh] – Programová manipulace s meshí
