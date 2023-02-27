@@ -6,7 +6,7 @@ Změna programu vyhrazena.
 |=======================================================================
 |Cvičení |Datum |Téma |Body
 |1. |20.02.2023 |xref:course#[Principy předmětu],
-xref:reprap#[RepRap], xref:git#[Git]
+xref:reprap#[RepRap], xref:git#[Git], xref:openscad#[OpenSCAD: Lehký úvod]
 |https://github.com/3DprintFIT/B222A-Username-Assignment[0]
 
 |2. |27.02.2023 |xref:openscad#[OpenSCAD: Základy]
