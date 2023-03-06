@@ -846,3 +846,4 @@ image::ex16.png[]
 == Příklady ze cvičení
 
 * xref:openscad/openscad-molecule#[molekula]
+* xref:openscad/openscad-recursion#[rekurze]
