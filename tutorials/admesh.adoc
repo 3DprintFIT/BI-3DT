@@ -122,14 +122,14 @@ Pro kompilaci zdrojového kódu do programu je třeba linkeru říct,
 
 .Kompilace programu používajícího knihovnu ADMesh
 [source,console]
-$ gcc source.c -ladmesh -o myapp
+$ gcc source.c -o myapp -ladmesh
 
 Případně, pokud nemáte ADMesh nainstalovaný ve standardních cestách,
 je třeba nastavit absolutní cesty ke knihovně i hlavičkovému souboru:
 
 .Kompilace programu používajícího knihovnu ADMesh z nestandardních cest
 [source,console]
-$ gcc -L/cesta/k/adresáři/knihovnou -I/cesta/k/adresáři/s/hlavičkovým/souborem source.c -ladmesh -o myapp
+$ gcc -L/cesta/k/adresáři/knihovnou -I/cesta/k/adresáři/s/hlavičkovým/souborem source.c -o myapp -ladmesh
 
 .Spuštění zkompilovaného programu
 [source,console]
