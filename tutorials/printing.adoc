@@ -189,10 +189,8 @@ Stáhněte si konfigurační bundle pro tiskárny Hybrix, které používáme na
 
 *link:../configs/printing/slic3r_config_bundle.ini[slic3r_config_bundle.ini]*
 
-CAUTION: Na tomto cvičení používáme konfigurační soubor pro tiskárny Hybrix,
-ale na slicovacím cvičení jsme používali jiný soubor!
-*Nastavit správný konfigurační soubor je důležité.* Nevhodně zvolená konfigurace může způsobit, že se v GCode objeví instrukce nevhodné pro danou tiskárnu (např. se může začít tisknout mimo tisknutelnou oblast) a takové instrukce mohou zapříčinit neúspěšný tisk, nebo v horším případě *poškodit tiskárnu*.
-Zkontrolujte, že načtené a zvolené nastavení pro tiskárnu je pojmenované *Hybrix*.
+CAUTION: *Nastavit správný konfigurační soubor je důležité.* Nevhodně zvolená konfigurace může způsobit, že se v GCode objeví instrukce nevhodné pro danou tiskárnu (např. se může začít tisknout mimo tisknutelnou oblast) a takové instrukce mohou zapříčinit neúspěšný tisk, nebo v horším případě *poškodit tiskárnu*.
+Zkontrolujte, že načtené a zvolené nastavení pro tiskárnu je pojmenované *Hybrix* a materiál *PET*.
 
 Pokud při tisku narazíte na jakýkoliv problém, konzultujte se cvičícím, nebo zkuste problém najít v xref:../troubleshooting/index#[troubleshootingu].
 
