@@ -77,14 +77,11 @@ image::slic3r.png[Okno Slic3ru, width=720, link=../images/slicing/slic3r.png]
 .Položka __Load Config Bundle__
 image::load-bundle.png[Nabídka file, width=320, float=right, link=../images/slicing/load-bundle.png]
 
-Stáhněte si konfigurační bundle pro tiskárny RebeliX, které používáme na tomto cvičení.
+Stáhněte si konfigurační bundle pro tiskárny Hybrix, které používáme na tomto cvičení.
 
-CAUTION: Na tomto cvičení používáme konfigurační soubor pro tiskárny RebeliX,
-ale na tiskovém cvičení budeme používat jiný soubor!
+*link:../configs/printing/slic3r_config_bundle.ini[slic3r_config_bundle.ini]*
 
-*link:../configs/slicing-tutorial/slic3r_config_bundle.ini[slic3r_config_bundle.ini]*
-
-Tento soubor načtěte pomocí __File → Load Config Bundle__. Po načtení config bundlu je často nutné program restartovat. Úspěšné načtení config bundle poznáte podle nových položek vpravo nahoře (ve filamentu se objeví na výběr **ABS ESUN 1.75mm** a v tiskárnách **RebeliX**).
+Tento soubor načtěte pomocí __File → Load Config Bundle__. Po načtení config bundlu je často nutné program restartovat. Úspěšné načtení config bundle poznáte podle nových položek vpravo nahoře (ve filamentu se objeví na výběr **PET** a v tiskárnách **Hybrix**).
 
 CAUTION: *Nastavit správný konfigurační soubor je důležité.* Nevhodně zvolená konfigurace může způsobit, že se v GCode objeví instrukce nevhodné pro danou tiskárnu (např. se může začít tisknout mimo tisknutelnou oblast) a takové instrukce mohou zapříčinit neúspěšný tisk, nebo v horším případě *poškodit tiskárnu*.
 
