@@ -34,7 +34,7 @@ Tuhnutí a smršťování plastu pak ještě zařídí, že se dané vlákno nap
 Velkou roli při tisku mostů hraje větrák, rychlost posunu trysky a množství vytlačeného plastu.
 *Při příliš nízké rychlosti se vlákno prověsí dolů, nebo z trysky upadne.
 Vysoká rychlost zase může vlákno přetrhnout dříve, než dorazí k druhému bodu.*
-Foukáním na některé druhy materiálů (PLA) můžeme proces chladnutí urychlit.
+Foukáním na některé druhy materiálů (PLA, PET) můžeme proces chladnutí urychlit.
 
 Logicky není žádoucí, aby byl most prověšený nebo měl přetrhaná vlákna.
 
@@ -52,7 +52,7 @@ Dejte si ale pozor, ať víte, který je který.
 
 IMPORTANT: Pro dnešní cvičení si stáhněte 
 link:../configs/bridges/slic3r_config_bundle_bridges.ini[config bundle určený pro tisk mostů]
-a použijte nastavení _Bridges_, _PLA_Bridges_, _Hybrix_.
+a použijte nastavení _Bridges_, _PET_Bridges_, _Hybrix_.
 
 == Úkol
 
