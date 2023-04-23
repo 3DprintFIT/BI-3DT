@@ -23,13 +23,13 @@ image::slic3r.png[Slic3r, width=500]
 
 NOTE: Obecně platí, že čím víc se na objekt fouká, tím větší převisy se dají vytisknout a méně supportu je potřeba.
 Na některé materiály (např. na ABS) se prakticky foukat nedá, protože by vzniklo příliš velké pnutí a objekt by popraskal.
-Pokud tisknete z PLA, je tedy často možné podpory relativně omezit.
+Pokud tisknete z PET nebo PLA, je tedy často možné podpory relativně omezit.
 
 .Model medvěda se zvýrazněnými převisy -- tam bude potřeba support
 image::bear.png[Medvěd, width=450]
 
 IMPORTANT: Pro dnešní cvičení si stáhněte obecný xref:printing#config-file[Config Bundle pro Slic3r],
-tedy nepoužívejte ten ze cvičení o mostech nebo slicingu.
+tedy nepoužívejte ten ze cvičení o mostech.
 
 WARNING: Dodržujte všechna bezpečnostní pravidla z xref:printing.adoc#[tiskového cvičení].
 Zejména nejezte vteřinové lepidlo a nerozebírejte plastovou krytku zdroje tiskárny.
