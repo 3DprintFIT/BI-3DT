@@ -5,9 +5,12 @@
 
 Pokud se nelze na tiskárnu připojit...
 
-1. Zkontrolujte, že je počítač připojen k síti a že sedíte u školního počítače (z vlastního počítače se nelze připojit).
-2. Ujistěte se, že se připojujete na správnou adresu. Zadávejte do počítače explicitně celou adresu, včetně `http://`.
-4. Tiskárnu restartujte jejím vypnutím a opětovným zapnutím (vypojením a zapojením do elektřiny).
+1. Zkontrolujte, že je tiskárna připojena k elektrické síti.
+2. Zkontrolujte, že je tiskárna zapnutá (kolébkovým vypínačem na zdroji)
+3. Zkontrolujte, že je tiskárna připojena k síťovému kabelu a že u konektoru svítí/bliká zelená kontrolka.
+4. Připojujte se ze školního počítače (případně přes fakultní VPN).
+5. Ujistěte se, že se připojujete na správnou adresu. Zadávejte do počítače explicitně celou adresu, včetně `http://`.
+6. Tiskárnu restartujte jejím vypnutím a opětovným zapnutím (případně vypojením a zapojením do elektřiny).
 
 Pokud nic z toho nepomůže, požádejte cvičícího o pomoc.
 
