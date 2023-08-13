@@ -1,6 +1,6 @@
 = English summary
 :toc:
-:imagesdir: ../images/printing/
+:imagesdir: images/printing/
 
 This is a quick summary created for the purposes of occasional intensive English courses.
 It focuses merely on printing rather than other topics of the regular 3D printing class at FIT.
@@ -131,9 +131,9 @@ TIP: Clean up your workspace regularly.
 
 image::CuteOcto.png[width=160, float=right]
 
-* link:../stls/printing/20mm-box.stl[0×20×10 mm cube]
-* link:../stls/printing/CuteOcto.stl[Cute Octopus Says Hello] (CC BY 3.0 by MakerBot)
-* link:../stls/bridges/bridge.scad[parametric bridge model for OpenSCAD]
-* link:../stls/supports/Overhang_Test.stl[Overhang Test] (CC BY 3.0 by Knickohr)
-* link:../stls/supports/bear.stl[bear] (CC BY-NC 4.0 by Christophe Caranchini)
-* link:../stls/multicolor/3dprintlab-logo.stl[our 3D lab logo]
+* link:stls/printing/20mm-box.stl[0×20×10 mm cube]
+* link:stls/printing/CuteOcto.stl[Cute Octopus Says Hello] (CC BY 3.0 by MakerBot)
+* link:stls/bridges/bridge.scad[parametric bridge model for OpenSCAD]
+* link:stls/supports/Overhang_Test.stl[Overhang Test] (CC BY 3.0 by Knickohr)
+* link:stls/supports/bear.stl[bear] (CC BY-NC 4.0 by Christophe Caranchini)
+* link:stls/multicolor/3dprintlab-logo.stl[our 3D lab logo]
