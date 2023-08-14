@@ -107,7 +107,7 @@ To produce a `.gcode` file, use __Slic3r__ on the class computer.
 
 You will need this config bundle and load it via __Load Config Bundle...__ in the __File__ menu.
 
-*link:../configs/printing/slic3r_config_bundle.ini[slic3r_config_bundle.ini]*
+*link:configs/printing/slic3r_config_bundle.ini[slic3r_config_bundle.ini]*
 
 CAUTION: Printing from a `.gcode` that was generated using incorrect config will result in fatal errors.
 
