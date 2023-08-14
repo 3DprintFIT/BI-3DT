@@ -131,7 +131,7 @@ TIP: Clean up your workspace regularly.
 
 image::CuteOcto.png[width=160, float=right]
 
-* link:stls/printing/20mm-box.stl[0×20×10 mm cube]
+* link:stls/printing/20mm-box.stl[20×20×10 mm cube]
 * link:stls/printing/CuteOcto.stl[Cute Octopus Says Hello] (CC BY 3.0 by MakerBot)
 * link:stls/bridges/bridge.scad[parametric bridge model for OpenSCAD]
 * link:stls/supports/Overhang_Test.stl[Overhang Test] (CC BY 3.0 by Knickohr)
