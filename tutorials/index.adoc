@@ -7,25 +7,25 @@ Změna programu vyhrazena.
 |Cvičení |Datum |Téma |Body
 |1. |19.02.2024 |xref:course#[Principy předmětu],
 xref:reprap#[RepRap], xref:git#[Git], xref:openscad#[OpenSCAD: Lehký úvod]
-|https://github.com/3DprintFIT/B232-Username-Assignment[0]
+|https://github.com/3DprintFIT/B232A-Username-Assignment[0]
 
 |2. |26.02.2024 |xref:openscad#[OpenSCAD: Základy]
-|https://github.com/3DprintFIT/B232-OpenSCAD1-Assignment[3]
+|https://github.com/3DprintFIT/B232A-OpenSCAD1-Assignment[3]
 
 |3. |04.03.2024 |xref:openscad#[OpenSCAD: Pokročilé]
-|https://github.com/3DprintFIT/B232-OpenSCAD2-Assignment[3]
+|https://github.com/3DprintFIT/B232A-OpenSCAD2-Assignment[3]
 
 |4. |11.03.2024 |xref:mesh#[Mesh] – 🖱️  s sebou
-|https://github.com/3DprintFIT/B232-Mesh-Assignment[3]
+|https://github.com/3DprintFIT/B232A-Mesh-Assignment[3]
 
 |5. |18.03.2024 |xref:admesh#[ADMesh] – Programová manipulace s meshí
-|https://github.com/3DprintFIT/B232-ADMesh-Assignment[3]
+|https://github.com/3DprintFIT/B232A-ADMesh-Assignment[3]
 
 |6. |25.03.2024 |xref:scan#[Skenování] (nebo Fusion)
-|https://github.com/3DprintFIT/B232-Scanning-Assignment[3]
+|https://github.com/3DprintFIT/B232A-Scanning-Assignment[3]
 
 |7. |08.04.2024 |xref:slicing#[Slicing]
-|https://github.com/3DprintFIT/B232-Slicing-Assignment[3]
+|https://github.com/3DprintFIT/B232A-Slicing-Assignment[3]
 
 |8. |15.04.2024 |xref:printing#[Tisk: Základy] |3
 
