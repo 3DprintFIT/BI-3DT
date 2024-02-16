@@ -1,7 +1,7 @@
 # Build pages and deploy to courses.fit.cvut.cz
 course-pages:
   stage: deploy
-  image: ${CI_REGISTRY}/course-pages/course-pages:master
+  image: ${CI_REGISTRY}/course-pages/course-pages:stable
   script:
     - course-pages public/
   artifacts:
