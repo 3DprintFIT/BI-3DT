@@ -18,11 +18,11 @@ xref:reprap#[RepRap], xref:git#[Git], xref:openscad#[OpenSCAD: Lehký úvod]
 |4. |11.03.2024 |xref:mesh#[Mesh] – 🖱️  s sebou
 |https://github.com/3DprintFIT/B232A-Mesh-Assignment[3]
 
-|5. |18.03.2024 |xref:admesh#[ADMesh] – Programová manipulace s meshí
-|https://github.com/3DprintFIT/B232A-ADMesh-Assignment[3]
+|5. |18.03.2024 |Fusion 360
+|https://github.com/3DprintFIT/B232A-Fusion-Assignment[3]
 
-|6. |25.03.2024 |xref:scan#[Skenování] (nebo Fusion)
-|https://github.com/3DprintFIT/B232A-Scanning-Assignment[3]
+|6. |25.03.2024 |xref:admesh#[ADMesh] – Programová manipulace s meshí
+|https://github.com/3DprintFIT/B232A-ADMesh-Assignment[3]
 
 |7. |08.04.2024 |xref:slicing#[Slicing]
 |https://github.com/3DprintFIT/B232A-Slicing-Assignment[3]
@@ -39,4 +39,7 @@ xref:reprap#[RepRap], xref:git#[Git], xref:openscad#[OpenSCAD: Lehký úvod]
 
 2+d|Domácí příprava vhodná k semestrálce
 |xref:meshmixer#[MeshMixer a řezání STL souborů] |0
+
+2+d|Nezařazené cvičení
+|xref:scan#[Skenování] |0
 |=======================================================================
