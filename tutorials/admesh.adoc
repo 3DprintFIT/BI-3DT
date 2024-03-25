@@ -63,6 +63,16 @@ na https://github.com/admesh/admesh/releases[GitHubu].
 Na všech podporovaných systémech můžete knihovnu zkompilovat sami
 https://github.com/admesh/admesh[ze zdrojových kódů].
 
+=== Vlastní sestavení na Linuxu
+
+Po stažení https://github.com/admesh/admesh/releases/download/v0.98.5/admesh-0.98.5.tar.gz[admesh-0.98.5.tar.gz] a rozbalení:
+
+.Lokální sestavení knihovny
+[source,source]
+$ ./configure
+$ make
+$ export ADMESHDIR=~/admesh
+$ make install DESTDIR=$ADMESHDIR
 
 === Základní použití
 
@@ -129,15 +139,16 @@ je třeba nastavit absolutní cesty ke knihovně i hlavičkovému souboru:
 
 .Kompilace programu používajícího knihovnu ADMesh z nestandardních cest
 [source,console]
-$ gcc -L/cesta/k/adresáři/knihovnou -I/cesta/k/adresáři/s/hlavičkovým/souborem source.c -o myapp -ladmesh
+$ export ADMESHDIR=~/admesh
+$ gcc -L$ADMESHDIR/usr/local/lib/ -I$ADMESHDIR/usr/local/include/ 
 
 .Spuštění zkompilovaného programu
 [source,console]
 $ ./myapp
 
-.Na některých systémech je nutné nastavit `LD_LIBRARY_PATH`
+.Pro použití vlastního sestavení je nutné nastavit `LD_LIBRARY_PATH`
 [source,console]
-$ LD_LIBRARY_PATH=/usr/local/lib ./myapp
+$ LD_LIBRARY_PATH=$ADMESHDIR/usr/local/lib/ ./myapp
 
 
 === Práce se strukturou `stl_file`
