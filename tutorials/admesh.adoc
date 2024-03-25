@@ -140,7 +140,7 @@ je třeba nastavit absolutní cesty ke knihovně i hlavičkovému souboru:
 .Kompilace programu používajícího knihovnu ADMesh z nestandardních cest
 [source,console]
 $ export ADMESHDIR=~/admesh
-$ gcc -L$ADMESHDIR/usr/local/lib/ -I$ADMESHDIR/usr/local/include/ 
+$ gcc -L$ADMESHDIR/usr/local/lib/ -I$ADMESHDIR/usr/local/include/ source.c -o myapp -ladmesh
 
 .Spuštění zkompilovaného programu
 [source,console]
