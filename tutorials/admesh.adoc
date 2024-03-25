@@ -150,6 +150,29 @@ $ ./myapp
 [source,console]
 $ LD_LIBRARY_PATH=$ADMESHDIR/usr/local/lib/ ./myapp
 
+.Pro použití vlastního sestavení na macOS je nutné nastavit `DYLD_LIBRARY_PATH`
+[source,console]
+$ DYLD_LIBRARY_PATH=$ADMESHDIR/usr/local/lib/ ./myapp
+
+=== Instalace a kompilace ADMesh na macOS
+
+Pro instalaci využijeme Homebrew. Pokud nemáte nainstalovaný, nainstalujte ho podle návodu na https://brew.sh/
+
+.Instalace ADMesh
+[source,console]
+$ brew install admesh
+
+Pro kompilaci zdrojového kódu do programu je třeba linkeru říct,
+že chceme použít knihovnu ADMesh, a předat komplilátoru cestu k hlavičkovému souboru a knihovně:
+
+.Kompilace programu používajícího knihovnu ADMesh na macOS
+[source,console]
+$ gcc -L/opt/homebrew/lib/ -I/opt/homebrew/include/ source.c -o myapp -ladmesh
+
+.Spuštění zkompilovaného programu na macOS
+[source,console]
+$ ./myapp 
+
 
 === Práce se strukturou `stl_file`
 
