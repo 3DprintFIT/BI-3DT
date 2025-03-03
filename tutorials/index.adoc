@@ -15,11 +15,11 @@ xref:reprap#[RepRap], xref:git#[Git], xref:openscad#[OpenSCAD: Lehký úvod]
 |3. |03.03.2025 |xref:openscad#[OpenSCAD: Pokročilé]
 |https://github.com/3DprintFIT/B242A-OpenSCAD2-Assignment[3]
 
-|4. |10.03.2025 |xref:mesh#[Mesh] – 🖱️  s sebou
-|https://github.com/3DprintFIT/B242A-Mesh-Assignment[3]
-
-|5. |17.03.2025 |xref:fusion#[Fusion 360] – 🖱️  s sebou
+|4. |10.03.2025 |xref:fusion#[Fusion 360] – 🖱️  s sebou
 |3
+
+|5. |17.03.2025 |xref:mesh#[Mesh] – 🖱️  s sebou
+|https://github.com/3DprintFIT/B242A-Mesh-Assignment[3]
 
 |6. |24.03.2025 |xref:admesh#[ADMesh] – Programová manipulace s meshí
 |https://github.com/3DprintFIT/B242A-ADMesh-Assignment[3]
