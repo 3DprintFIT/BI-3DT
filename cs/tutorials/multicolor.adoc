@@ -63,7 +63,7 @@ Existuje několik možností, jak vícebarevný tisk provést.
 
 == Sdílené informace (pro všechny možnosti)
 
-IMPORTANT: Pro dnešní cvičení si stáhněte oba obecné konfigurační soubory pro OrcaSlicer (pro Voron i Hybrix). Odkazy najdete v xref:printing#config-file[sekci o konfiguraci v návodu k tisku].
+IMPORTANT: Pro dnešní cvičení si stáhněte konfigurační bundle pro OrcaSlicer. Odkaz najdete v xref:printing#config-file[sekci o konfiguraci v návodu k tisku].
 
 WARNING: Dodržujte všechna bezpečnostní pravidla z xref:printing.adoc#[tiskového cvičení].
 Zejména nejezte filament a nesahejte na rozpálenou trysku tiskárny.

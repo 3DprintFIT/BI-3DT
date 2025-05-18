@@ -186,10 +186,12 @@ Přípravou tiskových dat do formátu GCode se zabývala kapitola xref:./slicin
 
 [[config-file]]
 
-Stáhněte si oba konfigurační soubory pro tiskárny, které používáme na tiskových cvičeních:
+Stáhněte si konfigurační bundle pro tiskárny, které používáme na tomto cvičení:
 
-*link:../configs/printing/Voron\ 0.2.orca_printer[Voron 0.2 config]*
-*link:../configs/printing/ČVUT\ Hybrix\ 0.4\ nozzle.orca_printer[Hybrix config]*
+https://github.com/3DprintFIT/OrcaSlicer/releases/latest[*Konfigurační bundle*]
+
+Zip soubor načtěte pomocí __File → Import → Import Configs__. Úspěšné načtení configů poznáte podle nových položek vlevo nahoře. Měli byste vidět v nabídce tiskáren FIT Voron 0.2 a FIT Hybrix.
+
 
 IMPORTANT: Cvičící vám na cvičení řeknou, kterou tiskárnu použijete.
 

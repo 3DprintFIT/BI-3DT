@@ -97,12 +97,11 @@ image::orcaslicer.png[Okno OrcaSliceru, width=720, link=../images/slicing/orcasl
 .Položka __Import Configs__
 image::load-bundle.png[Nabídka file, width=320, float=right, link=../images/slicing/load-bundle.png]
 
-Stáhněte si oba konfigurační soubory pro tiskárny, které používáme na tomto cvičení:
+Stáhněte si konfigurační bundle pro tiskárny, které používáme na tomto cvičení:
 
-*link:../configs/printing/Voron\ 0.2.orca_printer[Voron 0.2 config]*
-*link:../configs/printing/ČVUT\ Hybrix\ 0.4\ nozzle.orca_printer[Hybrix config]*
+https://github.com/3DprintFIT/OrcaSlicer/releases/latest[*Konfigurační bundle*]
 
-Oba soubory načtěte pomocí __File → Import → Import Configs__. Úspěšné načtení configů poznáte podle nových položek vlevo nahoře. Měli byste vidět v nabídce tiskáren Voron 0.2 a Hybrix.
+Zip soubor načtěte pomocí __File → Import → Import Configs__. Úspěšné načtení configů poznáte podle nových položek vlevo nahoře. Měli byste vidět v nabídce tiskáren FIT Voron 0.2 a FIT Hybrix.
 
 CAUTION: *Nastavit správný konfigurační soubor je důležité.* Nevhodně zvolená konfigurace může způsobit, že se v GCode objeví instrukce nevhodné pro danou tiskárnu (např. se může začít tisknout moc rychle/na špatné místo) a takové instrukce mohou zapříčinit neúspěšný tisk, nebo v horším případě *poškodit tiskárnu*. Dnešní tiskárny mají obvykle některé ochranné funkce, které vás ochrání před jejich poškozením, ale je lepší se těmto problémům vyhnout.
 
@@ -201,7 +200,7 @@ image::skirt-brim.jpg[width=100%, link=../images/slicing/skirt-brim.jpg]
 
 Nyní přejdeme k tomu, co lze nastavit v programu OrcaSlicer a k čemu je to dobré.
 
-NOTE: OrcaSlicer již podporuje Češtinu, ale ne všechny překlady jsou přesné nebo dávají smysl, proto v tomto textu používáme anglickou verzi.
+NOTE: OrcaSlicer již podporuje Češtinu, ale ne všechny překlady jsou přesné nebo dávají smysl, proto v tomto textu používáme anglickou verzi. Pokud i přes to chcete použít češtinu, je možné v nastavení programu změnit jazyk.
 
 === Karta __Prepare__
 
@@ -253,7 +252,7 @@ image::infill.jpg[width=80%, link=../images/slicing/infill.jpg]
 
 ==== Stránka __Speed__
 
-NOTE:: Hodnoty na této stránce hodně závisí na modelu a ladění tiskárny. Rychlejší tisk nemusí být lepší, v určitých příkladech to může mít negativní vliv na kvalitu, odolnost a spolehlivost tisku. Dobré pravidlo: je rychlejší výrobek vytisknout jednou pomaleji, než moc rychle a muset tisk opakovat kvůli problémům. Dosažitelná rychlost je navíc ovlivněna mnoha dalšími faktory (zrychlení, průtok trysky, chlazení), takže se nastavených rychlostí nemusí vždy dosáhnout.
+NOTE: Hodnoty na této stránce hodně závisí na modelu a ladění tiskárny. Rychlejší tisk nemusí být lepší, v určitých příkladech to může mít negativní vliv na kvalitu, odolnost a spolehlivost tisku. Dobré pravidlo: je rychlejší výrobek vytisknout jednou pomaleji, než moc rychle a muset tisk opakovat kvůli problémům. Dosažitelná rychlost je navíc ovlivněna mnoha dalšími faktory (zrychlení, průtok trysky, chlazení), takže se nastavených rychlostí nemusí vždy dosáhnout.
 
 Outer wall:: Rychlost venkovního perimetru, má velký vliv na kvalitu. Rozumné hodnoty jsou mezi 60 a 150mm/s (u našich tiskáren Voron používáme 120mm/s, u Hybrix 60mm/s).
 

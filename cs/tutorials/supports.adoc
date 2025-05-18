@@ -51,7 +51,7 @@ Pokud tisknete z PET nebo PLA, je tedy často možné podpory relativně omezit.
 .Model medvěda se zvýrazněnými převisy -- tam bude potřeba support
 image::bear.png[Medvěd, width=450]
 
-IMPORTANT: Pro dnešní cvičení si stáhněte oba obecné konfigurační soubory pro OrcaSlicer (pro Voron i Hybrix). Pokud je máte stažené z minulých cvičení, nemusíte je znovu importovat. Odkazy najdete v xref:printing#config-file[sekci o konfiguraci v návodu k tisku].
+IMPORTANT: Pro dnešní cvičení si stáhněte konfigurační bundle pro OrcaSlicer. Pokud ho máte stažený z minulých cvičení, nemusíte ho znovu importovat. Odkazy najdete v xref:printing#config-file[sekci o konfiguraci v návodu k tisku].
 
 WARNING: Dodržujte všechna bezpečnostní pravidla z xref:printing.adoc#[tiskového cvičení].
 Zejména nejezte vteřinové lepidlo a nerozebírejte plastovou krytku zdroje tiskárny.
