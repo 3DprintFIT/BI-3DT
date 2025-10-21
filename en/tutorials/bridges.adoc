@@ -1,0 +1,115 @@
+= Printing: Bridges
+:toc:
+:imagesdir: ../images/bridges/
+
+In previous exercises we explained that
+classic FDM printers cannot print into thin air for physical reasons
+and thus it's necessary to have either the print bed or an already printed part of the object under the currently printed part.
+We showed how to add supports for parts of the model
+that would require printing into empty space.
+
+However, not all situations require wasting material on printing supports.
+If you examined what the infill looks like and what happens after printing the infill,
+you surely noticed that sometimes printing into thin air does occur.
+If we have 15% infill and want to cover it from above,
+then logically we're printing into thin air 85% of the time.
+How can this work?
+
+WARNING: Follow all safety rules from xref:printing.adoc#[the previous exercise].
+Especially don't stab anyone with a screwdriver and don't drink chemical cleaning agents.
+
+== Bridges
+
+.Bridge – Image from https://www.youtube.com/watch?v=wK2APNwEoSk[video] © BCN3D Technologies
+image::bridge.jpg[Bridge, width=450, float=right]
+
+A situation where we print from one fixed point to another ("from shore to shore")
+with a fast simple linear "stroke" is called *bridging*.
+
+During bridging we rely on the fact that the plastic filament still flows out of the nozzle (it "hangs") and during the time
+that the filament holds onto the nozzle, the nozzle manages to move to the second fixed point
+(to the "opposite shore"), where the filament attaches.
+The solidification and shrinking of the plastic then ensures that the given filament is taut and straight.
+
+The fan, nozzle movement speed, and amount of extruded plastic play a big role in printing bridges.
+*If the speed is too low, the filament will sag down or fall off the nozzle.
+High speed can break the filament before it reaches the second point.*
+By blowing on some types of materials (PLA, PET) we can speed up the cooling process.
+
+Logically, it's not desirable for the bridge to be sagging or have broken filaments.
+
+=== Bridge Settings in Slic3r
+
+For bridge calibration, values are adjusted in the Slic3r application in the sections:
+
+* _Print Settings → Speed → Bridges_
+* _Print Settings → Advanced → Flow_
+* _Filament Settings → Cooling_
+
+NOTE: Settings can be changed by double-clicking on a specific object,
+so you can print multiple bridges with different settings at once.
+Just be careful so you know which is which.
+
+IMPORTANT: For today's exercise, download the
+link:../configs/bridges/slic3r_config_bundle_bridges.ini[config bundle designed for printing bridges]
+and use the settings _Bridges_, _PET_Bridges_, _Hybrix_.
+
+== Assignment
+
+During the terraforming of Mars, mission command has assigned you the task of printing a bridge on a 3D printer.
+At our base we have a scaled-down copy of a 3D printer,
+which will later print real bridges on Mars.
+
+Each bridge has its own rating.
+The more valuable the bridge you manage to print,
+the faster we can terraform Mars.
+However, the bridge rating is not equally distributed in terms of its height/width.
+A bridge 20 wide and 30 long is not rated the same as a bridge 30 wide and 20 long.
+Longer bridges are more valuable. In other words, for points it pays to make bridges longer rather than wider.
+
+Use the file link:../stls/bridges/bridge.scad[bridge.scad] as a bridge generator and generate bridges in OpenSCAD (modifying the module implementation to get more points is considered cheating).
+Units are in millimeters and this is only the size of the bridge without the size of the pillars.
+Don't try to undercut the pillars, it would negatively affect printing properties.
+
+Don't forget to use the link:../configs/bridges/slic3r_config_bundle_bridges.ini[config bundle designed for printing bridges] (note, this is a different config bundle than we used last time).
+
+Otherwise, follow the instructions xref:printing.adoc#_tisk-krok-za-krokem[printing step by step].
+
+The bridge rating is always visible on its top side.
+
+NOTE: The bridge pillars must stay on the print bed.
+Use appropriate techniques that you know from the chapter xref:slicing.adoc#structs[slicing].
+
+WARNING: Check that the pillars are not solid, but have infill.
+In settings, possibly reduce the value of _Solid infill threshold area_.
+Two perimeters will be enough.
+
+=== Grading
+
+- 1 point for printing a really ugly sagging bridge
+- 2 points for printing an ugly bridge
+- 3 points for printing a nice bridge
+
+The above points are not cumulative.
+Those who don't xref:printing.adoc#ukol-3[clean up after themselves] don't get any points.
+Graded bridges must be at least 30 mm long and have a rating of at least 300.
+
+=== Bonus
+
+The student pair
+that manages to print the most valuable bridge
+will be awarded 3 bonus points.
+The second best pair gets 2 points and the third best pair gets 1 point.
+
+This competition runs across all parallel sessions.
+Intermediate results *are not communicated to competitors*.
+Only bridges for which you received points above enter the competition.
+So it's not possible to, for example, submit a nice short bridge for 3 points
+and at the same time compete with a really ugly sagging bridge.
+
+=== Bridges from ABS
+
+If you want, you can also try printing bridges from ABS non-competitively.
+ABS has greater thermal expansion and is harder to blow on.
+The bridge pillars have a greater tendency to detach from the bed during printing.
+If you're otherwise done and want to print from ABS, ask the instructors for details.

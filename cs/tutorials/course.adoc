@@ -1,0 +1,123 @@
+= Principy předmětu
+
+== BI-3DT
+
+Předmět učí členové http://3dprint.fit.cvut.cz/[3Dprint Labu], tedy studenti
+a absolventi FITu. Předmět děláme pro vás, proto vždy uvítáme připomínky.
+
+V rámci předmětu se vás snažíme naučit kompletní workflow k 3D tisku, tedy
+tvorbu modelu → optimalizaci / opravy → slicování → tisk → zpracování.
+
+== RepRap
+
+V předmětu učíme na tiskárnách RepRap, protože se jedná o open-source software
+a open-source hardware, který je pro fakultu cenově dostupný, pro nás (a pro
+vás) hackovatelný. Tiskárny projektu RepRap za poslední roky zaznamenaly
+ohromný posun kupředu. Je pravděpodobné, že většinu složitostí, které s našimi
+tiskárnami zaznamenáte, již nikdy v budoucnu nebudete muset řešit.
+
+== Průběh výuky
+
+Výuka předmětu se skládá pouze z *cvičení*, která probíhají zde v A1048.
+Kromě toho existuje pro někoho časově náročná práce na doma ve formě domácího
+úkolu a semestrální práce.
+
+Semestrální práce je koncipována tak, aby se na ní dalo pracovat v prostojích
+na cvičeních v druhé části semestru, kdy budete tisknout (a tedy především
+čekat). Je na každém z vás, jestli tyto prostoje využije k práci na semestrálce,
+či na ni bude pracovat jindy.
+
+Tisk semestrálních prací proběhne ve zkouškovém období.
+
+Harmonogram semestru je na stránce xref:./schedule#[Cvičení].
+Účast na cvičeních je v zásadě nepovinná:
+
+** nevyhodíme vás za to, že jste nepřišli,
+** úlohy na cvičeních jsou ale za body.
+
+== Hodnocení
+
+* *30 bodů* Práce v semestru na cvičeních
+* *30 bodů* Domácí parametrický úkol v programu OpenSCAD
+* *40 bodů* Semestrální práce
+
+WARNING: Informace na stránce xref:../classification#[Hodnocení] je vždy
+prioritní oproti informacím uvedených zde (informujte nás prosím při neshodě).
+
+=== Cvičení
+
+Kopírují workflow tisku.
+
+1.  *Tvorba modelů*: program OpenSCAD
+2.  *Optimalizace* a *opravy*: program netfabb Basic
+3.  *Slicování*: program Slic3r
+4.  *Tisk*: program OctoPrint
+5.  1 cvičení také *Programování*: ADMesh
+
+TIP: Práce na cvičeních tvoří 30 % xref:../classification#[hodnocení] předmětu,
+ale není povinná.
+
+=== Domácí úkol z OpenSCADu
+
+Součástí hodnocení je domácí úkol z modelování v OpenSCADu, který ověří vaše
+schopnosti ovládat program(a jazyk) OpenSCAD na úrovni mistra Yody.
+Jedná se o velmi parametrický 3D model s pevně daným rozhraním.
+
+Odevzdává se na GitHub a zadání proběhne cca ve 4. týdnu (semestru).
+
+TIP: Domácí úkol tvoří 30 % xref:../classification#[hodnocení] předmětu,
+ale není povinný.
+
+Minulá zadání najdete v xref:../archive/index#[archívu].
+
+=== Semestrální práce
+
+Semestrální práce je komplexní úloha, která kopíruje z předmětu známý workflow.
+Práce na semestrálce probíhá na cvičeních, doma a je zakončena tikem ve
+zkouškovém období, který může trvat až 5 hodin.
+
+Zadání zveřejníme tak, abyste na semestrálce mohli pracovat v rámci tiskových
+cvičení.
+
+TIP: Semestrálka tvoří 40 % xref:../classification#[hodnocení] předmětu,
+ale není povinná.
+
+Minulá zadání najdete v xref:../archive/index#[archívu].
+
+== Instalace programů
+
+Na fakultních počítačích v učebně jsou veškeré potřebné programy už nainstalovány.
+
+Pro práci ze svých počítačů důrazně doporučujeme nainstalovat několik
+potřebných programů, viz stránku xref:../apps#[Programy].
+
+CAUTION: Nainstalujte si programy co nejdříve a ověřte si jejich funkčnost!
+Setkali jsme se se situací, že student 45 minut na cvičení řešil instalaci
+Slic3ru a nestihl kvůli tomu samotnou práci. Za takovou situaci je student
+zodpovědný sám, pokud nás včas (cca týden předem) nepožádá o pomoc.
+
+== Když se mi to nelíbí
+
+Pokud se vám v průběhu předmětu něco nelíbí, řekněte nám to prosím hned,
+ne až v anketě. Pokud objevíte chybu v materiálech, založe issue na GitHubu
+nebo na GitLabu. Můžete navrhnout i úpravu (dobré úpravy hodnotíme body,
+vynikající úpravy můžou vést k odpuštění domácího úkolu nebo semestrální práce).
+
+TIP: Pokud už teď víte, že na předmět nebudete chodit, odhlaste si ho do
+konce 2. týdne, dáte šanci jiným. Děkujeme.
+
+== Facebook
+
+Na Facebooku existuje stránka
+https://www.facebook.com/groups/bi3dt/[Nechceme vypadnout z BI-3DT], na
+které můžete konzultovat své problémy s ostatními studenty, případně i s
+námi (vyučující sami tuto stránku aktivně sledují, ale nespoléhejte na
+to).
+
+== Odevzdávání úloh přes GitHub
+
+V předmětu odevzdáváme všeho na GitHub.
+Na tomhle cvičení si to vyzkoušíme.
+
+V xref:index#[harmonogramu cvičení] najdete u každého cvičení počet bodů.
+Pokud je tento počet bodů odkazem, vede na zadání úlohy.

@@ -1,0 +1,169 @@
+= Printing: Multi-color Printing
+:toc:
+:imagesdir: ../images/multicolor/
+:html5s-image-default-link: self
+
+You've surely noticed that our printers print with such material (in such color)
+as we load into them. There are various possibilities how to get rid of this limitation,
+or at least slightly circumvent it.
+
+Why print from multiple materials at once? The first reason can be aesthetic.
+
+.https://www.thingiverse.com/thing:3197896[ADALINDA MultiMaterial remix] by Louise Driggers & Dominik Císař (CC BY-NC 3.0)
+image::dragon.jpg[Dragon]
+
+Another reason can be printing xref:supports.adoc#[supports] from a different material,
+for example one that dissolves in water (https://reprap.org/wiki/PVA[PVA])
+or in a https://www.cif.cz/[common cleaning agent] (https://reprap.org/wiki/HIPS[HIPS]).
+
+Sometimes such materials can be more expensive and therefore only the _interface_ (several layers) between the support and object is printed from them.
+
+.PVA dissolves in water, image from https://youtu.be/0ENgGkPP94w[video] by Ultimaker
+image::support_pva.jpg[Support from PVA]
+
+== Multi-material and Multi-color Printing Options
+
+=== Multiple Nozzles
+
+One option for printing from two (or more) materials simultaneously is to use two (or more) nozzles.
+
+.Dual-nozzle head of Lulzbot TAZ printer, image from https://youtu.be/pr21IkVuoeU[video] by Aleph Objects (Lulzbot printers)
+image::taz.jpg[Two nozzles]
+
+The print area then shrinks somewhat and the printer prints with one or the other nozzle as needed.
+The disadvantage is that the mutual position of the nozzles must be very precise and that plastic can leak from the nozzle that's not currently being used
+(like when you preheat the printer before printing).
+
+=== Multiple Extruders
+
+Another option is to alternately push multiple different plastics into one nozzle.
+
+.Prusa i3 MK2 multi material printer © Prusa Research s.r.o.
+image::mk2_multi_material.png[MK2 MM, width=450]
+
+When changing material in one nozzle, excess old plastic must be extruded somewhere.
+This is usually done into a waste object, which can be very financially wasteful.
+
+.Waste from printing on Prusa i3 MK2 multi material printer, image from https://youtu.be/MnOWX4Ujtv8[video] by Joel Telling
+image::dragon_waste.jpg[Waste from MK2 MM]
+
+=== Even with One Print Head You Can Put on a Great Show
+
+If we have a printer with only one extruder and one nozzle available (as in the BI-3DT course),
+multi-material printing is almost unavailable or at least very difficult for us.
+However, there is one type of multi-material printing
+that we can perform with a bit of skill, and that's division along the layer:
+
+.Image from https://replicatore.wordpress.com/2014/11/19/il-progetto-slic3r-e-appena-iniziato-parola-di-alessandro-ranellucci/[interview] with the author of Slic3r © davidesher
+image::multicolor_cone.jpg[Cone]
+
+== Procedure
+
+IMPORTANT: For today's exercise, download the general xref:printing#config-file[Config Bundle for Slic3r].
+
+WARNING: Follow all safety rules from xref:printing.adoc#[the printing exercise].
+Especially don't eat filament and don't touch the hot printer nozzle.
+
+Basic idea: We'll split the GCode into multiple files so we can change filament between them.
+We assume printing a traffic cone from the image above.
+
+1. We'll have GCode generated for the entire cone.
+2. We'll find a suitable layer where we want one color to end and another to begin, we'll split the Gcode into two files (see below).
+3. We'll repeat the previous step as many times as colors change.
+4. We'll add the `G28 X0 Y0` command (_home_ X and Y axes) to the beginning and end of each newly created GCode.
+5. We'll start printing the first file.
+6. When the first color finishes printing, we'll change the material and start the next file.
+7. This way we'll change material and print subsequent Gcode files until we finish printing the entire object.
+
+NOTE: On printers equipped with LCD display and button, you can use the Gcode command
+https://reprap.org/wiki/G-code#M600:_Filament_change_pause[M600].
+This command pauses printing, moves the nozzle to the side, turns off the extruder motor, and informs the user
+that filament needs to be changed (often also with loud and unpleasant beeping).
+After changing the plastic, just press the button, the print head returns, and printing continues.
+Instead of splitting the file into two, it's enough to add one extra line to the Gcode;
+there are even https://www.prusaprinters.org/color-print/[sophisticated applications] for this.
+
+=== Where to Split GCode?
+
+To properly split a GCode file, you need to split it in the right place.
+The right place in our case is immediately after the command determining transition to the next layer.
+Here's a piece of Gcode where we assume that everything from 5.1 mm height upward should be from a different material.
+
+.Gcode file to split (fragment)
+[source,gcode]
+----
+...
+G1 X119.919 Y103.127 E0.03280
+G1 X118.373 Y101.581 E0.11756
+G1 X118.373 Y102.191 E0.03280
+G1 X119.309 Y103.127 E0.07117
+G1 X118.699 Y103.127 E0.03280
+G1 X118.373 Y102.801 E0.02479
+;BEFORE_LAYER_CHANGE // <1>
+G92 E0.0
+;5.1
+G1 Z5.100 F12000.000 // <2>
+;AFTER_LAYER_CHANGE // <3>
+;5.1
+G1 X126.883 Y103.383 F12000.000
+G1 F900
+G1 X118.117 Y103.383 E0.45795
+G1 X118.117 Y94.617 E0.45795
+G1 X126.883 Y94.617 E0.45795
+G1 X126.883 Y103.323 E0.45482
+G1 X127.280 Y103.780 F12000.000
+...
+----
+<1> comment generated by Slic3r, may not be in every Gcode
+<2> this line is crucial -- we split the file *after it*
+<3> comment generated by Slic3r, may not be in every Gcode
+
+.End of first Gcode file after splitting
+[source,gcode]
+----
+...
+G1 X119.919 Y103.127 E0.03280
+G1 X118.373 Y101.581 E0.11756
+G1 X118.373 Y102.191 E0.03280
+G1 X119.309 Y103.127 E0.07117
+G1 X118.699 Y103.127 E0.03280
+G1 X118.373 Y102.801 E0.02479
+;BEFORE_LAYER_CHANGE
+G92 E0.0
+;5.1
+G1 Z5.100 F12000.000 // <1>
+G28 X0 Y0 // <2>
+----
+<1> transition to new layer
+<2> _home_ on X and Y axes
+
+.Beginning of second Gcode file after splitting
+[source,gcode]
+----
+G28 X0 Y0 // <1>
+;AFTER_LAYER_CHANGE
+;5.1
+G1 X126.883 Y103.383 F12000.000
+G1 F900
+G1 X118.117 Y103.383 E0.45795
+G1 X118.117 Y94.617 E0.45795
+G1 X126.883 Y94.617 E0.45795
+G1 X126.883 Y103.323 E0.45482
+G1 X127.280 Y103.780 F12000.000
+...
+----
+<1> _home_ on X and Y axes (the nozzle is already at the correct height)
+
+
+== Assignment
+
+Print any number (but at least one) of two-color
+link:../stls/multicolor/3dprintlab-logo.stl[laboratory logos]. Choose
+printing settings as needed, but base them on the _Normal_ print profile.
+Arrange filament color exchange with classmates in the classroom,
+or ask instructors for an alternative color.
+
+.Sample print of laboratory logo
+image::logo.jpg[Logo]
+
+Grading: 3 points for completing the assignment and xref:printing.adoc#ukol-3[cleanup].

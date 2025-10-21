@@ -1,0 +1,28 @@
+= Grading
+
+The overall grade consists of points earned during the semester. There is no exam and no test. Here is the overall composition of points you can earn:
+
+* *30* points for exercise tasks
+* *30* points for the parametric OpenSCAD assignment
+* *40* points for the semester project
+
+The instructor may, but is not required to, award additional points beyond the total of 100 points for exceptional activity beyond the requirements.
+
+TIP: The course supervisor may replace part of a student's grade with alternative work on free software related to 3D printing and/or work on study materials. However, this is always an individual agreement and cannot be expected automatically.
+
+You can find your grade at https://grades.fit.cvut.cz/courses/BI-3DT.1/my-classification[grades.fit.cvut.cz].
+
+== Overall grading
+
+Grading follows the CTU Study and Examination Regulations.
+
+[options="autowidth"]
+|====================================================
+<h| Grade  <h| Point range  <h| Verbal evaluation
+  | A      ^|  90 and more  | excellent
+  | B      ^|  80-89        | very good
+  | C      ^|  70-79        | good
+  | D      ^|  60-69        | satisfactory
+  | E      ^|  50-59        | sufficient
+  | F      ^|  less than 50 | insufficient
+|====================================================

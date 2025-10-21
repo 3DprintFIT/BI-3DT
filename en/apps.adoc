@@ -1,0 +1,72 @@
+= Programs
+
+If you want to use your own computer at home or during exercises, you will necessarily need these programs:
+
+* http://openscad.org[OpenSCAD] 2019.05 or newer
+* https://github.com/3DprintFIT/netfabb-basic-download/releases[netfabb Basic]
+* https://github.com/kliment/Printrun[Printrun]
+* http://slic3r.org/[Slic3r]
+* https://github.com/admesh/admesh[ADMesh] >= 0.98 (including devel packages, if installing from repositories)
+
+Additionally, you might find these useful:
+
+* https://ultimaker.com/en/products/ultimaker-cura-software[Cura]
+* http://meshlab.sourceforge.net/[Meshlab]
+* https://www.danielgm.net/cc/[CloudCompare]
+* https://github.com/admesh/ADMeshGUI[ADMeshGUI] for viewing STL files
+* http://kisslicer.com/[KiSSlicer]
+
+== Installation on Linux
+
+The recommended Linux distribution is *Fedora*, because it contains all these tools in the repositories (except netfabb and KISSlicer, which are not open-source, but you can find those in the popular http://rpmfusion.org/[RPM Fusion] repository).
+
+To control the printer, your user needs to be able to access USB through the serial interface, which in most Linux distributions means *adding the user to the dialout group*. However, this won't be necessary during exercises.
+
+=== Fedora
+
+* To install all tools and applications:
+`# dnf install openscad-MCAD printrun slic3r admesh-devel admeshgui cloudcompare meshlab cura admeshgui`
+* Only the essentials:
+`# dnf install printrun slic3r openscad admesh-devel`
+* netfabb Basic and KISSlicer can be found in the http://rpmfusion.org/[RPM Fusion] repository as `netfabb-basic` and `kisslicer` respectively
+
+Use a supported version of Fedora, otherwise you will have old versions of programs.
+
+=== Other distributions
+
+There is a certain probability that some of these programs are available through your distribution's package management system. If you don't find them in the distribution, follow the instructions on the application's website.
+
+* http://www.openscad.org/downloads.html#linux[Installing OpenSCAD]
+* https://github.com/3DprintFIT/netfabb-basic-download/releases[Download netfabb]
+* http://kisslicer.com/download.html[Download KISSlicer]
+* http://reprap.org/wiki/Printrun#GNU.2FLinux_.26_Distros[Installing Printrun]
+* http://dl.slic3r.org/linux/[Slic3r binaries]
+* https://github.com/admesh/admesh/blob/master/INSTALL[Installing ADMesh]
+* https://github.com/admesh/ADMeshGUI#building[Installing ADMeshGUI]
+
+== Installation on macOS
+
+On OS X, we have prepared a pre-compiled version of Pronterface that you just need to download and run (see links below).
+
+* http://koti.kapsi.fi/~kliment/printrun/[Printrun]
+
+Another option is to install (download) and run directly from the application's source code (links in the Linux section).
+
+ADMesh needs to be compiled the same way as on Linux, or you can use homebrew. The same applies to https://github.com/admesh/ADMeshGUI#building[ADMeshGUI].
+
+https://github.com/3DprintFIT/netfabb-basic-download/releases[Netfabb] needs to be downloaded from our GitHub.
+
+Other software always has a macOS version available for download on the program's website.
+
+== Installation on Windows
+
+For Windows, all software, with a few exceptions, is prepared in a pre-compiled version. In most cases, on the program websites listed above.
+
+Exceptions:
+
+* http://koti.kapsi.fi/~kliment/printrun/[Printrun]
+* https://github.com/admesh/admesh/releases[Pre-compiled ADMesh for Windows]
+
+Netfabb Basic: You can use the https://www.netfabb.com/try-netfabb-premium-now[Official Trial version for Windows], which works as Basic after expiration, or an older version of Netfabb Basic https://github.com/3DprintFIT/netfabb-basic-download/releases[from our GitHub].
+
+For connecting some printers, you need to install various drivers. However, this is not necessary during exercises.

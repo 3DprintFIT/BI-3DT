@@ -1,0 +1,9 @@
+Literatura
+----------
+
+* http://reprap.org[RepRap wiki]
+* http://sdu.ictp.it/3d/book.html[Open kniha "Low-cost 3D Printing for
+Science, Education and Sustainable Development"]
+* https://www.packtpub.com/product/3d-printing-with-reprap-cookbook/9781782169888[3D Printing with RepRap Cookbook]
+* https://nostarch.com/programmingopenscad[Programming with OpenSCAD]
+* http://www.thingiverse.com[Thingiverse], stránka s 3D objekty

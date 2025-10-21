@@ -1,0 +1,260 @@
+= Working with 3D Models in Mesh Form
+:imagesdir: ../images/mesh/
+:toc:
+
+== Triangular Mesh
+
+There are many ways to represent 3D models. For example,
+https://en.wikipedia.org/wiki/Constructive_solid_geometry[CSG tree],
+as in OpenSCAD, or various volumetric octal representations, etc.
+
+However, for 3D printing, *boundary representation* is most commonly used,
+specifically triangular mesh (or better in Czech, triangular network). A mesh
+is a collection of points, edges, and faces (polygons and facets) in three-dimensional
+Cartesian coordinate system. There are several different types of such
+mesh; we will deal exclusively with triangular mesh, where a facet
+can only be a triangle. The advantage of a triangle in 3D space is that
+three points not lying on one line always form a triangle (4 points
+don't have to lie in one plane in three-dimensional space and form
+a quadrilateral).
+
+.Mesh topology. Image adapted from https://commons.wikimedia.org/wiki/File:Mesh_overview.svg[Wikipedia].
+image::mesh.svg[Mesh]
+
+
+Individual facets form a "watertight" boundary between the inside and outside of the 3D
+model.
+
+.Mesh representing a sphere
+image::sphere.svg[Sphere]
+
+Unlike a CSG tree, a mesh is characterized by not carrying information about
+meaning (it's not parametric, for example); on the other hand, it's very fast
+to render or further process. In the context of OpenSCAD, you can perceive
+mesh as the result of compilation.
+
+== STL Format
+
+Triangular mesh can be stored in various formats. The most widely used
+format for FDM 3D printing is the *STL format* (others include OBJ, AMF, 3MF,
+and more). STL stands for _STereoLitography_ and it's a format developed
+by _3D Systems_ in 1987 as a universal format for rapid
+prototyping.
+
+Later, meanings of the acronym appeared such as _Standard Triangle Language_
+or _Standard Tessellation Language_.
+
+An STL format file contains a list of triangular facets, their
+vertices, and normals. There is a human-readable
+http://en.wikipedia.org/wiki/STL_(file_format)#ASCII_STL[ASCII] and
+more economical
+http://en.wikipedia.org/wiki/STL_(file_format)#Binary_STL[binary]
+variant.
+
+The STL format is not an open format, but it's very widespread, supported by
+many programs not only from the world of 3D printing.
+
+=== ASCII STL File
+
+The syntax of a text STL file is quite verbose. It begins with the keyword
+`solid` and the mesh name (which is not often used and is
+replaced by the name of the program that was used to generate the file).
+Then follows the definition of all facets and the file ends with the directive
+`endsolid` and again the mesh name.
+
+(The file can theoretically contain multiple `solid` blocks, but in practice
+you won't encounter this often.)
+
+One facet contains information about the normal vector and about three vertices.
+
+[source,stl]
+----
+solid name
+
+facet normal ni nj nk
+    outer loop
+        vertex v1x v1y v1z
+        vertex v2x v2y v2z
+        vertex v3x v3y v3z
+    endloop
+endfacet
+
+...
+
+endsolid name
+----
+
+The order of facet vertices must follow the right-hand rule: If the thumb
+points in the direction of the normal (i.e., out of the object), the curled fingers indicate
+the order of vertices.
+
+.Normal vector
+image::normal_vector.svg[]
+
+Individual numbers can be represented both using floating-point number notation
+and "more human" notation; you can encounter values like `1`, `0.5`, or `2.648000e-002`.
+
+Here's a real example of a cube from OpenSCAD:
+
+[source,stl]
+----
+solid OpenSCAD_Model
+  facet normal -1 0 0
+    outer loop
+      vertex 0 0 1
+      vertex 0 1 1
+      vertex 0 0 0
+    endloop
+  endfacet
+...
+  facet normal 1 0 0
+    outer loop
+      vertex 1 0 1
+      vertex 1 0 0
+      vertex 1 1 1
+    endloop
+  endfacet
+endsolid OpenSCAD_Model
+----
+
+.Mesh representing a cube
+image::cube.svg[]
+
+http://en.wikipedia.org/wiki/STL_(file_format)#Binary_STL[Binary STL
+file] contains the same information, just in a more economical form. Numbers are
+represented by the `float32` data type in little endian order.
+
+== Viewing STL Files
+
+STL files can be viewed in many programs:
+
+* `cat` and `hexdump` for those with great imagination 😎
+* https://github.com/admesh/ADMeshGUI/[ADMeshGUI] (Linux, macOS,
+Windows)
+* http://www.freestlview.com/[STLView] (Windows)
+* http://www.pleasantsoftware.com/developer/pleasant3d/[Pleasant3D]
+(macOS)
+* mesh editing tools like http://www.meshlab.net/[MeshLab] or
+https://github.com/3DprintFIT/netfabb-basic-download[Netfabb]
+* modeling tools like https://www.blender.org/[Blender], etc.
+
+.ADMeshGUI
+image::admeshgui.png[]
+
+== Errors in Triangular Mesh
+
+Even a syntactically completely correct STL file doesn't have to make sense semantically. Many STL files can contain a number
+of errors due to various factors. A mesh that contains errors is said to be invalid.
+
+.Every mesh must clearly separate the inside and outside of the object. Responsible 3D printer says no to https://cs.wikipedia.org/wiki/Kleinova_l%C3%A1hev[Klein bottle]. Image from https://twitter.com/3DPrintedPanda/status/1066688569400586241[this tweet]
+image::klein.jpg[Klein bottle]
+
+Here we'll introduce several common errors in STL files:
+
+=== Open Mesh / Hole in Mesh
+
+The mesh is not "watertight" and contains a hole somewhere.
+
+.Hole in mesh
+image::mesh_hole.svg[]
+
+Often the hole is not caused by a missing facet, but by imprecision in floating-point
+numbers with low precision.
+
+.Hole in mesh caused by float error
+image::mesh_floaterror.svg[]
+
+=== Duplicate Facet
+
+Multiple facets are located in the same place. Sometimes they're oriented the same and
+fully overlap; other times such facets can form part of the model with
+zero volume.
+
+.Duplicate facet
+image::mesh_duplicate.svg[]
+
+=== Incorrectly Oriented Facet
+
+
+Facet orientation is given by the order of vertices and the normal. This information can
+contradict each other. Sometimes also part of the 3D model or the entire model
+is flipped "inside out".
+
+.Incorrectly oriented facets
+image::mesh_flipped.svg[]
+
+=== Shared Edge or Face
+
+At first glance an innocent error, but it contradicts the physical representation
+of the 3D model. Is there a narrow gap between these cubes, or can you pass through a narrow gap
+from one cube to another?
+
+.Shared edge
+image::mesh_commonedge.svg[]
+
+=== Intersecting Facets
+
+When combining multiple shells, an error often arises where facets
+intersect each other.
+
+In the image, incorrectly (left) and correctly (right) connected spheres are shown; the hole
+in the mesh is here only for better view inside.
+
+.Intersecting facet
+image::mesh_intersect.png[]
+
+== Repairing Errors in Triangular Mesh
+
+There are many programs that allow repairing the above-mentioned errors.
+Sometimes these are modeling programs that "additionally" allow detecting such errors
+and semi-automatically repairing them; sometimes these are specialized
+programs.
+
+=== Blender
+
+From the first category we'll mention Blender, which contains tools for
+mesh repair and analysis. There's also an
+https://store.blender.org/product/blender-for-3d-printing/[educational DVD]
+for Blender dealing with 3D printing. For FIT CTU students, we have
+it available.
+
+=== ADMesh
+
+Among programs that try to automatically repair errors in triangular
+mesh belongs the command line tool http://github.com/admesh/admesh[ADMesh]
+or the above-mentioned graphical overlay
+https://github.com/admesh/ADMeshGUI[ADMeshGUI]. However, the results are
+not very good.
+
+=== Netfabb Basic
+
+We have the best experience with mesh repair in the program *Netfabb Basic*.
+Unfortunately, this program is not open source and no longer exists.
+
+For Windows, you can use the
+https://www.autodesk.com/products/netfabb/free-trial[trial version
+of the Netfabb program], which after expiration behaves like Netfabb Basic.
+
+For other platforms, you can use
+https://github.com/3DprintFIT/netfabb-basic-download[our backups
+of the Netfabb Basic program], which are freely distributable.
+
+We use this program in exercises.
+
+.For the Netfabb Basic program, this https://www.youtube.com/watch?v=bl1AIYqPvcE[video tutorial] is available.
+video::bl1AIYqPvcE[youtube]
+
+== Files
+
+* link:../stls/mesh/cube_bad.stl[cube_bad.stl] – cube from the video with
+errors
+* link:../stls/mesh/cube_correct.stl[cube_correct.stl] – cube from the video
+without errors
+* link:../stls/mesh/aligator_mini_bad.stl[aligator_mini_bad.stl] –
+alligator from the video (https://www.thingiverse.com/thing:21724[original CC
+BY-SA Joseph Larson])
+* link:../stls/mesh/bunny_trouble_piece.stl[bunny_trouble_piece.stl] –
+rabbit from the video (https://www.thingiverse.com/thing:7578[CC BY-NC mrbug])
+* link:../stls/mesh/tajmahal.stl[tajmahal.stl] – ungraded task for
+practice (https://www.thingiverse.com/thing:11183[CC BY-SA Nicholas
+Wilson])

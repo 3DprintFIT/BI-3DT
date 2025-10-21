@@ -1,0 +1,103 @@
+= MeshMixer and Cutting STL Files
+:toc:
+:imagesdir: ../images/meshmixer/
+:html5s-image-default-link: self
+
+You can find the current MeshMixer 3.2 on the http://www.meshmixer.com/[program's website]. There are versions for Windows and macOS.
+
+There was an experimental package for Ubuntu 14.04 (you can relatively easily create an
+https://github.com/hroncok/meshmixer-docker/blob/master/README.md#how-to-create-meshmixer-appimage[AppImage] from it
+and run it on other distributions, or you can take it from the faculty
+computer).
+
+Video tutorials are created for version 2.9:
+
+.https://www.youtube.com/watch?v=cVx1vXq8Xao[Cutting objects in MeshMixer]
+video::cVx1vXq8Xao[youtube]
+
+Cura is available in two variants, I recommend downloading the older version
+https://www.lulzbot.com/cura[Cura Lulzbot Edition] or
+https://ultimaker.com/en/products/cura-software/list[older version
+Ultimaker Cura (15.x)] (the new version is completely redesigned and the tutorial won't
+match).
+
+.https://www.youtube.com/watch?v=FNOLtlEaJKA[Laying down objects in Cura]
+video::FNOLtlEaJKA[youtube]
+
+This might also be useful:
+
+.https://www.youtube.com/watch?v=SiBXboixe2g[Overhangs in Cura] (no commentary)
+video::SiBXboixe2g[youtube]
+
+.https://www.youtube.com/watch?v=1U4MVuaSv0U[Cutting models in Slic3r]
+video::1U4MVuaSv0U[youtube]
+
+== MeshMixer 2.4
+
+This part of the tutorial (without videos) is for a very old version of MeshMixer, but
+you can get by with just one program.
+
+=== Installation
+
+MeshMixer 2.4 can be found on the http://www.meshmixer.com/[program's website].
+There are versions for Windows and macOS. In Linux, the Windows version can
+be installed using Wine, but you must supply the program folder
+(usually `~/.wine/drive_c/Program Files/Autodesk/Meshmixer/`) with the files
+http://www.dllme.com/dll/files/mfc110u_dll.html[mfc110u.dll] and
+http://www.dllme.com/dll/files/prntvpt_dll.html[prntvpt.dll]. The only
+problem we've encountered is strange fonts and a crash on first launch.
+
+image::meshmixer1.png[width=500]
+
+=== Cutting an Object
+
+First import the STL file using the _Import_ button.
+
+image::meshmixer2.png[width=500]
+
+Then select _Plane Cut_ from the _Edit_ menu.
+
+image::meshmixer3.png[width=500]
+
+Using various arrows you can manipulate the cutting plane. You can also
+drag with the mouse button held down to create a line (red in the picture), along which
+the plane will move, parallel to your view. If the object is positioned
+unfavorably, you can rotate it with the right mouse button. Before pressing
+the _Accept_ button, make sure you have selected _Type: Slice_, otherwise
+you'll end up with only one part of the object.
+
+image::meshmixer4.png[width=500]
+
+After cutting, the object looks the same as before. You must again select _Separate Shells_ from the _Edit_ menu.
+
+image::meshmixer5.png[width=500]
+
+In the modal window you can select which shell will be visible, or on
+which actions are performed (note, this is different, one is controlled by the eye icon, the other
+by selecting and highlighting that shell in the list). Immediately for
+one shell select _Align_ from the _Edit_ menu. This is so that
+the object lies on a flat part, otherwise the cut was pointless.
+
+image::meshmixer8.png[width=500]
+
+In the _Align_ dialog, the Y axis is selected by default. This should
+ensure laying the object flat (although possibly upside down, we'll get to that),
+so just click _Accept_.
+
+image::meshmixer9.png[width=500]
+
+From the _File_ menu, choose _Export_ and save that part as an STL file.
+I recommend checking that you exported the correct part (by opening
+the resulting STL in some program).
+
+image::meshmixer10.png[width=500]
+
+Repeat the process for the second half. Here we encountered a case where _Align_
+rotates the object differently than we want. Just click on the arrow (marked
+with a green dot) and continue as with the previous part.
+
+image::meshmixer11.png[width=500]
+
+image::meshmixer12.png[width=500]
+
+image::meshmixer13.png[width=500]

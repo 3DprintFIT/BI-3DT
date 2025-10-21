@@ -1,0 +1,313 @@
+= Git: Tutorial
+:toc:
+:imagesdir: ../images/git/
+
+Submission of all work during BI-3DT (except for physical prints)
+is done using Git.
+The Git server used is GitHub.
+This tutorial is only a quick introduction to working with Git for the purposes of the course,
+it's definitely not a complete guide to Git;
+we strongly recommend starting to actively use Git for all your projects, not only
+within the faculty.
+What you read here will be enough for submitting assignments for the BI-3DT course.
+
+== Initial State
+
+For each assignment you'll have a prepared link
+that generates a new repository on GitHub.
+If you don't have a GitHub account, the server will prompt you to create one.
+Repositories are generated under the organization
+https://github.com/3DprintFIT[3DprintFIT] and are private, which means
+that only you and the xref:../teachers/index#[BI-3DT teachers] have access to them.
+
+After automatically creating a new repository, you'll see this:
+
+.New repository is ready
+image::new_repo.png[]
+
+
+== Installing git
+
+[source,console]
+[syky@fedora ~]$ git
+bash: git: command not found
+
+* https://git-scm.com/download/linux[Linux] 🐧
+* https://git-scm.com/download/mac[macOS] (link starts installer download)
+* https://git-scm.com/download/win[Windows] (link starts installer download)
+
+After installation:
+
+[source,console]
+[syky@fedora ~]$ git
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+...
+
+
+== SSH Key Setup
+
+To communicate with the Git server,
+you need to ensure your identification,
+for which an SSH key is used.
+There is also a username and password option,
+but we strongly discourage it.
+GitHub also offers two-factor authentication,
+which you want to start using.
+
+=== If you don't have an SSH key yet
+
+Create it using:
+
+[source,console]
+[syky@fedora ~]$ ssh-keygen -t rsa -b 4096
+
+You'll be asked about the key location and passphrase,
+it's entirely up to you what you choose,
+the default key path is `~/.ssh/id_rsa` and the passphrase can be empty.
+
+The result should look something like this:
+
+[source,console]
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/syky/.ssh/id_rsa):
+Created directory '/home/syky/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/syky/.ssh/id_rsa.
+Your public key has been saved in /home/syky/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:6hIZxGQ2Xmctitvr5D3U+XQv7+B6hZclhJMkLIGHG4U syky@fedora
+The key's randomart image is:
++---[RSA 2048]----+
+|   o= .==+...o   |
+|   +ooEo+ o.+ .  |
+|   ... = o   o   |
+|    o o       . .|
+|     =  S. .   oo|
+|    + ... o . o.o|
+|     .oo   o ..+ |
+|    .+...   ..o..|
+|     o+ ..  .o.+o|
++----[SHA256]-----+
+
+
+CAUTION: Never, *never*, *NEVER* copy your private key anywhere
+(the one that does **not** end with `.pub`). Feel free to publish the public key on the web.
+
+=== If you already have an SSH key (perhaps just created)
+
+Display the **public** key (the one ending with `.pub`).
+[source,console]
+[syky@fedora ~]$ cat ~/.ssh/id_rsa.pub
+
+Copy the entire result to the clipboard and go to
+https://github.com/settings/ssh/new[entering the key on GitHub].
+
+[source,console]
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCiFJ+V+CUF1u1ZRhphaLUU92auMtpJrjWxOMZF8Dqxc6E4cOfWsUNeCLjzeeOT7786DBLBVn60yjEPHcfRcl6hycOJkREpW1WOUTvzMU9nrBde0PTHoB2tV0acWpu+dgyvhMd82VZ6maCojnvvqv99HkQ4wb/HJHAWzTJvHslYXmOiukCxM7zdUaqGkCVvgx8HiCU32Fo3lYkf/7hLs2I8i/P6urNX9ui3vHpeTKXgFHt7vr2U33YcGzkitO8s6KGqWwom29vduXlIWRQMOCLRUTH8OlEm61A0Xful4Xtt1CKSlXDo9TOK6tfEPVI6kKUfCf+2py7glps+wAZ2dy0b syky@fedora
+
+Paste the key into the key field (title is optional) and save.
+
+.Adding key on GitHub
+image::new_ssh_rsa.png[]
+
+
+You'll see something similar:
+
+.Successfully added SSH key
+image::added_ssh_rsa.png[]
+
+
+== Working with the Repository
+
+
+We recommend creating one folder for your Github repositories for BI-3DT.
+
+[source,console]
+[syky@fedora ~]$ mkdir BI-3DT && cd BI-3DT
+
+To clone, use the *SSH URL* (starts with `git@`)
+and clone the repository to your computer.
+Cloning means creating a local copy.
+
+.SSH URL
+image::get_ssh_url.png[]
+
+
+[source,console]
+[syky@fedora BI-3DT]$ git clone git@github.com:3DprintFIT/B181AS-Username-syky27.git
+Cloning into 'B181AS-Username-syky27'...
+The authenticity of host 'github.com (192.30.253.112)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+RSA key fingerprint is MD5:16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.253.112' (RSA) to the list of known hosts.
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 4 (delta 0), reused 4 (delta 0), pack-reused 0
+Receiving objects: 100% (4/4), done.
+[syky@fedora BI-3DT]$
+
+
+A folder with the repository will be created:
+
+[source,console]
+[syky@fedora BI-3DT]$ ll
+total 0
+drwxrwxr-x. 3 syky syky 54 Sep 28 13:05 B181AS-Username-syky27
+
+Inside you'll find all the files
+that were in the repository on the server at the time of cloning.
+
+[source,console]
+[syky@fedora BI-3DT]$ cd B181AS-Username-syky27
+[syky@fedora B181AS-Username-syky27]$ ll
+total 8
+-rw-rw-r--. 1 syky syky 196 Sep 28 13:05 Jenkinsfile
+-rw-rw-r--. 1 syky syky 152 Sep 28 13:05 README.md
+
+[IMPORTANT]
+====
+If you're using Git from multiple places
+(for example from your computer and from a lab computer)
+and you have the repository cloned from before,
+always do a `pull` before starting work to update files,
+to avoid conflicts between remote and local changes.
+
+[source,console]
+[syky@fedora B181AS-Username-syky27]$ git pull
+Already up to date.
+====
+
+
+I'll create a new file:
+
+[source,console]
+[syky@fedora B181AS-Username-syky27]$ echo "My super secret username" > USERNAME
+[syky@fedora B181AS-Username-syky27]$ ll
+total 12
+-rw-rw-r--. 1 syky syky 196 Sep 28 13:05 Jenkinsfile
+-rw-rw-r--. 1 syky syky 152 Sep 28 13:05 README.md
+-rw-rw-r--. 1 syky syky  25 Sep 28 13:10 USERNAME
+
+Git allows me to look at the changes that have occurred since the last commit:
+
+[source,console]
+----
+[syky@fedora B181AS-Username-syky27]$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	USERNAME
+
+nothing added to commit but untracked files present (use "git add" to track)
+----
+
+I see that a new file `USERNAME` was created, I'll tell Git
+that I want it to track it:
+
+
+[source,console]
+----
+[syky@fedora B181AS-Username-syky27]$ git add USERNAME
+[syky@fedora B181AS-Username-syky27]$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   USERNAME
+----
+
+I'll describe the change with a commit:
+
+[source,console]
+----
+[syky@fedora B181AS-Username-syky27]$ git commit -am"USERNAME file with my username"
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'syky@fedora.(none)')
+----
+
+If I see this error, it means I need to tell Git who I am. So:
+
+[source,console]
+$ git config --global user.email "sykorto6@fit.cvut.cz"
+$ git config --global user.name "Tomáš Sýkora"
+
+Then I'll repeat creating the commit:
+
+[source,console]
+[syky@fedora B181AS-Username-syky27]$ git commit -am"USERNAME file with my username"
+[master 2078a00] USERNAME file with my username
+ 1 file changed, 1 insertion(+)
+ create mode 100644 USERNAME
+
+The commit is created, I can see what changed in it:
+
+[source,console]
+----
+[syky@fedora B181AS-Username-syky27]$ git show
+commit 2078a007fa2d91e7bc2bb40d802bfa4eb17fd05c (HEAD -> master)
+Author: Tomáš Sýkora <sykorto6@fit.cvut.cz>
+Date:   Fri Sep 28 13:21:39 2018 +0200
+
+    USERNAME file with my username
+
+diff --git a/USERNAME b/USERNAME
+new file mode 100644
+index 0000000..ac11935
+--- /dev/null
++++ b/USERNAME
+@@ -0,0 +1 @@
++My super secret username
+----
+
+
+Then I'll upload the changes to GitHub:
+
+[source,console]
+[syky@fedora B181AS-Username-syky27]$ git push
+Warning: Permanently added the RSA host key for IP address '192.30.253.113' to the list of known hosts.
+Counting objects: 3, done.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 362 bytes | 362.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To github.com:3DprintFIT/B181AS-Username-syky27.git
+   dc5189b..2078a00  master -> master
+
+.Changes are visible on GitHub
+image::pushed_changes.png[]
+
+In the repository on the *Issues* tab you can see the result of our system,
+which partially automatically evaluates assignments.
+If you're done and evaluated (and the task is graded),
+notify the instructor about points.
+
+.List of issues, newest at the top
+image::issues.png[]
+
+.Detail of one issue: Something didn't work out, continue trying, or consult with the instructor
+image::issue_detail.png[]
+
+NOTE: In the issue name there's a _commit hash_: a unique commit identifier
+that the system evaluated.
+If you're waiting for evaluation longer than 5 minutes, contact the instructor.

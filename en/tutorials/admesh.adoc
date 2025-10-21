@@ -1,0 +1,357 @@
+= Programmatic Manipulation with STL Files
+:imagesdir: ../images/admesh/
+:toc:
+
+Besides manual mesh processing in programs like Netfabb Basic, it's
+possible to process mesh programmatically – that is, to create programs that do
+something more or less interesting with the mesh. Since we're at the Faculty
+of Information Technology, it would be a shame not to explore this approach.
+
+.https://www.youtube.com/watch?v=-DjdzhACgnM[Video tutorial].
+video::-DjdzhACgnM[youtube]
+
+== Options for Processing Mesh in STL Format
+
+The STL format is very simple. Its description can be found in the
+xref:./mesh#[exercise devoted to mesh and errors in it]. Reading and
+saving files in STL format is therefore not rocket science, but it's
+rather boring programming.
+
+Fortunately, there are already finished open-source libraries that solve this for
+us.
+
+There are quite a few libraries; finding a suitable library for your favorite language is
+a matter of a few seconds of internet searching. Here we'll mention at random:
+
+* https://pypi.python.org/pypi/numpy-stl[numpy-stl] for Python + NumPy
+* https://github.com/QuantumConcepts/STLdotNET[STLdotNET] for C#
+* https://github.com/cpedrinaci/STL-Loader[STL-Loader] for Java
+* …
+
+We'll use the library https://github.com/admesh/admesh[ADMesh],
+which is written in C language, can be easily used in C++,
+and bindings exist for Python and Ruby languages.
+
+== ADMesh
+
+https://github.com/admesh/admesh[ADMesh] is an open-source program that
+allows manipulating STL mesh from the command line. Besides the interface for
+command line, there's also a library API available, which originally
+wasn't created with the intention of reusability, so its use is
+often non-intuitive.
+
+.The ADMesh program originated in 1995 as a command-line application
+image::admesh.png[ADMesh]
+
+=== Library Installation
+
+To use the ADMesh library, you first need to install the library.
+
+If you use Linux, you can explore your distribution's packages;
+you're interested in the `devel` or `dev` package to get header
+files and other things needed for compiling programs using ADMesh.
+In Fedora distribution you want the `admesh-devel` package,
+in Debian distribution then `libadmesh-dev`.
+In any case, you need version 0.98.x;
+older versions contain only the command-line program.
+
+For macOS you can https://formulae.brew.sh/formula/admesh[use homebrew].
+
+For Windows operating system, there are precompiled archives available
+on https://github.com/admesh/admesh/releases[GitHub].
+
+On all supported systems you can compile the library yourself
+https://github.com/admesh/admesh[from source code].
+
+=== Building on Linux Yourself
+
+After downloading https://github.com/admesh/admesh/releases/download/v0.98.5/admesh-0.98.5.tar.gz[admesh-0.98.5.tar.gz] and extracting:
+
+.Local library build
+[source,source]
+$ ./configure
+$ make
+$ export ADMESHDIR=~/admesh
+$ make install DESTDIR=$ADMESHDIR
+
+To compile source code into a program, you need to tell the linker
+that we want to use the ADMesh library, and pass to the compiler the path to the header file and library:
+
+.Compiling a program using the ADMesh library from your own directory
+[source,console]
+$ export ADMESHDIR=~/admesh
+$ gcc -L$ADMESHDIR/usr/local/lib/ -I$ADMESHDIR/usr/local/include/ source.c -o myapp -ladmesh
+
+.Running the compiled program with library from your own directory
+[source,console]
+$ LD_LIBRARY_PATH=$ADMESHDIR/usr/local/lib/ ./myapp
+
+=== Installing and Compiling ADMesh on macOS
+
+For installation we'll use Homebrew. If you don't have it installed, install it according to instructions at https://brew.sh/
+
+.Installing ADMesh
+[source,console]
+$ brew install admesh
+
+To compile source code into a program, you need to tell the linker
+that we want to use the ADMesh library, and pass to the compiler the path to the header file and library:
+
+.Compiling a program using the ADMesh library on macOS
+[source,console]
+$ gcc -L/opt/homebrew/lib/ -I/opt/homebrew/include/ source.c -o myapp -ladmesh
+
+.Running the compiled program on macOS
+[source,console]
+$ ./myapp
+
+=== Basic Usage
+
+To use the library, just include the header file `admesh/stl.h`:
+
+.Prerequisite for using the ADMesh library from C language
+[source,c]
+#include <admesh/stl.h>
+
+In the library there's a set of structures and functions
+that you can use for basic manipulation with STL models.
+
+
+=== Loading Model from File
+
+First you need to load the file from disk into the `stl_file` structure.
+
+.Loading STL file from disk
+[source,c]
+----
+#include <stdlib.h>
+#include <admesh/stl.h>
+
+int main(void) {
+  stl_file stl; // <1>
+  char *filename = "directory/model.stl"; // <2>
+  stl_open(&stl, filename); // <3>
+  stl_exit_on_error(&stl); // <4>
+
+  /* ... TODO ... */
+
+  stl_close(&stl); // <5>
+  return EXIT_SUCCESS;
+}
+----
+<1> Declaration of new variable `stl` of type `stl_file`.
+<2> Setting string with path.
+<3> Library function for loading file from disk.
+    A reference to a structure of type `stl_file` is used here.
+    This is similar for all other functions from the ADMesh library.
+    Don't forget that C doesn't have classes,
+    so the structure must be explicitly passed to all functions.
+<4> Because reading from disk can end with an error,
+    the result needs to be verified.
+    An error flag is set on the structure in the `error` attribute.
+    In the case of a terminal application we probably want to exit the program on error,
+    this function serves for that, which cleanly exits the program in case of error.
+    If we don't use it, we risk the program crashing on the next operation.
+    The error can of course be handled differently, but for our purposes this suffices.
+<5> After finishing work with the `stl_file` structure, it needs to be closed.
+
+
+=== Compiling the Program
+
+To compile source code into a program, you need to tell the linker
+that we want to use the ADMesh library:
+
+.Compiling a program using the ADMesh library
+[source,console]
+$ gcc source.c -o myapp -ladmesh
+
+Or, if you don't have ADMesh installed in standard paths,
+you need to set absolute paths to both the library and header file:
+
+.Compiling a program using the ADMesh library from non-standard paths
+[source,console]
+$ export ADMESHDIR=~/admesh
+$ gcc -L$ADMESHDIR/usr/local/lib/ -I$ADMESHDIR/usr/local/include/ source.c -o myapp -ladmesh
+
+.Running the compiled program
+[source,console]
+$ ./myapp
+
+.For using your own build, you need to set `LD_LIBRARY_PATH`
+[source,console]
+$ LD_LIBRARY_PATH=$ADMESHDIR/usr/local/lib/ ./myapp
+
+.For using your own build on macOS, you need to set `DYLD_LIBRARY_PATH`
+[source,console]
+$ DYLD_LIBRARY_PATH=$ADMESHDIR/usr/local/lib/ ./myapp
+
+
+=== Working with the `stl_file` Structure
+
+After loading the file into memory, you can work with the `stl_file` structure in any way.
+For example, view or change data.
+The structure is no longer data-bound to the file on disk and all data is in program memory.
+
+To view individual facets, you can use the pointer (array) `facet_start`.
+In the array, facets are stored in the form of `stl_facet` structures,
+which contain a normal -- attribute `normal`
+(structure of type `stl_normal` containing 3 floats (`x`, `y`, `z`)),
+three vertices -- attribute `vertex` (array of three structures of type `stl_vertex`
+each containing 3 floats (`x`, `y`, `z`)) and attribute `extra`, which you can ignore.
+
+
+.Accessing data
+[source,c]
+----
+float x = stl.facet_start[0].vertex[0].x; // <1>
+float z = stl.facet_start[1000].vertex[1].z; // <2>
+----
+<1> _X_ coordinate of the first vertex of the first facet
+<2> _Z_ coordinate of the second vertex of the thousandth facet
+
+To be able to go through all facets, you first need to know how many there are.
+This information can be found in the `stats` attribute, which contains a structure with lots of
+useful data, mostly numbers.
+One of them is `number_of_facets`, i.e., the number of facets.
+
+.Number of facets
+[source,c]
+----
+stl.facet_start[stl.stats.number_of_facets-1] // <1>
+----
+<1> Last facet
+
+In statistics (`stats`) you'll find more information,
+an overview of which is in the definition of the `stl_stats` structure in the `stl.h` file
+or in the https://admesh.readthedocs.io/en/latest/c_api.html#_CPPv29stl_stats[not very good documentation].
+
+Here's a short example program that loads an STL file `model.stl`
+(binary or ASCII) and writes it as ASCII or binary STL to
+the same file – it makes ASCII from binary and binary from ASCII.
+
+You can view and change data at will.
+If you want to enlarge the model, for example,
+theoretically it's enough to perform the appropriate mathematical operation
+on all coordinates of all vertices of all facets.
+
+Most basic operations are already covered by the program authors.
+
+=== Functions for Manipulating the Model
+
+For "typical" operations with 3D models, there are prepared functions.
+In the library you'll find functions for rotating, scaling, moving...
+
+Usually it's enough to look at their list
+in the https://github.com/admesh/admesh/blob/0.98.x/src/stl.h[header file].
+
+Among the interesting ones are:
+
+* `void **stl_translate**(stl_file *stl, float x, float y, float z)`
+* `void **stl_translate_relative**(stl_file *stl, float x, float y, float z)`
+* `void **stl_scale_versor**(stl_file *stl, float versor[3])`
+* `void **stl_scale**(stl_file *stl, float factor)`
+* `void **stl_rotate_x**(stl_file *stl, float angle)` (angle in degrees)
+* `void **stl_rotate_y**(stl_file *stl, float angle)` (angle in degrees)
+* `void **stl_rotate_z**(stl_file *stl, float angle)` (angle in degrees)
+* `void **stl_mirror_xy**(stl_file *stl)`
+* `void **stl_mirror_yz**(stl_file *stl)`
+* `void **stl_mirror_xz**(stl_file *stl)`
+
+WARNING: All functions work directly on the given model (**in place**) and **return nothing**.
+So if you scale the model to double size three times, for example,
+it will be eight times as large as at the start.
+
+NOTE: Keep in mind that operations occur on floats,
+i.e., on the model of real numbers with very small precision.
+So if you rotate the model gradually by 360 degrees, for example,
+you can't rely on all values being the same as at the start.
+Working with data in program memory is fast, loading from disk is slow.
+So it's not desirable to reload the model before each operation for greater data precision.
+If you're interested in higher data precision but don't want to waste time reloading data from disk,
+make a deep copy of the data before each operation.
+
+=== Functions for Writing Model to File
+
+After finishing work with the model, it's often necessary to write the model to disk again (export).
+
+Functions `stl_write_ascii()` and `stl_write_binary()` serve to write the model in STL format,
+which differ in the resulting format: they write ASCII STL and binary STL respectively.
+
+Both functions take three arguments:
+
+. reference to `stl_file` structure,
+. path on disk (where to write the file),
+. mesh name.
+
+The mesh name is not related to the file name,
+but is only textual information stored in the STL file.
+This information is not used in practice and is often replaced by the name of the program
+that created the mesh.
+For example, models from OpenSCAD are always named `OpenSCAD_Model`.
+
+WARNING: After calling the function, you need to handle a possible error,
+just like when loading a file!
+
+.Saving ASCII STL file to disk
+[source,c]
+----
+/* ... */
+stl_write_ascii(&stl, filename, "whatever"); // <1>
+stl_exit_on_error(&stl); // <2>
+/* ... */
+stl_close(&stl); // <3>
+----
+<1> Saving file.
+<2> Handling possible error (see loading file).
+<3> After finishing work, the structure needs to be closed.
+    After exporting the model, we can still do other operations.
+
+=== Example Program for Converting ASCII/Binary STL
+
+As an example, a complete program for converting an ASCII STL file to binary form
+(or vice versa).
+
+
+.Code of converter between STL and ASCII STL formats
+[source,c]
+----
+#include <stdlib.h>
+#include <admesh/stl.h>
+
+int main(void) {
+  stl_file stl;
+  char *filename = "model.stl";
+
+  printf("Opening %s\n", filename);
+  stl_open(&stl, filename); // <1>
+  stl_exit_on_error(&stl); // <2>
+
+  if (stl.stats.type == binary) { // <3>
+    printf("Writing ASCII file %s\n", filename);
+    stl_write_ascii(&stl, filename, "converted"); // <4>
+    stl_exit_on_error(&stl); // <5>
+  } else {
+    printf("Writing binary file %s\n", filename);
+    stl_write_binary(&stl, filename, "converted"); // <6>
+    stl_exit_on_error(&stl); // <7>
+  }
+
+  stl_close(&stl); // <8>
+  return EXIT_SUCCESS;
+}
+----
+<1> Loading model from file.
+<2> Handling possible error.
+<3> Checking format.
+<4> Writing to file in ASCII format. We don't care about the name in the header.
+<5> Handling possible error.
+<6> Writing to file in binary format. We don't care about the name in the header.
+<7> Handling possible error.
+<8> The structure needs to be closed.
+
+=== More Information
+
+Individual library functions and structures can be found in the file
+https://github.com/admesh/admesh/blob/0.98.x/src/stl.h[`admesh/stl.h`].
+The library unfortunately doesn't have much documentation, although something is emerging at
+http://admesh.readthedocs.io/en/latest/[admesh.readthedocs.io].

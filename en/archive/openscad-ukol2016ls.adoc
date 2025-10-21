@@ -1,0 +1,273 @@
+= OpenSCAD: Homework Spring Semester 2016/2017
+:imagesdir: media
+:toc:
+
+
+WARNING: This is not the current assignment. It is here for archival purposes only.
+
+
+== Evaluating the Homework Assignment
+
+
+IMPORTANT: The interface of the homework assignment and the placement of the object in the Cartesian coordinate system are crucial for evaluating our semi-automatic tests, which run over your solution. If you don't place the object exactly according to the assignment, or your module doesn't fulfill the specified interface *including default argument values*, the tests will fail and you'll get few points (usually none). Due to the absence of a better solution, which we are planning for the next run of the course, you cannot see the tests or your test results. To offset this disadvantage, we offer you several checkpoints when you can have your homework checked. These checkpoints will help you discover mainly stupid errors with fatal consequences. It's up to you how many checkpoints you use, but it is *strongly recommended* to use at least two. If you submit a solution a few hours before the deadline and all tests fail because you made a typo, or because you placed the object in the wrong place, that's unfortunately your problem. We warned you.
+
+
+TIP: Our tests use full render (_F6_). Test your implementation in full render mode! Feel free to use "transparent objects" (`%`) or `color()` for debugging, it won't affect the test results.
+
+
+TIP: For an idea of how tests work, you can look at tests from previous runs: e.g., https://github.com/3DprintFIT/cards-stand-task[cards-stand-task] or https://github.com/3DprintFIT/box-task[box-task].
+
+
+== Keyboard
+
+
+Your task is to create a module in OpenSCAD representing a simplified keyboard. The arrangement of keys on the keyboard is fully parametric, but simplified to just a grid.
+
+The keyboard consists of a body with holes for keys and individual keys.
+
+
+=== Keyboard Body
+
+
+The keyboard body is a prism with a rectangular or square base with four rounded corners. The size of the body depends on the `basemargin` and `basez` parameters, and on the size of the key area (more information in the next section).
+
+Several images:
+
+Top view:
+
+
+image::body.svg[width="600"]
+
+Side view:
+
+
+image::body-side.svg[width="600"]
+
+
+The drawn axes are very important for placing the object in the Cartesian system. In the first image, note that the keyboard goes in the direction of the *positive X axis* and the *negative Y axis* (this looks weird, but makes sense given the representation of the keyboard layout). The keyboard lies directly on the XY plane, all Z coordinates are non-negative.
+
+
+=== Keys and Key Holes
+
+
+The key section contains keys and holes for them.
+
+One key is a prism with a rectangular or square base and a rounded top surface, sometimes containing text. This is what a simple 1x1 key and its hole look like:
+
+From above (dashed line marks the edge of the hole):
+
+
+image::key-top-notext.svg[width="600"]
+
+From the side (view *along the Y axis*):
+
+
+image::1key.svg[width="600"]
+
+Note the `keydip` parameter. It is the same for keys of any size, so the radius of the cutout must adapt to this value. The curvature happens only along the Y axis - so it's not a spherical cutout, but a cylindrical one.
+
+`keysize` is a parameter affecting the size of all keys. Individual keys, however, can occupy space of multiple grid cells, so each key also has its own size information. The key in the images above has size ``++[++1,1++]++``.
+
+Holes are separated by a wall of thickness `defaultspace` (if `defaultspace` is not zero). Here's what multiple keys will look like (the image can be enlarged by clicking the link):
+
+
+image::keys-top.svg[width="600"]
+
+Here you can see how to determine the size of keys larger than ``++[++1,1++]++``: They occupy the same space that several keys next to each other would occupy (including the space between them). The key in the bottom row has size ``++[++2,1++]++``:
+
+
+image::keys-top-long.svg[width="600"]
+
+This is what keys look like from the side (in cross-section along the Y axis). In the first image there are three keys of size ``++[++1,1++]++``, in the second one key of size ``++[++1,1++]++`` and one of size ``++[++2,1++]++``:
+
+
+image::keys-side.svg[width="600"]
+
+
+image::keys-side-double.svg[width="600"]
+
+Note that the wall of thickness `defaultspace` is only between keys. The wall thickness next to the outermost keys is `basemargin`.
+Also note that the keys are floating in the air; this is of course quite problematic for 3D printing, but in the homework it's like this anyway and you don't need to worry about it.
+
+
+=== Text on Keys
+
+
+Some keys may contain text on them. From the XY perspective, the text on the key is centered:
+
+
+image::key-top.svg[width="600"]
+
+Even if it's a larger key (e.g., ``++[++2,1++]++`` or maybe ``++[++5,10++]++``), the text is still in its center.
+
+
+The parameters for the entire module `textsize` and `textz` affect the size of the text.
+
+`textsize` should be passed to the `text()` primitive as the `size` argument. `textz` determines the depth of the letter (along the Z axis, as the name suggests).
+
+
+image::text-side.svg[width="600"]
+
+
+Note that the text also contains a cylindrical cutout, just like the key itself. Don't try to "bend" the text, just extrude it upward and cut out the appropriate cylinder from it.
+The radius of the cylindrical cutout of the key and the text on it is the same.
+
+
+How is text done in OpenSCAD? Here you can see an example call to the `text()` primitive, which creates a *2D object* centered on the XY plane:
+
+
+[source,lang]
+----
+text("A", halign="center", valign="center", size=textsize);
+----
+
+
+*Do not change the default font.* You can assume that the text we give you will always fit on the key.
+
+For better visualization of a key with text, we attach previews of a 3D model of a key with the letter _A_:
+
+
+image::a.png[width="600"]
+
+*Pro-tip:* When extruding a 2D text and subtracting some other object from it, add the parameter `convexity=10` to the `linear_extrude()` call - your previews (_F5_) will look better. (This has no effect on tests, but it will be more pleasant to work with.)
+
+
+=== Keyboard Layout
+
+
+The keyboard layout is given by the `layout` parameter. It's a vector of vectors of vectors (oh!). We'll break it down from the inside. One key (or empty position) is represented by a vector of 0, 2 or 3 values. An empty vector represents a place without a key. The first two values of the vector determine the size and the third optional value is the text. (To find the length of a vector use `len(vector)`.) Several examples:
+
+
+[source,lang]
+----
+[1,1] // standard sized key without label
+[8,1] // very long key without label (like spacebar)
+[3,1,"Enter"] // long variant of Enter key
+[1,2,"+"] // tall key with + symbol, like on numpad
+[10,10,"I love OpenSACD"] // insanely large key with long text - still a valid key
+----
+
+
+Keys form rows. Multiple rows form the keyboard layout. All rows have the same length.
+
+To make it a bit easier for you, there are placeholders in the layout where a key from another grid cell occupies space.
+When there's a key ``++[++2,1++]++`` in the layout, it's immediately followed by one ``++[++++]++`` placeholder.
+When there's a key ``++[++3,1++]++`` in the layout, it's immediately followed by two ``++[++++]++`` placeholders.
+When there's a tall key in the layout, like ``++[++1,2++]++``, there are ``++[++++]++`` placeholders at its position in the following rows (here one).
+Only valid layouts will be tested.
+
+
+Let's show some examples. For starters, something simple:
+
+
+[source,lang]
+----
+[
+[[1, 1, "X"], [1, 1, "O"]],
+[[2, 1, "BI-3DT"], []],
+[[1, 1, "<"], [1, 1, ">"]],
+]
+----
+
+
+image::easylayout.png[width="200"]
+
+Layout with keys spanning multiple rows:
+
+
+[source,lang]
+----
+[
+[[1,2], [1,1]],
+[[], [1,2]],
+[[1, 1], []],
+[[2,2], []],
+[[], []],
+]
+----
+
+
+image::long.png[width="150"]
+
+And something more interesting:
+
+
+[source,lang]
+----
+[
+[[1,1, "Esc"], [], [1,1,"F1"], [1,1,"F2"], [1,1,"F3"], [1,1,"F4"], [], [1,1,"F5"], [1,1,"F6"], [1,1,"F7"], [1,1,"F8"], [], [1,1,"F9"], [1,1,"F10"], [1,1,"F11"], [1,1,"F12"], [], [1,1], [1,1], [1,1], [], [], [], [], []],
+[[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []],
+[[1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [2,1], [], [], [1,1], [1,1], [1,1], [], [1,1], [1,1], [1,1], [1,1]],
+[[2,1], [], [1,1,"Q"], [1,1,"W"], [1,1,"E"], [1,1,"R"], [1,1,"T"], [1,1,"Y"], [1,1,"U"], [1,1,"I"], [1,1,"O"], [1,1,"P"], [1,1], [1,1], [2,2], [], [], [1,1], [1,1], [1,1], [], [1,1], [1,1], [1,1], [1,2]],
+[[2,1], [], [1,1,"A"], [1,1,"S"], [1,1,"D"], [1,1,"F"], [1,1,"G"], [1,1,"H"], [1,1,"J"], [1,1,"K"], [1,1,"L"], [1,1], [1,1], [1,1], [], [], [], [], [], [], [], [1,1], [1,1], [1,1], []],
+[[3,1], [], [], [1,1,"Z"], [1,1,"X"], [1,1,"C"], [1,1,"V"], [1,1,"B"], [1,1,"N"], [1,1,"M"], [1,1], [1,1], [1,1], [3,1], [], [], [], [], [1,1], [], [], [1,1], [1,1], [1,1], [1,2]],
+[[2,1], [], [2,1], [], [6,1], [], [], [], [], [], [2,1], [], [2,1], [], [2,1], [], [], [1,1], [1,1], [1,1], [], [2,1], [], [1,1], []],
+]
+----
+
+
+image::qwerty.png[width="600"]
+
+
+== Module Interface
+
+
+[source,lang]
+----
+module keyboard(
+        layout=[[[1,1,"A"]]],
+        keysize=[13,13,7],
+        keydip=2,
+        textsize=4,
+        textz=0.5,
+        keymargin=1,
+        defaultspace=0.25,
+        basez=10,
+        basemargin = 10,
+        upwards=2
+        ) {
+    // write your code here...
+}
+----
+
+
+Impossible values will not be tested. But be aware that some values like margins, distances, gaps make sense even when set to 0.
+
+
+Writing helper modules is strongly recommended. Make sure your module can be used from another file using the `use <keyboard.scad>` directive. **Manipulation with magic variables `$f*` is forbidden.** If you want to view your solution with higher resolution, do it for example from an external file.
+Your code must meet a certain quality. Repetition in code is bad, always use modules and loops. It is not recommended to use recursion, nor is it needed to solve the task. Bulgarian constants must be supplemented with an explanatory comment. Use of external libraries (including the MCAD library) is forbidden.
+
+
+== Submission and Grading
+
+
+* Maximum points: 30
+* For tests: 25
+* For code quality: 5
+* (Code that doesn't pass at least three tests has no right to points for quality.)
+
+Use GitHub for submission. Go to the following link: https://classroom.github.com/assignment-invitations/d6d6ee3ec67c8300b703aa8d532142e6[classroom.github.com/...].
+GitHub will create a repository for you in our organization. Immediately after its creation, put your ČVUT username in the USERNAME file. Put your implementation in the keyboard.scad file.
+We grade and give feedback only to the default master branch.
+
+
+Checkpoints:
+
+* 2017-03-27 01:00 (morning / night)
+* 2017-04-03 01:00
+* 2017-04-10 01:00 (after this checkpoint no more tests will be added from our side)
+* 2017-04-17 01:00
+
+We will provide feedback usually within 24 hours. In the repository we will create an issue for you or give you a thumbs up under the tested commit.
+
+Deadline:
+
+* *2017-04-24* (inclusive)
+
+
+== ChangeLog
+
+
+Changes in the assignment since the alpha version was released:
+
+* the `keydip` parameter was missing in the interface, it was added

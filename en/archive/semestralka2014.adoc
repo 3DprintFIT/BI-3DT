@@ -1,0 +1,181 @@
+= Semester Project 2014/2015
+:imagesdir: media
+:toc:
+
+
+WARNING: This is not the current assignment. It is here for archival purposes only.
+
+
+== Proteins
+
+
+The topic of the semester project is proteins. Your task is to write a module in OpenSCAD that can generate protein models based on input data, appropriately prepare one of your assigned proteins for printing, print it, and perform any additional modifications.
+
+
+=== Protein Generator
+
+
+Write an OpenSCAD module `protein` that adheres to the prescribed interface and displays a protein based on input data.
+
+
+----
+module protein(aminos=[],bindings=[]) { ... }
+----
+
+The vector (array) `aminos` contains definitions of individual amino acids. One amino acid is represented by a sphere with a specified center location and radius. Data is stored in four-element vectors ``++[++x,y,z,r++]++``, where the first three numbers indicate the position of the sphere's center and the fourth is the radius. The vector `aminos` is thus a vector of vectors:
+
+
+----
+aminos = [[x1, y1, z1, r1], [x2, y2, z2, r2], ...];
+----
+
+The vector `bindings` contains two-element vectors (pairs) of indices of the `aminos` vector. These pairs of amino acids should be connected by a bond, which will be described below.
+
+
+----
+bindings = [[0, 1], [1, 8], ...]; // example
+----
+
+The bond between two amino acids is created using a central sphere, placed with its center exactly midway between the centers of the two amino acids, with radius `avg(ra,rb)/2`, where `avg` is the arithmetic mean and `ra` (respectively `rb`) is the radius of the first (respectively second) sphere (amino acid) in the connection. The `hull()` operation is performed with the central sphere and both spheres in the connection - but with each *separately*. For understanding, here's an image shown in 2D:
+
+
+image::protein.png[width="600"]
+
+A and B are the centers of two spheres in the connection. Point S lies in the middle of segment AB. The radius of the central sphere is half the arithmetic mean of the edge spheres. Both edge spheres are _hulled_ with the central one, each separately.
+
+Individual amino acids and bonds can of course overlap arbitrarily. Input data does not need to be validated in any way. You can assume that all amino acids appear in at least one bond. In the submitted code it is *forbidden* to manipulate variables `$fn`, `$fs` etc., but for your purposes during testing we recommend temporarily reducing $fn - don't forget to remove it before submission.
+
+Example module processing inputs from vectors:
+
+
+----
+module echoprotein(aminos=[],bindings=[]) {
+    for (binding = bindings) {
+        echo("Sphere A:");
+        echo("x", aminos[binding[0]][0]);
+        echo("y", aminos[binding[0]][1]);
+        echo("z", aminos[binding[0]][2]);
+        echo("r", aminos[binding[0]][3]);
+        echo("Sphere B:");
+        echo("x", aminos[binding[1]][0]);
+        echo("y", aminos[binding[1]][1]);
+        echo("z", aminos[binding[1]][2]);
+        echo("r", aminos[binding[1]][3]);
+    }
+}
+----
+
+
+Example input data:
+
+
+----
+protein([
+        [0,0,0,3],
+        [12,0,5,4],
+        [14,-2,0,3.5],
+        [-3,0,-3,1],
+        [0,8,0,2],
+    ],
+    [
+        [0,2],
+        [1,3],
+        [1,4],
+        [3,4],
+    ]
+);
+----
+
+
+image::protein-sample.png[width="400"]
+
+image::printed-protein.jpg[width="400"]
+
+
+=== Your Proteins
+
+
+Each of you has been assigned three randomly generated proteins. You have them available both as data for the `protein()` module and as STL files. You will very likely not be able to render your own proteins in reasonable time using your module, as they contain hundreds of bonds and amino acids. That's okay, that's why you also have the model in STL format. To test the functionality of the module, you can use a subset of your data - verify that the module behaves according to the specification.
+
+If you still want to test your module with your assigned data, test it only in Compile mode (F5) and significantly increase the _Turn off rendering at_ value in OpenSCAD settings. We also recommend using the http://www.openscad.org/downloads.html#snapshots[development snapshot of OpenSCAD], preview of one protein using F5 takes only a few seconds.
+
+You can find your proteins at these addresses:
+
+* https://edux.fit.cvut.cz/courses/BI-3DT/_media/classification/proteins142/proteinXXX.scad
+* https://edux.fit.cvut.cz/courses/BI-3DT/_media/classification/proteins142/proteinXXX.stl
+
+Where instead of XXX you substitute digits from this list:
+
+
+----
+xxx	000	001	002
+----
+
+
+=== Preprocessing
+
+
+Choose any (in your opinion the easiest) of your three proteins and prepare it for printing. You can do practically anything with it (fix, rotate, cut, add support structures), but it is necessary to preserve the protein's dimensions during printing. The output is one or more STL files ready for slicing and a very brief description of *what* you did and *why* (not necessarily in writing, but during submission it is necessary to explain the process and this even several weeks after making your changes).
+
+TIP: How to cut STL files? It can certainly be done in OpenSCAD, but that's unnecessarily complicated. We have therefore prepared a xref:../../tutorials/meshmixer/index#[short guide for MeshMixer program] - recommended by three out of four instructors.
+
+
+TIP: Can't align well in Meshmixer? Try the http://software.ultimaker.com/[Cura] program. It contains a _Lay flat_ function.
+
+
+=== Slicing
+
+
+Slice your prepared print STL with any program using appropriate settings. For Slic3r, start from link:{imagesdir}/../../tutorials/tisk/slic3r-config-bundle.ini.zip[slic3r-config-bundle.ini.zip] (nozzle 3dráty, filament 1.75 ABS), for KISSlicer xref:../../tutorials/tisk/index#nastaveni-pro-kisslicer[they are here]. The output is the used slicing profile exported from the program and one or more GCODE files. If possible, fit the entire protein on one print bed and submit only one GCODE file.
+
+
+=== Printing and Postprocessing
+
+
+In credit events listed in KOS, taking place during the examination period, you will be printing proteins in the laboratory from your prepared GCODE files. After printing is complete, the print must be properly processed - remove supports, glue together, etc. The resulting protein should look as similar as possible to the assigned model.
+
+In case of absolute failure during printing, it is possible to repeat the print with a new GCODE, but only once. In case of a technical problem on our side, this does not count as a wasted attempt, of course.
+
+
+=== Submission, Grading and Deadlines
+
+
+Upload a zip file of any suitable name to your namespace on Edux, with a link to it from your namespace. Include all written descriptions directly in your namespace on Edux.
+
+Submit in the file:
+
+* scad file with the `protein` module
+* scad file calling the `protein` module with your selected data (which you downloaded from Edux)
+* STL file with your selected protein from Edux
+* Print STL files
+* Print GCODE files
+* Profile for slicing program
+* Any other necessary files
+
+The submission deadline is the term you are registered for (see terms in KOS).
+
+Grading according to the following table:
+
+[options="autowidth"]
+|====
+<h| OpenSCAD Module  <h| 10 h|
+| Module works according to specification  | 7  | mandatory within the section
+| Source code is appropriately structured and commented  | 3 |
+<h| Print Preparation  <h| 10 h|
+| Appropriately prepared print STL  | 5  | mandatory within the section
+| Mesh in all print STLs is okay  | 5 |
+<h| Slicing  <h| 10 h|
+| Supports (not needed (5 pts.), appropriate use* (2.5 pts.), unnecessary use (0 pts.))  | 5 |
+| Appropriate setting of print parameters (perimeters, infill, layer height)  | 5 |
+<h| Print  <h| 20 h|
+| It is a print of the model according to specification, print is processed (e.g., without supports, glued together, etc.)  | 5  | mandatory within the section
+| Print does not contain defects obviously caused by inappropriate model preparation  | 7.5 |
+| Print does not contain defects obviously caused by inappropriate printer preparation (print bed preparation, inappropriate temperatures)  | 7.5 |
+|====
+
+* Only supports generated during slicing incur point deductions. Because we're in the slicing section.
+
+IMPORTANT: To control the printer during submission you need your own computer with the ability to connect to wifi or by cable to the local network.
+
+
+Grading is divided into 4 sub-sections. _Mandatory within the section_ means that without completing this task the student will not receive any points for that section. In case of remedial printing, values of points in other sub-sections are no longer corrected. So if for example you fail slicing, you get zero points for it and (quite logically) the print also fails fatally, you can get points for printing in a remedial term, but you won't get any more points for slicing.

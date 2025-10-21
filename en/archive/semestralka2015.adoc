@@ -1,0 +1,154 @@
+= Semester Project 2015/2016
+:imagesdir: media
+:toc:
+
+
+WARNING: This is not the current semester project assignment. It is here for archival purposes only.
+
+
+== Crystals
+
+
+The topic of the semester project is crystals. Your task is to write a module in OpenSCAD that can generate crystal models based on input data (and a module that generates random crystals), appropriately prepare one of your assigned crystals for printing, print it, and perform any additional modifications.
+
+
+=== Crystal Generator
+
+
+Write an OpenSCAD module `crystal` that adheres to the prescribed interface and displays/creates a crystal based on input data.
+
+
+----
+module crystal(thorns=[]) { ... }
+----
+
+The vector (array) `thorns` contains definitions of individual outgrowths (spikes) from the crystal. One spike is defined by rotation, length, radius and number of segments.
+
+
+----
+thorns_abstract = [[[rotx, roty, rotz], height, circumr, seg], ...];
+thorns_example = [[[0,0,0], 30, 3, 4], [[90,0,0], 25.5, 2.65, 7]];
+----
+
+Each spike has a shape similar to this image (image can be enlarged):
+
+
+image::rect10491.png[height="300"]
+
+The center of the bottom side lies at the coordinate origin. Before rotation, the spike points straight up (along the positive Z axis). The total length of the spike is `height`, the break is at the cube root of `height` from the top. The spike has a profile of a regular ("equilateral") _n_-gon, where _n_ is `seg`. The circle circumscribed around this _n_-gon has radius `circumr` at the break, and at the bottom of the spike the radius is one-third. The spike is then rotated by the vector ``++[++rotx, roty, rotz++]++``.
+
+The crystal is just a mixture of these spikes.
+
+For the given two-spike example, the result looks something like this:
+
+
+image::2example.png[height="300"]
+
+Another task is a module generating random crystals. So it doesn't receive specific data as input, but only their bounds (closed intervals) and the number of spikes.
+
+
+----
+module random_crystal(nthorns=350, rot=[-90,100], height=[20,40], circumr=[2,4.5], seg=[3,10]) { ... }
+----
+
+* `nthorns` is the number of spikes
+* other arguments are two-element vectors determining minimum and maximum values for the same-named properties of spikes (`rot` are bounds for `rotx`, `roty` and `rotz`)
+
+For generating random numbers you can use the https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Mathematical_Functions#rands[rands()] function. Keep in mind that `seg` is (unlike other random values) an integer. Individual integers including edge values should have equal chance (uniform distribution), be careful, failure to do this will incur point deductions.
+
+For default values the crystal can look different (it's random), for example like this:
+
+
+image::350example.png[height="300"]
+
+
+=== Your Crystals
+
+
+Each of you has been assigned three randomly generated crystals. You have them available both as data for the `crystal()` module and as STL files. It's possible that your data will render too long in OpenSCAD using F6. That's okay, that's why you also have the model in STL format. To test the functionality of the module, you can use a subset of your data - verify that the module behaves according to the specification.
+
+If you still want to test your module with your assigned data, test it only in Compile mode (F5) and if there are problems, significantly increase the _Turn off rendering at_ value in OpenSCAD settings.
+
+You can find your crystals at these addresses:
+
+* https://edux.fit.cvut.cz/courses/BI-3DT/_media/classification/crystals152/crystalXXX.scad
+* https://edux.fit.cvut.cz/courses/BI-3DT/_media/classification/crystals152/crystalXXX.stl
+
+Where instead of XXX you substitute digits from this list:
+
+
+----
+removed
+----
+
+
+=== Preprocessing
+
+
+Choose any (in your opinion the easiest) of your three crystals and prepare it for printing. You can do practically anything with it (fix, rotate, cut, add support structures), but it is necessary to preserve the crystal's dimensions and shape during printing. The output is one or more STL files ready for slicing and a very brief description of *what* you did and *why* (not necessarily in writing, but during submission it is necessary to explain the process and this even several weeks after making your changes).
+
+TIP: How to cut STL files? It can certainly be done in OpenSCAD, but that's unnecessarily complicated. We have therefore prepared a xref:../../tutorials/meshmixer/index#[short guide for MeshMixer program] - recommended by three out of four instructors.
+
+
+TIP: Can't align well in Meshmixer? Try the http://software.ultimaker.com/[Cura] program. It contains a _Lay flat_ function.
+
+
+=== Slicing
+
+
+Slice your prepared print STL with any program using appropriate settings. For Slic3r, start from link:{imagesdir}/../../tutorials/tisk/slic3r-config-bundle.ini.zip[slic3r-config-bundle.ini.zip] (select profiles as in the exercise, i.e., not -default-). We don't have profiles for other programs for you, but you may create your own. The output is the used slicing profile exported from the program and one or more GCODE files. Individual parts can be printed at once (if they fit on the print bed and if it seems appropriate to you) or sequentially, or a combination of both.
+
+
+=== Printing and Postprocessing
+
+
+In credit events listed in KOS, taking place during the examination period, you will be printing crystals from ABS in the laboratory from your prepared GCODE files. After printing is complete, the print must be properly processed - remove supports, glue together, etc. The resulting crystal should look as similar as possible to the required model. One term has a maximum of 5 hours total (printing + postprocessing).
+
+In case of absolute failure during printing, it is possible to repeat the print with a new GCODE, but only once. In case of a technical problem on our side, this does not count as a wasted attempt, of course.
+
+
+=== Submission, Grading and Deadlines
+
+
+Upload a zip file of any suitable name to your namespace on Edux, with a link to it from your namespace. Include all written descriptions directly in your namespace on Edux.
+
+Submit in the file:
+
+* scad file with modules `crystal` and `random_crystal`
+* scad file calling the `crystal` module with your selected data (which you downloaded from Edux)
+* STL file with your selected crystal from Edux
+* Print STL files
+* Print GCODE files
+* Profile for slicing program THAT YOU USED
+* Any other necessary files
+
+The submission deadline is *June 19, 2016* inclusive (or the beginning of your credit term, if it takes place earlier). Possibility of late submission: For each additional started week (even by a second) 10 points are deducted from the total grade. If the total sum is less than 0, the grade for the semester project is 0. At the time of commencement of the classified credit term (printing in the laboratory), it must already be submitted on Edux.
+
+The examination period ends July 1, 2016, we have nothing against submission and credit terms even after this date, but it is necessary to explicitly agree on this and accept the risks arising from it.
+
+Grading according to the following table:
+
+[options="autowidth"]
+|====
+<h| OpenSCAD Modules  <h| 10 h|
+| Module `crystal` works according to specification  | 3  | mandatory within the section
+| Module `random_crystal` works according to specification  | 4  | mandatory within the section
+| Source code is appropriately structured and commented  | 3 |
+<h| Print Preparation  <h| 10 h|
+| Appropriately prepared print STL  | 5  | mandatory within the section
+| Mesh in all print STLs is okay  | 5 |
+<h| Slicing  <h| 10 h|
+| Supports (not needed (5 pts.), appropriate use* (2.5 pts.), unnecessary use (0 pts.))  | 5 |
+| Appropriate setting of print parameters (perimeters, infill, layer height)  | 5 |
+<h| Print  <h| 20 h|
+| It is a print of the model according to specification, print is processed (e.g., without supports, glued together, etc.)  | 5  | mandatory within the section
+| Print does not contain defects obviously caused by inappropriate model preparation  | 7.5 |
+| Print does not contain defects obviously caused by inappropriate printer preparation (print bed preparation, inappropriate temperatures)  | 7.5 |
+|====
+
+* Only supports generated during slicing incur point deductions. Because we're in the slicing section.
+
+IMPORTANT: To control the printer during submission you need your own computer with the ability to connect to WiFi or by cable to the local network. You also need to know (be able to look up) your MAC address.
+
+
+Grading is divided into 4 sub-sections. _Mandatory within the section_ means that without completing this task the student will not receive any points for that section. In case of remedial printing, values of points in other sub-sections are no longer corrected. So if for example you fail slicing, you get zero points for it and (quite logically) the print also fails fatally, you can get points for printing in a remedial term, but you won't get any more points for slicing.

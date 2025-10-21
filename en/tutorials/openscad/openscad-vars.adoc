@@ -1,0 +1,84 @@
+= Variables in OpenSCAD: What Works and What Doesn't
+
+.This works
+[source,scad]
+variable = 5;
+
+
+
+.This doesn't work. Or rather, it won't work as you might think
+[source,scad]
+variable = 5;
+echo(variable);
+variable = 6;
+echo(variable);
+
+
+.This works, because argument values exist in a different namespace
+[source,scad]
+module foo(arg) {
+    arg = 3;
+}
+
+
+.The changed value of arg will only be valid inside the if body
+[source,scad]
+----
+module foo(a) {
+    a = 5;
+    echo(a); // a is 5
+
+    if (a > 10) {
+        a = 2;
+        echo(a); // a is 2
+    } else {
+        a = 3;
+        echo(a); // a is 3
+    }
+    echo(a); // a is 5
+}
+----
+
+.But this works
+[source,scad]
+----
+module foo(arg) {
+    arg = arg >= 0 ? arg : 0;
+    // ... arg is changed, if something
+}
+----
+
+
+.But of course, arg is the same throughout the entire module
+[source,scad]
+----
+module foo(arg) {
+    echo(arg); // prints the changed arg!
+    arg = arg >= 0 ? arg : 0;
+}
+----
+
+.You can only do it once, this doesn't work
+[source,scad]
+----
+module foo(arg) {
+    arg = 5;
+    echo(arg); // 3
+    arg = 3;
+}
+----
+
+
+.Neither does this
+[source,scad]
+----
+module foo(arg) {
+    arg = arg >= 0 ? arg : 0;
+    arg = arg <= 10 ? arg : 10;
+}
+----
+
+
+.It must be combined into one complicated ternary operator or you write a function for it
+[source,scad]
+arg = xyz(arg);

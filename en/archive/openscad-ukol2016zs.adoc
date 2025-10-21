@@ -1,0 +1,235 @@
+= OpenSCAD: Homework Fall Semester 2016/2017
+:imagesdir: media
+:toc:
+
+
+WARNING: This is not the current assignment. It is here for archival purposes only.
+
+
+Other homework assignments from previous semesters can be viewed in the xref:index#[archive].
+
+
+== Motivation
+
+
+Your task is to design a fully parametric model of an electrical socket / extension cord / multiplier / splitter / dog (hereafter referred to as socket). Since every designer wants to model their own socket and then try out how it looks in the real world. Connect cables to it for testing. Attach it to furniture to see if it fits (aesthetically, dimensionally). Therefore, your task is to create a universal module that will help these desperate designers.
+
+(The designers' need for sockets is fictitious.)
+
+
+image::plugs-photo.jpg[width="600"]
+
+
+== Interface
+
+
+The socket has these parameters
+
+* *y* outer dimension on the y axis (more or less, see below)
+* *z* outer dimension on the z axis (not counting any protruding pins)
+* *radius_of_outlets* radius of the inside of one outlet
+* *number_of_outlets* number of outlets
+* *border_of_outlet* thickness around one outlet
+* *offset_of_outlets* spacing of individual outlets, 0 means they touch
+* *depth_of_outlets* depth of outlets
+* *pin_radius* radius of pins
+* *pin_depth* length of pin and depth of holes
+* *pin_offset* spacing of pins from center
+* *pin_angle* rotation angle of pins
+* *round_r* rounding radius of socket body
+
+Individual parameters will be explained in more detail below.
+
+The socket has this interface including default values, which you must preserve:
+
+
+----
+module plug(y=40,
+            z=30,
+            radius_of_outlets = 15,
+            number_of_outlets = 3,
+            border_of_outlet = 6,
+            offset_of_outlets = 0,
+            depth_of_outlets = 10,
+            pin_radius = 2,
+            pin_depth = 5,
+            pin_offset = 8,
+            pin_angle = 45,
+            round_r = 2) {
+   // ...
+}
+----
+
+
+Your model must work as a standalone module for OpenSCAD, usable via the use directive (it must not contain any constants outside the module, but it is possible (and advisable) to create helper modules). You must use the above-mentioned interface (including the same default values!).
+
+
+== Outer Shape
+
+
+Individual outlets look like this:
+
+
+image::plugs-multiple.svg[width="600"]
+
+But the leftmost one looks different:
+
+
+image::plugs-start.svg[width="600"]
+
+The entire body is 3D rounded, but the outlet holes are not.
+
+
+image::plugs-rounded.svg[width="600"]
+
+
+== Specific Parameter Descriptions
+
+
+=== Width / y axis
+
+
+* It is given so that when the thickness around the outlet is thicker than the width, it gets trimmed.
+* If the value is greater than the diameter of the outlet and its thickness, nothing is trimmed.
+* If the width is less than the outlet diameter, nothing is rendered.
+
+
+image::plugs-shape.svg[width="500"]
+
+(If you don't see axes with labels in the image, do a hard refresh of the page, you have an old version in cache.)
+
+
+=== Height / z axis
+
+
+* If the depth of the outlet (depth_of_outlets) and the length of pins (pin_depth) together are greater and would therefore perforate the socket all the way through, nothing is rendered.
+* If it's negative, nothing is rendered.
+* Z indicates the height of the socket body, without any pins that may sometimes protrude higher.
+
+
+image::plugs-plug-depth.svg[width="600"]
+
+
+=== Radius of One Outlet
+
+
+* Note this is not diameter
+
+
+=== Number of Outlets
+
+
+* If it's a negative number, nothing is rendered
+* If it's 0, nothing is rendered
+* 1 is a valid number of outlets
+
+
+=== Thickness Around One Outlet
+
+
+* This is the wall thickness around the outlet when viewed from above
+* Can be trimmed on the y axis in case of suitable setting of the y axis parameter
+* If it's a negative number or 0, nothing is rendered
+
+
+=== Outlet Spacing
+
+
+* Spacing of outlets between outlets
+* If it's 0, outlets lightly touch (as if at one point)
+* If it's negative, nothing is rendered
+
+
+image::plugs-distance.svg[width="500"]
+
+
+=== Outlet Depth
+
+
+* Depth of one outlet
+* If the depth of outlet (depth_of_outlets) and the length of pins (pin_depth) together are greater and would therefore perforate the socket all the way through, nothing is rendered.
+* If it's a negative number, nothing is rendered
+
+
+=== Pin Radius
+
+
+* Radius of one pin and holes in the socket
+
+
+=== Hole Depth and Pin Length
+
+
+* They are the same
+
+
+=== Pin Spacing
+
+
+* If the spacing is 0, the pin and holes are in the same place
+
+
+image::plugs-pins.svg[width="300"]
+
+
+=== Pin Angle
+
+
+* This is the rotation of pins (direction see image)
+
+
+image::plugs-angle.svg[width="500"]
+
+
+=== Rounding Radius
+
+
+* how rounded the socket body is (0 - not rounded; N - radius in corner is N)
+* nonsensical values will not be tested
+* rounding must not enlarge the object, i.e., the previously stated dimensions are outer dimensions after rounding
+
+
+=== Placement in Space
+
+
+For our semi-automatic tests, it's necessary to correctly place the object in space.
+
+The socket lies more or less at the origin (point 0). The X axis passes through the center of the object
+
+
+image::plugs-xy.svg[width="600"]
+
+The Y axis passes through the center of the outlets (not the center of the object). If we have an even number of outlets:
+
+
+image::plugs-xy-center-even.svg[width="300"]
+
+If we have an odd number of outlets:
+
+
+image::plugs-xy-center-odd.svg[width="300"]
+
+The entire object lies on the XY plane, i.e., it doesn't extend into negative Z:
+
+
+image::plugs-z.svg[width="500"]
+
+
+=== Notes
+
+
+* The dimension on the X axis is intentionally not given, because the socket will have length according to the set parameters.
+
+
+== Code
+
+
+The code must meet a certain quality, one of the conditions is logical adherence to indentation (the same throughout the file). Repeated constructions must be implemented with your own modules and for-loops. Magic constants must be self-explanatory, or supplemented with a comment. It is not possible to use any external libraries for OpenSCAD, nor the MCAD library. Manipulation with `$fn`, `$fs` and `$fa` is strictly forbidden.
+
+
+== Submission
+
+
+Submit according to instructions at https://github.com/3DprintFIT/B161HW-Template#zadání-domácího-úkolu[GitHub]
+
+Deadline is December 7, 2016 inclusive.
