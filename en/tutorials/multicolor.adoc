@@ -1,6 +1,6 @@
 = Printing: Multi-color Printing
 :toc:
-:imagesdir: ../images/multicolor/
+:imagesdir: ../../images/multicolor/
 :html5s-image-default-link: self
 
 You've surely noticed that our printers print with such material (in such color)

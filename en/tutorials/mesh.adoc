@@ -1,5 +1,5 @@
 = Working with 3D Models in Mesh Form
-:imagesdir: ../images/mesh/
+:imagesdir: ../../images/mesh/
 :toc:
 
 == Triangular Mesh

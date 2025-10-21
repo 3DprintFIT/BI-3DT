@@ -1,6 +1,6 @@
 = Assignment Archive
 
-:imagesdir: media
+:imagesdir: media/
 
 Here you can find older homework and semester project assignments.
 Use the navigation.

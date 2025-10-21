@@ -1,6 +1,6 @@
 = Tisk: Mosty
 :toc:
-:imagesdir: ../images/bridges/
+:imagesdir: ../../images/bridges/
 
 V minulých cvičeních jsme si vysvětlili,
 že klasické FDM tiskárny z fyzikálních důvodů nemohou tisknout do vzduchu

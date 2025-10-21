@@ -1,5 +1,5 @@
 = Práce s 3D modely ve formě meshí
-:imagesdir: ../images/mesh/
+:imagesdir: ../../images/mesh/
 :toc:
 
 == Triangulární mesh

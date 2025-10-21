@@ -1,5 +1,5 @@
 = Printing Technology and RepRap
-:imagesdir: ../images/reprap
+:imagesdir: ../../images/reprap
 :toc:
 
 The purpose of this text is to briefly familiarize you with 3D printing, primarily with 3D

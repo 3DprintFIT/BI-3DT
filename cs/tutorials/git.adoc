@@ -1,6 +1,6 @@
 = Git: Tutoriál
 :toc:
-:imagesdir: ../images/git/
+:imagesdir: ../../images/git/
 
 Odevzdávání veškeré práce během BI-3DT (kromě fyzických výtisků),
 probíhá pomocí Gitu.

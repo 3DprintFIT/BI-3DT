@@ -1,7 +1,7 @@
 = Slicing
 Marián Hlaváč <marian.hlavac@fit.cvut.cz>
 :toc:
-:imagesdir: ../images/slicing/
+:imagesdir: ../../images/slicing/
 
 A 3D printer is ultimately quite a simple device. It doesn't work as a box to which we send a 3D model in any format and plastic starts flowing from the printer in the shape of the given 3D model. For printing, we need to send precise print data to the printer.
 

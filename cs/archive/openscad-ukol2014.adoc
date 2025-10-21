@@ -1,5 +1,5 @@
 = OpenSCAD: Domácí úkol ZS 2014/2015 
-:imagesdir: media
+:imagesdir: media/
 
 
 WARNING: Toto není aktuální zadání úkolu. Je zde pouze k účelům archivace.
