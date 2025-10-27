@@ -1,0 +1,129 @@
+= OpenSCAD: Homework SS 2014/2015
+:imagesdir: media
+
+
+WARNING: This is not the current assignment. It is here for archival purposes only.
+
+
+Your task is to create a parametric model of a phone stand. The stand has a base and phone support in the shape of a rectangle with rounded corners (see following diagrams).
+
+TIP: Our automatic tests use full render (shortcut F6 in the application). Don't test your code only with F5. Also be careful with the % modifier - in full render mode, code with this prefix won't appear.
+
+
+== Preview
+
+
+image::openscad-ukol-ls1415/nahled-1.png[height="250"]
+
+image::openscad-ukol-ls1415/nahled-2.png[height="250"]
+
+image::openscad-ukol-ls1415/nahled-3.png[height="250"]
+
+
+=== Base
+
+
+image::openscad-ukol-ls1415/podstava.png[]
+
+
+== External dimensions
+
+
+image::openscad-ukol-ls1415/bokorys.png[height="368"]
+
+image::openscad-ukol-ls1415/vrsek.png[height="368"]
+
+The value __angle_radius__ is not given as a number but must be calculated.
+
+
+----
+angle_radius = 2*shell_thick + mob_thick + thick/2
+----
+
+
+== Connector dimensions
+
+
+image::openscad-ukol-ls1415/bokorys-rez.png[height="368"]
+
+image::openscad-ukol-ls1415/vrsek-rez.png[height="368"]
+
+
+== Interface
+
+
+[source,c]
+----
+/**
+ *	Parametric phone stand model
+ *	@param base_length	  Base length
+ *	@param top_length 	  Phone support length
+ *	@param top_offset   	Phone cutout offset
+ *	@param width			Width of the entire stand
+ *	@param thick			Wall thickness
+ *	@param radius	   	Corner rounding
+ *	@param angle			Top part tilt angle
+ *	@param mob_width		Phone width
+ *	@param mob_thick		Phone thickness
+ *	@param mob_inset		Phone inset depth
+ *	@param shell_thick		Wall thickness around phone
+ *	@param con_x			Phone connector width
+ *	@param con_y			Phone connector thickness
+ *	@param con_z			Phone connector height
+ *	@param cable_dia		Power cable diameter
+ *	@param cable_offset	 Cable hole height
+*/
+module mobile_stand(
+	base_length=50,
+    top_length=80,
+	top_offset=30,
+	width=50,
+	thick=15,
+	radius=10,
+	angle=60,
+	mob_width=40,
+	mob_thick=8,
+	mob_inset=5,
+	shell_thick=2,
+	con_x=10,
+	con_y=5,
+	con_z=10,
+	cable_dia=3,
+	cable_offset=4
+){
+  //insert your code here...
+}
+----
+
+
+The stand will always be drawn with the bottom edge at Z=0 (touching the virtual base at the coordinate system origin) and the base center at the origin, oriented as shown in the diagrams.
+
+Drawing in the correct position is absolutely essential for task evaluation due to semi-automatic tests.
+
+The module must be usable from an external file using the `use` directive - it must not store any constants outside the module.
+
+Keep the default argument values as specified!
+
+
+== Code
+
+
+Code must meet a certain quality, one of the conditions is logical indentation (the same throughout the file). Repeated constructions must be implemented with custom modules and for loops. Magic constants must be self-explanatory or complemented with a comment. It is not possible to use any external libraries for OpenSCAD, not even the MCAD library. Manipulation with `$fn`, `$fs` and `$fa` is forbidden.
+
+
+== Submission and evaluation
+
+
+Name the file stand.scad, save it to the stand.zip archive (directly in the archive's root directory) and upload it directly to your personal namespace on Edux. It must be downloadable from the link `https://edux.fit.cvut.cz/courses/BI-3DT/_media/student/username/stand.zip` Place a link to the file in your namespace. The archive must contain only necessary files (other scad files with modules, possible DXF or STL files for importing) besides stand.scad, the archive should not contain generated STL files of the stand.
+
+Submission deadline is *27.4.2015* inclusive. Late submission is possible until 4.5.2015 inclusive for half the points the student would have received if submitted on time. In case of documented long-term serious illness, it is possible to agree on a special deadline. Illness or accident just before submission is not an excuse.
+
+After evaluation (which will take place after the submission deadline), it is not possible to correct the assignment. However, before the submission deadline, you can consult and upload it to Edux in a work-in-progress state. If you want to submit the assignment at a later deadline, make sure there is no work-in-progress version on Edux at the turn of 27th and 28th April (you need to delete the file, not just the link).
+
+During evaluation, a set of prepared arguments will be semi-automatically tested, containing mainly edge cases. Therefore, we recommend testing the module for all possible inputs (non-numeric inputs will not be tested). Based on the test result and code quality, the student can get 0 to 20 points. In the event that we determine that the student copied the assignment or does not understand their own code at all and cannot prove otherwise, the assignment will be evaluated with -100 points, which means grade F.
+
+
+== Questions from students
+
+
+_No questions so far. Don't hesitate to ask your instructor._

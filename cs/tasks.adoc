@@ -1,0 +1,5 @@
+= Zadání
+
+- Zadání úloh na cvičení najdete na stránce xref:tutorials/index#[Cvičení].
+- Zadání domácího úkolu: https://github.com/3DprintFIT/B242HW-Assignment[B242HW-Assignment]
+- Zadání semestrální práce: https://github.com/3DprintFIT/B242CW-Assignment[B242CW-Assignment]

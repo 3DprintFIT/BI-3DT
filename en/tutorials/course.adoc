@@ -1,0 +1,123 @@
+= Course Principles
+
+== BI-3DT
+
+The course is taught by members of the http://3dprint.fit.cvut.cz/[3Dprint Lab], which are students
+and alumni of FIT. We create this course for you, so we always welcome feedback.
+
+Within the course, we try to teach you the complete workflow for 3D printing, that is
+model creation → optimization / repairs → slicing → printing → post-processing.
+
+== RepRap
+
+In the course, we teach on RepRap printers, because they are open-source software
+and open-source hardware, which is financially accessible for the faculty, and for us (and for
+you) hackable. RepRap project printers have made tremendous progress in recent years.
+It is likely that most of the complexities you will experience with our
+printers will never need to be dealt with again in the future.
+
+== Course Structure
+
+The course consists only of *tutorials*, which take place here in A1048.
+In addition, there is time-consuming homework in the form of assignments
+and a semester project.
+
+The semester project is designed so that it can be worked on during downtime
+in tutorials in the second half of the semester, when you will be printing (and thus mainly
+waiting). It is up to each of you whether you use these downtimes to work on the semester project,
+or work on it at another time.
+
+Printing of semester projects will take place during the exam period.
+
+The semester schedule is on the xref:./schedule#[Tutorials] page.
+Attendance at tutorials is basically optional:
+
+** we won't kick you out for not showing up,
+** but tutorial tasks are worth points.
+
+== Grading
+
+* *30 points* Semester work in tutorials
+* *30 points* Home parametric assignment in OpenSCAD
+* *40 points* Semester project
+
+WARNING: Information on the xref:../classification#[Classification] page is always
+prioritized over information stated here (please inform us of any discrepancies).
+
+=== Tutorials
+
+They follow the printing workflow.
+
+1.  *Model creation*: OpenSCAD program
+2.  *Optimization* and *repairs*: netfabb Basic program
+3.  *Slicing*: Slic3r program
+4.  *Printing*: OctoPrint program
+5.  1 tutorial also *Programming*: ADMesh
+
+TIP: Tutorial work makes up 30% of the course xref:../classification#[grade],
+but is not mandatory.
+
+=== OpenSCAD Homework
+
+Part of the grading is homework in modeling in OpenSCAD, which will test your
+ability to master the OpenSCAD program (and language) at the level of Master Yoda.
+It is a highly parametric 3D model with a fixed interface.
+
+Submitted on GitHub and assignment will be around week 4 (of the semester).
+
+TIP: Homework makes up 30% of the course xref:../classification#[grade],
+but is not mandatory.
+
+You can find previous assignments in the xref:../archive/index#[archive].
+
+=== Semester Project
+
+The semester project is a complex task that follows the workflow known from the course.
+Work on the semester project takes place in tutorials, at home, and culminates in printing during
+the exam period, which can take up to 5 hours.
+
+We will publish the assignment so that you can work on the semester project during the printing
+tutorials.
+
+TIP: The semester project makes up 40% of the course xref:../classification#[grade],
+but is not mandatory.
+
+You can find previous assignments in the xref:../archive/index#[archive].
+
+== Software Installation
+
+All necessary programs are already installed on the faculty computers in the classroom.
+
+For working from your own computers, we strongly recommend installing several
+necessary programs, see the xref:../apps#[Programs] page.
+
+CAUTION: Install the programs as soon as possible and verify their functionality!
+We have encountered situations where a student spent 45 minutes in the tutorial dealing with Slic3r installation
+and did not have time to do the actual work. The student is responsible for such a situation
+themselves, unless they ask us for help well in advance (about a week beforehand).
+
+== When I Don't Like It
+
+If you don't like something during the course, please tell us right away,
+not just in the survey. If you find an error in the materials, create an issue on GitHub
+or GitLab. You can also suggest edits (we reward good edits with points,
+excellent edits can lead to exemption from homework or the semester project).
+
+TIP: If you already know that you won't be attending the course, drop it by the
+end of week 2, giving others a chance. Thank you.
+
+== Facebook
+
+On Facebook there is a page
+https://www.facebook.com/groups/bi3dt/[We Don't Want to Fail BI-3DT], where
+you can consult your problems with other students, or even with
+us (instructors actively monitor this page themselves, but don't rely on
+it).
+
+== Submitting Assignments via GitHub
+
+In the course, we submit everything on GitHub.
+We'll try it out in this tutorial.
+
+In the xref:index#[tutorial schedule] you will find the number of points for each tutorial.
+If this number of points is a link, it leads to the assignment.

@@ -1,0 +1,20 @@
+course:
+  code: BI-3DT
+  altCodes:
+   - BI-3DT.1
+  name: 3D Printing
+semester: B181
+language: en
+repository:
+  gitlabPath: /BI-3DT/BI-3DT
+navigation:
+  hiddenFiles:
+    - images
+    - stls
+    - configs
+    - README.*
+    - LICENSE
+    - tutorials/openscad/
+    - archive/media/
+excludedFiles:
+  - _build

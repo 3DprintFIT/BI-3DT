@@ -1,0 +1,32 @@
+= BI-3DT (Česky)
+
+== Rozcestník
+
+* 📆 xref:tutorials/index#[Harmonogram cvičení]
+* 🎓 xref:classification#[Pravidla hodnocení]
+* 💰 https://grades.fit.cvut.cz/courses/BI-3DT.1/my-classification[Body z předmětu]
+* 💂 xref:teachers/index#[Učitelé]
+* 🕢 https://timetable.fit.cvut.cz/new/courses/BI-3DT.1[Rozvrh]
+* ⁉️ https://www.facebook.com/groups/bi3dt/[Facebook: Nechceme vypadnout
+z BI-3DT]
+* 🦁 https://gitlab.fit.cvut.cz/BI-3DT/bi-3dt[GitLab]
+* 🐙 https://github.com/3DprintFIT/BI-3DT[GitHub]
+* 👮 xref:gdpr#[Souhlas se zpracováním osobních údajů]
+* 🤹 xref:tasks#[Zadání úloh]
+
+== Rychlé odkazy
+
+* xref:tutorials/printing#config-file[Konfigurační soubor pro Slic3r, tiskárna Hybrix]
+
+Všechny materiály, není-li uvedeno jinak, jsou dostupné pod svobodnou licencí
+https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons
+Attribution-ShareAlike 4.0 International].
+
+image:https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-sa.png[width=88,height=31]
+
+Materiály jsou spravovány a veřejně dostupné na
+https://github.com/3DprintFIT/BI-3DT[GitHubu]. Existuje i jejich zrcadlo na
+fakultním https://gitlab.fit.cvut.cz/BI-3DT/bi-3dt[GitLabu].
+
+Veškeré vylepšení ze strany studentů je velmi vítáno. Akceptujeme Pull/Merge
+Requesty v obou systémech ❤️

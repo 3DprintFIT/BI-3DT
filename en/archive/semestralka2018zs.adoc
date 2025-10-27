@@ -1,0 +1,312 @@
+= Semester Project Fall Semester 2018/2019
+:toc:
+:imagesdir: media/
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+[WARNING]
+====
+This is not the current semester project assignment. It is here for archival purposes only.
+
+Other older assignments can be viewed in the xref:index#[archive].
+====
+
+== Intro
+That Christmas is coming again we know from mid-October based on the larger
+shopping centers. Of course, we also need to prepare appropriately for the
+approaching holidays.
+
+Your moms asked you if you could get a Christmas star
+for the tree. Since you already feel like skilled 3D printers, you decided
+to program your own star in OpenSCAD and then
+print it on a 3D printer.
+
+Since not only your moms want stars, but also aunts and neighbors, you need to
+make the star parametric, so you can print several with different
+patterns.
+
+Since you bought too many gifts and only have a few crowns left for filament,
+you decided to make the star perforated and hollow. You'll save on filament
+and it might even look nice.
+
+== Perforated Star
+Your semester project is to generate perforated 3D stars. Complete this work
+in OpenSCAD, in which you will program a module that can
+generate perforated 3D star models based on input data. Then
+choose one of the assigned stars, prepare it for printing, and print it on a 3D
+printer and possibly modify it additionally.
+
+=== Perforated Star Generator
+In OpenSCAD, write a module `star` that will create a 3D model of a perforated star
+and will have the following interface.
+
+```cpp
+module star(holes=[], rmain=15, r1=10, r2=5, slen=35, holer=2.5, reduc=0.3,
+thick = 2.5) { ... }
+```
+
+The vector (array) `holes` contains small natural numbers. For each element of this
+array the star will have one spike, which will have N*4 holes (times 4, so there
+are holes on all sides of the spike), where N is the value of the element. For example, for array
+[2, 2, 3, 5] the star will have 4 spikes. Two will have 2*4 holes, one 3*4 holes
+and one 5*4 holes. The first hole is at the main
+sphere and the others are evenly distributed along the spike depending on the `slen` parameter.
+
+
+The number `rmain` is the radius of the main sphere from which the star's spikes go. The number `r1` is the radius of the inner sphere
+of the spike. The number `r2` is the radius of the outer sphere of the spike. The number `slen` is the length of the spike
+between the radii of the inner and outer sphere of the spike. The number `holer` is the radius of the hole in
+the sphere. The number `reduc` is a constant by which the holes on the spike are reduced. The number
+`thick` is the wall width of the star.
+You will probably get a better idea from the following description and sketches.
+
+
+Spikes of the star must come out from the center of the star in different directions so that they are as
+evenly distributed as possible. If we had a 2D star, it would be enough to
+distribute the spikes so that they have an angle of `360/(number of spikes)` between them,
+but since we have a 3D star, this problem is not entirely trivial.
+
+TIP: You are interested in algorithms that can evenly distribute N points on the surface
+of a sphere, which already exist, you just need to adapt them for OpenSCAD (which cannot
+increment values through a loop) (tip: `cos()` and `sin()` in
+OpenSCAD expects input in degrees, the constant `PI` already exists).
+
+NOTE: Your task is not to come up with how to distribute these spikes across the sphere,
+but to find a suitable solution and use it for these purposes. However, if you find
+an idea, don't forget to cite the source.
+
+== Star Sketches
+The first image shows what the star should look like. The radius of the main sphere
+`rmain` is marked in red. The dashed line shows which part of the sphere
+will be hollow. The wall width of the sphere is `thick` (purple).
+
+There are n spikes on the sphere, where their number is given by the length of the `holes` array. A spike is
+formed from two spheres, with the "first sphere", which we define by radius `r1`
+(green), being inside the main sphere and touching it. Between the centers of the "first sphere" and
+the "second sphere" (defined by `r2` (blue)) is a distance `slen` (yellow).
+The line segment between the centers of the first and second sphere is perpendicular to the main sphere.
+
+.General appearance of star
+image::star_example.png[]
+
+The second image shows that the wall width `thick` affects not only the main sphere,
+but also all spikes.
+
+.Appearance of star spike and hollow representation
+image::star_spike_example.png[]
+
+The third image is a bit more interesting. It shows how the
+holes in the spike should be distributed. The number of holes is given by the i-th element in the `holes[i]` array. The image
+shows what it would look like for `holes[i] == 4`.
+
+The holes are evenly
+distributed according to the number across the entire spike from the edge of the main sphere to the center
+of the "second sphere" (with radius `r2`).
+
+But the holes also rotate according to the number by a certain number of degrees. For spike holes[i]
+this is by the value (360/holes[i]) degrees. The image shows this with the colors of the holes.
+For value holes[i] == 4, the holes rotate by (360/4), i.e., 90 degrees. For
+holes[i] == 3 it would be 120 degrees. The image shows this with the colors
+of individual holes.
+
+You don't need to handle the calculation of hole angles. It's enough if they are perpendicular to the line segment between the centers
+of the "large and small sphere".
+
+The hole radius is `holer` - ``reduc``++*++``j``, where `j` is the hole index (indexed from 0).
+For example, for holes[i] == 3, the radius of the first hole (closest to the main sphere)
+is equal to (`holer` - `reduc` +*+ 0), second (`holer` - `reduc` +*+ 1), third
+(`holer` - `reduc` * 2) and so on.
+
+.Distribution of holes on spike
+image::star_spike_holes_example.png[]
+
+
+The resulting star could look for example like this:
+
+.Possible result
+image::star_example_animated.gif[]
+
+
+== Your Stars
+
+Each of you has been assigned three randomly generated multisets
+`holes`. It's up to you which one you choose for printing. Stars are
+printed with other arguments set to default values.
+
+```
+ba.....n [6, 3, 5, 6, 4, 4, 6], [6, 6, 5, 3, 3, 5, 5, 5, 5], [3, 5, 6, 5, 5, 5, 6, 5, 3, 3, 4]
+b......a [3, 3, 4, 4, 3, 4, 3], [4, 5, 3, 5, 5, 4, 5, 3, 5], [5, 3, 4, 3, 3, 4, 4, 5, 6, 4, 4]
+b......k [4, 3, 6, 6, 6, 3, 4], [5, 3, 4, 3, 6, 5, 6, 5, 3], [4, 4, 4, 3, 5, 3, 4, 6, 4, 4, 4]
+br.....n [4, 3, 4, 6, 4, 4, 3], [3, 5, 6, 6, 6, 3, 5, 4, 6], [3, 5, 4, 6, 4, 4, 6, 5, 5, 4, 5]
+c......7 [4, 3, 4, 6, 4, 3, 4], [3, 5, 6, 4, 3, 3, 3, 6, 3], [6, 4, 4, 4, 6, 6, 3, 5, 3, 3, 6]
+c......6 [3, 3, 4, 3, 4, 3, 5], [5, 4, 3, 5, 6, 6, 4, 4, 4], [6, 3, 3, 6, 6, 3, 6, 5, 3, 5, 5]
+d......t [3, 3, 3, 5, 6, 6, 4], [5, 6, 5, 4, 4, 5, 3, 3, 5], [6, 3, 6, 4, 6, 3, 5, 3, 5, 6, 4]
+d......8 [6, 4, 4, 5, 3, 3, 5], [6, 6, 3, 3, 4, 3, 6, 5, 4], [6, 4, 5, 4, 5, 4, 6, 4, 4, 5, 3]
+e......r [4, 6, 3, 4, 5, 4, 4], [4, 5, 6, 3, 6, 4, 4, 3, 3], [5, 5, 3, 3, 3, 4, 4, 5, 4, 3, 5]
+g......l [4, 5, 4, 4, 4, 6, 6], [4, 3, 6, 3, 6, 5, 4, 6, 4], [5, 3, 3, 4, 6, 5, 5, 5, 3, 4, 5]
+h......6 [4, 4, 3, 6, 5, 3, 5], [4, 3, 3, 3, 3, 4, 5, 3, 6], [5, 3, 6, 3, 4, 4, 5, 4, 3, 3, 3]
+h......5 [6, 4, 6, 6, 4, 4, 4], [4, 4, 4, 5, 5, 6, 6, 5, 6], [4, 3, 4, 3, 5, 4, 6, 5, 5, 6, 5]
+h......m [4, 4, 4, 6, 4, 5, 6], [3, 6, 3, 5, 4, 3, 5, 5, 6], [5, 5, 3, 3, 5, 3, 3, 3, 4, 5, 6]
+h......j [5, 6, 4, 3, 4, 4, 5], [3, 5, 6, 4, 6, 6, 3, 6, 5], [6, 6, 5, 5, 3, 4, 3, 4, 3, 3, 6]
+h......i [6, 5, 4, 5, 5, 6, 3], [6, 5, 4, 3, 4, 5, 6, 5, 5], [5, 3, 3, 6, 3, 5, 3, 3, 5, 6, 5]
+c......1 [4, 6, 4, 3, 4, 5, 4], [3, 3, 6, 6, 6, 6, 3, 6, 3], [5, 4, 5, 4, 3, 5, 5, 3, 6, 4, 5]
+c......m [6, 3, 5, 5, 3, 5, 6], [4, 6, 5, 6, 6, 3, 5, 6, 6], [4, 6, 3, 6, 4, 6, 5, 6, 5, 4, 3]
+c......v [6, 4, 3, 3, 6, 3, 3], [6, 6, 6, 6, 6, 6, 5, 4, 3], [6, 4, 6, 3, 4, 3, 6, 6, 3, 4, 5]
+j......k [4, 6, 4, 6, 5, 6, 4], [4, 3, 4, 4, 6, 3, 6, 6, 6], [6, 4, 6, 6, 4, 3, 4, 4, 4, 6, 5]
+j......t [5, 3, 4, 5, 4, 3, 6], [3, 4, 5, 5, 6, 6, 6, 6, 4], [3, 4, 4, 4, 4, 3, 6, 3, 5, 3, 4]
+j......j [4, 5, 3, 5, 5, 4, 6], [6, 3, 3, 4, 6, 3, 4, 5, 5], [4, 4, 6, 6, 4, 5, 4, 4, 4, 6, 3]
+k......k [5, 5, 5, 6, 6, 3, 4], [5, 3, 5, 5, 6, 3, 6, 5, 6], [4, 6, 5, 6, 5, 5, 4, 4, 5, 6, 6]
+k......d [6, 3, 3, 4, 3, 6, 6], [4, 6, 6, 4, 4, 5, 3, 3, 6], [4, 6, 4, 4, 5, 5, 5, 5, 4, 3, 6]
+k......e [6, 4, 3, 3, 6, 6, 4], [3, 5, 4, 3, 5, 4, 3, 5, 5], [5, 4, 4, 5, 4, 5, 3, 6, 4, 5, 6]
+ko.....1 [5, 6, 4, 4, 4, 3, 4], [6, 4, 4, 5, 3, 4, 5, 5, 3], [6, 6, 4, 3, 3, 3, 4, 6, 4, 5, 6]
+ku.....1 [4, 5, 5, 6, 4, 3, 6], [4, 5, 3, 5, 5, 4, 4, 3, 3], [5, 5, 6, 4, 4, 3, 5, 6, 6, 5, 3]
+k......n [6, 5, 4, 6, 6, 4, 4], [3, 3, 3, 3, 4, 4, 3, 4, 4], [5, 3, 6, 3, 6, 4, 6, 3, 3, 6, 3]
+l......1 [5, 3, 3, 6, 5, 5, 4], [5, 4, 6, 4, 4, 6, 3, 5, 6], [4, 3, 5, 5, 5, 3, 3, 4, 3, 4, 4]
+m......1 [6, 6, 6, 6, 5, 4, 6], [4, 5, 3, 3, 5, 6, 5, 3, 4], [3, 6, 3, 6, 3, 3, 4, 4, 6, 4, 4]
+p......1 [5, 6, 3, 5, 3, 5, 4], [6, 3, 3, 6, 6, 5, 4, 3, 3], [3, 6, 5, 4, 6, 6, 4, 6, 5, 5, 3]
+p......n [5, 5, 5, 6, 6, 6, 6], [4, 6, 5, 5, 6, 6, 6, 5, 3], [4, 3, 6, 4, 5, 3, 3, 3, 6, 4, 5]
+p......k [5, 6, 3, 5, 3, 6, 4], [5, 6, 6, 3, 3, 6, 4, 3, 4], [3, 4, 5, 3, 5, 3, 4, 6, 6, 4, 5]
+p......4 [6, 4, 3, 5, 3, 3, 6], [6, 3, 4, 5, 5, 4, 3, 3, 5], [4, 4, 3, 6, 5, 4, 3, 5, 3, 4, 6]
+p......t [4, 4, 5, 5, 6, 4, 4], [3, 3, 3, 6, 4, 4, 4, 5, 4], [6, 5, 5, 4, 4, 6, 6, 4, 5, 6, 4]
+r......s [3, 6, 3, 6, 6, 3, 4], [5, 5, 3, 6, 5, 5, 6, 5, 6], [4, 3, 3, 3, 6, 4, 6, 5, 4, 5, 3]
+s......k [5, 6, 4, 4, 3, 5, 4], [3, 3, 4, 6, 6, 3, 5, 6, 4], [6, 6, 3, 4, 5, 5, 4, 5, 5, 3, 6]
+si.....n [5, 5, 3, 3, 5, 4, 5], [5, 3, 3, 3, 6, 6, 5, 3, 5], [6, 5, 3, 6, 3, 6, 4, 6, 3, 6, 4]
+s......t [3, 5, 3, 3, 3, 3, 5], [4, 6, 4, 5, 6, 5, 3, 4, 6], [6, 5, 3, 5, 5, 6, 6, 4, 3, 5, 4]
+s......a [5, 5, 5, 5, 6, 5, 5], [4, 6, 4, 6, 6, 4, 4, 6, 3], [5, 4, 6, 3, 4, 4, 5, 4, 5, 4, 3]
+sl.....n [5, 5, 4, 6, 4, 3, 4], [6, 5, 6, 6, 6, 5, 6, 3, 4], [5, 6, 4, 6, 5, 4, 4, 3, 6, 6, 4]
+s......o [5, 5, 4, 3, 6, 5, 5], [3, 5, 3, 4, 6, 3, 5, 4, 3], [5, 6, 4, 4, 6, 6, 4, 6, 6, 3, 5]
+s......4 [6, 5, 6, 3, 6, 4, 6], [5, 6, 5, 6, 6, 5, 5, 4, 5], [6, 6, 5, 5, 4, 6, 5, 5, 3, 6, 4]
+te.....3 [3, 5, 6, 5, 3, 4, 4], [4, 3, 5, 3, 6, 6, 4, 5, 6], [3, 3, 5, 4, 5, 6, 5, 5, 5, 3, 6]
+t......n [4, 4, 5, 4, 5, 3, 3], [4, 6, 6, 3, 3, 6, 6, 6, 4], [5, 6, 3, 4, 5, 6, 3, 3, 4, 6, 6]
+tu.....3 [5, 5, 3, 5, 4, 5, 5], [4, 6, 4, 6, 3, 5, 5, 4, 4], [3, 5, 4, 5, 6, 5, 6, 3, 5, 3, 4]
+v......1 [5, 3, 6, 6, 6, 4, 4], [4, 6, 4, 5, 3, 6, 3, 4, 6], [6, 3, 5, 5, 4, 3, 3, 3, 5, 3, 6]
+va.....d [6, 5, 4, 3, 5, 4, 6], [4, 6, 3, 4, 3, 4, 4, 6, 4], [3, 4, 6, 6, 4, 6, 5, 6, 3, 6, 3]
+vo.....d [6, 5, 6, 3, 5, 3, 5], [3, 6, 5, 4, 5, 5, 3, 3, 6], [5, 3, 5, 6, 4, 5, 3, 5, 5, 6, 5]
+z......a [6, 3, 3, 3, 5, 6, 4], [6, 3, 3, 3, 6, 5, 4, 3, 4], [6, 6, 3, 4, 5, 5, 5, 4, 3, 5, 3]
+z......4 [3, 3, 6, 4, 5, 4, 4], [4, 5, 4, 4, 3, 3, 4, 6, 6], [4, 3, 5, 4, 4, 5, 3, 6, 4, 5, 4]
+```
+
+== Preprocessing
+
+Choose any (in your opinion the easiest or most interesting) of
+your three multisets and prepare a star generated from it for printing
+(you can increase `$fn` to make your star nicer). You can do
+practically anything with it (fix, rotate, cut, add support
+structures), but it is necessary to preserve the star's dimensions and shape according to
+the specified rules and data during printing. The output is one or more STL files
+ready for slicing and a very brief description of **what** you
+did and **why** (not necessarily in writing, but during submission it is necessary to
+explain the process and this even several weeks after making your changes).
+
+**How to cut STL files?** It can certainly be done in OpenSCAD, but that's unnecessarily
+complicated. We have therefore prepared a https://github.com/3DprintFIT/BI-3DT/blob/master/tutorials/meshmixer.adoc[short
+guide for MeshMixer program], or you can use Slic3r.
+
+If you're more of a Blender fan, you can manipulate objects there too.
+Here is a
+https://www.youtube.com/watch?v=ndQTn8mCweA[guide for cutting] and
+https://www.youtube.com/watch?v=0pfTDzAaXp4[guide for rotating
+the object so it lies on the plate].
+
+
+**Can't align well in Meshmixer or Blender?** Try the
+https://ultimaker.com/en/products/ultimaker-cura-software[Cura] program.
+It contains a *Lay flat* function.
+
+== Slicing
+
+Slice your prepared print STL with any program using
+appropriate settings. For Slic3r, start from the profiles from the exercise.
+We don't have profiles for other programs for you,
+but you may create your own. The output is the used slicing profile
+exported from the program and one or more GCODE files. Individual
+parts can be printed at once (if they fit on the print bed and
+if it seems appropriate to you) or sequentially, or a combination of both.
+
+== Printing and Postprocessing
+
+In credit events listed in KOS, taking place during the examination
+period, you will be printing stars from ABS in the laboratory from your prepared
+GCODE files. After printing is complete, the print must be properly processed -
+remove supports, glue together, etc. The resulting star should look as
+similar as possible to the required model. One term has a maximum of 5
+hours total (printing + postprocessing).
+
+In case of absolute failure during printing, it is possible to repeat the print with a new
+GCODE, but only once. In case of a technical problem on our side,
+this does not count as a wasted attempt, of course.
+
+== Submission, Grading and Deadlines
+
+This is the final version of the assignment. Any corrections of errors in the assignment will be provided with errata and announced by email.
+
+Submit on GitHub, create a repository at the link https://classroom.github.com/a/LZ3xHcBU
+
+Include all written descriptions directly in README (or README.md, etc.) in
+the repository. **This time don't expect any automatic issue.**
+
+Submit in the repository:
+
+- scad file with the `star` module - its declaration/definition
+- scad file **calling** the `star` module with your selected data (without the declaration/definition of the `star` module)
+- STL file with your star, as it was generated by OpenSCAD
+- Print STL files
+- Print GCODE files
+- Profile for slicing program you used
+- Any other necessary files
+
+If you have any questions, or find errors, please write them in https://github.com/3DprintFIT/B181CW-Assignment/issues[Issues] in this repository.
+
+The submission deadline on GitHub is **January 20, 2019 inclusive** (or the beginning of
+your credit term, if it takes place earlier), you can print even
+after. Possibility of late submission: For each additional started week (even by
+a second) 10 points are deducted from the total grade. If the total
+sum is less than 0, the grade for the semester project is 0. At the time of commencement
+of the classified credit term (printing in the laboratory), it must already be
+submitted on GitHub.
+
+The examination period ends February 16, 2019, we have nothing against submission and
+credit terms even after this date, but it is necessary to explicitly agree on this and
+accept the risks arising from it.
+
+Grading according to the following table:
+
+|===
+| **Part** | **points** | **note**
+| **OpenSCAD Modules:** | **10** |
+| Module `star` works according to specification | 7 | mandatory within the section
+| Source code is appropriately structured and commented | 3 |
+| **Print Preparation:** | **10** |
+| Appropriately prepared print STL | 5 | mandatory within the section
+| Mesh in all print STLs is okay | 5 |
+| **Slicing:** | **10** |
+| Supports (not needed (5 pts.), appropriate use* (2.5 pts.), unnecessary use (0 pts.)) | 5 |
+| Appropriate setting of print parameters (perimeters, infill, layer height) | 5 |
+| **Print:** | **10** |
+| It is a print of the model according to specification, print is processed (e.g., without supports, glued together, etc.) | 4 | mandatory within the section
+| Print does not contain defects obviously caused by inappropriate model preparation | 3 |
+| Print does not contain defects obviously caused by inappropriate printer preparation (print bed preparation, inappropriate temperatures) | 3|
+|===
+
+* Only supports generated during slicing incur point deductions. Because we're in the slicing section.
+
+NOTE: The essence of the semester project is not absolute rigor of your OpenSCAD solution,
+the homework is for that. It is necessary to adhere to the essence of the assignment and respond reasonably to parameters.
+
+IMPORTANT: To control the printer during submission you need your own computer with
+the ability to connect to WiFi or by cable to the local network. You also
+need to know (be able to look up) your MAC address.
+
+
+Grading is divided into 4 sub-sections. *Mandatory within the section*
+means that without completing this task the student will not receive
+any points for that section. In case of remedial printing, values of points in
+other sub-sections are no longer corrected. So if for example you fail slicing,
+you get zero points for it and (quite logically) the print also fails fatally,
+you can get points for printing in a remedial term, but you won't get any
+more points for slicing.

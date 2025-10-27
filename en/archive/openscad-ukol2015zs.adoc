@@ -1,0 +1,122 @@
+= OpenSCAD: Homework WS 2015/2016
+:imagesdir: media
+:toc:
+
+
+WARNING: This is not the current assignment. It is here for archival purposes only.
+
+
+TIP: Our semi-automatic tests use full render (shortcut F6 in the application). Don't test your code only with F5. Also be careful with the % modifier - in full render mode, code with this prefix won't appear.
+
+
+IMPORTANT: The assignment previously contained the value [line-through]#thickeness#. This was obviously wrong and we meant *thickness*.
+
+
+== Card holder
+
+
+Because you have several important cards (e.g., payment cards or ISIC, etc.) that you don't carry in your wallet but are lying on your desk, you decided to model an organizer/stand for them. The stand allows cards to be arranged one after another, and each has its own compartment. To view the cards well, each compartment peeks out a bit, and each back compartment is slightly elevated (similar to cinema seats).
+
+For simplicity, we will assume that cards have the shape of a rectangle (or cuboid), without any rounded edges and protrusions (e.g., embossing). All cards have the same dimensions. Here are several illustrations of sections through this stand (side, longitudinal and cross-sectional; images can be enlarged by clicking).
+
+image:bok4.png[height="300"] image:vrch2.png[height="300"] image:predek.png[height="300"]
+
+One card inserted in the stand is indicated in green. Certain dimensions are indicated in red and blue, which will be described further. Note that when viewed from the side and front, there is no rounding. However, when viewed from above, you can see how the space for the card "wraps" around the card so that the gap between the card and the wall is the same everywhere (even in the corner).
+
+*Added for clarification:* Just as the front card holder has rounded front corners, other holders also have rounded corners, but only where they exceed the holder in front of them. See the image.
+
+
+image::vrch-oblouky.png[height="300"]
+
+*Added for clarification:* The last card (the furthest back) does not have an elevated back wall (see image).
+
+
+=== Interface and arguments
+
+
+IMPORTANT: The assignment previously contained the value [line-through]#thickeness#. This was obviously wrong and we meant *thickness*.
+
+Your model must function as a standalone `module` for OpenSCAD, usable via the `use` directive (it must not contain any constants outside the module, but it is possible (and desirable) to create helper modules). You must use this interface (including the same default values!):
+
+
+----
+module cardholder(size=[85, 54, 1], thickness=3, spacing=1, cards=4, delta=25, visibility=0.3) { /* code */ }
+----
+
+* `size` is a vector of three values - card dimensions in millimeters - in the order height, width, thickness
+* `thickness` is the basic wall thickness, indicated in red in the images above
+* `spacing` is the space between the card and wall, indicated in blue in the images above
+* `cards` is the total number of cards (slots) in the stand
+* `delta` is the upward shift of each "back" slot
+* `visibility` is the percentage (as a decimal number) of the card that will be visible when viewed from the front
+
+Strange data may be entered, in which case behave as follows. You can assume that all values will be numeric (or a vector of numbers for `size`).
+
+* If `size` is not a vector with at least two components, *nothing* will be drawn.
+* If `size` has only two components, or if the third component is 0, assume a card with zero thickness, which is *okay*.
+* If the first or second component of the `size` vector is <= 0, *nothing* will be drawn.
+* If `cards` is <=0, *nothing* will be drawn.
+* If `thickness` is <=0, assume a value of 0 (we won't test this).
+* If `spacing` is <=0, assume a value of 0.
+* If `delta` is 0, no shift occurs; if negative, each "back" card shifts lower (the entire object de facto flips back to front).
+* If `visibility` is outside the interval (0, 1), assume the extreme value (0 for < 0, 1 for > 1).
+
+
+=== Placement in space
+
+
+The object will stand on the XY plane (its bottom edge will be aligned with Z = 0). Centered left/right and backward/forward along the Z axis. The front of the stand will point toward the negative Y axis. Placement is essential for our semi-automatic tests.
+
+
+image::umisteni.png[height="300"]
+
+The illustrative image shows placement. The highlighted wall is the front.
+
+
+== Code
+
+
+Code must meet a certain quality; one of the conditions is logical indentation (the same throughout the file). Repeated constructions must be implemented with custom modules and for loops. Magic constants must be self-explanatory or complemented with a comment. It is not possible to use any external libraries for OpenSCAD, not even the MCAD library. Manipulation with `$fn`, `$fs` and `$fa` is forbidden.
+
+
+== Submission and evaluation
+
+
+Name the file cardholder.scad, save it to the cardholder.zip archive (directly in the archive's root directory) and upload it directly to your personal namespace on Edux. It must be downloadable from the link `https://edux.fit.cvut.cz/courses/BI-3DT/_media/student/username/cardholder.zip` Place a link to the file in your namespace. The archive must contain only necessary files (other scad files with modules, possible DXF or STL files for importing) besides cardholder.scad; the archive should not contain generated STL files of the stand. Correct naming is important for our automatic tests. An incorrectly named file is not considered submitted.
+
+Submission deadline is *30.11.2015* inclusive. Late submission is not possible. In case of documented long-term serious illness, it is possible to agree on a special deadline. Illness or accident just before submission is not an excuse.
+
+After evaluation (which will take place after the submission deadline), it is not possible to correct the assignment. However, before the submission deadline, you can consult and upload it to Edux in a work-in-progress state.
+
+During evaluation, a set of prepared arguments will be semi-automatically tested, containing mainly edge cases. Therefore, we recommend testing the module for all possible inputs (non-numeric inputs will not be tested). Based on the test result and code quality, the student can get 0 to 20 points. In the event that we determine that the student copied the assignment or does not understand their own code at all and cannot prove otherwise, the assignment will be evaluated with -100 points, which means grade F (this has already happened).
+
+The number of (un)successful tests directly affects the evaluation. Tests will be published after the assignments are graded. The composition of tests corresponds to the difficulty and importance of individual parts of the assignment, so it is not possible to ask for compensation for the fact that one error affected the result of multiple tests.
+
+Before the deadline, several practice submission rounds will take place. The instructor will run your solution through tests and notify you, for example, that some error broke most of them, but cannot show you the tests (creating the assignment tailored directly to the tests would be too easy). These rounds will take place on 6.11., 13.11., 20.11., 23.11., and 27.11. always around 01:00 at night. At this time, the assignment must be submitted on Edux. You can expect feedback during the day. Outside these dates, it is not possible to have the assignment run through tests.
+
+
+== Questions from students
+
+
+=== Should all compartments be rounded, like the first one?
+
+
+Yes, added to the assignment.
+
+
+=== Shouldn't the last change be aligned according to the last compartment?
+
+
+Yes, added to the assignment, image updated.
+
+
+=== Is the difference between two levels delta, or delta + spacing?
+
+
+Delta. Spacing has no effect on card shift.
+
+
+=== Is the delta parameter given in % or in units?
+
+
+In units.

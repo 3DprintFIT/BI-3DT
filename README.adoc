@@ -4,7 +4,12 @@ Materials for the 3D printing course at the
 https://fit.cvut.cz/en[Faculty of Information Technology], CTU in
 Prague.
 
-Those materials are provided in Czech.
+== Languages / Jazyky
+
+Materials are provided in both English and Czech:
+
+* **English**: See link:en/[`/en/` directory]
+* **Čeština**: Viz link:cs/[`/cs/` adresář]
 
 == License
 

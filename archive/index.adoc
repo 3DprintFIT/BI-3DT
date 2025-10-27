@@ -1,9 +1,0 @@
-= Archív zadání
-
-:imagesdir: media
-
-Zde naleznete starší zadání domácích úkolů a semestrálních prací.
-Využijte navigaci.
-
-image:printed-protein.jpg[width="250"] image:350example.png[width="250"] image:vlocka.png[width="250"]
-image:bi-3dt.png[width="250"] image:trubka.png[width="250"] image:trubka2.png[width="250"]

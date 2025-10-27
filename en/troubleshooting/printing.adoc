@@ -1,0 +1,38 @@
+= Printing problems
+:toc:
+
+== Cannot connect to the printer
+
+If you cannot connect to the printer...
+
+1. Check that the printer is connected to the power supply.
+2. Check that the printer is turned on (with the rocker switch on the power supply)
+3. Check that the printer is connected to the network cable and that the green indicator light is on/blinking at the connector.
+4. Connect from the school computer (or via the faculty VPN).
+5. Make sure you are connecting to the correct address. Enter the entire address explicitly into the computer, including `http://`.
+6. Restart the printer by turning it off and on again (or by unplugging and plugging it back into the power supply).
+
+If none of this helps, ask the instructor for help.
+
+== No plastic is being extruded from the extruder
+
+If you have just inserted the filament, it takes a while for all the air to be pushed out of the extruder and the plastic to start being extruded.
+
+Gently grasp the filament during extrusion and check by touch whether the filament is being pulled into the extruder without problems.
+If the filament is in place and is not going inside, it means the extruder is clogged.
+
+1. Check that the temperatures are set correctly.
+2. Try removing and reinserting the filament.
+
+If nothing helps, the extruder needs to be cleaned.
+Call the instructor for assistance.
+
+== The printer is making a strange loud noise
+
+Printers are generally very noisy.
+However, if you notice a very unusual noise during printing, don't hesitate to call the instructor.
+
+== The printer is smoking / burning / visibly physically damaged
+
+Immediately notify the instructor. Even if you are not sure if it's a problem, call the instructor. It's not enough to raise your hand, shout immediately.
+https://www.thissmarthouse.net/dont-burn-your-house-down-3d-printing-a-cautionary-tale/[Printer fire is not an uncommon thing].

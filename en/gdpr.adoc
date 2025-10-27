@@ -1,0 +1,32 @@
+= GDPR
+
+Since we use third-party services for teaching, we ask students for voluntary consent to the processing of personal data in the following wording:
+
+Students of this course give explicit consent at the first class they attend.
+
+== Consent to the processing of personal data
+
+You hereby give consent to the 3D Printing Lab at the Faculty of Information Technology, CTU, with registered office at Thákurova 9, 160 00 Prague 6, ID: 68407700 (hereinafter referred to as the "Controller"), in accordance with Act No. 101/2000 Coll., on the Protection of Personal Data (hereinafter referred to as the "Act on the Protection of Personal Data"), to process the following personal data beyond the standard data related to studying at FIT CTU:
+
+* username within CTU,
+* username on the GitHub service,
+* source code and other digital content created as part of work on the BI-3DT.1 course.
+
+The provided personal data must be processed for the purpose of course evaluation. This data will be used by the Controller for these specific purposes and will be further processed for a maximum period of 1 year.
+
+You give your express consent to the above processing. Consent can be withdrawn at any time, for example by sending an email from the faculty email address to 3dprint@fit.cvut.cz.
+
+The processing of personal data is carried out by the Controller. Personal data will be further processed by:
+
+* **GitHub, Inc.** (88 Colin P Kelly Jr St, San Francisco, CA 9410 USA),
+* **AjTy, s.r.o.** (Antala Staška 1074/53A, Krč, 140 00 Prague, ID 28948742).
+
+Assignments are submitted to GitHub and their automatic evaluation is performed using Jenkins CI deployed on the server of AjTy company (owner Tomáš Sýkora, teacher of the BI-3DT.1 course). If you do not agree with the processing of data by a third party, please note that you have the right to participate in the course without it. For technical reasons, however, the evaluation of assignments may take longer.
+
+Please note that according to the Act on the Protection of Personal Data, you have the right to:
+
+* withdraw consent at any time,
+* request information from us about what personal data we process, request an explanation from us regarding the processing of personal data,
+* request access to this data and have it updated or corrected,
+* request deletion of this personal data,
+* in case of doubts about compliance with obligations related to the processing of personal data, contact us, FIT CTU, or the Office for Personal Data Protection.

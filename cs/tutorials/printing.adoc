@@ -1,0 +1,208 @@
+= Tisk
+Marián Hlaváč <marian.hlavac@fit.cvut.cz>
+:toc:
+:imagesdir: ../images/printing/
+
+Tento týden se konečně dostaneme k tomu, na co jsme se všichni jistě celou dobu těšili. 
+Využijeme získané teoretické znalosti a uplatníme je prakticky.
+
+Seznámíme se s tiskárnou, vysvětlíme si, k čemu jsou určeny její jednotlivé části a připravíme ji k tisku. 
+Seznámíme se s nástroji, kterými budeme přenášet tisková data a spouštět tisk a závěrečně na tiskárnách něco vytiskneme.
+ 
+[.noclear]
+TIP: Pokud již 3D tiskárny znáte, můžete některé kapitoly v textu vynechat, ale nevynechávejte kapitolu <<Příprava tiskárny>>, je povinná pro všechny. Až pak můžete pokračovat čtením <<Zadání úkolů, zadaných ukolů>>.
+
+
+== Seznámení se s tiskárnou
+
+Na stole před vámi by měla ležet FDM tiskárna Hybrix a jedna či dvě špule plastového materiálu.
+
+Na fotografii níže se seznamte s pojmy, které budou dále ve studijním textu zmíněny.
+
+IMPORTANT: Tiskárny byly nedávno upgradovány z tiskáren RebeliX a ne všechny fotografie zde odpovídají současnému stavu.
+Na aktualizaci materiálů pracujeme.
+
+.Tiskána RebeliX
+image::rebelix-photo-annotated.jpg[Rebelix, width=720, link={imagesdir}rebelix-photo-annotated.jpg]
+<1> Tisková deska (heatbed)
+<2> Raspberry Pi (na tiskárně Hybrix není)
+<3> Extruder
+<4> Tryska (hotend)
+
+
+== Ovládání tiskárny
+
+Tiskárnu nebudeme ovládat přímým připojením k počítači, ale zodpovědnost za přenos tiskových dat přenecháme ovládacímu softwaru, který je součástí každé tiskárny v učebně.
+
+Každá tiskárna je připojena do školní sítě a je možné ji ovládat přes webové rozhraní.
+
+
+=== Připojení k tiskárně
+
+K připojení do sítě, ve které jsou tiskárny přístupné, využijte školní počítače.
+Na každé tiskárně lze nalézt štítek uvádějící adresu tiskárny.
+Připojte se na svou tiskárnu ze školního počítače použitím adresy na štítku.
+Adresa vypadá takto (kde `XX` je číslo od `01` do `14`):
+
+Adresa tiskárny:: http://printer-XX.3dprintlab.in.fit.cvut.cz/
+
+Pokud se na tiskárnu nelze připojit, vyzkoušejte xref:../troubleshooting/printing.adoc#_na-tiskárnu-se-nelze-připojit[jiné možnosti].
+
+CAUTION: Po připojení se ujistěte, že se jedná o rozhraní pro vaši tiskárnu, která vám leží na stole. Ač se sabotování tisku spolužákům může zdát jako legrace, vězte, že není.
+
+.Ruční ovládání ve webovém rozhraní
+image::movement.png[Panel ručního ovládání, 450, float="right", link={imagesdir}movement.png]
+==== Ruční ovládání
+
+V prostřední části webového rozhaní lze ručně ovládat tiskárnu.
+Můžete posouvat tiskovou hlavu ve všech třech osách a také ovládat extruder.
+
+.Ovládání teploty
+image::tools-extra.png[Ovládání teploty, 450, float="right", link={imagesdir}tools-extra.png]
+==== Předehřátí tiskárny
+
+Předehřívání trvá v řádech minut. 
+Pro urychlení práce nebo pro zavedení či vyjmutí filamentu je nutné tiskárnu zahřát.
+
+V horní části rozhraní v části _Tools + Extra_ je možné nastavit teplotu, na kterou se má tiskárna zahřát.
+
+
+==== Tisk
+
+Návod k tisku popisuje kapitola <<Tisk krok za krokem>>. 
+Přečtěte si nyní zadání úkolů, abyste věděli, co se od vás očekává, a pak pokračujte návodem jak tisknout krok za krokem.
+
+
+== Zadání úkolů
+
+Pro dnešní sadu úkolů se vtělte do pracovitého zaměstnance QC oddělení fiktivní firmy „Pepa Prča Research“, kontrolující výstupní kvalitu 3D tiskáren.
+Vaším úkolem bude ověřit, zda tiskárna tiskne správně a jak dobře.
+
+[[ukol-1]]
+=== Úkol 1 (1 bod)
+
+Vašim prvním úkolem je *ověřit, zda tiskárna skutečně vytiskne stejné rozměry, které jsou v modelu*.
+
+image::20mm-box.png[width=160, float=right]
+
+Jako testovací objekt jste si vybrali link:../stls/printing/20mm-box.stl[model kostky o přesných rozměrech 20×20×10 mm].
+K tiskárně jste dostali tiskový profil, který na ní byl doteď používán. 
+Předpokládejme, že není potřeba ho upravovat po kalibrační stránce (hodnoty jako velikost trysky a údaje o materiálu jsou správné). 
+
+Abyste ušetřili materiál, nastavte tisk tak, aby se vytiskly kostky 4 a každá z nich byla dutá, měla jednu obvodovou vrstvu a žádnou vrchní vrstvu (ve výsledku byste měli dostat 4 hranaté kalíšky).
+
+[[ukol-2]]
+=== Úkol 2 (2 body)
+
+Dále chcete *ověřit, jak moc malý předmět tiskárna zvládne vytisknout*. 
+
+image::CuteOcto.png[width=160, float=right]
+
+Jako testovací objekt jste si vybrali https://www.thingiverse.com/thing:27053[Cute Octopus Says Hello] (CC BY 3.0) od firmy MakerBot ze serveru Thingiverse.com (link:../stls/printing/CuteOcto.stl[mirror zde]). Abyste ušetřili materiál, začnete na poloviční velikosti předmětu (scale 50%) a budete dále zkoušet menší velikosti, podle toho, kolik vám zbyde času (zkuste pak např. 33%, 25%, 15% atd.).
+
+Odevzdávat budete jednu poloviční velikost (scale 50%) a druhou libovolně menší (scale <50%), ale povedenou. Další menší velikosti můžete odevzdat dobrovolně, ale neovlivní výsledný počet bodů.
+
+TIP: Jestliže je výtisk příliš „rozplizlý“, znamená to, že materiál nestíhá chladnout.
+Některé materiály lze aktivně chladit, jiné (např. ABS) se chladit nesmějí.
+Jako řešení tohoto problému se často používá workaround:
+vytiskněte více malých věcí najednou.
+
+[[ukol-3]]
+=== Úkol 3 (0 bodů, ale povinný)
+
+*Ukliďte po sobě své pracoviště.* Kdo po sobě neuklidí, nedostane žádné body.
+
+Pokud po tomto cvičení již nenásleduje další, tiskárnu ukliďte do skříně.
+Nejprve se ujistěte, že tryska má méně než 100° C. Poté tiskárnu odpojte a zaneste do její police.
+Každá tiskárna má svoje místo (místa pro tiskárny > 12 vám případně sdělí cvičící).
+
+[options="header", cols="^,^,^"]
+|========
+3+|Umístění tiskáren ve skříni
+|1 |5 |9
+|2 |6 |10
+|3 |7 |11
+|4 |8 |12
+|========
+
+== Tisk krok za krokem
+
+Kapitola vás provede tiskem krok za krokem. 
+Většinu z těchto informací se dozvítě osobně na cvičení, nicméně pokud se dostanete do situace, kdy si nejste jistí, nebo jste instrukce ze cvičení přeslechli nebo z paměti vytěsnili, tento průvodce by vám měl být pomocníkem.
+
+WARNING: Tyto instrukce je třeba na prvním cvičení s novými tiskárnami ověřit a aktualizovat.
+Věnujte zvýšenou pozornost tomu, co říkají cvičící, a v případě nesouladu s těmito materiály tento problém nejlépe nahlaste.
+
+=== Příprava tiskárny
+ 
+Před spuštěním tisku je potřeba dodržet několik kroků. 
+V případě, že tiskárnu nezkontrolujete, můžete skončit se špatným výtiskem, nebo v horším případě s poškozenou tiskárnou.
+
+. Vizuálně se ujistěte, že tiskárna není nijak zjevně poškozená.
+. Očistěte tiskovou desku od nečistot či pozůstatcích předchozích výtisků.
+. Zkontrolujte a případně <<Zavedení filamentu, zaveďte filament>>. Ujistěte se, že se špule může při tisknu volně otáčet a nezasekne se.
+. Zajistěte, aby deska při tisku nenarážela do věcí na stole. Buď je může shodit, nebo se o ně zaseknout a tisk se pak nepovede.
+
+
+==== Vyjmutí filamentu
+
+Abychom mohli vyjmout filament z trysky, ta musí <<Předehřátí tiskárny, být zahřátá>> na teplotu tání materiálu.
+Pokud byste tiskárnu nezahřáli, mohl by se filament v extruderu zlomit a způsobit problémy.
+
+Zahřejte tiskárnu na požadovanou teplotu a v rozhraní tiskárny klikněte na tlačítko `Retract`.
+Po celou dobu vytahování mějte ruku poblíž struny, jelikož po jejím úplném vytažení má struna tendenci vystřelit a zamotat se.
+Retraktujte požadované množství, dokud filament není vyjmut.
+
+*Vyjmutou strunu vložte do malého očka na špuli, aby se filament nezačal zamotávat*. Buďte při manipulaci s filamentem opatrní. Špuli sundejte z držáku a filament odložte.
+
+
+==== Zavedení filamentu
+
+Pravidlo předehřáté tiskárny platí úplně stejně jako u vytahování filamentu.
+
+INFO: Pokud měníte dva materiály s různou teplotou tisku/tání, použijte tu z tepolot, která je vyšší.
+Po dokončení výměny teplotu případně upravte dle právě zavedeného materiálu.
+
+image::filamentguide.svg[Jak má filament vypadat, 300, float="right"]
+
+Zkontrolujte zakončení filamentu na závady. Filament může být:
+
+. Nerovný či polámaný.
+. Mít roztavené zakončení.
+. Být „nahlodaný“ od ozubení extruderu.
+
+V každém případě takovou část odštípněte kleštičkami, nebo odlomte.
+
+Zařízněte filament do špičky a vložte jej do otvoru na extruderu. Netlačte filament do tiskárny násilím, stačí jen vložit a jemně přitlačit a v rozhraní tiskárny kliknout na tlačítko `Extrude`.
+
+Ve chvíli, kdy tiskárna uchopí filament, jej můžete pustit. Extrudujte filament tak dlouho, dokud nezačne z trysky vylézat plast. Dále extrudujte plast tak dlouho, dokud nezačne z trysky vylézat plast správné barvy (v trysce mohly být pozůstatky filamentu jiné barvy).
+
+
+=== Tisk
+
+Nahrajte tisková data (ve formátu GCode) do webového rozhraní a spusťe tisk použitím ovládacího prvku `Upload & Start.
+Přípravou tiskových dat do formátu GCode se zabývala kapitola xref:./slicing#[Slicing].
+
+[[config-file]]
+
+Stáhněte si konfigurační bundle pro tiskárny Hybrix, které používáme na tiskových cvičení.
+
+*link:../configs/printing/slic3r_config_bundle.ini[slic3r_config_bundle.ini]*
+
+CAUTION: *Nastavit správný konfigurační soubor je důležité.* Nevhodně zvolená konfigurace může způsobit, že se v GCode objeví instrukce nevhodné pro danou tiskárnu (např. se může začít tisknout mimo tisknutelnou oblast) a takové instrukce mohou zapříčinit neúspěšný tisk, nebo v horším případě *poškodit tiskárnu*.
+Zkontrolujte, že načtené a zvolené nastavení pro tiskárnu je pojmenované *Hybrix* a materiál *PET*.
+
+Pokud při tisku narazíte na jakýkoliv problém, konzultujte se cvičícím, nebo zkuste problém najít v xref:../troubleshooting/index#[troubleshootingu].
+
+
+=== Po dokončení tisku
+
+Velmi opatrně odendejte magnetickou horní část tiskové desky s výtiskem a drobným prohnutím výtisk odendejte.
+Tiskovou desku očistěte a vraťte na tiskárnu.
+
+Proces odstraňování výtisku z tiskové desky neuspěchejte. 
+Dávejte pozor, abyste nepoškodili svůj výtisk nebo tiskovou desku.
+
+WARNING: Dodržujte pravidla bezpečné práce, abychom předcházeli zranění. Desky mohou mít ostré hrany a části tiskárny jsou po dokončení tisku stále horké a hrozí popálení. Buďte opatrní. *Pokud ke zranění dojde, okamžitě kontaktuje cvičícího.*
+
+Po skončení tisku a práce s tiskárnou (na konci cvičení) nezapomeňte <<ukol-3, své pracoviště uklidit>>. Vyčkejte, než tryska vychladne (cca pod 100℃) a odpojte tiskárnu od elektrické sítě.

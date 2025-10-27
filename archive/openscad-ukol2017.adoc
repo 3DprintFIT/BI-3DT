@@ -1,5 +1,0 @@
-= OpenSCAD: Domácí úkol ZS 2017/2018 
-
-WARNING: Toto není aktuální zadání úkolu. Je zde pouze k účelům archivace.
-
-Zadání domácího úkolu ZS 2017/2018 najdete na https://github.com/3DprintFIT/B171HW-Assignment[GitHubu].

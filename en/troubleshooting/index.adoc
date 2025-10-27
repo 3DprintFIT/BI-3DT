@@ -1,0 +1,11 @@
+= Troubleshooting
+
+If you don't carry a four-leaf clover in your wallet, or don't bring a lucky charm to the exercise, it will probably happen that something doesn't work or you get stuck on something.
+
+In this section you will find an overview of the most common problems and their solutions, in Q&A format.
+Problems are divided into thematic areas.
+
+== Problem areas
+
+xref:printing#[Printing]::
+  Problems with printer connection, control or other hardware issues

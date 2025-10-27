@@ -1,0 +1,357 @@
+= Programová manipulace s STL soubory
+:imagesdir: ../images/admesh/
+:toc:
+
+Kromě ručního zpracování meshe v programech, jako je Netfabb Basic, je
+možné mesh zpracovávat i programově – tedy vytvářet programy, které s
+meshí něco více či méně zajímavého provádějí. Protože jsme na Fakultě
+informačních technologií, byla by škoda tento přístup neprozkoumat.
+
+.https://www.youtube.com/watch?v=-DjdzhACgnM[Videotutoriál].
+video::-DjdzhACgnM[youtube]
+
+== Možnosti zpracování meshe ve formátu STL
+
+Formát STL je velmi jednoduchý. Jeho popis najdete ve
+xref:./mesh#[cvičení, které se věnuje meshi a chybám v ní]. Načítat a
+ukládat soubory ve formátu STL není tedy žádná raketová věda, ale jedná
+se o poměrně nudné programování.
+
+Naštěstí již existují hotové open-source knihovny, které toto řeší za
+nás.
+
+Knihoven je celá řada, najít vhodnou knihovnu pro vás oblíbený jazyk je
+otázka několika vteřin vyhledávání na internetu. Zde namátkou zmíníme:
+
+* https://pypi.python.org/pypi/numpy-stl[numpy-stl] pro Python + NumPy
+* https://github.com/QuantumConcepts/STLdotNET[STLdotNET] pro C#
+* https://github.com/cpedrinaci/STL-Loader[STL-Loader] pro Javu
+* …
+
+My budeme používat knihovnu https://github.com/admesh/admesh[ADMesh],
+která je napsaná v jazyce C, dá se jednoduše použít v jazyce C++,
+existují bindingy pro jazyky Python a Ruby.
+
+== ADMesh
+
+https://github.com/admesh/admesh[ADMesh] je open-source program, který
+umožňuje manipulovat s STL meshí z příkazové řádky. Kromě rozhraní pro
+příkazovou řádku je k dispozici také knihovní API, které ale původně
+nevzniklo s úmyslem znovupoužitelnosti, takže je mnohdy jeho použití
+neintuitivní.
+
+.Program ADMesh vnikl v roce 1995 jako aplikace pro příkazovou řádku
+image::admesh.png[ADMesh]
+
+=== Instalace knihovny
+
+Pro použití knihovny ADMesh je třeba nejprve knihovnu nainstalovat.
+
+Pokud používáte Linux, můžete prozkoumat balíčky vaší distribuce,
+zajímají vás balíček `devel` nebo `dev`, abyste dostali hlavičkové
+soubory a jiné věci potřebné pro kompilaci programů využívajících ADMesh.
+V distribuci Fedora tedy chcete balíček `admesh-devel`,
+v distribuci Debian pak `libadmesh-dev`.
+V každém případě potřebujete verzi 0.98.x,
+starší verze obsahují pouze program pro příkazovou řádku.
+
+Pro macOS můžete https://formulae.brew.sh/formula/admesh[využít homebrew].
+
+Pro operační systém Windows pak existují předkompilované archivy dostupné
+na https://github.com/admesh/admesh/releases[GitHubu].
+
+Na všech podporovaných systémech můžete knihovnu zkompilovat sami
+https://github.com/admesh/admesh[ze zdrojových kódů].
+
+=== Vlastní sestavení na Linuxu
+
+Po stažení https://github.com/admesh/admesh/releases/download/v0.98.5/admesh-0.98.5.tar.gz[admesh-0.98.5.tar.gz] a rozbalení:
+
+.Lokální sestavení knihovny
+[source,source]
+$ ./configure
+$ make
+$ export ADMESHDIR=~/admesh
+$ make install DESTDIR=$ADMESHDIR
+
+Pro kompilaci zdrojového kódu do programu je třeba linkeru říct,
+že chceme použít knihovnu ADMesh, a předat kompilátoru cestu k hlavičkovému souboru a knihovně:
+
+.Kompilace programu používajícího knihovnu ADMesh z vlastního adresáře
+[source,console]
+$ export ADMESHDIR=~/admesh
+$ gcc -L$ADMESHDIR/usr/local/lib/ -I$ADMESHDIR/usr/local/include/ source.c -o myapp -ladmesh
+
+.Spuštění zkompilovaného programu s knihovnou z vlastního adresáře
+[source,console]
+$ LD_LIBRARY_PATH=$ADMESHDIR/usr/local/lib/ ./myapp 
+
+=== Instalace a kompilace ADMesh na macOS
+
+Pro instalaci využijeme Homebrew. Pokud nemáte nainstalovaný, nainstalujte ho podle návodu na https://brew.sh/
+
+.Instalace ADMesh
+[source,console]
+$ brew install admesh
+
+Pro kompilaci zdrojového kódu do programu je třeba linkeru říct,
+že chceme použít knihovnu ADMesh, a předat kompilátoru cestu k hlavičkovému souboru a knihovně:
+
+.Kompilace programu používajícího knihovnu ADMesh na macOS
+[source,console]
+$ gcc -L/opt/homebrew/lib/ -I/opt/homebrew/include/ source.c -o myapp -ladmesh
+
+.Spuštění zkompilovaného programu na macOS
+[source,console]
+$ ./myapp
+
+=== Základní použití
+
+Pro použití knihovny stačí naincludovat hlavičkový soubor `admesh/stl.h`:
+
+.Předpoklad pro použití knihovny ADMesh z jazyka C
+[source,c]
+#include <admesh/stl.h>
+
+V knihovně existuje sada struktur a funkcí,
+které můžete využít pro základní manipulaci s STL modely.
+
+
+=== Načtení modelu ze souboru
+
+Nejprve je třeba soubor načíst z disku do struktury `stl_file`.
+
+.Načtení STL souboru z disku
+[source,c]
+----
+#include <stdlib.h>
+#include <admesh/stl.h>
+
+int main(void) {
+  stl_file stl; // <1>
+  char *filename = "directory/model.stl"; // <2>
+  stl_open(&stl, filename); // <3>
+  stl_exit_on_error(&stl); // <4>
+
+  /* ... TODO ... */
+
+  stl_close(&stl); // <5>
+  return EXIT_SUCCESS;
+}
+----
+<1> Deklarace nové proměnné `stl` typu `stl_file`.
+<2> Nastavení řetězce s cestou.
+<3> Knihovní funkce pro načtení souboru z disku.
+    Používá se zde reference na strukturu typu `stl_file`.
+    To je podobné pro všechny další funkce z knihovny ADMesh.
+    Nezapomeňte, že C nemá třídy,
+    takže se struktura musí všem funkcím explicitně předat.
+<4> Protože operace čtení z disku může skončit chybou,
+    je třeba výsledek ověřit.
+    Na struktuře je nastaven příznak chyby v atributu `error`.
+    V případě aplikace pro terminál nejspíš chceme při chybě program ukončit,
+    k tomu slouží tato funkce, která program v případě chyby čistě ukončí.
+    Pokud ji nepoužijeme, hrozí nám při další operaci zhavarování programu.
+    S chybou se dá samozřejmě vypořádat i jinak, ale pro naše potřeby toto stačí.
+<5> Po skončení práce se strukturou `stl_file` je potřeba ji zavřít.
+
+
+=== Kompilace programu
+
+Pro kompilaci zdrojového kódu do programu je třeba linkeru říct,
+že chceme použít knihovnu ADMesh:
+
+.Kompilace programu používajícího knihovnu ADMesh
+[source,console]
+$ gcc source.c -o myapp -ladmesh
+
+Případně, pokud nemáte ADMesh nainstalovaný ve standardních cestách,
+je třeba nastavit absolutní cesty ke knihovně i hlavičkovému souboru:
+
+.Kompilace programu používajícího knihovnu ADMesh z nestandardních cest
+[source,console]
+$ export ADMESHDIR=~/admesh
+$ gcc -L$ADMESHDIR/usr/local/lib/ -I$ADMESHDIR/usr/local/include/ source.c -o myapp -ladmesh
+
+.Spuštění zkompilovaného programu
+[source,console]
+$ ./myapp
+
+.Pro použití vlastního sestavení je nutné nastavit `LD_LIBRARY_PATH`
+[source,console]
+$ LD_LIBRARY_PATH=$ADMESHDIR/usr/local/lib/ ./myapp
+
+.Pro použití vlastního sestavení na macOS je nutné nastavit `DYLD_LIBRARY_PATH`
+[source,console]
+$ DYLD_LIBRARY_PATH=$ADMESHDIR/usr/local/lib/ ./myapp
+
+
+=== Práce se strukturou `stl_file`
+
+Po načtení souboru do paměti je možné se strukturou `stl_file` nadále jakkoliv
+pracovat. Například prohlížet nebo měnit data.
+Struktura již není datově svázána se souborem na disku a všechna data jsou v paměti programu.
+
+Pro prohlížení jednotlivých facetů je možné použít ukazatel (pole) `facet_start`.
+V poli jsou uloženy facety ve formě struktur `stl_facet`,
+které obsahují normálu -- atribut `normal`
+(struktura typu `stl_normal` obsahující 3 floaty (`x`, `y`, `z`)),
+tři vertexy -- atribut `vertex` (pole tří struktur typu `stl_vertex`
+každá obsahující 3 floaty (`x`, `y`, `z`)) a atribut `extra`, který můžete ignorovat.
+
+
+.Přístup k datům
+[source,c]
+----
+float x = stl.facet_start[0].vertex[0].x; // <1>
+float z = stl.facet_start[1000].vertex[1].z; // <2>
+----
+<1> _X_-ová souřadnice prvního vertexu prvního facetu
+<2> _Z_-ová souřadnice druhého vertexu tisícího facetu
+
+Abyste mohli procházet všechny facety, potřebujte nejprve vědět, kolik jich je.
+Tyto informace najdete v atributu `stats`, který obsahuje strukturu se spoustou
+užitečných dat, většinou čísel.
+Jedním z nich je `number_of_facets`, tedy počet facetů.
+
+.Počet facetů
+[source,c]
+----
+stl.facet_start[stl.stats.number_of_facets-1] // <1>
+----
+<1> Poslední facet
+
+Ve statistikách (`stats`) najdete další informace,
+jejichž přehled je v definici struktury `stl_stats` v souboru `stl.h`
+nebo v https://admesh.readthedocs.io/en/latest/c_api.html#_CPPv29stl_stats[nepříliš dobré dokumentaci].
+
+Zde je na ukázku krátký program, který načte STL soubor `model.stl`
+(binární nebo ASCII) a zapíše jej jako ASCII nebo binární STL do
+stejného souboru – z binárních dělá ASCII a z ASCII dělá binární.
+
+Data můžete libovolně prohlížet a měnit.
+Pokud chcete například model zvětšit,
+teoreticky stačí provést patřičnou matematickou operaci
+se všemi souřadnicemi všech vertexů všech facetů.
+
+Většinu základních operací ale již autoři programu pokryli.
+
+=== Funkce pro manipulaci s modelem
+
+Pro „typické“ operace s 3D modelem existují předpřipravené funkce.
+V knihovně tak naleznete funkce na otáčení, škálování, přesouvání...
+
+Většinou se stačí podívat na jejich seznam
+v https://github.com/admesh/admesh/blob/0.98.x/src/stl.h[hlavičkovém souboru].
+
+Mezi ty zajímavé patří:
+
+* `void **stl_translate**(stl_file *stl, float x, float y, float z)`
+* `void **stl_translate_relative**(stl_file *stl, float x, float y, float z)`
+* `void **stl_scale_versor**(stl_file *stl, float versor[3])`
+* `void **stl_scale**(stl_file *stl, float factor)`
+* `void **stl_rotate_x**(stl_file *stl, float angle)` (úhel ve stupních)
+* `void **stl_rotate_y**(stl_file *stl, float angle)` (úhel ve stupních)
+* `void **stl_rotate_z**(stl_file *stl, float angle)` (úhel ve stupních)
+* `void **stl_mirror_xy**(stl_file *stl)`
+* `void **stl_mirror_yz**(stl_file *stl)`
+* `void **stl_mirror_xz**(stl_file *stl)`
+
+WARNING: Veškeré funkce pracují přímo nad zadaným modelem (**in place**) a **nic nevrací**.
+Pokud tedy například třikrát naškálujete model na dvojnásobek,
+bude osmkrát tak veliký, než na začátku.
+
+NOTE: Počítejte s tím, že operace probíhají na floatech,
+tedy na modelu reálných čísel s velmi malou přesností.
+Pokud tedy například otočíte modelem postupně o 360 stupňů,
+nemůžete se spoléhat na to, že budou všechny hodnoty stejné jako na začátku.
+Práce s daty v paměti programu je rychlá, načítání z disku je pomalé.
+Není tedy žádoucí před každou operací načítat model znovu pro větší přesnost dat.
+Pokud vás zajímá vyšší přesnost dat, ale nechcete ztrácet čas znovunačítáním dat z disku,
+vytvořte si před každou operací hlubokou kopii dat.
+
+=== Funkce pro zapsaní modelu do souboru
+
+Po skončení práce s modelem je často třeba model opět zapsat na disk (vyexportovat).
+
+K zapsání modelu ve formátu STL slouží funkce `stl_write_ascii()` a `stl_write_binary()`,
+které se liší ve výsledném formátu: zapisují ASCII STL, respektive binární STL.
+
+Obě funkce berou tři argumenty:
+
+. referenci na strukturu `stl_file`,
+. cestu na disku (kam soubor zapsat),
+. jméno meshe.
+
+Jméno meshe nesouvisí z názvem souboru,
+ale jde pouze o textovou informaci uloženou v STL souboru.
+Tato informace není v praxi využívána a často se nahrazuje názvem programu,
+který mesh vytvořil.
+Například modely z programu OpenSCAD se jmenují vždy `OpenSCAD_Model`.
+
+WARNING: Po zavolání funkce je třeba ošetřit případnou chybu,
+stejně jako v případě načtení souboru!
+
+.Uložení ASCII STL souboru na disk
+[source,c]
+----
+/* ... */
+stl_write_ascii(&stl, filename, "whatever"); // <1>
+stl_exit_on_error(&stl); // <2>
+/* ... */
+stl_close(&stl); // <3>
+----
+<1> Uložení souboru.
+<2> Ošetření případné chyby (viz načítání souboru).
+<3> Po skončení práce je třeba strukturu zavřít.
+    Po exportu modelu ale můžeme dělat i další operace.
+
+=== Ukázka programu pro převod ASCII/binárního STL
+
+Pro ukázku kompletní program pro převod ASCII STL souboru do binární formy
+(nebo obráceně).
+
+
+.Kód převodníku mezi STL a ASCII STL formáty
+[source,c]
+----
+#include <stdlib.h>
+#include <admesh/stl.h>
+ 
+int main(void) {
+  stl_file stl;
+  char *filename = "model.stl";
+ 
+  printf("Opening %s\n", filename);
+  stl_open(&stl, filename); // <1>
+  stl_exit_on_error(&stl); // <2>
+ 
+  if (stl.stats.type == binary) { // <3>
+    printf("Writing ASCII file %s\n", filename);
+    stl_write_ascii(&stl, filename, "converted"); // <4>
+    stl_exit_on_error(&stl); // <5>
+  } else {
+    printf("Writing binary file %s\n", filename);
+    stl_write_binary(&stl, filename, "converted"); // <6>
+    stl_exit_on_error(&stl); // <7>
+  }
+ 
+  stl_close(&stl); // <8>
+  return EXIT_SUCCESS;
+}
+----
+<1> Načtení modelu ze souboru.
+<2> Ošetření případné chyby.
+<3> Kontrola formátu.
+<4> Zápis do souboru v ASCII formátu. Na názvu v hlavičce nám nezáleží.
+<5> Ošetření případné chyby.
+<6> Zápis do souboru v binárním formátu. Na názvu v hlavičce nám nezáleží.
+<7> Ošetření případné chyby.
+<8> Strukturu je třeba zavřít.
+
+=== Další informace
+
+Jednotlivé funkce a struktury knihovny najdete v souboru
+https://github.com/admesh/admesh/blob/0.98.x/src/stl.h[`admesh/stl.h`].
+Velkou dokumentací knihovna bohužel neoplývá, i když něco vzniká na
+http://admesh.readthedocs.io/en/latest/[admesh.readthedocs.io].

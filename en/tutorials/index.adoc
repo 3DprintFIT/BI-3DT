@@ -1,0 +1,45 @@
+= Tutorials
+
+Program changes are reserved.
+
+[cols="s,2,4,",options="header",]
+|=======================================================================
+|Tutorial |Date |Topic |Points
+|1. |17.02.2025 |xref:course#[Course Principles],
+xref:reprap#[RepRap], xref:git#[Git], xref:openscad#[OpenSCAD: Light Introduction]
+|https://github.com/3DprintFIT/B242A-Username-Assignment[0]
+
+|2. |24.02.2025 |xref:openscad#[OpenSCAD: Basics]
+|https://github.com/3DprintFIT/B242A-OpenSCAD1-Assignment[3]
+
+|3. |03.03.2025 |xref:openscad#[OpenSCAD: Advanced]
+|https://github.com/3DprintFIT/B242A-OpenSCAD2-Assignment[3]
+
+|4. |10.03.2025 |xref:fusion#[Fusion 360] – 🖱️  bring your own mouse
+|3
+
+|5. |17.03.2025 |xref:mesh#[Mesh] – 🖱️  bring your own mouse
+|https://github.com/3DprintFIT/B242A-Mesh-Assignment[3]
+
+|6. |24.03.2025 |xref:admesh#[ADMesh] – Programmatic mesh manipulation
+|https://github.com/3DprintFIT/B242A-ADMesh-Assignment[3]
+
+|7. |31.04.2025 |xref:slicing#[Slicing]
+|https://github.com/3DprintFIT/B242A-Slicing-Assignment[3]
+
+|8. |07.04.2025 |xref:printing#[Printing: Basics] |3
+
+|9. |14.04.2025 |xref:bridges#[Printing: Bridges] |3
+
+|10. |28.04.2025 |xref:supports#[Printing: Supports] |3
+
+|11. |05.05.2025 |xref:multicolor#[Printing: Multi-color printing] |3
+
+|12. |12.05.2025 |Printing - whatever you want to try for the semester project |0
+
+2+d|Home preparation suitable for the semester project
+|xref:meshmixer#[MeshMixer and cutting STL files] |0
+
+2+d|Unscheduled tutorial
+|xref:scan#[Scanning] |0
+|=======================================================================

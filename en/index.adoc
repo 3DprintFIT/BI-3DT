@@ -1,0 +1,26 @@
+= BI-3DT (English)
+
+== Navigation
+
+* 📆 xref:tutorials/index#[Exercise schedule]
+* 🎓 xref:classification#[Grading rules]
+* 💰 https://grades.fit.cvut.cz/courses/BI-3DT.1/my-classification[Course points]
+* 💂 xref:teachers/index#[Teachers]
+* 🕢 https://timetable.fit.cvut.cz/new/courses/BI-3DT.1[Schedule]
+* ⁉️ https://www.facebook.com/groups/bi3dt/[Facebook: We don't want to fail BI-3DT]
+* 🦁 https://gitlab.fit.cvut.cz/BI-3DT/bi-3dt[GitLab]
+* 🐙 https://github.com/3DprintFIT/BI-3DT[GitHub]
+* 👮 xref:gdpr#[Consent to the processing of personal data]
+* 🤹 xref:tasks#[Assignment tasks]
+
+== Quick links
+
+* xref:tutorials/printing#config-file[Configuration file for Slic3r, Hybrix printer]
+
+All materials, unless otherwise stated, are available under the free license https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 International].
+
+image:https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-sa.png[width=88,height=31]
+
+The materials are managed and publicly available on https://github.com/3DprintFIT/BI-3DT[GitHub]. There is also a mirror on the faculty https://gitlab.fit.cvut.cz/BI-3DT/bi-3dt[GitLab].
+
+All improvements from students are very welcome. We accept Pull/Merge Requests in both systems ❤️
