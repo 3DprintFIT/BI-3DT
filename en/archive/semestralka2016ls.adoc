@@ -1,0 +1,222 @@
+= Semester Project Spring Semester 2016/2017
+:imagesdir: media
+:toc:
+
+
+image:bi-3dt.png[] image:trubka.png[width="250"] image:trubka2.png[width="250"]
+
+WARNING: This is not the current assignment. It is here for archival purposes only.
+
+
+TIP: *Alternative project assignment:* By agreement with Miro Hrončok you can instead of this semester project resolve issues in https://github.com/admesh/[ADMesh projects]. How many you need to resolve and how you will be graded depends on the agreement. If interested, please contact us as soon as possible, there is only a limited amount of work and thus the alternative to the semester project is only possible for a small number of students.
+
+
+== Pipes
+
+
+The task is to create a junction for three water pipes. Each pipe has a certain profile and diameter. The junction itself must not slow down the (theoretical) flow of water from any two pipes to the third (or from one to two).
+
+
+=== Junction Generator
+
+
+Write an OpenSCAD module `splitter` that adheres to the prescribed interface and creates a junction of three pipes based on input data.
+
+
+[source,lang]
+----
+module splitter(pipes=[...], wall_thick=2.5) { ... }
+----
+
+The vector `pipes` contains 3 items describing 3 pipes coming out of the junction.
+
+Each pipe contains the following data in the stated order (the last bracket is the interval of valid ranges (invalid values don't need to be handled)):
+
+. pipe profile (string, see below)
+. pipe length from center of junction (20, 50)
+. inner diameter of pipe (according to chosen profile) (10, 40)
+. angle that the pipe makes with the horizontal base (-30°,30°)
+
+The parameter `wall_thick` indicates the wall thickness throughout the entire object. So if the parameter is e.g., 2.5, the thickness must be 2.5 in the entire object (minor deviations in the arc are permissible). The pipe diameters are inner, so wall width increases the outer size of the model and does not reduce pipe permeability.
+
+(The default parameter values of the module don't matter.)
+
+
+=== Pipe Profiles
+
+
+image::profiles.png["Profiles"]
+
+Your module must support all the pipe profiles shown here. The rotation of the profile matters! The profiles are shown so that the bottom side is at the bottom (within the following images), they are always perpendicular to the pipe axis and represent a view from inside out. The type of profile is determined by a string, for example `Square`. (The interface won't be automatically tested, choose the letter case at your discretion.)
+
+The variable `d` in the image shows what the term diameter means for a given profile in the module interface.
+
+It is not possible to use external libraries (nor the MCAD library). Unlike the homework, however, it is possible to manipulate `$fn` (which could be useful, wink, wink).
+
+
+== Mutual Position
+
+
+When viewed from above, the pipes form a 120° angle with adjacent pipes.
+
+
+image::top-view.png["Top view"]
+
+The variables in the image `l` and `d` are the lengths and diameters of pipes. Indices `a`, `b` and `c` designate individual pipes. When viewed from above, the pipes are arranged in the positive direction (counterclockwise). Given the absence of automatic testing, it doesn't matter which direction the first pipe will point.
+
+When viewed from the side, each of the pipes forms an angle from the interval (-30°,30°) with the base, here in the image two other pipes are parallel to the base for better illustration, but in practice it's not always like that. The center axes of the pipes intersect in the center of the entire junction. A positive number here means direction upward, negative downward.
+
+
+image::front-view.png["Front view"]
+
+The outer curvature of the pipes can be arbitrary, but choose it so that it makes sense and does not reduce pipe permeability. Keep in mind that your model must be parametric.
+
+
+== Printing Assignment
+
+
+Each of you will receive 2 assignments to print. From them you will choose the one you like better. However, you will choose the wall thickness appropriately yourself so that you manage to print the model and still have time.
+
+TIP: Be careful, if the distance from the center is too short and the ends of the pipes would overlap, you may (must) extend them appropriately, but no more than necessary. Comment this fact properly. It is not necessary to handle this state in the parametric model!
+
+
+IMPORTANT: Your OpenSCAD solution must support all pipe profiles, not just those you have assigned.
+
+
+----
+Abisogomyan Sergei: [['Pentagon', 32, 32, 30], ['Star', 46, 22, 3], ['Circle', 31, 28, -15]]
+Abisogomyan Sergei: [['RippedSquare', 24, 25, -11], ['Square', 41, 11, -10], ['Star', 25, 40, 15]]
+Bigarová Jana: [['Star', 33, 12, 12], ['Pentagon', 29, 39, 3], ['Square', 37, 24, -23]]
+Bigarová Jana: [['RippedSquare', 50, 10, 17], ['Square', 20, 21, 20], ['Star', 46, 10, 25]]
+Bubeníček Tomáš: [['Star', 27, 33, -19], ['Pentagon', 38, 10, 7], ['Circle', 37, 34, -11]]
+Bubeníček Tomáš: [['Square', 25, 39, 28], ['RippedSquare', 27, 29, 21], ['Pentagon', 48, 18, 16]]
+Čapek Tomáš: [['Star', 30, 23, -6], ['Pentagon', 22, 15, 0], ['Circle', 35, 31, 17]]
+Čapek Tomáš: [['Square', 49, 25, -25], ['Circle', 37, 11, -7], ['Star', 38, 30, -5]]
+Do Duc Huy: [['Star', 22, 37, -10], ['Pentagon', 31, 18, 20], ['Circle', 36, 17, 25]]
+Do Duc Huy: [['RippedSquare', 47, 11, 0], ['Square', 46, 10, -2], ['Star', 25, 15, 22]]
+Havrda Tomáš: [['Pentagon', 22, 29, 4], ['Star', 48, 16, 23], ['RippedSquare', 28, 35, 27]]
+Havrda Tomáš: [['Circle', 33, 12, 4], ['RippedSquare', 47, 29, 26], ['Pentagon', 48, 14, -30]]
+Hejda Jakub: [['Pentagon', 40, 32, 1], ['Star', 48, 26, 26], ['Square', 43, 11, -12]]
+Hejda Jakub: [['Square', 27, 30, 6], ['Circle', 25, 28, 24], ['Star', 34, 10, 11]]
+Hendrychová Vanda: [['Pentagon', 43, 24, 24], ['Star', 20, 12, 4], ['Square', 24, 15, -26]]
+Hendrychová Vanda: [['Circle', 44, 14, -11], ['RippedSquare', 46, 36, 27], ['Star', 36, 15, 10]]
+Hollmann Otto: [['Pentagon', 50, 33, -15], ['Star', 21, 28, -12], ['Circle', 42, 32, 27]]
+Hollmann Otto: [['RippedSquare', 37, 39, 24], ['Circle', 44, 29, -9], ['Star', 25, 31, 15]]
+Homolka Jakub: [['Pentagon', 24, 37, -12], ['Star', 40, 26, 28], ['RippedSquare', 34, 10, 20]]
+Homolka Jakub: [['Circle', 48, 36, 8], ['Square', 45, 34, -26], ['Star', 29, 34, -4]]
+Kello Tomáš: [['Pentagon', 47, 27, 8], ['Star', 22, 37, 26], ['Circle', 36, 36, -1]]
+Kello Tomáš: [['Square', 50, 20, -13], ['Circle', 46, 17, 23], ['Pentagon', 23, 17, 8]]
+Laskov Boris: [['Pentagon', 24, 33, -30], ['Star', 36, 24, 27], ['RippedSquare', 21, 31, 22]]
+Laskov Boris: [['Circle', 49, 20, 15], ['Square', 38, 20, -26], ['Pentagon', 47, 33, 17]]
+Lišhák Filip: [['Pentagon', 40, 36, -11], ['Star', 44, 40, -19], ['Circle', 45, 28, -6]]
+Lišhák Filip: [['Square', 50, 27, -23], ['RippedSquare', 46, 28, -2], ['Pentagon', 50, 36, 18]]
+Nechiporenko Valeria: [['Pentagon', 44, 22, -16], ['Star', 41, 15, 10], ['Circle', 30, 35, 10]]
+Nechiporenko Valeria: [['RippedSquare', 49, 20, 15], ['Square', 24, 40, -4], ['Pentagon', 37, 26, -27]]
+Polačok Juraj: [['Star', 44, 14, 18], ['Pentagon', 35, 12, 24], ['Square', 50, 38, 19]]
+Polačok Juraj: [['RippedSquare', 20, 19, 23], ['Square', 47, 10, -5], ['Pentagon', 41, 24, 29]]
+Samek Jakub: [['Star', 20, 22, 27], ['Pentagon', 24, 11, -18], ['RippedSquare', 38, 31, -19]]
+Samek Jakub: [['Circle', 32, 21, -6], ['Square', 24, 17, 23], ['Star', 29, 25, -2]]
+Sauer Petr: [['Pentagon', 33, 24, 24], ['Star', 30, 12, -27], ['RippedSquare', 42, 20, 25]]
+Sauer Petr: [['Square', 42, 35, 25], ['Circle', 45, 21, 27], ['Star', 21, 11, -10]]
+Šedivý Richard: [['Star', 36, 11, -4], ['Pentagon', 47, 35, 8], ['Circle', 47, 35, 25]]
+Šedivý Richard: [['Square', 21, 31, -19], ['RippedSquare', 38, 37, 17], ['Pentagon', 23, 11, -29]]
+Selvek Róbert: [['Pentagon', 47, 20, -18], ['Star', 46, 24, -26], ['RippedSquare', 32, 29, 29]]
+Selvek Róbert: [['RippedSquare', 35, 26, 24], ['Circle', 35, 38, -25], ['Pentagon', 37, 18, 23]]
+Shatrovskii Aleksandr: [['Pentagon', 21, 34, -28], ['Star', 42, 11, -13], ['Square', 46, 31, 17]]
+Shatrovskii Aleksandr: [['Circle', 30, 38, 15], ['Square', 29, 14, -23], ['Pentagon', 30, 37, 6]]
+Schmidt Daniel: [['Pentagon', 21, 29, 18], ['Star', 49, 38, -30], ['RippedSquare', 48, 39, 13]]
+Schmidt Daniel: [['Square', 33, 34, -30], ['Circle', 39, 22, 6], ['Star', 33, 15, 15]]
+Srogončíková Jana: [['Pentagon', 38, 36, 11], ['Star', 28, 36, 28], ['Square', 22, 24, 5]]
+Srogončíková Jana: [['Circle', 36, 15, -25], ['Square', 41, 31, 19], ['Star', 21, 11, -18]]
+Topič Jakub: [['Star', 24, 34, -20], ['Pentagon', 32, 24, -24], ['Circle', 36, 39, -19]]
+Topič Jakub: [['Square', 38, 26, 25], ['Circle', 28, 40, -26], ['Star', 30, 27, -13]]
+Zotkina Olga: [['Pentagon', 23, 37, 22], ['Star', 36, 15, 20], ['Square', 34, 31, 20]]
+Zotkina Olga: [['Circle', 27, 28, 11], ['Square', 23, 22, -13], ['Star', 32, 16, -18]]
+Bulíř Hynek: [['Star', 46, 10, -10], ['Pentagon', 38, 32, 8], ['Circle', 41, 40, 4]]
+Bulíř Hynek: [['Circle', 47, 27, -15], ['Square', 34, 33, 21], ['Star', 24, 20, -22]]
+Cafardy Clair: [['Star', 27, 30, 13], ['Pentagon', 43, 28, -6], ['Square', 32, 37, -14]]
+Cafardy Clair: [['Square', 40, 39, 20], ['RippedSquare', 32, 11, -3], ['Star', 36, 35, -24]]
+Klepoch Marco: [['Star', 27, 37, -6], ['Pentagon', 26, 28, 6], ['Circle', 22, 10, -29]]
+Klepoch Marco: [['Circle', 42, 16, 28], ['RippedSquare', 40, 17, -7], ['Pentagon', 21, 21, -21]]
+Lebe David: [['Pentagon', 29, 17, 27], ['Star', 32, 33, -30], ['Square', 35, 25, 4]]
+Lebe David: [['RippedSquare', 26, 28, 3], ['Square', 29, 32, -5], ['Star', 46, 20, 1]]
+Martinovská Tereza: [['Star', 22, 18, 12], ['Pentagon', 45, 10, 0], ['Square', 28, 33, 28]]
+Martinovská Tereza: [['Circle', 22, 39, -7], ['RippedSquare', 25, 36, -21], ['Pentagon', 25, 16, -5]]
+Petrášová Jaroslava: [['Pentagon', 44, 24, -29], ['Star', 38, 11, 7], ['RippedSquare', 21, 30, -12]]
+Petrášová Jaroslava: [['Circle', 40, 36, -28], ['Square', 31, 15, 25], ['Star', 30, 29, 3]]
+Sivák Dominik: [['Star', 40, 20, 6], ['Pentagon', 34, 13, 15], ['Circle', 48, 22, 28]]
+Sivák Dominik: [['RippedSquare', 50, 24, -17], ['Circle', 31, 13, 7], ['Pentagon', 32, 36, -20]]
+Widmark Sondre Johan: [['Pentagon', 48, 25, -27], ['Star', 25, 37, -13], ['Circle', 27, 35, -25]]
+Widmark Sondre Johan: [['Square', 30, 38, 16], ['Circle', 34, 24, -24], ['Pentagon', 26, 35, -17]]
+----
+
+
+=== Preprocessing
+
+
+Choose one (in your opinion the easiest or most interesting) of your assigned junctions and prepare an STL model for printing (you can increase `$fn` to make your junction nicer). You can do practically anything with it (fix, rotate, cut, add support structures), but it is necessary to preserve the junction's dimensions and shape according to the specified rules and data during printing. The output is one or more STL files ready for slicing and a very brief description of *what* you did and *why* (not necessarily in writing, but during submission it is necessary to explain the process and this even several weeks after making your changes).
+
+TIP: How to cut STL files? It can certainly be done in OpenSCAD, but that's unnecessarily complicated. We have therefore prepared a xref:../../tutorials/meshmixer/index#[short guide for MeshMixer program] - recommended by three out of four instructors.
+
+
+TIP: Can't align well in Meshmixer or Blender? Try the https://www.lulzbot.com/cura[Cura] program. It contains a _Lay flat_ function.
+
+
+=== Slicing
+
+
+Slice your prepared print STL with any program using appropriate settings. For Slic3r, start from link:{imagesdir}/../../tutorials/tisk/slic3r-config-bundle.ini.zip[slic3r-config-bundle.ini.zip] (select profiles as in the exercise, i.e., not `-default-`). We don't have profiles for other programs for you, but you may create your own. The output is the used slicing profile exported from the program and one or more GCODE files. Individual parts can be printed at once (if they fit on the print bed and if it seems appropriate to you) or sequentially, or a combination of both.
+
+
+=== Printing and Postprocessing
+
+
+In credit events listed in KOS, taking place during the examination period, you will be printing the junction from ABS in the laboratory from your prepared GCODE files. After printing is complete, the print must be properly processed - remove supports, glue together, etc. The resulting junction should look as similar as possible to the required model. One term has a maximum of 5 hours total (printing + postprocessing).
+
+In case of absolute failure during printing, it is possible to repeat the print with a new GCODE, but only once. In case of a technical problem on our side, this does not count as a wasted attempt, of course.
+
+
+=== Submission, Grading and Deadlines
+
+
+Submit on GitHub, at https://classroom.github.com/assignment-invitations/e655b4a11eefc6049134fa85ff1919f5[this link you will create a repository]. Include all written descriptions directly in README (or README.md, etc.) in the repository.
+
+Submit in the repository:
+
+* scad file with the `splitter` module - its declaration/definition
+* scad file *calling* the `splitter` module with your selected data (without the declaration/definition of the splitter module)
+* STL file with your junction, as it was generated by OpenSCAD
+* Print STL files
+* Print GCODE files
+* Profile for slicing program you used (e.g., export Config Bundle from Slic3r)
+* Any other necessary files
+
+The submission deadline on GitHub is *June 11, 2017* inclusive (or the beginning of your credit term, if it takes place earlier), you can print even after. Possibility of late submission: For each additional started week (even by a second) 10 points are deducted from the total grade. If the total sum is less than 0, the grade for the semester project is 0. At the time of commencement of the classified credit term (printing in the laboratory), it must already be submitted on GitHub.
+
+The examination period ends June 30, 2017, we have nothing against submission and credit terms even after this date, but it is necessary to explicitly agree on this and accept the risks arising from it.
+
+Grading according to the following table:
+
+[options="autowidth"]
+|====
+<h| OpenSCAD Module  <h| 10 h|
+| Module `splitter` works according to specification  | 7  | mandatory within the section
+| Source code is appropriately structured and commented  | 3 |
+<h| Print Preparation  <h| 10 h|
+| Appropriately prepared print STL  | 5  | mandatory within the section
+| Mesh in all print STLs is okay  | 5 |
+<h| Slicing  <h| 10 h|
+| Supports (not needed (5 pts.), appropriate use* (2.5 pts.), unnecessary use (0 pts.))  | 5 |
+| Appropriate setting of print parameters (perimeters, infill, layer height)  | 5 |
+<h| Print  <h| 10 h|
+| It is a print of the model according to specification, print is processed (e.g., without supports, glued together, etc.)  | 4  | mandatory within the section
+| Print does not contain defects obviously caused by inappropriate model preparation  | 3 |
+| Print does not contain defects obviously caused by inappropriate printer preparation (print bed preparation, inappropriate temperatures)  | 3 |
+|====
+
+* Only supports generated during slicing incur point deductions. Because we're in the slicing section.
+
+IMPORTANT: To control the printer during submission you need your own computer with the ability to connect to WiFi or by network cable to the local network. You also need to know (be able to look up) your MAC address.
+
+
+Grading is divided into 4 sub-sections. _Mandatory within the section_ means that without completing this task the student will not receive any points for that section. In case of remedial printing, values of points in other sub-sections are no longer corrected. So if for example you fail slicing, you get zero points for it and (quite logically) the print also fails fatally, you can get points for printing in a remedial term, but you won't get any more points for slicing.

@@ -1,0 +1,57 @@
+= OpenSCAD: Homework WS 2013/2014
+:imagesdir: media
+
+
+WARNING: This is not the current assignment. It is here for archival purposes only.
+
+
+== Phone case
+
+The task is to create a phone case in OpenSCAD that covers the back wall and edges of the phone. However, it is necessary to leave a hole in the back wall for the camera and a hole on the bottom edge for the connector. The case slightly protrudes on the front, but you don't need to solve how to get the phone into the case - assume, for example, that the case is made of rubber. The phone has the shape of a cuboid with rounded corners on the base (http://commons.wikimedia.org/wiki/File:Iphone_4G.jpg[similar to iPhone]).
+
+
+image::smartphone.png["Schema"]
+
+Your implementation will allow changing the following parameters:
+
+* phone dimensions (internal case dimensions)
+** width
+** height
+** depth
+* corner rounding radius
+* case wall thickness
+** same everywhere
+** no need to measure it also in the corners between front*back wall and phone side
+* camera hole position and size
+** position is given by two numbers
+*** distance of the hole center from the top edge of the phone
+*** distance of the hole center from the left edge of the phone when looking at the back wall
+*** distances do not include corner rounding (consider the back wall as a rectangle)
+*** distance is from the edge of the phone, not from the edge of the case
+** size is given as radius - the hole is always circular
+* connector hole position and size
+** distance of the left edge of the hole from the left edge of the phone (not case)
+** distance of the top edge of the hole from the top edge of the phone (not case)
+** hole width and height
+** consider the phone display up, distances do not include corner rounding
+* how much the case should protrude on the front side of the phone
+
+
+Assume all parameters in millimeters.
+
+Create a module that allows setting everything through appropriately named input parameters. Set appropriate default values for all, so that the module without parameters produces a valid model approximately corresponding to mobile phone dimensions.
+
+Do not handle invalid input (negative or non-numeric values or, for example, a camera hole larger than the phone itself).
+
+
+== Submission
+
+Submit the assignment to your namespace on Edux by *the end of October*. Save the scad file(s) to a zip named username-openscad.zip, e.g., hroncmir-openscad.zip. Upload only source code, you don't need to upload generated STL. Provide a link to the file on your namespace homepage.
+
+
+== Update
+
+The following cross-section image shows several potentially unclear things. Different colors indicate what is the case thickness and what is the front side protrusion. It also indicates that in the more transparent areas, we don't evaluate whether they are rounded or rectangular.
+
+
+image::g10220.png[]

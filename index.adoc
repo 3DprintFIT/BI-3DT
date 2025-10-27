@@ -1,22 +1,24 @@
-= BI-3DT
+= BI-3DT Course Materials
 
-== Rozcestník
+This repository contains course materials for the 3D Printing course (BI-3DT) at the Faculty of Information Technology, CTU in Prague.
 
-* 📆 xref:tutorials/index#[Harmonogram cvičení]
-* 🎓 xref:classification#[Pravidla hodnocení]
-* 💰 https://grades.fit.cvut.cz/courses/BI-3DT.1/my-classification[Body z předmětu]
-* 💂 xref:teachers/index#[Učitelé]
-* 🕢 https://timetable.fit.cvut.cz/new/courses/BI-3DT.1[Rozvrh]
-* ⁉️ https://www.facebook.com/groups/bi3dt/[Facebook: Nechceme vypadnout
-z BI-3DT]
-* 🦁 https://gitlab.fit.cvut.cz/BI-3DT/bi-3dt[GitLab]
-* 🐙 https://github.com/3DprintFIT/BI-3DT[GitHub]
-* 👮 xref:gdpr#[Souhlas se zpracováním osobních údajů]
-* 🤹 xref:tasks#[Zadání úloh]
+== Choose Your Language / Vyberte jazyk
 
-== Rychlé odkazy
+* link:en/index.html[🇬🇧 English Version] - Course materials in English
+* link:cs/index.html[🇨🇿 Česká verze] - Materiály v češtině
 
-* xref:tutorials/printing#config-file[Konfigurační soubor pro Slic3r, tiskárna Hybrix]
+== About
+
+All materials are available in both Czech and English.
+
+* English materials: `/en/` directory
+* Czech materials: `/cs/` directory
+
+== License / Licence
+
+All materials, unless otherwise noted, are available under the
+https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons
+Attribution-ShareAlike 4.0 International] license.
 
 Všechny materiály, není-li uvedeno jinak, jsou dostupné pod svobodnou licencí
 https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons
@@ -24,9 +26,16 @@ Attribution-ShareAlike 4.0 International].
 
 image:https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-sa.png[width=88,height=31]
 
+Materials are managed and publicly available on
+https://github.com/3DprintFIT/BI-3DT[GitHub]. There is also a mirror on the
+faculty's https://gitlab.fit.cvut.cz/BI-3DT/bi-3dt[GitLab].
+
 Materiály jsou spravovány a veřejně dostupné na
 https://github.com/3DprintFIT/BI-3DT[GitHubu]. Existuje i jejich zrcadlo na
 fakultním https://gitlab.fit.cvut.cz/BI-3DT/bi-3dt[GitLabu].
+
+Any improvements from students are very welcome. We accept Pull/Merge
+Requests in both systems ❤️
 
 Veškeré vylepšení ze strany studentů je velmi vítáno. Akceptujeme Pull/Merge
 Requesty v obou systémech ❤️

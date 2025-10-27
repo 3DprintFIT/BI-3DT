@@ -1,0 +1,5 @@
+= Assignments
+
+- Exercise task assignments can be found on the xref:tutorials/index#[Exercises] page.
+- Homework assignment: https://github.com/3DprintFIT/B242HW-Assignment[B242HW-Assignment]
+- Semester project assignment: https://github.com/3DprintFIT/B242CW-Assignment[B242CW-Assignment]

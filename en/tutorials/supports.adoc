@@ -1,0 +1,101 @@
+= Printing: Supports
+:toc:
+:imagesdir: ../images/supports/
+:html5s-image-default-link: self
+
+It's not always the case that a model can be printed on an FDM printer as it is.
+You already know that under certain circumstances, you can print things into thin air.
+But how to do it when it's not a bridge?
+
+One option is to print supporting structures under the object, supports,
+or more often in English *support*. Today's exercise is about that.
+
+To print with supports, this functionality needs to be explicitly enabled in Slic3r
+on the _Support material_ page.
+
+Slic3r can detect where support is needed by itself, you just need to tell it
+what our printer can still handle. This depends on various circumstances,
+such as print speed, printing material properties,
+ambient temperature, and active cooling.
+
+.Slic3r settings for supports
+image::slic3r.png[Slic3r, width=500]
+
+NOTE: Generally, the more you blow on the object, the larger overhangs can be printed and less support is needed.
+Some materials (e.g., ABS) practically can't be blown on because too much stress would arise and the object would crack.
+If you print from PET or PLA, it's often possible to relatively limit supports.
+
+.Bear model with highlighted overhangs -- support will be needed there
+image::bear.png[Bear, width=450]
+
+IMPORTANT: For today's exercise, download the general xref:printing#config-file[Config Bundle for Slic3r],
+so don't use the one from the bridges exercise.
+
+WARNING: Follow all safety rules from xref:printing.adoc#[the printing exercise].
+Especially don't eat superglue and don't disassemble the printer power supply plastic cover.
+
+
+== Tasks
+
+=== What Can It Do? (2 points)
+
+Your task for two points is to prepare or find a suitable test model on which you'll verify
+how large overhangs the printer prints without problems without support.
+
+You can use, for example, the https://www.thingiverse.com/search?q=overhang+test[Thingiverse.com] portal
+and search for "overhang test".
+
+In case of Thingiverse.com portal outage, we have some models available here as well:
+
+ * https://www.thingiverse.com/thing:2298057[Overhang Test] by Gregori Max (CC BY 3.0): link:../stls/supports/RR_Uberhangtest.stl[RR_Uberhangtest.stl]
+ * https://www.thingiverse.com/thing:2442722[Overhang Test] by Knickohr (CC BY 3.0): link:../stls/supports/Overhang_Test.stl[Overhang_Test.stl]
+ * https://www.thingiverse.com/thing:2972495[Remixed Mini Overhang test] by Adam Gibson (CC BY 3.0): link:../stls/supports/mini_overhang_test.stl[mini_overhang_test.stl]
+
+==== Instructions
+
+1. Since you downloaded a model from the Internet, you should first check the mesh correctness.
+1. Scale the model appropriately so you have time to finish the task; know, however, that a too small model may affect the test.
+1. First print the model without support; if necessary, stop printing at an appropriate time.
+1. Then set the support angle so the model can be printed, but with as little support as possible; print the model again.
+
+NOTE: The test model must stay on the print bed.
+Use appropriate techniques that you know from the chapter xref:slicing.adoc#structs[slicing].
+
+IMPORTANT: Before printing, always review the Gcode preview and check
+that support is actually located where you expect it.
+
+WARNING: If the test model prints right the first time without supports,
+does it mean the printer prints anything, or that you performed an insufficient test?
+
+TIP: Save time. When printing this task, you can also print the bear from the next task.
+How will this affect the total print time and why?
+
+=== How to Avoid Supports? (1 point)
+
+Your task for one point is to print link:../stls/supports/bear.stl[the bear] without supports.
+You must cut it appropriately, print it, and then (optionally) glue it with superglue.
+You can use Slic3r for cutting; before a longitudinal cut, you can rotate the object.
+
+==== Instructions
+
+- For a longitudinal cut through the object, use the _Cut_ button. You want to keep both parts (_Keep:_ _Upper part_, _Lower part_) and use the _Rotate lower part upwards_ option.
+- To rotate the object along an axis other than Z, use the object's context menu (right-click on the object on the _3D_ tab).
+
+.Cutting the bear and cut options (cut height chosen randomly here so as not to give you a hint)
+image::slic3r_cut.png[Slic3r: Cut, width=500]
+
+IMPORTANT: Gluing is quite demanding; try to cut the bear into as few parts as possible.
+
+WARNING: When working with glue, exercise increased caution and don't damage classroom equipment.
+
+
+=== Cleanup (mandatory)
+
+Those who don't xref:printing.adoc#ukol-3[clean up after themselves] don't get any points.
+
+[discrete]
+== Credits
+
+Models appeared in images and tasks:
+
+* https://www.thingiverse.com/thing:192392[Bear] by Christophe Caranchini (CC BY-NC 3.0)

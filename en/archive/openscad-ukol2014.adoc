@@ -1,0 +1,156 @@
+= OpenSCAD: Homework WS 2014/2015
+:imagesdir: media
+
+
+WARNING: This is not the current assignment. It is here for archival purposes only.
+
+
+Your task is to create a parametric box model. The box has a rectangular base with rounded corners. It contains a bottom part and a lid.
+
+TIP: Our automatic tests use full render (shortcut F6 in the application). Don't test your code only with F5. Also be careful with the % modifier - in full render mode, code with this prefix won't appear.
+
+
+== Floor plan
+
+
+image::pudoris.png[width="400"]
+
+Arguments used: `x` and `y` are internal dimensions, `rad` is the corner rounding radius (also internal). For values `x` or `y` <= 0, the box will not be drawn. For value `rad` <= 0, the internal corner is rectangular. If a circle with radius `rad` doesn't fit in the corners, the radius is reduced to the limit value.
+
+
+=== wall_thick
+
+
+image::roh.png[width="400"]
+
+
+image::roh-bad.png[width="400"]
+
+
+image::roh-bad2.png[width="400"]
+
+For `rad` <= 0:
+
+
+image::roh90.png[]
+
+
+image::roh90-bad.png[]
+
+Arguments used: `wall_thick` is the wall thickness. It must be the same everywhere, including the corner. For values <= 0, the box will not be drawn.
+
+
+== Side view
+
+
+image::bokorys-vrsek.png[width="400"]
+
+
+image::bokorys-spodek.png[width="400"]
+
+Arguments used: `z1` and `z2` are the heights of individual parts including bases. `wall_thick` is the same as in the floor plan, only it behaves differently in the corner, see image. For values `z1` or `z2` <= `wall_thick` (respectively `wall_thick` + `lock_z` for `z1`, see below), the box will be drawn only to the height of the bottom/ceiling and the connection mechanism.
+
+
+=== Connection detail
+
+
+image::lock.png[]
+
+Arguments used: `wall_thick` is the same as above. `lock_z` is the tooth height, note the different relationship to `z1` and `z2`. `reserve` is the dimension of the gap between individual box parts. For values < 0, `reserve` and `lock_z` are set to 0. If `reserve` is greater than `wall_thick`, the mechanism teeth will not be drawn. `*` is not an argument but indicates that both marked dimensions are the same (throughout the entire box perimeter/joint length).
+
+
+== Interface
+
+
+----
+module box(x=30, y=30, z1=10, z2=5, rad=15, wall_thick=2, lock_z=2, reserve=1.5, to_print=true, print_space=5)
+----
+
+Previously undefined arguments affect the box placement in space.
+
+If `to_print` is off (`false`), the box must stand on the XY plane (bottom of the box at z=0), centered so that the Z axis passes through its center. The lid is drawn on the box to reflect the `reserve` argument. The `print_space` value is ignored. Maintain the direction of x and y dimensions according to the first image above (logically according to naming).
+
+If `to_print` is on (`true`), both parts are drawn on the flat side (lid upside down) on the XY plane (bottom and top of the box at z=0) next to each other centered on the X axis, distanced from each other by the `print_space` value, which is calculated from outer wall to outer wall, with the gap center at the coordinate origin. Maintain the direction of x and y dimensions according to the first image above (logically according to naming). *Update:* The bottom part of the box should be moved in the positive X direction, the lid in the negative direction.
+
+Drawing in the correct position is absolutely essential for task evaluation due to semi-automatic tests.
+
+The module must be usable from an external file using the `use` directive - it must not store any constants outside the module.
+
+*Update:* Keep the default argument values as specified!
+
+
+== Code
+
+
+Code must meet a certain quality; one of the conditions is logical indentation (the same throughout the file). Repeated constructions must be implemented with custom modules and for loops. Magic constants must be self-explanatory or complemented with a comment. It is not possible to use any external libraries for OpenSCAD, not even the MCAD library. Manipulation with `$fn`, `$fs` and `$fa` is forbidden.
+
+
+== Submission and evaluation
+
+
+Name the file box.scad, save it to the box.zip archive (directly in the archive's root directory) and upload it directly to your personal namespace on Edux. It must be downloadable from the link `https://edux.fit.cvut.cz/courses/BI-3DT/_media/student/username/box.zip` Place a link to the file in your namespace. The archive must contain only necessary files (other scad files with modules, possible DXF or STL files for importing) besides box.scad; the archive should not contain generated STL files of the box.
+
+Submission deadline is *9.11.2014* inclusive. Late submission is possible until 23.11.2014 inclusive for half the points the student would have received if submitted on time. In case of documented long-term serious illness, it is possible to agree on a special deadline. Illness or accident just before submission is not an excuse.
+
+After evaluation (which will take place after the submission deadline), it is not possible to correct the assignment. However, before the submission deadline, you can consult and upload it to Edux in a work-in-progress state. If you want to submit the assignment at a later deadline, make sure there is no work-in-progress version on Edux at the turn of 9th and 10th November (you need to delete the file, not just the link).
+
+During evaluation, a set of prepared arguments will be semi-automatically tested, containing mainly edge cases. Therefore, we recommend testing the module for all possible inputs (non-numeric inputs will not be tested). Based on the test result and code quality, the student can get 0 to 20 points. In the event that we determine that the student copied the assignment or does not understand their own code at all and cannot prove otherwise, the assignment will be evaluated with -100 points, which means grade F.
+
+
+== Questions from students
+
+
+*How should the box behave if `rad` > `x/2` or `y/2`?*
+
+See the text "If a circle with radius `rad` doesn't fit in the corners, the radius is reduced to the limit value" in the assignment.
+
+*"If `reserve` is greater than `wall_thick`, the mechanism teeth will not be drawn." Does this mean that the teeth will not be drawn, but the distance between boxes remains `reserve` + `lock_z`, or should the box behave as if `lock_z` == 0?*
+
+It means the first, the distance remains `reserve` + `lock_z`.
+
+*"both parts centered on the X axis" Do I understand correctly that both parts should lie on the X axis and the Y axis will pass through the gap between them, so the parts will neighbor on sides of length y?*
+
+Yes.
+
+*How should the box behave if `print_space` < 0?*
+
+It should be drawn "over each other"; in case of large negative `print_space`, the boxes swap (we added to the assignment which side should have which part). So the input de facto doesn't need to be handled if the shift isn't done in some absurd way.
+
+*Is it necessary to handle if `lock_z` is greater than `z1`?*
+
+See the text "For values `z1` or `z2` <= `wall_thick` (respectively `wall_thick` + `lock_z` for `z1`, see below), the box will be drawn only to the height of the bottom/ceiling and the connection mechanism."
+
+*Does the box cross-section look something like this?*
+
+
+image::box.jpg[width="400"]
+
+Yes. For appropriately chosen parameters.
+
+**I need clarification on the sentence from the assignment:
+
+"For values `z1` or `z2` <= `wall_thick` (respectively `wall_thick + lock_z` for `z1`, see below), the box will be drawn only to the height of the bottom/ceiling and the connection mechanism."
+
+What is meant by bottom/ceiling height?
+
+Does it mean that for the top part, the ceiling thickness will be `z2` + the lock will be drawn?
+
+And for the bottom part, the bottom thickness will be `z1-lock_z`? So in an extreme case, only the lock will be drawn?**
+
+No, the opposite. The thickness of both the bottom and ceiling will always be `wall_thick`. The lock will be drawn. If the lock doesn't fit, the box height must be adjusted so it fits.
+
+*How is the sentence in the assignment below the lock mechanism image meant: "For values < 0, `reserve` and `lock_z` are set to 0."? Is it taken as for `reserve` < 0 or `lock_z` < 0, both should be set to 0? Or only the value that is < 0 should be = 0?*
+
+Only the variable that is negative should be set to 0. Independently of the other.
+
+*"For values z1 or z2 <= wall_thick (respectively wall_thick + lock_z for z1, see below), the box will be drawn only to the height of the bottom/ceiling and the connection mechanism." Does this mean that if <= wall_thick, I adjust the bottom height and make bottom+teeth and leave z2 original (if it's greater than wall_thick), or if at least one part is not satisfied, the box automatically adjusts for both values?*
+
+The height of the bottom and ceiling is never adjusted. Only the value of z1 and z2 is adjusted (normalized), independently of the other.
+
+*When rad > x/2 or y/2, should rad be set to the limit value, i.e., 0?*
+
+No, the limit value means the maximum possible.
+
+*When rad == x/2 or y/2, should a circle be drawn?*
+
+When rad equals x/2 and simultaneously y/2, the box has a circle profile.

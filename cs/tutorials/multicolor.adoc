@@ -1,0 +1,169 @@
+= Tisk: Vícebarevný tisk
+:toc:
+:imagesdir: ../images/multicolor/
+:html5s-image-default-link: self
+
+Jistě jste si všimli, že naše tiskárny tisknout takovým materiálem (v takové barvě),
+jaký do nich zavedeme. Existují různé možnosti, jak se tohoto omezení zbavit,
+případně jej alespoň mírně obelstit.
+
+Proč tisknout z více materiálů zároveň? První důvod může být estetický.
+
+.https://www.thingiverse.com/thing:3197896[ADALINDA MultiMaterial remix] by Louise Driggers & Dominik Císař (CC BY-NC 3.0)
+image::dragon.jpg[Drak]
+
+Jiným důvodem může být tisk xref:supports.adoc#[supportu] z jiného materiálu,
+například takového, který se rozpouští ve vodě (https://reprap.org/wiki/PVA[PVA])
+nebo v https://www.cif.cz/[běžném čistícím prostředku] (https://reprap.org/wiki/HIPS[HIPS]).
+
+Někdy takové materiály mohou být dražší a proto se z nich tiskne jen _interface_ (několik vrstev) mezi supportem a objektem.
+
+.PVA se rozpustí ve vodě, obrázek z https://youtu.be/0ENgGkPP94w[videa] firmy Ultimaker
+image::support_pva.jpg[Support z PVA]
+
+== Možnosti vícemateriálového a vícebarevného tisku
+
+=== Více trysek
+
+Jednou z možností, jak tisknout ze dvou (či více) materiálu současně, je použít dvě (či více) trysek.
+
+.Dvoutrysková hlava tiskárny Lulzbot TAZ, obrázek z https://youtu.be/pr21IkVuoeU[videa] firmy Aleph Objects (tiskárny Lulzbot)
+image::taz.jpg[Dvě trysky]
+
+Tisková plocha se pak o něco zmenší a tiskárna tiskne dle potřeby jednou či druhou tryskou.
+Nevýhodou je, že musí být naprosto přesná vzájemná poloha trysek a že ze zrovna nepoužívané trysky může vytékat plast
+(jako když před tiskem nahříváte tiskárnu).
+
+=== Více extruderů
+
+Další možností je do jedné trysky vhánět střídavě více různých plastů.
+
+.Tiskárna Prusa i3 MK2 multi material © Prusa Research s.r.o.
+image::mk2_multi_material.png[MK2 MM, width=450]
+
+Při výměně materiálu v jedné trysce se ale musí někde provést vytlačení přebytečného starého plastu.
+Většinou se tak děje do odpadního objektu, který může být finančně velmi ztrátový.
+
+.Odpad z výtisku na tiskárně Prusa i3 MK2 multi material, obrázek z https://youtu.be/MnOWX4Ujtv8[videa] Joela Tellinga
+image::dragon_waste.jpg[Odpad z MK2 MM]
+
+=== I s jednou tiskovou hlavou jde zahrát velké divadlo
+
+Pokud máme k dispozici tiskárnu s pouze jedním extruderem a jednou tryskou (jako v předmětu BI-3DT),
+je pro nás tisk z více materiálů zároveň téměř nedostupný nebo alespoň velice obtížný.
+Existuje ale jeden druh vícemateriálového tisku,
+který můžeme s trochou šikovnosti provést a to rozdělení podél vrstvy:
+
+.Obrázek z https://replicatore.wordpress.com/2014/11/19/il-progetto-slic3r-e-appena-iniziato-parola-di-alessandro-ranellucci/[rozhovoru] s autorem Slic3ru © davidesher
+image::multicolor_cone.jpg[Kužel]
+
+== Postup
+
+IMPORTANT: Pro dnešní cvičení si stáhněte obecný xref:printing#config-file[Config Bundle pro Slic3r].
+
+WARNING: Dodržujte všechna bezpečnostní pravidla z xref:printing.adoc#[tiskového cvičení].
+Zejména nejezte filament a nesahejte na rozpálenou trysku tiskárny.
+
+Základní myšlenka: Rozdělíme GCode na více souborů, abychom mezi nimi mohli filament vyměnit.
+Předpokládáme tisk dopravního kuželu z obrázku výše.
+
+1. Necháme si vygenerovat GCode celého kuželu.
+2. Najdeme příhodnou vrstvu, kde chceme, aby končila jedna barva a začínala druhá, rozdělíme Gcode na dva soubory (viz níže).
+3. Opakujeme předchozí krok tolikrát, kolikrát se mění barvy.
+4. Do každého nově vzniklého GCode přidáme na začátek a na konec příkaz `G28 X0 Y0` (_home_ os X a Y).
+5. Spustíme tisk prvního souboru.
+6. Až dotiskne první barva, vyměníme materiál a spustíme další soubor.
+7. Takto měníme materiál a tiskneme další Gcode soubory dokud nedotiskneme celý objekt.
+
+NOTE: Na tiskárnách opatřených LCD displayem a tlačítkem můžete využít Gcode příkaz
+https://reprap.org/wiki/G-code#M600:_Filament_change_pause[M600].
+Tento příkaz tisk pozastaví, odjede tryskou na stranu, vypne motor na extruderu a informuje uživatele,
+že je potřeba vyměnit filament (často i pomocí hlasitého a nepříjemného pípání).
+Po výměně plastu stačí stisknout tlačítko, tisková hlava se vrátí zpět a tisk pokračuje.
+Místo rozdělení souboru na dva pak stačí do Gcodu přidat jeden řádek navíc,
+existují na to i https://www.prusaprinters.org/color-print/[sofistikované aplikace].
+
+=== Kde rozdělit GCode?
+
+Abyste správně rozdělili GCode soubor, je potřeba ho rozdělit v tom správném místě.
+Správné místo je v našem případě těsně po příkazu určujícím přechod na další vrstvu.
+Zde je kus Gcodu, kde předpokládáme, že vše od 5,1 mm výšky nahoru má být z jiného materiálu.
+
+.Soubor Gcode k rozdělení (fragment)
+[source,gcode]
+----
+...
+G1 X119.919 Y103.127 E0.03280
+G1 X118.373 Y101.581 E0.11756
+G1 X118.373 Y102.191 E0.03280
+G1 X119.309 Y103.127 E0.07117
+G1 X118.699 Y103.127 E0.03280
+G1 X118.373 Y102.801 E0.02479
+;BEFORE_LAYER_CHANGE // <1>
+G92 E0.0
+;5.1
+G1 Z5.100 F12000.000 // <2>
+;AFTER_LAYER_CHANGE // <3>
+;5.1
+G1 X126.883 Y103.383 F12000.000
+G1 F900
+G1 X118.117 Y103.383 E0.45795
+G1 X118.117 Y94.617 E0.45795
+G1 X126.883 Y94.617 E0.45795
+G1 X126.883 Y103.323 E0.45482
+G1 X127.280 Y103.780 F12000.000
+...
+----
+<1> komentář vygenerovaný Slic3rem, ne v každém Gcodu musí být
+<2> tento řádek je zásadní -- *za ním* soubor rozdělíme
+<3> komentář vygenerovaný Slic3rem, ne v každém Gcodu musí být
+
+.Konec prvního Gcode souboru po rozdělení
+[source,gcode]
+----
+...
+G1 X119.919 Y103.127 E0.03280
+G1 X118.373 Y101.581 E0.11756
+G1 X118.373 Y102.191 E0.03280
+G1 X119.309 Y103.127 E0.07117
+G1 X118.699 Y103.127 E0.03280
+G1 X118.373 Y102.801 E0.02479
+;BEFORE_LAYER_CHANGE
+G92 E0.0
+;5.1
+G1 Z5.100 F12000.000 // <1>
+G28 X0 Y0 // <2>
+----
+<1> přechod na novou vrstvu
+<2> _home_ po osách X a Y
+
+.Začátek druhého Gcode souboru po rozdělení
+[source,gcode]
+----
+G28 X0 Y0 // <1>
+;AFTER_LAYER_CHANGE
+;5.1
+G1 X126.883 Y103.383 F12000.000
+G1 F900
+G1 X118.117 Y103.383 E0.45795
+G1 X118.117 Y94.617 E0.45795
+G1 X126.883 Y94.617 E0.45795
+G1 X126.883 Y103.323 E0.45482
+G1 X127.280 Y103.780 F12000.000
+...
+----
+<1> _home_ po osách X a Y (ve správné výšce už tryska je)
+
+
+== Úkol
+
+Vytiskněte libovolné množství (nejméně však jedno) dvoubarevného
+link:../stls/multicolor/3dprintlab-logo.stl[loga laboratoře]. Nastavení
+tisku zvolte dle potřeby, vycházejte však z tiskového profilu _Normal_.
+Domluvte se s kolegy v učebně na výměně barvy filamentu,
+případně požádejte cvičící o náhradní barvu.
+
+.Ukázkový výtisk loga laboratoře
+image::logo.jpg[Logo]
+
+Bodování: 3 body za splnění zadání a xref:printing.adoc#ukol-3[úklid].

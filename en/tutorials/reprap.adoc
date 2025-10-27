@@ -1,0 +1,200 @@
+= Printing Technology and RepRap
+:imagesdir: ../images/reprap
+:toc:
+
+The purpose of this text is to briefly familiarize you with 3D printing, primarily with 3D
+printing using thermoplastic extrusion on open-source RepRap printers.
+
+This is not an exhaustive theoretical analysis of individual technologies, nor
+a list of definitions, but rather a gentle introduction to the hardware we'll
+encounter during the semester.
+
+== What is 3D Printing
+
+3D printing is an automated process of converting a digital three-dimensional model into
+a physical solid three-dimensional object.
+
+All 3D printing technologies have a common basic principle of laying
+layers on top of each other, which is called additive manufacturing. It's the opposite process to
+machining material. Instead of the object being cut from a piece of material,
+it's gradually manufactured from material.
+
+A 3D model is "sliced" into thin layers, which are then laid using the printer
+one on top of another. We can imagine it as if we wanted to use a desktop
+printer to create a 3D object from paper. First we print all the necessary
+layers, then cut them out with scissors and glue them on top of each other. In such a case, we are
+a 3D printer.
+
+== What is 3D Printing Good For
+
+3D printing is nowadays used primarily for these things:
+
+Prototyping::
+  Printing a prototype of a component or design element is cheap and relatively fast
+  (on the order of hours). Serial production is (with very large quantities) still cheaper
+  and more precise, but it's not worthwhile for a prototype.
+
+Spare Parts::
+  Unavailability of spare parts (price, distance, existential...) leads many
+  users to utilize 3D printing. Whether it's gears for a wind-up
+  toy, or nuts for a lunar module.
+
+Foundations for Other Products::
+  3D prints often serve as a means to produce something else, often
+  custom. For example, as a skeleton for a sculpture or a pattern for casting a mold.
+
+Improvements::
+  Humans are inventive creatures and that includes tinkering. On a 3D printer
+  special parts are made for modelers, or household needs (hooks, closures,
+  pegs, holders...).
+
+SWAG::
+  Last but not least, things are made for nerds and geeks.
+
+.3D printed SWAG © https://www.thingiverse.com/thing:1169514[FLOWALISTIK] (CC BY-NC-SA)
+image::starwars.jpg[width="600"]
+
+== 3D Printing Technologies
+=== Stereolithography (SLA)
+
+A method of creating objects from liquid polymer, which is gradually
+cured using radiation of various wavelengths.
+
+.Stereolithography. From https://commons.wikimedia.org/wiki/File:Stereolithography_apparatus.jpg[Wikipedia] © Materialgeeza (CC BY-SA)
+image::stereolithography_apparatus.jpg[]
+
+.https://www.youtube.com/watch?v=NM55ct5KwiI[Video about SLA]
+video::NM55ct5KwiI[youtube]
+
+=== Powder Printing (SLS, DMLS)
+
+The technology is based on laying thin layers of powder and subsequent
+curing of only the necessary places. Curing can occur either by sintering
+powder with a laser (for example metal, DMLS), or using liquid polymer and
+irradiation usually with UV radiation.
+
+.Powder printing. https://www.prlog.org/12539309-3d-printing-powder-market-analysis-till-2021-download.html[Image] © PRLog
+image::sls.jpg[]
+
+.https://www.youtube.com/watch?v=9E5MfBAV_tA[Video about SLS]
+video::9E5MfBAV_tA[youtube]
+
+.https://www.youtube.com/watch?v=bgQvqVq-SQU[Video about DMLS]
+video::bgQvqVq-SQU[youtube]
+
+
+=== PolyJet
+
+Similar to inkjet printers, polymer is ejected from the print
+head using miniature nozzles. Subsequently the layer is cured with UV
+beam. https://www.youtube.com/watch?v=[Video]
+
+.PolyJet. (We can't find the image origin, will you help us? It's too widespread on the internet.)
+image::polyjet.jpg[PolyJet]
+
+.https://www.youtube.com/watch?v=ZjXh1RJfA34[Video about PolyJet]
+video::ZjXh1RJfA34[youtube]
+
+=== FFF/FDM/Thermoplastic extrusion
+
+FFF (Fused Filament Fabrication) or FDM (Fused Deposition Modeling) is
+a technology that's based on the principle of a "glue gun". Plastic is
+pushed into the nozzle where it's melted and then laid on the platform.
+
+.FDM. _1 – nozzle extruding plastic, 2 – modeled part of object, 3 – moving platform._ From https://commons.wikimedia.org/wiki/File:FDM_by_Zureks.png[Wikipedia] © Zureks (CC BY-SA)
+image::fdm_by_zureks.png[width="500"]
+
+.https://www.youtube.com/watch?v=WHO6G67GJbM[Video about thermoplastic printing]
+video::WHO6G67GJbM[youtube]
+
+
+== RepRap
+
+RepRap is a project that was created as a reaction to the expired patent on printing using
+thermoplastic extrusion. Adrian Bowyer (University of Bath) founded the project in 2005
+with the goal of creating a 3D printer that anyone can build themselves from
+parts printed on a 3D printer and commonly available mechanical parts.
+
+In 2006, the first proprietary component was successfully printed and soon after
+the first printer and its copy were created.
+
+.Adrian Bowyer (left) and Vik Olliver (right) with the first replicated RepRap printer. © https://commons.wikimedia.org/wiki/File:First_replication.jpg[RepRap], GNU FDL
+image::reprap.jpg[width="600"]
+
+More at
+http://reprap.org/wiki/RepRap_history[reprap.org/wiki/RepRap_history].
+
+The RepRap project has since grown into a worldwide phenomenon that revolves
+around open-source printers, mostly FDM-based, but free
+printers of other technologies exist as well.
+
+Probably the best-known open-source 3D printers today are those from
+the Czech company Prusa Research.
+
+You can build your own printer today for less than 10 thousand crowns; there are
+low-cost variants that are even cheaper.
+
+=== RepRap Models
+
+In the true sense of the word, only those printers are RepRap that were created under the leadership of
+Adrian Bowyer at the University of Bath. In the broader sense, it's any
+printer licensed under a GPL-compatible license that can print some of
+its own parts.
+
+.RepRap Darwin. © http://reprap.org/wiki/File:RepRapOneDarwin-darwin.jpg[Adrian Bowyer], GNU FDL
+image::reprap_darwin.jpg[width="600"]
+
+.RepRap Mendel. © http://reprap.org/wiki/File:Mendel.jpg[Adrian Bowyer], GNU FDL
+image::reprap_v2_mendel.jpg[width="600"]
+
+.Rostock. http://reprap.org/wiki/File:Rostock.jpg[Johann C. Rocholl], GNU FDL
+image::rostock.jpg[width="600"]
+
+.Huxley. © https://www.root.cz/galerie/linuxalt-2012/#29[Petr Krčmář, root.cz], used with permission
+image::huxley.jpg[width="600"]
+
+.Prusa Mendel. © http://reprap.org/wiki/File:Assembled-prusa-mendel.jpg[Josef Průša], GNU FDL
+image::assembled-prusa-mendel.jpg[width="600"]
+
+.Prusa i3. © http://reprap.org/wiki/File:Prusai3-metalframe.jpg[Bitflusher], GNU FDL
+image::prusai3-metalframe.jpg[width="600"]
+
+.Rebel 2. © https://www.clexpert.cz/3dtisk/rebel2/[Petr Zahradník], fair use
+image::rebel2.jpg[width="600"]
+
+.RebeliX (own photo)
+image::rebelix.jpg[width="600"]
+
+.Kossel. © http://reprap.org/wiki/File:Kossel.jpg[Johann C. Rocholl], GNU FDL
+image::kossel.jpg[width="600"]
+
+.Morgan. © http://www.morgan3dp.com/reprap-morgan-source/[Morgan 3D Printers], GPLv2
+image::morgan.jpg[width="600"]
+
+.FoldaRap. © https://www.thingiverse.com/thing:15877[Emmanuel], GPLv2
+image::foldarap.jpg[width="600"]
+
+More models can be found https://reprap.org/wiki/RepRap_Machines[on RepRap wiki].
+
+== Print Materials for FDM
+
+Printers print from plastic wire, usually in the form of a spool.
+Most commonly used are:
+
+ABS::
+  Acrylonitrile butadiene styrene. You know it, for example, from LEGO® bricks.
+  We'll use it in the course because it's sufficiently widespread, but at the same time
+  printing from it is not trivial, due to strong thermal expansion.
+  It has good properties after printing (durability, workability).
+
+PLA::
+  Polylactic acid. Biodegradable polyester product
+  from plant materials. Very easy to print, but doesn't withstand much,
+  has a very low temperature at which it starts to soften, which complicates, for example,
+  cutting, sanding, etc.
+
+PETG::
+  Glycol-modified polyethylene terephthalate (PET). The goal is to combine good
+  printing properties of PLA and good properties of ABS prints.
+
+More materials can be found https://reprap.org/wiki/Category:Thermoplastic[on RepRap wiki].

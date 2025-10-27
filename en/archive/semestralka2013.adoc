@@ -1,0 +1,182 @@
+= Semester Project 2013/2014
+:imagesdir: media
+:toc:
+
+
+WARNING: This is not the current assignment. It is here for archival purposes only.
+
+
+The task is to create a junction for three water pipes. Each pipe has a certain profile and diameter. The junction itself must not slow down the flow of water from any two pipes to the third (or from one to two).
+
+
+== Program
+
+
+The recommended program for creating the model for the semester assignment is OpenSCAD, it is also the only program for which we will be able to answer questions.
+
+It is possible to choose any program that allows the creation of 3D models using source code. After consultation, it is also possible to choose another way of creating the object, but the program must allow parametric changes of the required dimensions.
+
+In case of using another program, the student must be able to demonstrate the "compilation" of the resulting model on their own computer during submission.
+
+You can slice with any available program where it is technically possible to submit a slicing profile. We provide consultation on Slic3r and Skeinforge programs.
+
+You can print from any program that you can control the printer with. We provide consultation on Pronterface and Pronsole programs from the Printrun package.
+
+
+== Pipe Profiles
+
+
+image::profiles.png["Profiles"]
+
+The specific type of shape and inner diameter of the three pipes will be pseudo-randomly generated (see below). The rotation of the profile matters! The profiles are shown so that the bottom side is at the bottom (within the following images), they are always perpendicular to the pipe axis and represent a view from inside out.
+
+
+== Mutual Position
+
+
+When viewed from above, the pipes form a 120° angle with adjacent pipes.
+
+
+image::top-view.png["Top view"]
+
+When viewed from the side, one of the pipes forms an angle α from the interval (-30°,30°) with the base, the other two pipes are parallel to the base. Their center axes are at the same height.
+
+
+image::front-view.png["Front view"]
+
+The specific length of the pipes and the angle that one pipe forms with the base will be pseudo-randomly generated (see below).
+
+The outer curvature of the pipes can be arbitrary, but choose it so that it makes sense and does not reduce the permeability of the pipe. Keep in mind that your model must be parametric.
+
+
+== Dimensions and Angles
+
+
+The following table covers dimensions and angles that your model must reflect. The *interval* column indicates the range in which you can get an assignment (it will be pseudo-randomly selected from this range). The *approach* column indicates how this data should be approached when creating the model - either parametrically in the given interval, or fixed, according to the assignment.
+
+[options="autowidth"]
+|====
+h|  <h| dimension/angle  <h| interval  <h| approach
+| la  | length of pipe A from center of junction  | 2 to 5 cm  | param.
+| lb  | length of pipe B from center of junction  | 2 to 5 cm  | param.
+| lc  | length of pipe C from center of junction  | 2 to 5 cm  | param.
+| da  | inner diameter of pipe A (according to chosen profile)  | 1 to 4 cm  | param.
+| db  | inner diameter of pipe B (according to chosen profile)  | 1 to 4 cm  | param.
+| dc  | inner diameter of pipe C (according to chosen profile)  | 1 to 4 cm  | param.
+| α  | angle that pipe A makes with horizontal base  | -30° to 30°  | fix.
+|  | angle that pipes B and C make with horizontal base  | always 0°  | fix.
+|  | angle that pipes A, B and C mutually form (top view)  | always 120°  | fix.
+|  | wall thickness  | you choose appropriately*  | param.
+|====
+
+You choose the wall thickness appropriately yourself, but it must be parametric. So if the parameter is 2, the thickness must be 2 in the *entire object* (minor deviations in the arc are permissible).
+
+Be careful, if the distance from the center is too short and the ends of the pipes would overlap, you may (must) extend them accordingly, but no more than necessary. Comment this fact properly. It is not necessary to handle this state in the parametric model!
+
+
+== Assignment
+
+[options="autowidth"]
+|====
+<h| username  <h| Aprofile  <h| Bprofile  <h| Cprofile  <h| Alen  <h| Blen  <h| Clen  <h| alpha
+| bartito1  | Pentagon(14 mm)  | Square(29 mm)  | RippedSquare(14 mm)  | 36 mm  | 49 mm  | 23 mm  | +12°
+| bremondr  | Pentagon(18 mm)  | Circle(37 mm)  | Star(39 mm)  | 30 mm  | 44 mm  | 34 mm  | +19°
+| camfrond  | Pentagon(20 mm)  | Square(22 mm)  | RippedSquare(10 mm)  | 50 mm  | 42 mm  | 47 mm  | +26°
+| cejhojan  | Pentagon(15 mm)  | Circle(31 mm)  | RippedSquare(18 mm)  | 32 mm  | 29 mm  | 29 mm  | +13°
+| dragodom  | Square(15 mm)  | Circle(28 mm)  | RippedSquare(20 mm)  | 47 mm  | 50 mm  | 30 mm  | +17°
+| elexapet  | Square(11 mm)  | Circle(17 mm)  | Star(38 mm)  | 38 mm  | 30 mm  | 31 mm  | +20°
+| formape6  | Pentagon(31 mm)  | Circle(34 mm)  | RippedSquare(31 mm)  | 45 mm  | 41 mm  | 32 mm  | -14°
+| freyiboh  | Square(19 mm)  | Square(18 mm)  | Star(22 mm)  | 38 mm  | 44 mm  | 33 mm  | +13°
+| hejlfran  | Pentagon(35 mm)  | Square(35 mm)  | RippedSquare(33 mm)  | 41 mm  | 33 mm  | 46 mm  | +28°
+| herycjan  | Pentagon(38 mm)  | Square(12 mm)  | Star(24 mm)  | 24 mm  | 42 mm  | 25 mm  | +13°
+| husakja4  | Square(19 mm)  | Circle(21 mm)  | RippedSquare(38 mm)  | 26 mm  | 29 mm  | 36 mm  | -18°
+| kakosluk  | Pentagon(32 mm)  | Circle(30 mm)  | RippedSquare(14 mm)  | 27 mm  | 26 mm  | 45 mm  | -27°
+| kalinmi2  | Square(30 mm)  | Square(40 mm)  | RippedSquare(26 mm)  | 49 mm  | 28 mm  | 27 mm  | -26°
+| kasalto1  | Square(35 mm)  | Circle(25 mm)  | Star(29 mm)  | 34 mm  | 42 mm  | 38 mm  | -21°
+| kholdavi  | Pentagon(16 mm)  | Square(37 mm)  | RippedSquare(39 mm)  | 28 mm  | 25 mm  | 26 mm  | -12°
+| kobezjan  | Square(39 mm)  | Circle(32 mm)  | RippedSquare(28 mm)  | 42 mm  | 24 mm  | 44 mm  | +28°
+| kolarto5  | Pentagon(16 mm)  | Square(21 mm)  | RippedSquare(14 mm)  | 28 mm  | 41 mm  | 27 mm  | +23°
+| kolarvin  | Pentagon(38 mm)  | Square(14 mm)  | RippedSquare(27 mm)  | 46 mm  | 35 mm  | 37 mm  | -16°
+| kukacji1  | Pentagon(16 mm)  | Circle(36 mm)  | Star(17 mm)  | 38 mm  | 37 mm  | 32 mm  | +12°
+| lukeshan  | Square(17 mm)  | Circle(40 mm)  | Star(27 mm)  | 31 mm  | 41 mm  | 43 mm  | -27°
+| malikdus  | Square(10 mm)  | Square(26 mm)  | RippedSquare(31 mm)  | 24 mm  | 24 mm  | 33 mm  | -24°
+| mertijir  | Square(28 mm)  | Circle(39 mm)  | RippedSquare(36 mm)  | 45 mm  | 45 mm  | 26 mm  | +26°
+| najdoolg  | Square(23 mm)  | Circle(35 mm)  | RippedSquare(21 mm)  | 24 mm  | 48 mm  | 41 mm  | +22°
+| novakj98  | Pentagon(33 mm)  | Circle(30 mm)  | RippedSquare(19 mm)  | 43 mm  | 37 mm  | 31 mm  | -27°
+| oppldavi  | Square(25 mm)  | Circle(32 mm)  | RippedSquare(13 mm)  | 28 mm  | 28 mm  | 23 mm  | -19°
+| pekarja5  | Square(24 mm)  | Square(30 mm)  | Star(31 mm)  | 49 mm  | 49 mm  | 44 mm  | -16°
+| pelanma4  | Pentagon(34 mm)  | Square(20 mm)  | RippedSquare(12 mm)  | 26 mm  | 31 mm  | 24 mm  | -23°
+| pestape1  | Pentagon(33 mm)  | Circle(11 mm)  | Star(39 mm)  | 47 mm  | 33 mm  | 39 mm  | +27°
+| petrope1  | Square(33 mm)  | Square(31 mm)  | RippedSquare(24 mm)  | 34 mm  | 50 mm  | 37 mm  | +30°
+| pilatcen  | Pentagon(39 mm)  | Circle(38 mm)  | Star(25 mm)  | 35 mm  | 38 mm  | 47 mm  | -28°
+| priknjak  | Pentagon(37 mm)  | Square(25 mm)  | RippedSquare(35 mm)  | 25 mm  | 21 mm  | 30 mm  | -12°
+| prusaja3  | Pentagon(20 mm)  | Square(34 mm)  | RippedSquare(18 mm)  | 41 mm  | 44 mm  | 48 mm  | -22°
+| prihoda1  | Square(22 mm)  | Circle(26 mm)  | RippedSquare(35 mm)  | 40 mm  | 30 mm  | 25 mm  | +14°
+| richtmat  | Square(36 mm)  | Square(16 mm)  | RippedSquare(15 mm)  | 48 mm  | 49 mm  | 42 mm  | -16°
+| rytirnik  | Pentagon(12 mm)  | Circle(39 mm)  | RippedSquare(20 mm)  | 41 mm  | 37 mm  | 24 mm  | +14°
+| skorevra  | Pentagon(28 mm)  | Circle(31 mm)  | Star(37 mm)  | 48 mm  | 21 mm  | 34 mm  | -26°
+| sochuale  | Square(30 mm)  | Square(12 mm)  | Star(15 mm)  | 43 mm  | 38 mm  | 24 mm  | +18°
+| svobol25  | Pentagon(28 mm)  | Circle(10 mm)  | Star(16 mm)  | 23 mm  | 30 mm  | 43 mm  | -23°
+| sembejir  | Square(15 mm)  | Square(19 mm)  | RippedSquare(16 mm)  | 36 mm  | 34 mm  | 21 mm  | -14°
+| stastm11  | Pentagon(20 mm)  | Circle(16 mm)  | Star(24 mm)  | 37 mm  | 24 mm  | 24 mm  | +14°
+| tkadljak  | Square(23 mm)  | Square(18 mm)  | RippedSquare(18 mm)  | 28 mm  | 45 mm  | 50 mm  | +16°
+| trusijan  | Square(17 mm)  | Square(31 mm)  | Star(10 mm)  | 24 mm  | 35 mm  | 30 mm  | +14°
+| tvrdipa1  | Pentagon(18 mm)  | Square(31 mm)  | Star(13 mm)  | 38 mm  | 43 mm  | 40 mm  | +21°
+| vanazde1  | Pentagon(34 mm)  | Square(23 mm)  | RippedSquare(16 mm)  | 22 mm  | 34 mm  | 38 mm  | -18°
+| vopatrad  | Square(33 mm)  | Square(40 mm)  | Star(14 mm)  | 39 mm  | 41 mm  | 38 mm  | +19°
+| vyvledav  | Pentagon(26 mm)  | Square(17 mm)  | RippedSquare(40 mm)  | 44 mm  | 31 mm  | 49 mm  | +17°
+| zalouja4  | Pentagon(23 mm)  | Square(25 mm)  | RippedSquare(27 mm)  | 32 mm  | 36 mm  | 45 mm  | -24°
+| zaludjak  | Square(20 mm)  | Circle(25 mm)  | Star(39 mm)  | 21 mm  | 34 mm  | 23 mm  | -22°
+|====
+
+
+== Submission
+
+Submit the electronic part by *November 27, 2013* inclusive to your namespace here on Edux. Save the files to a zip named username-semestralka.zip, e.g., hroncmir-semestralka.zip. In your namespace, provide a link to this file. You must upload the following:
+
+* source code of the model in one or more files
+* explanatory text if needed
+* generated STL file with default parameters
+* generated gcode (printer and material parameters will be announced in time)
+* slicing program profile
+** Slic3r allows profile export to an ini file
+** Skeinforge saves information to .csv files in the ~/.skeinforge folder
+
+In case of missing the regular deadline, it will be possible to submit with a point penalty later. The specific point penalty will be determined based on the number of such assignments.
+
+In the last four weeks of the semester, classified credit terms are scheduled in the timetable. At these special classes you will print your model in the 3D printing laboratory (*A1051*). After the electronic submission deadline, you can continue to improve your model for better printing, but the grading of the electronic part will be based on the submitted data.
+
+Remedial terms will be scheduled as needed.
+
+
+== Grading
+
+
+[options="autowidth"]
+|====
+<h| Model  <h| 20 h|
+| It is a model of a junction of three pipes  | 1  | mandatory
+| Mutual position (angle formed) corresponds to assignment  | 1 |
+| Pipe A forms the assigned angle with the "base"  | 2 |
+| Axes of pipes C and B lie in one plane  | 2 |
+| It is possible to change pipe lengths with a parameter  | 1  | mandatory
+| It is possible to change pipe diameters with a parameter  | 1  | mandatory
+| It is possible to change wall thickness of the entire object with a parameter  | 1 |
+| Generated model with default parameters is okay (in terms of mesh)  | 1  | mandatory
+| Generated model with modified parameters is okay  | 2 |
+| Profiles and pipe lengths correspond to assignment  | 1  | mandatory
+| With default parameters the junction does not reduce permeability  | 1 |
+| With modified parameters the junction does not reduce permeability  | 2 |
+| With default parameters nothing sticks out of the junction, nor does it contain holes  | 1  | mandatory
+| With modified parameters nothing sticks out of the junction, nor does it contain holes  | 2 |
+| Source code is appropriately structured and commented  | 1  | mandatory
+<h| Print preparation  <h| 20 h|
+| Appropriately set pipe wall thickness and adequately chosen number of perimeter layers  | 5  | mandatory within the section
+| Appropriate placement of object on print bed  | 5 |
+| Supports (not needed - 5, appropriate use - 2.5, unnecessary use - 0)  | 5 |
+| Appropriate setting of print parameters (perimeters, infill)  | 5 |
+<h| Print  <h| 20 h|
+| It is a print of the model with default parameters, print is processed (e.g., without supports)  | 5  | mandatory within the section
+| Dimensions and angles correspond to assignment (including wall thickness per your choice)  | 5 |
+| Print does not contain defects obviously caused by inappropriate model preparation  | 10 |
+|====

@@ -1,0 +1,336 @@
+= Scanning
+:imagesdir: ../images/scan/
+:toc:
+:experimental:
+// experimental for the kbd macro
+
+3D scanning is the process of digitizing a physical object into a computer 3D
+model.
+
+== Motivation
+
+3D scanning is no longer a new technology. The use of 3D scanning
+extends to an ever-widening circle of fields such as architecture,
+archaeology, film effects, computer games, engineering, medicine.
+Combined with a 3D scanner, these technologies give unexpected possibilities
+for use such as various jaw, pelvic, or skull
+replacements custom-made for the patient. It's also possible to archive endangered
+monuments for future generations, or conversely using 3D scanning it's possible to
+reconstruct various historical dwellings based on excavations. An integral part
+are 3D scanners in the field of geodetic measurement, digitization of buildings,
+quality control, or security systems.
+
+== Classification of 3D Scanners
+
+Classification of 3D scanners is possible in many ways. The selected classification takes
+as the main criterion contact and non-contact scanning methods.
+The most commonly used scanners are in the reflective branch. Laser methods
+can also fall under active optical methods using triangulation or
+the time-of-flight measurement method. In the taxonomy in the image, laser methods
+are separated out separately.
+
+.Classification of 3D scanners © https://www.vutbr.cz/www_base/zav_prace_soubor_verejne.php?file_id=103850[Jan Čermák]
+image::rozdeleni.png[]
+
+
+=== Contact
+
+Contact occurs between the scanner and the scanned model.
+
+==== Destructive
+
+This type of scanner is somewhat atypical because it's essentially a milling machine with
+a camera. At the beginning, the measured object needs to be cast into a block so that
+auxiliary material perfectly fills all cavities. The color of this material
+must be contrasting compared to the color of the scanned object. Such prepared
+part is mounted on the mill bed and thin layers
+of constant thickness are gradually milled off. Each newly revealed layer is always photographed and the image
+saved for later processing. The result is therefore a set of 2D photos with
+stored information about what Z height the photo was taken at. Software on
+each photo at the color transition of the cast object and auxiliary material
+extracts the boundary curve. This curve is represented as points in
+the plane. If curves from all milled levels are connected, then
+we get a 3D point cloud.
+
+==== Non-destructive
+
+Non-destructive contact scanners include all, unlike
+destructive methods, the object is not damaged during digitization.
+Contact 3D scanners examine the object's surface using physical tangible
+touch. While the object remains at rest attached to the base, a positioning
+arm on which a point or ball probe is mounted allows
+the user to pointwise capture 3D data from the physical object.
+
+.http://charlesschimp.blogspot.cz/2011/02/roland-microscribe.html[Micro Scribe]
+image::micro_scribe.png[Micro Scribe]
+
+=== Non-contact
+
+==== Magnetic Scanners
+
+We can divide them into scanners with a magnetic probe or scanners
+using magnetic resonance. By using the second mentioned type
+of device, we can obtain information about the internal geometry of components. This
+is a non-destructive scanner working on the same principle as classical
+magnetic resonance used in healthcare. Devices are usually
+mobile and are used, for example, to check pipelines, boilers, or other
+closed vessels.
+
+==== Transmissive Scanners
+
+A representative of transmissive scanners are scanners using computed
+tomography (CT) technology. Just like scanners using
+magnetic resonance, this type of scanner can obtain data about
+the internal structure of the examined object. X-rays are used for information transfer.
+Unlike healthcare versions of CT, this
+use employs higher radiation intensity. These devices are still relatively
+rare, which is also proven by the fact that in the Czech Republic there is only
+one specimen.
+
+==== Reflective Scanners
+
+This category includes acoustic scanners (e.g., sonar), laser, but
+primarily optical. Optical scanners are the most widespread and
+most commonly used branch of 3D scanners. This results in the greatest number of
+various technological solutions and thus also further division.
+
+==== Optical -- Active 3D Scanners
+
+Active optical methods are further divided according to what physical property
+of the given radiation is used for calculating the spatial coordinate of a point
+
+===== Time of Flight
+
+The simplest method is called "time of flight". This method is based
+on measuring the time it takes for the sent beam to return to the sensor after
+reflection from the object.
+
+===== Triangulation
+
+Another possibility is the "triangulation" method, which based on the known angle
+between projector and sensor, known distance of projector from sensor, and
+known position of the measured point on the sensor, can calculate the actual
+spatial point on the object's surface.
+
+Triangulation can be:
+
+* active
+* passive
+
+===== Structured Light
+
+Another active optical method is "structured light". This uses
+projection of a regular pattern onto the object and based on deformation of this
+pattern then calculates spatial coordinates of points. The advantage of this method is
+enormous speed at which the given object surface is scanned. It's on the order of
+millions of points in a few seconds.
+
+In practice, you can encounter this technology for example in
+
+* Microsoft Kinect
+* Assus Xtion
+* Intel RealSense
+* Mainly Time of flight
+** used in industry
+* Stereo active and passive
+** active for example Ciclop/Horus
+* Structured light
+** Kinect
+** RealSense
+
+== CloudCompare
+
+http://www.cloudcompare.org[CloudCompare] is an open-source program for
+editing and modifying point clouds and 3D models. The program also allows
+calculating interesting data about similarities or measuring various distances and
+statistics.
+
+In the field of 3D scanning, we'll use it primarily for converting point clouds to
+triangular mesh.
+
+=== Examples of Working with the Program
+
+==== Reconstructing Foot Model
+
+Required models are link:../stls/scan/foot_scan.bin[foot_scan.bin] and
+link:../stls/scan/foot_reference.stl[foot_reference.stl].
+The foot model is from the portal
+https://www.thingiverse.com/thing:1615359[Thingiverse, CC BY-NC 3.0 Voodoo Manufacturing].
+
+In the file link:../stls/scan/foot_scan.bin[foot_scan.bin] there's a point cloud created by
+scanning the foot model. Open it in the CloudCompare application.
+
+.Foot scan model as point cloud in CloudCompare program
+image::cc_foot_points.png[width=600]
+
+To work with the model, you need to select it in the upper left part of the program (_DB Tree_).
+The checkbox is for showing (or hiding) the model.
+The selected model is highlighted.
+
+For reconstruction we'll first use the entire cloud.
+For weaker computers this is not recommended; the cloud has about a million points
+and it could take a long time.
+Later we'll show how to reconstruct a model from a smaller number of points.
+
+First you need to calculate normals using _Edit → Normals → Compute_.
+For our purposes, default values will suffice.
+
+._Edit → Normals → Compute_
+image::cc_foot_normals_menu.png[]
+
+.Compute normals
+image::cc_foot_normals_modal.png[]
+
+.Normals computation
+image::cc_foot_normals_progress.png[]
+
+.Black normals point inward
+image::cc_foot_points_normals.png[width=600]
+
+Sometimes normals are calculated reversed (they're displayed in black).
+In such a case, they need to be inverted.
+If we didn't do this, the reconstructed model would be turned inside out.
+Normals are inverted using _Edit → Normals → Invert_.
+
+._Edit → Normals → Invert_
+image::cc_foot_normals_invert.png[]
+
+.Normals after inversion are no longer displayed in black
+image::cc_foot_normals_inverted.png[width=600]
+
+
+When we have normals, we can use _Plugins → Poisson Surface Reconstruction_.
+
+._Plugins → Poisson Surface Reconstruction_
+image::cc_foot_poisson_menu.png[]
+
+.Again it's enough to leave default values
+image::cc_foot_poisson_modal.png[]
+
+.Poisson Reconstruction
+image::cc_foot_poisson_progress.png[]
+
+.Green mesh, gray cloud
+image::cc_foot_reconstructed.png[]
+
+If the cloud is too large, we can subsample it before reconstruction:
+that is, get only part of the points. For our foot about a hundred thousand points suffice.
+
+._Edit → Subsample_
+image::cc_foot_subsample_menu.png[]
+
+.You can choose various methods; _Random_ is relatively fast
+image::cc_foot_subsample_modal.png[]
+
+.Points thinned out
+image::cc_foot_subsample.png[]
+
+.Reconstructed mesh from one-tenth of points is pretty good here
+image::cc_foot_subsampled_reconstructed.png[]
+
+Sometimes it happens that the resulting mesh is too grainy.
+It's possible to "to taste" smooth it using _Edit → Mesh → Smooth (Laplacian)_.
+
+._Edit → Mesh → Smooth (Laplacian)_
+image::cc_smooth_mesh.png[]
+
+You can also load a finished mesh into the program from the file
+link:../stls/scan/foot_reference.stl[foot_reference.stl] (just open the file).
+
+.The loaded mesh isn't very visible
+image::cc_foot_reference.png[]
+
+For clarity of mesh display you can use _Plugins → P. C. V. (Ambient Occlusion)_.
+
+._Plugins → P. C. V. (Ambient Occlusion)_
+image::cc_pcv.png[]
+
+.After using _P. C. V._ the mesh is better recognizable to the eye
+image::cc_foot_reference_pcv.png[]
+
+When we position the reconstructed and reference mesh at the same place,
+we can compare them. In the exercise we'll show this; if you're reading materials from home,
+you'll learn more in the next example.
+
+.Differences in scan and original
+image::cc_foot_reference_distances.png[]
+
+==== Garden Model: Registration of Two Scans
+
+Required models are link:../stls/scan/garden1.bin[garden1.bin] and
+link:../stls/scan/garden2.bin[garden2.bin],
+downloaded directly from the project
+http://www.cloudcompare.org/samples/CloudCompareGardenData.7z[CloudCompare,
+GPL 2+].
+
+.Example in exercise more or less according to https://www.youtube.com/watch?v=MQiD4HjhpAU[video tutorial]
+video::MQiD4HjhpAU[youtube]
+
+Brief sequence of steps (assumes watching video or attending exercise):
+
+. Open both files.
+. In _Properties_ choose for both _Colors → RGB_.
+. Using the _Translate/rotate_ tool in the top bar, try to
+  position the scans closer to each other.
+. (optional) View _Edit → Apply transformation_.
+. Select both files by clicking with kbd:[Crtl] key in _DB Tree_.
+. From the toolbar select the _Register enitites_ button (in newer version
+  __Finely register already (roughly) aligned entities (cloud or meshes)__).
+. Set _Error difference_ or _EMS difference_ to `1e-20`.
+. Set _Random sampling limit_ to `60000`.
+. _OK_.
+. In _Properties_ again choose for both _Colors → RGB_.
+. From the toolbar select the _Compute cloud/cloud distance_ button.
+. Set model 1 as reference, _Compute_, _OK_.
+. Display and select only the second model.
+. In _Properties_ check _Colors → Scalar field_, contains calculated
+  distances.
+. _Properties → Color Scale → Visible_.
+. _SF display params_: move sliders until result is "best".
+
+.Registration of 2 scans
+image::cc_register.png[]
+
+.Calculating distance of two clouds
+image::cc_distance.png[]
+
+.Sliders at color scale
+image::cc_display_params.png[]
+
+.Comparison of two 3D scans
+image::cc_garden1.png[width=600]
+
+==== Garden Model: Segmentation, Alignment by Reference Points
+
+Required models are the same as above:
+link:../stls/scan/garden1.bin[garden1.bin] and
+link:../stls/scan/garden2.bin[garden2.bin].
+
+.Example in exercise more or less according to https://www.youtube.com/watch?v=2mySiAS0Tfw[video tutorial]
+video::2mySiAS0Tfw[youtube]
+
+First we need two scans that are not so similar as above.
+To demonstrate this, we'll cut out only the part with soil using the _Segment_ tool.
+
+._Segment_ tool
+image::cc_segment_tool.png[]
+
+The tool is controlled with left mouse button; for confirmation use right button.
+Then select the cut-out polygon symbol and confirm with checkmark.
+The operation creates two new clouds in the tree.
+
+._Segment_ tool options
+image::cc_segment_options.png[]
+
+Then you need to use the tool _Align two clouds by picking (at least 4)
+equivalents point pairs_.
+
+Then you can continue as in the previous example.
+
+._Align two clouds by picking (at least 4) equivalents point pairs_
+image::cc_align.png[]
+
+== Useful Links
+
+Guide to reconstructing a model using MeshLab or CloudCompare:
+https://storage.googleapis.com/bqcom15.statics.bq.com/prod/resources/manual/Horus_Guide_to_post-processing_of_the_point_cloud-1475833823.pdf[Horus_Guide_to_post-processing_of_the_point_cloud.pdf]

@@ -1,0 +1,171 @@
+= OpenSCAD: Homework Spring Semester 2015/2016
+:imagesdir: media
+
+
+WARNING: This is not the current assignment. It is here for archival purposes only.
+
+
+Homework assignments from previous semesters can be viewed in the xref:index#[archive].
+
+TIP: The assignment is practically finished, but it is possible that based on your feedback we will discover significant shortcomings, which we will fix. Please follow this page carefully. All changes will be written at the bottom of the page.
+
+
+== Hedgehog in a Cage
+
+
+Your task is to create a parametric model of a https://en.wikipedia.org/wiki/Hedgehog_in_a_cage[hedgehog in a cage] in the OpenSCAD language/program.
+
+The hedgehog is a sphere with spines, similar to the one in this image. The image is only illustrative, spines can grow from the hedgehog all over its surface.
+
+
+image::hedgehog-01.png[]
+
+Jan Tleskač hid a plan for a flying bicycle in the hedgehog; unlike his, however, ours will not be screw-on, but only snap-on. The mechanism is drawn in the following image:
+
+
+image::hedgehog-02.png[]
+
+A vertical distance from the center of the sphere and the size of the gap in the mechanism are defined. Note that this gap has its center at this distance. The hedgehog is of course hollow and the thickness of its wall is also defined by a parameter.
+The upper part of the sphere is not shifted anywhere, a part is simply missing from the sphere.
+
+Individual spines have a common diameter, but different directions and lengths - this is determined by the endpoint of the spine, which is given by coordinates stored in a vector of three values in the order X, Y, Z. For these coordinates it is assumed that the center of the hedgehog sphere lies at the coordinate origin. Spines are located only outside the hedgehog, not inside. A spine that is too short simply won't exist at all. The spine touches the surface of the sphere not just at one point, but with the entire surface.
+
+One spine is actually a cylinder with a special spherical end, which is shown in the following image.
+
+
+image::hedgehog-04.png[]
+
+The cage for the hedgehog is composed of upper and lower toroids and columns.
+
+
+image::hedgehog-05.png[width="350"]
+
+Both the upper and lower toroid have a cross-section of a rectangle with rounded corners.
+
+
+image::hedgehog-06.png[]
+
+Individual columns have the same thickness, are evenly spaced around a circle and lie at the center of the toroid profile. So that we can test their position, start placing columns from the positive direction of the X axis.
+
+
+image::hedgehog-07.png[width="400"]
+
+Place the cage so that the hedgehog's sphere lies in its center and the columns run parallel to the Z axis. The red dot in the image is the coordinate origin.
+
+
+image::hedgehog-08.png[]
+
+
+=== Module
+
+
+Your model must work as a standalone module for OpenSCAD, usable via the use directive (it must not contain any constants outside the module, but it is possible (and advisable) to create helper modules). You must use this interface (including the same default values!):
+
+
+----
+module hedgehog(diameter=30,
+                wall_thick=3,
+                spines=[[0,0,20],
+                        [0,0,-20],
+                        [0,20,0],
+                        [0,-20,0],
+                        [20,0,0],
+                        [-20,0,0]],
+                spine_thick=3,
+                lock_distance=3,
+                lock_gap=1,
+                profile_size=[5,3],
+                profile_diameter=40,
+                profile_corner_radius=1,
+                pole_thick=3,
+                pole_count=4,
+                pole_length=40
+                ) { /* code */ }
+----
+
+* `diameter` is the outer diameter of the hedgehog without spines
+* `wall_thick` is the wall thickness of the hedgehog
+* `spines` is a vector of coordinates of spine endpoints
+* `spine_thick` is the thickness of spines
+* `lock_distance` is the distance shown by arrows in the mechanism image
+* `lock_gap` is the thickness of the gap in the lock between two parts
+* `profile_size` is a vector of two values determining the outer size of the rectangular toroid profile; the first number is in the X/Y direction, the second in the Z direction
+* `profile_diameter` is the outer diameter of the toroid
+* `profile_corner_radius` is the radius of the corner rounding of the rectangular toroid profile
+* `pole_thick` is the thickness of cage columns
+* `pole_count` is the number of cage columns
+* `pole_length` is the length of cage columns from toroid to toroid
+
+
+=== Edge Cases
+
+
+* you don't need to handle the situation when spines should be wider than the hedgehog's sphere diameter
+* if a spine extends into the locking mechanism, both the spine and the locking mechanism should be unaffected by this - practically the spine would interfere, but for the purposes of this model it doesn't matter (the spine must not extend into the mechanism, it must be on the surface of the sphere)
+* you don't need to handle when the hedgehog's spines or the hedgehog's sphere pass through the cage
+* if a negative value is given where it doesn't make sense, but value 0 does make sense, normalize the value to 0 (e.g., number of columns)
+* if a negative value or 0 is given where it doesn't make sense, nothing is rendered (e.g., hedgehog sphere diameter)
+* the hedgehog's wall thickness and the height of the locking mechanism always fit inside the hedgehog
+* the gap of the locking mechanism can be larger than the wall thickness, in which case the locking mechanism disappears and a hole remains
+* if the corner radius of the toroid profile is given too large, you must increase it to the maximum possible size.
+
+
+=== Bonus
+
+
+For a bonus point you can implement Tleskač's secret. You hide `children()` inside the hedgehog, which the `hedgehog()` module receives as input. But be careful, you don't know how big the secret is, so resize it appropriately so that it fits. You can assume that the center of the secret is also at the coordinate origin and that it is largest in the direction of the Z axis.
+
+
+== Code
+
+
+The code must meet a certain quality, one of the conditions is logical adherence to indentation (the same throughout the file). Repeated constructions must be implemented with your own modules and for-loops. Magic constants must be self-explanatory, or supplemented with a comment. It is not possible to use any external libraries for OpenSCAD, nor the MCAD library. Manipulation with `$fn`, `$fs` and `$fa` is forbidden.
+
+
+== Submission and Grading
+
+
+Name the file hedgehog.scad, save it into the archive hedgehog.zip (directly into the root directory of the archive) and upload it directly to your personal namespace on Edux. It must be downloadable from the link `https://edux.fit.cvut.cz/courses/BI-3DT/_media/student/username/hedgehog.zip` Place a link to the file in the namespace. The archive must contain only the hedgehog.scad file and necessary files (your other scad files with modules, possible DXF or STL files for import), generated STL files of the hedgehog in a cage do not belong in the archive. Correct naming is important for our automatic tests. Incorrectly named files are not considered submitted.
+
+The submission deadline is *May 18, 2016* inclusive. Late submission is not possible. In case of documented long-term serious illness, it is possible to arrange a special deadline. Illness or accident just before submission is not an excuse.
+
+After grading (which will take place after the submission deadline) the assignment cannot be corrected. Before the submission deadline, however, it is possible to consult and upload to Edux in a work-in-progress state.
+
+During grading, a set of prepared arguments containing mainly edge cases will be semi-automatically tested. We therefore recommend trying the module for all possible inputs (non-numeric inputs will not be tested). Based on the test result and code quality, a student can receive 0 to 20 points. If we determine that a student copied the assignment, or does not understand their own code at all, and cannot prove otherwise, the assignment will be graded with -100 points, which means a grade of F (this has already happened).
+
+The number of (un)successful tests directly affects the grading. The tests will be published after grading the assignments. The composition of tests corresponds to the difficulty and seriousness of individual parts of the assignment, so it is not possible to request compensation for the fact that one error affected the result of multiple tests.
+
+Before the deadline, several rounds of trial submission will take place. The instructors will run your solutions through the tests and will alert you, for example, that some error broke most of them, but cannot show you the tests (creating the assignment directly to fit the tests would be too easy). These rounds will take place on April 23, April 30, May 7, May 14, and May 16, always around 00:01 at night. At this time the assignment must be submitted on Edux. You can expect feedback within two days. Outside these deadlines it is not possible to run the assignment through the tests.
+
+
+== Questions from Students
+
+
+*Is the endpoint of spines counted as the end of the rounded end?*
+
+​Yes.
+
+*spine_thick == diameter of the "cylinder" with which we make the spines?*
+
+​Yes.
+
+**"The upper part of the sphere is not shifted anywhere, a part is simply missing from the sphere."
+So there's only half a hedgehog?**
+
+No, a piece in the middle of the hedgehog (the locking mechanism) is removed. Someone got the impression from the image that the top part is shifted by that piece upward, which is not true, so we put this sentence there.
+
+**"So that we can test their position, start placing columns from the positive direction of the X axis." So I should always start at "angle 0"?**
+
+That is implementation-dependent. In one of the logical implementations it will be "angle 0".
+
+**But then in the test data a spine goes through a rod in the cage.**
+
+​Yes. Don't worry about it, nobody is perfect.
+
+**"profile_size is a vector of two values determining the outer size of the rectangular toroid profile; the first number is in the X/Y direction, the second in the Z direction." Data before rounding, or after?**
+
+Outer size. It depends on how you do the rounding. If you have a rectangle and you subtract pointiness from the corners, then before rounding. If you have a rectangle and it grows with rounding, then after rounding.
+
+**"If a spine extends into the locking mechanism, both the spine and the locking mechanism should be unaffected by this - practically the spine would interfere, but for the purposes of this model it doesn't matter (the spine must not extend into the mechanism, it must be on the surface of the sphere)" == will the spine be printed "into the air"?**
+
+It could be. For example, if the spine had a smaller thickness than the hole in the mechanism. It depends on specific parameters.

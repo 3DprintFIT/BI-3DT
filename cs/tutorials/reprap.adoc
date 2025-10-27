@@ -1,0 +1,200 @@
+= Technologie tisku a RepRap
+:imagesdir: ../images/reprap
+:toc:
+
+Účelem tohoto textu je stručně vás seznámit s 3D tiskem a to především s 3D
+tiskem pomocí vytlačování termoplastu na open-source tiskárnách RepRap.
+
+Nejedná se o vyčerpávající teoretický rozbor jednotlivých technologií, ani
+seznam definic, ale spíše o jemný úvod do hardwaru, se kterým se budeme
+v průběhu semestru setkávat.
+
+== Co to je 3D tisk
+
+3D tisk je automatizovaný proces převodu digitálního trojrozměrného modelu na
+fyzický pevný trojrozměrný objekt.
+
+Všechny technologie 3D tisku mají společný základní princip kladení
+vrstev na sebe, kterému se říká aditivní výroba. Je to opačný proces k
+obrábění materiálu. Místo toho, aby byl objekt z kusu materiálu vyřezán,
+je z materiálu postupně vyráběn.
+
+3D model je „rozřezán“ na tenké vrstvy, které se pak pomocí tiskárny kladou
+jedna na druhou. Můžeme si to představit, jako kdybychom chtěli za pomocí stolní
+tiskárny vyrobit 3D objekt z papíru. Nejprve vytiskneme všechny potřebné
+vrstvy, poté nůžkami vystříháme a nalepujeme na sebe. V takovém případě jsme
+3D tiskárna.
+
+== K čemu je 3D tisk dobrý
+
+3D tisk se v dnešní době využívá především pro tyto věci:
+
+Prototypování::
+  Vytisknout prototyp součástky nebo designového prvku je levné a poměrně rychlé
+  (v řádu hodin). Sériová výroba je (při velmi velkém množství) stále levnější
+  a přesnější, ale pro prototyp se nevyplatí.
+
+Náhradní díly::
+  Nedostupnost náhradních dílů (cenová, vzdálenostní, existenční…) vede mnohé
+  uživatele k využití 3D tisku. Ať už jde o ozubená kolečka do natahovací
+  hračky, nebo matice do lunárního modulu.
+
+Základy pro další výrobky::
+  3D výtisk často slouží jako prostředek k výrobě něčeho dalšího, často
+  zakázkového. Například jako kostra pro sochu nebo mustr pro odlití formy.
+
+Zlepšováky::
+  Člověk je tvor vynalézavý a k tomu patří kutilství. Na 3D tiskárně se vyrábějí
+  speciální díly pro modeláře, či potřeby pro domácnost (háčky, uzávěry,
+  kolíky, držáky…).
+
+SWAG::
+  V neposlední řadě se samozřejmě vyrábí věci pro nerdy a geeky.
+
+.3D vytištěný SWAG ©  https://www.thingiverse.com/thing:1169514[FLOWALISTIK] (CC BY-NC-SA)
+image::starwars.jpg[width="600"]
+
+== Technologie 3D tisku
+=== Stereolitografie (SLA)
+
+Metoda vytváření objektů z tekutého polymeru, který je postupně
+vytvrzován pomocí záření různých vlnových délek.
+
+.Stereolitografie. Z https://commons.wikimedia.org/wiki/File:Stereolithography_apparatus.jpg[Wikipedie] © Materialgeeza (CC BY-SA)
+image::stereolithography_apparatus.jpg[]
+
+.https://www.youtube.com/watch?v=NM55ct5KwiI[Video o SLA]
+video::NM55ct5KwiI[youtube]
+
+=== Práškový tisk (SLS, DMLS)
+
+Technologie je založena na kladení tenkých vrstev prášku a následného
+vytvrzení pouze potřebných míst. Vytvrzení může probíhat buď zapečením
+prášku laserem (například kov, DMLS), nebo použitím tekutého polymeru a
+ozářením většinou UV zářením.
+
+.Práškový tisk. https://www.prlog.org/12539309-3d-printing-powder-market-analysis-till-2021-download.html[Obrázek] © PRLog
+image::sls.jpg[]
+
+.https://www.youtube.com/watch?v=9E5MfBAV_tA[Video o SLS]
+video::9E5MfBAV_tA[youtube]
+
+.https://www.youtube.com/watch?v=bgQvqVq-SQU[Video o DMLS]
+video::bgQvqVq-SQU[youtube]
+
+
+=== PolyJet
+
+Podobně jako v inkoustových tiskárnách je polymer vytryskáván z tiskové
+hlavy pomocí miniaturních trysek. Následně je vrstva vytvrzena UV
+paprskem. https://www.youtube.com/watch?v=[Video]
+
+.PolyJet. (Nedokážeme dohledat původ obrázku, pomůžete nám? Na internetu je příliš rozšířený.)
+image::polyjet.jpg[PolyJet]
+
+.https://www.youtube.com/watch?v=ZjXh1RJfA34[Video o PolyJetu]
+video::ZjXh1RJfA34[youtube]
+
+=== FFF/FDM/Thermoplastic extrusion
+
+FFF (Fused Filament Fabrication) nebo FDM (Fused Deposition Modeling) je
+technologie, která je založena na principu "tavné pistole". Plast je
+tlačen do trysky, kde je roztaven a následně je kladen na podložku.
+
+.FDM. _1 – tryska vytlačující plast, 2 – vymodelovaná část objektu, 3 – pohybující se platforma._ Z https://commons.wikimedia.org/wiki/File:FDM_by_Zureks.png[Wikipedie] © Zureks (CC BY-SA)
+image::fdm_by_zureks.png[width="500"]
+
+.https://www.youtube.com/watch?v=WHO6G67GJbM[Video o tisku z termoplastu]
+video::WHO6G67GJbM[youtube]
+
+
+== RepRap
+
+RepRap je projekt, který vznikl jako reakce na vypršený patent o tisku pomocí
+vytlačování termoplastu. Adrian Bowyer (University of Bath) v roce 2005 projekt
+založil s cílem vytvořit 3D tiskárnu, kterou si každý může postavit sám ze
+součástek vytištěných na 3D tiskárně a běžně dostupných mechanických dílů.
+
+V roce 2006 se podařilo úspěšně vytisknout první vlastní součástku a nedlouho
+na to vznikla první tiskárna a její kopie.
+
+.Adrian Bowyer (vlevo) a Vik Olliver(vpravo) s první zreplikovanou RepRap tiskárnou. © https://commons.wikimedia.org/wiki/File:First_replication.jpg[RepRap], GNU FDL
+image::reprap.jpg[width="600"]
+
+Více na
+http://reprap.org/wiki/RepRap_history[reprap.org/wiki/RepRap_history].
+
+Projekt RepRap se od té dobry rozrostl do celosvětového fenoménu, který se točí
+kolem open-source tiskáren, většinou na bázi FDM, ale existují i svobodné
+tiskárny jiných technologií.
+
+Pravděpodobně nejznámější open-source 3D tiskárny jsou v současnosti ty od
+české firmy Prusa Research.
+
+Vlastní tiskárnu si dnes postavíte za necelých 10 tisíc korun, existují i
+low-cost varianty, které jsou ještě levnější.
+
+=== Modely RepRap
+
+V pravém slova smyslu jsou RepRap tiskárny pouze ty, které vznikly pod vedením
+Adriana Bowyera na University of Bath. V rozšířeném smyslu je to jakákoliv
+tiskárna licencovaná pod GPL kompatibilní licencí, která dokáže tisknout některé
+své díly.
+
+.RepRap Darwin. © http://reprap.org/wiki/File:RepRapOneDarwin-darwin.jpg[Adrian Bowyer], GNU FDL
+image::reprap_darwin.jpg[width="600"]
+
+.RepRap Mendel. © http://reprap.org/wiki/File:Mendel.jpg[Adrian Bowyer], GNU FDL
+image::reprap_v2_mendel.jpg[width="600"]
+
+.Rostock. http://reprap.org/wiki/File:Rostock.jpg[Johann C. Rocholl], GNU FDL
+image::rostock.jpg[width="600"]
+
+.Huxley. © https://www.root.cz/galerie/linuxalt-2012/#29[Petr Krčmář, root.cz], použito se svolením
+image::huxley.jpg[width="600"]
+
+.Prusa Mendel. © http://reprap.org/wiki/File:Assembled-prusa-mendel.jpg[Josef Průša], GNU FDL
+image::assembled-prusa-mendel.jpg[width="600"]
+
+.Prusa i3. © http://reprap.org/wiki/File:Prusai3-metalframe.jpg[Bitflusher], GNU FDL
+image::prusai3-metalframe.jpg[width="600"]
+
+.Rebel 2. © https://www.clexpert.cz/3dtisk/rebel2/[Petr Zahradník], fair use
+image::rebel2.jpg[width="600"]
+
+.RebeliX (vlastní foto)
+image::rebelix.jpg[width="600"]
+
+.Kossel. © http://reprap.org/wiki/File:Kossel.jpg[Johann C. Rocholl], GNU FDL
+image::kossel.jpg[width="600"]
+
+.Morgan. © http://www.morgan3dp.com/reprap-morgan-source/[Morgan 3D Printers], GPLv2
+image::morgan.jpg[width="600"]
+
+.FoldaRap. © https://www.thingiverse.com/thing:15877[Emmanuel], GPLv2
+image::foldarap.jpg[width="600"]
+
+Další modely najdete https://reprap.org/wiki/RepRap_Machines[na RepRap wiki].
+
+== Tiskové materiály pro FDM
+
+Tiskárny tisknout z plastového drátu, většinou ve formě cívky.
+Nejčastěji se používají:
+
+ABS::
+  Akrylonitrilbutadienstyren. Znáte ho například z kostiček LEGO®.
+  Budeme jej používat v předmětu, protože je dostatečně rozšířený, ale zároveň
+  tisk z něj není triviální, kvůli silné tepelné roztažnosti.
+  Má dobré vlastnosti po vytištění (odolnost, opracovatelnost).
+
+PLA::
+  Kyselina polymléčná. Biologicky rozložitelný polyesterový výrobek
+  z rostlinných materiálů. Velmi jednoduše se tiskne, ale moc toho nevydrží,
+  má velmi nízkou teplotu, při které začne měknout, což komplikuje například
+  řezání, broušení apod.
+
+PETG::
+  Glykolem modifikovaný polyethylentereftalát (PET). Cílem je kombinace dobrých
+  tiskových vlastností PLA a dobrých vlastností výtisků z ABS.
+
+Další materiály najdete https://reprap.org/wiki/Category:Thermoplastic[na RepRap wiki].

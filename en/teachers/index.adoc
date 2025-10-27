@@ -1,0 +1,23 @@
+= Teachers
+
+Both exercise sessions::
+  * xref:hroncmir#[Miro Hrončok] (course guarantor)
+  * xref:sykorto6#[Tomáš "Syky" Sýkora] (head of 3D printing lab)
+
+Laboratory members also participate and help with the course::
+  * Marek Reimer
+
+Contact information::
+  * Lab phone: +420 224 358 714
+  * Lab room: TH:A-1153
+  * E-mail: 3dprint@fit.cvut.cz (start the subject with [BI-3DT])
+  * Facebook: https://www.facebook.com/groups/bi3dt/[We don't want to fail BI-3DT]
+
+Past contributors to the course::
+  * Marek Žehra
+  * Jakub Průša
+  * Marián Hlaváč
+  * Jiří "Zub" Borský
+  * Jiří "Hany" Hanuš
+  * Ivo Háleček
+  * Janusz Wijas

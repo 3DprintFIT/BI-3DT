@@ -1,0 +1,5 @@
+= OpenSCAD: Homework WS 2017/2018
+
+WARNING: This is not the current assignment. It is here for archival purposes only.
+
+You can find the WS 2017/2018 homework assignment on https://github.com/3DprintFIT/B171HW-Assignment[GitHub].

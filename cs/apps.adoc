@@ -1,0 +1,103 @@
+= Programy
+
+Pokud chcete doma či při cvičení používat vlastní počítač, nutně budete
+potřebovat tyto programy:
+
+* http://openscad.org[OpenSCAD] 2019.05 nebo novější
+* https://github.com/3DprintFIT/netfabb-basic-download/releases[netfabb Basic]
+* https://github.com/kliment/Printrun[Printrun]
+* http://slic3r.org/[Slic3r]
+* https://github.com/admesh/admesh[ADMesh] >= 0.98 (včetně devel balíků,
+pokud instalujete z repozitářů)
+
+Dále by se vám mohlo hodit:
+
+* https://ultimaker.com/en/products/ultimaker-cura-software[Cura]
+* http://meshlab.sourceforge.net/[Meshlab]
+* https://www.danielgm.net/cc/[CloudCompare]
+* https://github.com/admesh/ADMeshGUI[ADMeshGUI] na prohlížení STL souborů
+* http://kisslicer.com/[KiSSlicer]
+
+== Instalace v Linuxu
+
+Doporučenou linuxovou distribucí je *Fedora*, protože obsahuje všechny
+toto nástroje v repozitářích (kromě netfabbu a KISSliceru, které nejsou
+open-source, ty ale najdete v oblíbeném repozitáři
+http://rpmfusion.org/[RPM Fusion]).
+
+K ovládání tiskárny je potřeba, aby váš uživatel mohl přistupovat k USB
+přes serial interface, což ve většině linuxových distribucí obnáší
+*přidání uživatele do skupiny dialout*. Na cvičení to ale nebude
+potřeba.
+
+=== Fedora
+
+* Pro instalaci všech nástrojů a aplikací:
+`# dnf install openscad-MCAD printrun slic3r admesh-devel admeshgui cloudcompare meshlab cura admeshgui`
+* Pouze nezbytně nutné:
+`# dnf install printrun slic3r openscad admesh-devel`
+* netfabb Basic a KISSlicer naleznete v repozitáři
+http://rpmfusion.org/[RPM Fusion], jako `netfabb-basic`, respektive
+`kisslicer`
+
+Používejte podporovanou verzi Fedory, jinak budete mít staré verze
+programů.
+
+=== Ostatní distribuce
+
+Existuje určitá pravděpodobnost, že některé tyto programy jsou k
+dispozici přes balíčkovací systém vaší distribuce. Pokud je v distribuci
+nenajdete, postupujte podle instrukcí na webu aplikace.
+
+* http://www.openscad.org/downloads.html#linux[Instalace OpenSCADu]
+* https://github.com/3DprintFIT/netfabb-basic-download/releases[Stažení
+netfabbu]
+* http://kisslicer.com/download.html[Stažení KISSliceru]
+* http://reprap.org/wiki/Printrun#GNU.2FLinux_.26_Distros[Instalace
+Printrunu]
+* http://dl.slic3r.org/linux/[Binárky Slic3ru]
+* https://github.com/admesh/admesh/blob/master/INSTALL[Instalace
+ADMeshe]
+* https://github.com/admesh/ADMeshGUI#building[Instalace ADMeshGUI]
+
+== Instalace na macOS
+
+V OS X máme připraveny předkompilovanou verzi Pronterface, který stačí
+stáhnout a spustit (viz odkazy níže).
+
+* http://koti.kapsi.fi/~kliment/printrun/[Printrun]
+
+Další možností je instalace (stažení) a spuštění přímo ze zdrojových
+kódů aplikace (odkazy v linuxové části).
+
+ADMesh je třeba zkompilovat stejně jako na Linuxu, případně lze použít
+homebrew. Stejně tak pro
+https://github.com/admesh/ADMeshGUI#building[ADMeshGUI].
+
+https://github.com/3DprintFIT/netfabb-basic-download/releases[Netfabb]
+je třeba stáhnout z našeho GitHubu.
+
+Ostatní software má vždy svou MacOS variantu ke stažení na stránce
+programu.
+
+== Instalace na Windows
+
+Pro Windows je všechen software, až na výjimky, připraven v
+předkompilované verzi. Ve většině případů na stránkách programu
+uvedených výše.
+
+Výjimky:
+
+* http://koti.kapsi.fi/~kliment/printrun/[Printrun]
+* https://github.com/admesh/admesh/releases[Předkompilovaný ADMesh pro
+Windows]
+
+Netfabb Basic: Můžete použít
+https://www.netfabb.com/try-netfabb-premium-now[Oficiální Trial verzi
+pro Windows], která po vypršení funguje jako Basic, nebo starší verzi
+Netfabb Basic
+https://github.com/3DprintFIT/netfabb-basic-download/releases[z našeho
+GitHubu].
+
+Pro připojení některých tiskáren je třeba instalovat všelijaké drivery.
+Na cvičení to ale není potřeba.

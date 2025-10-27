@@ -1,0 +1,151 @@
+= Semester Project Fall Semester 2016/2017
+:imagesdir: media
+:toc:
+
+
+[WARNING]
+====
+This is not the current semester project assignment. It is here for archival purposes only.
+
+Other older assignments can be viewed in the xref:index#[archive].
+====
+
+TIP: *Alternative project assignment:* By agreement with Miro Hrončok you can instead of this semester project resolve issues in https://github.com/admesh/[ADMesh projects]. How many you need to resolve and how you will be graded depends on the agreement. If interested, please contact us as soon as possible, there is only a limited amount of work and thus the alternative to the semester project is only possible for a small number of students.
+
+
+== 3D Snowflake
+
+
+The topic of the semester project is 3D snowflakes. Your task is to write a module in OpenSCAD that can generate 3D snowflake models based on input data, appropriately prepare your assigned snowflake for printing, print it, and perform any additional modifications.
+
+
+=== 3D Snowflake Generator
+
+
+Write an OpenSCAD module `flake` that adheres to the prescribed interface and displays/creates a 3D snowflake based on input data.
+
+
+----
+module flake(branches=[], circr=30, r=3, ang=45) { ... }
+----
+
+The vector (array) `branches` contains small natural numbers. For each element of this array the snowflake will have one branch, which will then split into N sub-branches, where N is the value of the element.
+For example, for array ``++[++1, 2, 2, 3, 5++]++`` the snowflake will have 5 branches. Two will split into 2, one into 3 and one into 5 sub-branches. One branch will not split.
+
+The number `circr` is the radius of the circumscribed sphere of the snowflake. The number `r` is the radius of branches (and sub-branches). The number `ang` is the angle in degrees at which sub-branches branch (if there is only one sub-branch, it's straight (`ang` is not taken into account)), the angle is calculated so that 0 is a straight stick, 90 is perpendicular (angles outside this interval don't need to be handled). More about the anatomy of the snowflake you will learn below from the sketch.
+
+Branches must come out from the center of the snowflake in different directions so that they are as evenly distributed as possible. If we had a 2D snowflake, it would be enough to distribute the branches so that they have an angle of `360/(number of branches)` between them, but since we have a 3D snowflake, this problem is not entirely trivial. You are interested in algorithms that can evenly distribute N points on the surface of a sphere, which already exist, you just need to adapt them for OpenSCAD (which cannot increment values through a loop) (tip: `cos()` and `sin()` in OpenSCAD expects input in degrees, the constant `PI` already exists). You are interested in algorithms that give good results even for small numbers, because there won't be many branches. Since your algorithm for evenly distributing branches can work in different ways, the order of elements in the `branches` vector is irrelevant - you can think of this vector as a multiset.
+
+Note: The distribution of branches is not affected by the number of their sub-branches. When solving the distribution of branches, consider each branch the same.
+
+
+=== 3D Snowflake Anatomy
+
+
+This image shows how individual branches come out from the center of the snowflake towards the circumscribed sphere (that sphere is not part of the snowflake, just dimensional information):
+
+
+image::male.svg[width="500"]
+
+And here you can see the individual dimensions and shape of one branch. The variable `x` needs to be calculated based on the fixed given inputs:
+
+
+image::velke.svg[width="600"]
+
+Individual sub-branches are rotated by angle `ang` and evenly distributed:
+
+
+image::odnoz.png[]
+
+If there is only one sub-branch, it's straight (rotation by `ang` does not occur). Its length is not `5x` from the image above, but less (so that it reaches, but does not exceed the circumscribed sphere).
+
+Overall view:
+
+
+image::vlocka.png[]
+
+
+=== Your Snowflakes
+
+
+Each of you has been assigned three randomly generated multisets `branches`. It's up to you which one you choose for printing. Snowflakes are printed with other arguments set to default values.
+
+
+----
+xxxxxxxx [3, 2, 5, 3, 3, 3, 3, 3, 4, 3, 3, 3] [3, 3, 2, 4, 4, 2, 3, 3, 3, 3, 3, 3, 2, 2, 3, 3] [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3]
+yyyyyyyy [3, 4, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3] [3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 2, 3, 4, 1] [3, 3, 2, 3, 4, 3, 3, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3]
+zzzzzzzz [3, 3, 3, 3, 3, 3, 4, 3, 3, 2, 3, 3] [3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 2, 3, 5, 2, 2] [3, 2, 3, 3, 3, 3, 4, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3]
+...
+----
+
+
+=== Preprocessing
+
+
+Choose any (in your opinion the easiest or most interesting) of your three multisets and prepare a snowflake generated from it for printing (you can increase `$fn` to make your snowflake nicer). You can do practically anything with it (fix, rotate, cut, add support structures), but it is necessary to preserve the snowflake's dimensions and shape according to the specified rules and data during printing. The output is one or more STL files ready for slicing and a very brief description of *what* you did and *why* (not necessarily in writing, but during submission it is necessary to explain the process and this even several weeks after making your changes).
+
+TIP: How to cut STL files? It can certainly be done in OpenSCAD, but that's unnecessarily complicated. We have therefore prepared a xref:../../tutorials/meshmixer/index#[short guide for MeshMixer program] - recommended by three out of four instructors.
+
+
+TIP: Can't align well in Meshmixer? Try the http://software.ultimaker.com/[Cura] program. It contains a _Lay flat_ function.
+
+
+=== Slicing
+
+
+Slice your prepared print STL with any program using appropriate settings. For Slic3r, start from link:{imagesdir}/../../tutorials/tisk/slic3r-config-bundle.ini.zip[slic3r-config-bundle.ini.zip] (select profiles as in the exercise, i.e., not -default-). We don't have profiles for other programs for you, but you may create your own. The output is the used slicing profile exported from the program and one or more GCODE files. Individual parts can be printed at once (if they fit on the print bed and if it seems appropriate to you) or sequentially, or a combination of both.
+
+
+=== Printing and Postprocessing
+
+
+In credit events listed in KOS, taking place during the examination period, you will be printing snowflakes from ABS in the laboratory from your prepared GCODE files. After printing is complete, the print must be properly processed - remove supports, glue together, etc. The resulting snowflake should look as similar as possible to the required model. One term has a maximum of 5 hours total (printing + postprocessing).
+
+In case of absolute failure during printing, it is possible to repeat the print with a new GCODE, but only once. In case of a technical problem on our side, this does not count as a wasted attempt, of course.
+
+
+=== Submission, Grading and Deadlines
+
+
+Submit on GitHub, https://classroom.github.com/assignment-invitations/552b004c3355a605f50cd8a90bdc0d02[create a repository using this link]. Include all written descriptions directly in README (or README.md, etc.) in the repository.
+
+Submit in the repository:
+
+* scad file with the `flake` module - its declaration/definition
+* scad file *calling* the `flake` module with your selected data (without the declaration/definition of the flake module)
+* STL file with your snowflake, as it was generated by OpenSCAD
+* Print STL files
+* Print GCODE files
+* Profile for slicing program you used
+* Any other necessary files
+* Fill out questionnaire, will be specified
+
+The submission deadline on GitHub is *January 15, 2017* inclusive (or the beginning of your credit term, if it takes place earlier), you can print even after. Possibility of late submission: For each additional started week (even by a second) 10 points are deducted from the total grade. If the total sum is less than 0, the grade for the semester project is 0. At the time of commencement of the classified credit term (printing in the laboratory), it must already be submitted on GitHub.
+
+The examination period ends February 19, 2017, we have nothing against submission and credit terms even after this date, but it is necessary to explicitly agree on this and accept the risks arising from it.
+
+Grading according to the following table:
+
+[options="autowidth"]
+|====
+<h| OpenSCAD Modules  <h| 10 h|
+| Module `flake` works according to specification  | 7  | mandatory within the section
+| Source code is appropriately structured and commented  | 3 |
+<h| Print Preparation  <h| 10 h|
+| Appropriately prepared print STL  | 5  | mandatory within the section
+| Mesh in all print STLs is okay  | 5 |
+<h| Slicing  <h| 10 h|
+| Supports (not needed (5 pts.), appropriate use* (2.5 pts.), unnecessary use (0 pts.))  | 5 |
+| Appropriate setting of print parameters (perimeters, infill, layer height)  | 5 |
+<h| Print  <h| 20 h|
+| It is a print of the model according to specification, print is processed (e.g., without supports, glued together, etc.)  | 5  | mandatory within the section
+| Print does not contain defects obviously caused by inappropriate model preparation  | 7.5 |
+| Print does not contain defects obviously caused by inappropriate printer preparation (print bed preparation, inappropriate temperatures)  | 7.5 |
+|====
+
+* Only supports generated during slicing incur point deductions. Because we're in the slicing section.
+
+IMPORTANT: To control the printer during submission you need your own computer with the ability to connect to WiFi or by cable to the local network. You also need to know (be able to look up) your MAC address.
+
+
+Grading is divided into 4 sub-sections. _Mandatory within the section_ means that without completing this task the student will not receive any points for that section. In case of remedial printing, values of points in other sub-sections are no longer corrected. So if for example you fail slicing, you get zero points for it and (quite logically) the print also fails fatally, you can get points for printing in a remedial term, but you won't get any more points for slicing.
