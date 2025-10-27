@@ -1,6 +1,6 @@
 = Tisk: Vícebarevný tisk
 :toc:
-:imagesdir: ../images/multicolor/
+:imagesdir: ../../images/multicolor/
 :html5s-image-default-link: self
 
 Jistě jste si všimli, že naše tiskárny tisknout takovým materiálem (v takové barvě),

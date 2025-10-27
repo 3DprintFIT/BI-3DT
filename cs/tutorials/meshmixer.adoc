@@ -1,6 +1,6 @@
 = MeshMixer a řezání STL souborů
 :toc:
-:imagesdir: ../images/meshmixer/
+:imagesdir: ../../images/meshmixer/
 :html5s-image-default-link: self
 
 Aktuální MeshMixer 3.2 najdete na http://www.meshmixer.com/[stránkách

@@ -1,6 +1,6 @@
 = Printing: Bridges
 :toc:
-:imagesdir: ../images/bridges/
+:imagesdir: ../../images/bridges/
 
 In previous exercises we explained that
 classic FDM printers cannot print into thin air for physical reasons

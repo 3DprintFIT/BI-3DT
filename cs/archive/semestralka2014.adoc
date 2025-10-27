@@ -1,5 +1,5 @@
 = Semestrální práce 2014/2015
-:imagesdir: media
+:imagesdir: media/
 :toc:
 
 

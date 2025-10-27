@@ -1,5 +1,5 @@
 = Programmatic Manipulation with STL Files
-:imagesdir: ../images/admesh/
+:imagesdir: ../../images/admesh/
 :toc:
 
 Besides manual mesh processing in programs like Netfabb Basic, it's

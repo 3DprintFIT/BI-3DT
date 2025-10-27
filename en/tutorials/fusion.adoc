@@ -1,6 +1,6 @@
 = Fusion 360
 :toc:
-:imagesdir: ../images/fusion/
+:imagesdir: ../../images/fusion/
 
 == Registration
 

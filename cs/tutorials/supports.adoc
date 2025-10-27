@@ -1,6 +1,6 @@
 = Tisk: Podpory
 :toc:
-:imagesdir: ../images/supports/
+:imagesdir: ../../images/supports/
 :html5s-image-default-link: self
 
 Ne vždy se stává, že model lze na FDM tiskárně vytisknout tak, jak je.

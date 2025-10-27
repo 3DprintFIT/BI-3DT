@@ -1,6 +1,6 @@
 = Git: Tutorial
 :toc:
-:imagesdir: ../images/git/
+:imagesdir: ../../images/git/
 
 Submission of all work during BI-3DT (except for physical prints)
 is done using Git.

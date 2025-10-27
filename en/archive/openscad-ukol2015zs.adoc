@@ -1,5 +1,5 @@
 = OpenSCAD: Homework WS 2015/2016
-:imagesdir: media
+:imagesdir: media/
 :toc:
 
 

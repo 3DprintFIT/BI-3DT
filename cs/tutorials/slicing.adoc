@@ -1,7 +1,7 @@
 = Slicing
 Marián Hlaváč <marian.hlavac@fit.cvut.cz>
 :toc:
-:imagesdir: ../images/slicing/
+:imagesdir: ../../images/slicing/
 
 3D tiskárna je ve výsledku celkem jednoduché zařízení. Nefunguje jako krabička, na kterou pošleme 3D model v libovolném formátu a z tiskárny začne vytékat plast ve tvaru zadaného 3D modelu. Pro tisk potřebujeme na tiskárnu odeslat přesná tisková data.
 

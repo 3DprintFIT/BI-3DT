@@ -1,7 +1,7 @@
 = Tisk
 Marián Hlaváč <marian.hlavac@fit.cvut.cz>
 :toc:
-:imagesdir: ../images/printing/
+:imagesdir: ../../images/printing/
 
 Tento týden se konečně dostaneme k tomu, na co jsme se všichni jistě celou dobu těšili. 
 Využijeme získané teoretické znalosti a uplatníme je prakticky.
