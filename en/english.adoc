@@ -1,6 +1,6 @@
 = English summary
 :toc:
-:imagesdir: images/printing/
+:imagesdir: ../images/printing/
 
 This is a quick summary created for the purposes of occasional intensive English courses.
 It focuses merely on printing rather than other topics of the regular 3D printing class at FIT.

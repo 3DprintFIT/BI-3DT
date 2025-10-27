@@ -1,5 +1,5 @@
 = Technologie tisku a RepRap
-:imagesdir: ../images/reprap
+:imagesdir: ../../images/reprap
 :toc:
 
 Účelem tohoto textu je stručně vás seznámit s 3D tiskem a to především s 3D

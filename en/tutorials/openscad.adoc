@@ -1,6 +1,6 @@
 = OpenSCAD
 :toc:
-:imagesdir: ../images/openscad/
+:imagesdir: ../../images/openscad/
 :experimental:
 // experimental for the kbd macro
 

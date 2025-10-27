@@ -1,6 +1,6 @@
 = Printing: Supports
 :toc:
-:imagesdir: ../images/supports/
+:imagesdir: ../../images/supports/
 :html5s-image-default-link: self
 
 It's not always the case that a model can be printed on an FDM printer as it is.

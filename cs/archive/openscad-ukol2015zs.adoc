@@ -1,5 +1,5 @@
 = OpenSCAD: Domácí úkol ZS 2015/2016 
-:imagesdir: media
+:imagesdir: media/
 :toc:
 
 

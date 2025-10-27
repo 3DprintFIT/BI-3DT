@@ -1,5 +1,5 @@
 = Skenování
-:imagesdir: ../images/scan/
+:imagesdir: ../../images/scan/
 :toc:
 :experimental:
 // experimental for the kbd macro

@@ -1,6 +1,6 @@
 = MeshMixer and Cutting STL Files
 :toc:
-:imagesdir: ../images/meshmixer/
+:imagesdir: ../../images/meshmixer/
 :html5s-image-default-link: self
 
 You can find the current MeshMixer 3.2 on the http://www.meshmixer.com/[program's website]. There are versions for Windows and macOS.

@@ -1,5 +1,5 @@
 = Programová manipulace s STL soubory
-:imagesdir: ../images/admesh/
+:imagesdir: ../../images/admesh/
 :toc:
 
 Kromě ručního zpracování meshe v programech, jako je Netfabb Basic, je
