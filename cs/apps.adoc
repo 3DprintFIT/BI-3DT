@@ -5,13 +5,14 @@ potřebovat tyto programy:
 
 * http://openscad.org[OpenSCAD] 2019.05 nebo novější
 * https://github.com/3DprintFIT/netfabb-basic-download/releases[netfabb Basic]
-* https://github.com/kliment/Printrun[Printrun]
-* http://slic3r.org/[Slic3r]
 * https://github.com/admesh/admesh[ADMesh] >= 0.98 (včetně devel balíků,
 pokud instalujete z repozitářů)
+* https://www.orcaslicer.com/download/[OrcaSlicer]
 
 Dále by se vám mohlo hodit:
 
+* https://github.com/kliment/Printrun[Printrun]
+* http://slic3r.org/[Slic3r]
 * https://ultimaker.com/en/products/ultimaker-cura-software[Cura]
 * http://meshlab.sourceforge.net/[Meshlab]
 * https://www.danielgm.net/cc/[CloudCompare]
@@ -23,7 +24,8 @@ Dále by se vám mohlo hodit:
 Doporučenou linuxovou distribucí je *Fedora*, protože obsahuje všechny
 toto nástroje v repozitářích (kromě netfabbu a KISSliceru, které nejsou
 open-source, ty ale najdete v oblíbeném repozitáři
-http://rpmfusion.org/[RPM Fusion]).
+http://rpmfusion.org/[RPM Fusion],
+a kromě OrcaSlieru, který lze nainstalovat přes flatpak).
 
 K ovládání tiskárny je potřeba, aby váš uživatel mohl přistupovat k USB
 přes serial interface, což ve většině linuxových distribucí obnáší
@@ -35,10 +37,11 @@ potřeba.
 * Pro instalaci všech nástrojů a aplikací:
 `# dnf install openscad-MCAD printrun slic3r admesh-devel admeshgui cloudcompare meshlab cura admeshgui`
 * Pouze nezbytně nutné:
-`# dnf install printrun slic3r openscad admesh-devel`
+`# dnf install openscad admesh-devel`
 * netfabb Basic a KISSlicer naleznete v repozitáři
 http://rpmfusion.org/[RPM Fusion], jako `netfabb-basic`, respektive
 `kisslicer`
+* Po stažení flatpaku s OrcaSlicerem: `$ flatpak install .../OrcaSlicer-Linux-flatpak_...flatpak`
 
 Používejte podporovanou verzi Fedory, jinak budete mít staré verze
 programů.
@@ -52,7 +55,8 @@ nenajdete, postupujte podle instrukcí na webu aplikace.
 * http://www.openscad.org/downloads.html#linux[Instalace OpenSCADu]
 * https://github.com/3DprintFIT/netfabb-basic-download/releases[Stažení
 netfabbu]
-* http://kisslicer.com/download.html[Stažení KISSliceru]
+netfabbu]
+* https://www.orcaslicer.com/download/[Stažení OrcaSliceru]
 * http://reprap.org/wiki/Printrun#GNU.2FLinux_.26_Distros[Instalace
 Printrunu]
 * http://dl.slic3r.org/linux/[Binárky Slic3ru]
