@@ -5,37 +5,37 @@ Program changes are reserved.
 [cols="s,2,4,",options="header",]
 |=======================================================================
 |Tutorial |Date |Topic |Points
-|1. |17.02.2025 |xref:course#[Course Principles],
+|1. |16.02.2026 |xref:course#[Course Principles],
 xref:reprap#[RepRap], xref:git#[Git], xref:openscad#[OpenSCAD: Light Introduction]
-|https://github.com/3DprintFIT/B242A-Username-Assignment[0]
+|https://github.com/3DprintFIT/B252A-Username-Assignment[0]
 
-|2. |24.02.2025 |xref:openscad#[OpenSCAD: Basics]
-|https://github.com/3DprintFIT/B242A-OpenSCAD1-Assignment[3]
+|2. |23.02.2026 |xref:openscad#[OpenSCAD: Basics]
+|https://github.com/3DprintFIT/B252A-OpenSCAD1-Assignment[3]
 
-|3. |03.03.2025 |xref:openscad#[OpenSCAD: Advanced]
-|https://github.com/3DprintFIT/B242A-OpenSCAD2-Assignment[3]
+|3. |02.03.2026 |xref:openscad#[OpenSCAD: Advanced]
+|https://github.com/3DprintFIT/B252A-OpenSCAD2-Assignment[3]
 
-|4. |10.03.2025 |xref:fusion#[Fusion 360] – 🖱️  bring your own mouse
+|4. |09.03.2026 |xref:fusion#[Fusion 360] – 🖱️  bring your own mouse
 |3
 
-|5. |17.03.2025 |xref:mesh#[Mesh] – 🖱️  bring your own mouse
-|https://github.com/3DprintFIT/B242A-Mesh-Assignment[3]
+|5. |16.03.2026 |xref:mesh#[Mesh] – 🖱️  bring your own mouse
+|https://github.com/3DprintFIT/B252A-Mesh-Assignment[3]
 
-|6. |24.03.2025 |xref:admesh#[ADMesh] – Programmatic mesh manipulation
-|https://github.com/3DprintFIT/B242A-ADMesh-Assignment[3]
+|6. |23.03.2026 |xref:admesh#[ADMesh] – Programmatic mesh manipulation
+|https://github.com/3DprintFIT/B252A-ADMesh-Assignment[3]
 
-|7. |31.04.2025 |xref:slicing#[Slicing]
-|https://github.com/3DprintFIT/B242A-Slicing-Assignment[3]
+|7. |30.04.2026 |xref:slicing#[Slicing]
+|https://github.com/3DprintFIT/B252A-Slicing-Assignment[3]
 
-|8. |07.04.2025 |xref:printing#[Printing: Basics] |3
+|8. |13.04.2026 |xref:printing#[Printing: Basics] |3
 
-|9. |14.04.2025 |xref:bridges#[Printing: Bridges] |3
+|9. |20.04.2026 |xref:bridges#[Printing: Bridges] |3
 
-|10. |28.04.2025 |xref:supports#[Printing: Supports] |3
+|10. |27.04.2026 |xref:supports#[Printing: Supports] |3
 
-|11. |05.05.2025 |xref:multicolor#[Printing: Multi-color printing] |3
+|11. |04.05.2026 |xref:multicolor#[Printing: Multi-color printing] |3
 
-|12. |12.05.2025 |Printing - whatever you want to try for the semester project |0
+|12. |11.05.2026 |Printing - whatever you want to try for the semester project |0
 
 2+d|Home preparation suitable for the semester project
 |xref:meshmixer#[MeshMixer and cutting STL files] |0
