@@ -6,6 +6,7 @@ Both exercise sessions::
 
 Laboratory members also participate and help with the course::
   * Marek Reimer
+  * Patrik Svoboda
 
 Contact information::
   * Lab phone: +420 224 358 714
