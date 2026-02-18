@@ -24,7 +24,7 @@ xref:reprap#[RepRap], xref:git#[Git], xref:openscad#[OpenSCAD: Light Introductio
 |6. |23.03.2026 |xref:admesh#[ADMesh] – Programmatic mesh manipulation
 |https://github.com/3DprintFIT/B252A-ADMesh-Assignment[3]
 
-|7. |30.04.2026 |xref:slicing#[Slicing]
+|7. |30.03.2026 |xref:slicing#[Slicing]
 |https://github.com/3DprintFIT/B252A-Slicing-Assignment[3]
 
 |8. |13.04.2026 |xref:printing#[Printing: Basics] |3

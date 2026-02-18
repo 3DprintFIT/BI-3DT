@@ -24,7 +24,7 @@ xref:reprap#[RepRap], xref:git#[Git], xref:openscad#[OpenSCAD: Lehký úvod]
 |6. |23.03.2026 |xref:admesh#[ADMesh] – Programová manipulace s meshí
 |https://github.com/3DprintFIT/B252A-ADMesh-Assignment[3]
 
-|7. |30.04.2026 |xref:slicing#[Slicing]
+|7. |30.03.2026 |xref:slicing#[Slicing]
 |https://github.com/3DprintFIT/B252A-Slicing-Assignment[3]
 
 |8. |13.04.2026 |xref:printing#[Tisk: Základy] |3
