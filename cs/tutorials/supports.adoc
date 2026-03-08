@@ -10,16 +10,39 @@ Jak to ale udělat, když se nejedná o most?
 Jendou z možností je vytisknout pod objektem podpůrné struktury, podpory,
 nebo častěji anglicky *support*. O tom bude dnešní cvičení.
 
-Pro tisk s podporami je třeba tuto funkcionalitu explicitně zapnout ve Slic3ru
-na stránce _Support material_.
+Pro tisk s podporami je třeba tuto funkcionalitu explicitně zapnout v OrcaSliceru
+na stránce _Support_.
 
-Slic3r umí sám detekovat, kde je support potřeba, jen je mu třeba říci,
+OrcaSlicer umí sám detekovat, kde je support potřeba, jen je mu třeba říci,
 co naše tiskárna ještě zvládne. To závisí na různých okolnostech,
 jako rychlosti tisku, vlastnostech tiskového materiálu,
 teplotě okolí a aktivním chlazení.
 
-.Nastavení Slic3ru pro podpory
-image::slic3r.png[Slic3r, width=500]
+TIP: OrcaSlicer dokáže často sám rozeznat, že model není tisknutelný bez podpor a během slicingu zobrazí varovné hlášení. Je dobré tyto varování neignorovat, pokud si nejste absolutně jisti, že víte, co děláte.
+
+== Typy podpor
+
+_Tyto informace již byly zmíněny v xref:slicing.adoc#supports[slicingu]._
+
+Existují dva hlavní typy podpor:
+
+=== Standardní podpory
+
+.Naslicovaná socha želvy se standardními podporami
+image::turtle-standard-supports.png[Standardní podpory, width=350, float=right, link=../images/supports/turtle-standard-supports.png]
+
+Standardní podpory jsou vhodné pro model, které mají větší převisy s jednoduššími tvary. Jsou rychlejší na tisk než stromové podpory, ale využívají více materiálu a mohou být obtížnější na odstranění. Nejsou vhodné pro velmi detailní modely (jako ten na obrázku).
+
+=== Stromové podpory
+
+.Naslicovaná socha želvy se stromovými podporami
+image::turtle-tree-supports.png[Stromové podpory, width=350, float=right, link=../images/supports/turtle-tree-supports.png]
+
+Stromové podpory jsou vhodné pro model, které mají mnoho malých převisů, které by se jinak nevytiskly. Jsou efektivnější než standardní podpory, ale mohou být obtížnější a pomalejší na tisk. Dokáží podržet důležitá místa aniž by se zbytečně dotýkaly jiných míst modelu (díky čemuž nezanechávají takové vady tisku).
+
+
+.Nastavení OrcaSliceru pro podpory
+image::OrcaSlicer-support-settings.png[OrcaSlicer, width=300]
 
 NOTE: Obecně platí, že čím víc se na objekt fouká, tím větší převisy se dají vytisknout a méně supportu je potřeba.
 Na některé materiály (např. na ABS) se prakticky foukat nedá, protože by vzniklo příliš velké pnutí a objekt by popraskal.
@@ -28,8 +51,7 @@ Pokud tisknete z PET nebo PLA, je tedy často možné podpory relativně omezit.
 .Model medvěda se zvýrazněnými převisy -- tam bude potřeba support
 image::bear.png[Medvěd, width=450]
 
-IMPORTANT: Pro dnešní cvičení si stáhněte obecný xref:printing#config-file[Config Bundle pro Slic3r],
-tedy nepoužívejte ten ze cvičení o mostech.
+IMPORTANT: Pro dnešní cvičení si stáhněte oba obecné konfigurační soubory pro OrcaSlicer (pro Voron i Hybrix). Pokud je máte stažené z minulých cvičení, nemusíte je znovu importovat. Odkazy najdete v xref:printing#config-file[sekci o konfiguraci v návodu k tisku].
 
 WARNING: Dodržujte všechna bezpečnostní pravidla z xref:printing.adoc#[tiskového cvičení].
 Zejména nejezte vteřinové lepidlo a nerozebírejte plastovou krytku zdroje tiskárny.
@@ -42,7 +64,7 @@ Zejména nejezte vteřinové lepidlo a nerozebírejte plastovou krytku zdroje ti
 Vaším úkolem za dva body je připravit si nebo najít vhodný testovací model, na kterém ověříte,
 jak veliké převisy tiskárna bez problému vytiskne bez supportu.
 
-Můžete použít například portál https://www.thingiverse.com/search?q=overhang+test[Thingiverse.com]
+Můžete použít například portál https://www.thingiverse.com/search?q=overhang+test[Thingiverse.com] nebo https://www.printables.com/search/models?q=overhang+test[Printables.com]
 a vyhledat „overhang test“.
 
 Pro případ výpadku portálu Thingiverse.com máme některé modely k dispozici i zde:
@@ -54,9 +76,11 @@ Pro případ výpadku portálu Thingiverse.com máme některé modely k dispozic
 ==== Návod
 
 1. Protože jste stáhli model z Internetu, měli byste nejprve provést kontrolu správnosti meshe.
-1. Model vhodně naškálujte, abyste úkol stihli; vězte ale, že příliš malý model může test ovlivnit.
-1. Nejprve vytiskněte model bez supportu, v případě nutnosti tisk ve vhodný čas zastavte.
-1. Poté nastavte úhel suppportu tak, aby se model mohl vytisknout, ale supportu bylo co nejméně; model vytiskněte znovu.
+2. Model vhodně naškálujte, abyste úkol stihli; vězte ale, že příliš malý model může test ovlivnit. Využijte odhadu času tisku v OrcaSliceru.
+3. Nejprve vytiskněte model bez supportu, v případě nutnosti tisk ve vhodný čas zastavte.
+_Pokud selhaný tisk způsobil nalepený plast na trysce, OPATRNĚ trysku očistěte pomocí kleštiček. Nesmíte se jí dotýkat prsty nebo jakoukoliv jinou částí svého těla ani trysku jakkoliv poškodit. Pokud si nejste jistí, raději si přivolejte cvičícího._
+4. Rozhodněte, zda se pro tento model více hodí stromové nebo standardní podpory. Proč? _(Musíte cvičícímu vysvětlit, proč jste tak rozhodli. Žádná odpověď není špatně, pokud si ji dokážete odůvodnit.)_
+5. Poté nastavte úhel suppportu tak, aby se model mohl vytisknout, ale supportu bylo co nejméně; model vytiskněte znovu. TIP: Využijte zobrazení po vrstvách v OrcaSliceru pro kontrolu tisknutelnosti.
 
 NOTE: Testovací model se musí udržet na tiskové desce.
 Použijte vhodné techniky, které znáte z kapitoly xref:slicing.adoc#structs[slicing].
@@ -74,20 +98,25 @@ Jak to ovlivní celkovou dobu tisku a proč?
 
 Vaším úkolem za jeden bod je vytisknout link:../stls/supports/bear.stl[medvěda] bez podpor.
 Musíte ho vhodně nařezat, vytisknout a poté (nepovinně) slepit vteřinovým lepidlem.
-Pro nařezání můžete použít Slic3r, před podélným řezem můžete objektem otáčet.
+Pro nařezání můžete použít OrcaSlicer, který poskytuje výkonný nástroj Cut.
 
 ==== Návod
 
-- Pro podélný řez objektem použijte tlačítko _Cut_. Chcete zachovat obě části (_Keep:_ _Upper part_, _Lower part_) a použít možnost _Rotate lower part upwards_.
+- Pro podélný řez objektem použijte tlačítko _Cut_ (ikonka obdélníku s přerušovanou čárou) nebo klávesu `C`. Chcete zachovat obě části (_Keep:_ _Upper part_, _Lower part_) a použít možnost _Place on cut_. Pokud chcete řez provést v jiné rovině než XY, použijte 
 - Pro otočení objektu po jiné ose než Z použijte kontextovou nabídku objektu (pravým tlačítkem myši na objekt na kartě _3D_).
 
-.Řez medvědem a volby řezu (výška řezu zde zvolena náhodně, aby vám nenapověděla)
-image::slic3r_cut.png[Slic3r: Řez, width=500]
+.Řez medvědem a volby řezu (úhel a pozice řezu zde zvoleny náhodně, aby vám nenapověděly)
+video::OrcaSlicer-bear-cut.mp4[OrcaSlicer: Řez]
 
 IMPORTANT: Lepení je poměrně náročné, snažte se medvěda rozřezat na co nejmenší počet dílů.
 
 WARNING: Při práci s lepidlem dbejte zvýšené opatrnosti a nepoškoďte zařízení učebny.
 
+==== Bonusový úkol (1 bod)
+
+Je možné medvěda vytisknout bez podpor a bez lepení? (Nápověda: co dělá tlačítko _Add connectors_ v dialogu _Cut_?)
+
+Body budou uděleny za vytištěného medvěda bez podpor a bez lepení, který ale bude sám o sobě držet v kuse.
 
 === Úklid (povinný)
 
@@ -99,3 +128,4 @@ Kdo po sobě xref:printing.adoc#ukol-3[neuklidí], nemá na body nárok.
 Na obrázcích a v úlohách se objevovaly modely:
 
 * https://www.thingiverse.com/thing:192392[Bear] by Christophe Caranchini (CC BY-NC 3.0)
+* https://www.printables.com/model/1251820-elegant-sea-turtle-sculpture[Elegant Sea Turtle Sculpture] by Oksus (CC BY-NC-ND 4.0)

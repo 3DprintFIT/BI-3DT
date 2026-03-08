@@ -50,7 +50,7 @@ Kopírují workflow tisku.
 
 1.  *Tvorba modelů*: program OpenSCAD
 2.  *Optimalizace* a *opravy*: program netfabb Basic
-3.  *Slicování*: program Slic3r
+3.  *Slicování*: program OrcaSlicer
 4.  *Tisk*: program OctoPrint
 5.  1 cvičení také *Programování*: ADMesh
 
@@ -93,7 +93,7 @@ potřebných programů, viz stránku xref:../apps#[Programy].
 
 CAUTION: Nainstalujte si programy co nejdříve a ověřte si jejich funkčnost!
 Setkali jsme se se situací, že student 45 minut na cvičení řešil instalaci
-Slic3ru a nestihl kvůli tomu samotnou práci. Za takovou situaci je student
+sliceru a nestihl kvůli tomu samotnou práci. Za takovou situaci je student
 zodpovědný sám, pokud nás včas (cca týden předem) nepožádá o pomoc.
 
 == Když se mi to nelíbí

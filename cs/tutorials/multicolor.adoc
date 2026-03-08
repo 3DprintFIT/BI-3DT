@@ -57,12 +57,18 @@ který můžeme s trochou šikovnosti provést a to rozdělení podél vrstvy:
 .Obrázek z https://replicatore.wordpress.com/2014/11/19/il-progetto-slic3r-e-appena-iniziato-parola-di-alessandro-ranellucci/[rozhovoru] s autorem Slic3ru © davidesher
 image::multicolor_cone.jpg[Kužel]
 
-== Postup
+== Možnosti vícebarevného tisku
 
-IMPORTANT: Pro dnešní cvičení si stáhněte obecný xref:printing#config-file[Config Bundle pro Slic3r].
+Existuje několik možností, jak vícebarevný tisk provést.
+
+== Sdílené informace (pro všechny možnosti)
+
+IMPORTANT: Pro dnešní cvičení si stáhněte oba obecné konfigurační soubory pro OrcaSlicer (pro Voron i Hybrix). Odkazy najdete v xref:printing#config-file[sekci o konfiguraci v návodu k tisku].
 
 WARNING: Dodržujte všechna bezpečnostní pravidla z xref:printing.adoc#[tiskového cvičení].
 Zejména nejezte filament a nesahejte na rozpálenou trysku tiskárny.
+
+== Rozdělení GCode souboru
 
 Základní myšlenka: Rozdělíme GCode na více souborů, abychom mezi nimi mohli filament vyměnit.
 Předpokládáme tisk dopravního kuželu z obrázku výše.
@@ -74,14 +80,6 @@ Předpokládáme tisk dopravního kuželu z obrázku výše.
 5. Spustíme tisk prvního souboru.
 6. Až dotiskne první barva, vyměníme materiál a spustíme další soubor.
 7. Takto měníme materiál a tiskneme další Gcode soubory dokud nedotiskneme celý objekt.
-
-NOTE: Na tiskárnách opatřených LCD displayem a tlačítkem můžete využít Gcode příkaz
-https://reprap.org/wiki/G-code#M600:_Filament_change_pause[M600].
-Tento příkaz tisk pozastaví, odjede tryskou na stranu, vypne motor na extruderu a informuje uživatele,
-že je potřeba vyměnit filament (často i pomocí hlasitého a nepříjemného pípání).
-Po výměně plastu stačí stisknout tlačítko, tisková hlava se vrátí zpět a tisk pokračuje.
-Místo rozdělení souboru na dva pak stačí do Gcodu přidat jeden řádek navíc,
-existují na to i https://www.prusaprinters.org/color-print/[sofistikované aplikace].
 
 === Kde rozdělit GCode?
 
@@ -114,9 +112,9 @@ G1 X126.883 Y103.323 E0.45482
 G1 X127.280 Y103.780 F12000.000
 ...
 ----
-<1> komentář vygenerovaný Slic3rem, ne v každém Gcodu musí být
+<1> komentář vygenerovaný slicerem, ne v každém Gcodu musí být, může se lišit mezi modely tiskáren
 <2> tento řádek je zásadní -- *za ním* soubor rozdělíme
-<3> komentář vygenerovaný Slic3rem, ne v každém Gcodu musí být
+<3> komentář vygenerovaný slicerem, ne v každém Gcodu musí být, může se lišit mezi modely tiskáren
 
 .Konec prvního Gcode souboru po rozdělení
 [source,gcode]
@@ -154,14 +152,32 @@ G1 X127.280 Y103.780 F12000.000
 ----
 <1> _home_ po osách X a Y (ve správné výšce už tryska je)
 
+== Vložení GCode příkazu pro výměnu filamentu
+
+Pro výměnu filamentu můžete využít Gcode příkaz
+https://reprap.org/wiki/G-code#M600:_Filament_change_pause[M600].
+Tento příkaz tisk pozastaví, odjede tryskou na stranu, vypne motor na extruderu a informuje uživatele,
+že je potřeba vyměnit filament (často i pomocí hlasitého a nepříjemného pípání).
+Po výměně plastu stačí stisknout tlačítko (buďto na displeji, nebo v webovém rozhraní), tisková hlava se vrátí zpět a tisk pokračuje.
+Místo rozdělení souboru na dva pak stačí do Gcodu přidat jeden řádek navíc, většina moderních slicerů na to má zabudovanou funkci.
+
+1. Připravte si model k tisku a nastavení
+2. V náhledu si najděte vrstvu, kde chcete vyměnit filament
+3. Klikněte pravým tlačítkem na ikonu + a vyberte `Add Custom GCode`
+4. __Pokud používáte tiskárnu Hybrix, vložte do políčka `Custom GCode` následující příkaz:__ `M226`
+5. __Pokud používáte tiskárnu Voron, vložte do políčka `Custom GCode` následující příkaz:__ `M600`
+6. Vyexportujte GCode a model vytiskněte.
+
 
 == Úkol
 
-Vytiskněte libovolné množství (nejméně však jedno) dvoubarevného
+Vytiskněte libovolné množství (nejméně však jeden) dvoubarevného
 link:../stls/multicolor/3dprintlab-logo.stl[loga laboratoře]. Nastavení
-tisku zvolte dle potřeby, vycházejte však z tiskového profilu _Normal_.
+tisku zvolte dle potřeby, vycházejte však z tiskového profilu _0.2 NORMAL_.
 Domluvte se s kolegy v učebně na výměně barvy filamentu,
 případně požádejte cvičící o náhradní barvu.
+
+IMPORTANT: Vysvětlete cvičícímu, jak jste postupovali.
 
 .Ukázkový výtisk loga laboratoře
 image::logo.jpg[Logo]

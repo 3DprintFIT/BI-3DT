@@ -21,7 +21,7 @@ image::octo-layers.jpg[Vrstvy naslicovaného modelu, width=500, link=../images/s
 
 GCode je textový soubor, člověkem relativně čitelný (popisuje však body v prostoru, které se z čísel dají představit těžce), primárně však určen pro strojové zpracování.
 
-GCode existoval dříve než 3D tiskárny (první implementace se objevila v 50. letech) a byl používán pro https://en.wikipedia.org/wiki/Numerical_control[CNC stroje] (3D tiskárna je ovšem podle definice také CNC stroj). Pro účely 3D tisku jsou do GCodu přidány https://reprap.org/wiki/G-code#M-commands[specifické kódy] (začínající na `M`), které definují ovládání funkcí, které jsou určeny pro 3D tisk (teplota trysky, vytlačování plastu).
+GCode existoval dříve než 3D tiskárny (první implementace se objevila v 50. letech) a byl používán pro https://en.wikipedia.org/wiki/Numerical_control[CNC stroje] (3D tiskárna je ovšem podle definice také CNC stroj). Pro účely 3D tisku jsou do GCodu přidány https://reprap.org/wiki/G-code#M-commands[specifické kódy] (začínající na `M`), které definují ovládání funkcí, které jsou určeny pro 3D tisk (teplota trysky, vytlačování plastu). Tyto příkazy se mohou lišit pro každý firmware, který tiskárna používá, ale slicery umí automaticky zvolit ty správné pro vybranou tiskárnu.
 
 Každý řádek představuje instrukci. Ta je popsána kódem, který je uveden jako první (např. `G1`) a za ním následují písmenem pojmenované argumenty (některé instrukce argumenty nemají, některé argumenty jsou volitelné) oddělené mezerou (např. `E4.00000 F3000.00000`).
 
@@ -55,35 +55,77 @@ G1 X143.311 Y63.369 E0.05600
 
 Generovat výše popsaný GCode ručně by bylo nejen nepraktické, ale u složitějších modelů pro běžného smrtelníka až nemožné. K tvorbě tiskových dat nám pomáhají programy označované jako *slicery*. Jejich název je odvozen ze slova „slice“ (v překladu „plátek“). Protože se tisk provádí po vrstvách, je vstupem těchto programů nějaký 3D model a výstupem (naplátkovaný) 3D model určený pro tisk. Proto se tento proces nazývá „slicing“ („naplátkování“).
 
-Slicerů existuje řada, některé jsou lepší, jiné horší, některé mají dobré UI ale neodvádějí tak dobrou práci, jiné jsou zase výbornými slicery ale mají příšerné UI. Najdou se i ty, které disponují obojím. Slicer může být software samostatný, nebo integrovaný v nějakém větším celku (např. v ovládacím softwaru pro 3D tiskárnu).
+Slicerů existuje řada, některé jsou lepší, jiné horší, některé mají dobré UI ale neodvádějí tak dobrou práci, jiné jsou zase výbornými slicery ale mají příšerné UI. Téměř všechny moderní udržované slicery disponují obojím. Slicer může být software samostatný, nebo integrovaný v nějakém větším celku (např. v ovládacím softwaru pro 3D tiskárnu, systému pro ovládání farmy tiskáren, mobilní aplikaci nebo dokonce webové službě).
 
-V předmětu BI-3DT budeme používat program *Slic3r*. Řadí se mezi nejpoužívanější, je to open-source software a kvalita výstupu je dostatečně dobrá.
+Dříve byl jeden z nejpopulárnějších slicerů *Slic3r*. Ten ale přestal být vyvíjen a vznikly další slicery, které na něm byly založeny. Hlavními nástupci Slic3ru jsou *PrusaSlicer*, *BambuStudio* a *OrcaSlicer*. Další populární slicer je *Cura* od společnosti Ultimaker.
 
-=== Slic3r
+V předmětu BI-3DT budeme používat program *OrcaSlicer*. Řadí se mezi nejpoužívanější, je to open-source software a má mnoho funkcí, které uživateli umožní dosáhnout dobré kvality výstupu i u obtížných modelů. Podporuje širokou škálu tiskáren a je lehce konfigurovatelný.
 
-http://slic3r.org[Slic3r] je od roku 2011 vyvíjen komunitou okolo projektu RepRap. Je dostupný pro všechny populární operační systémy. 
+NOTE: Přestože se budeme učit používat OrcaSlicer, měli byste si uvědomit, že drtivá většina konceptů, které se budeme učit, se dají použít i v ostatních slicerech (potenciálně pod jiným názvem).
 
-TIP: Slic3r je http://slic3r.org/download[ke stažení na stránce slic3r.org] případně dostupný jako balíček slušných linuxových distribucí, https://github.com/slic3r/Slic3r[zdrojové kódy najdete na GitHubu].
+=== Přehled slicerů a trocha historie
 
-Do tohoto programu budeme importovat STL model, který chceme tisknout, dále nastavíme správnou konfiguraci tiskárny (její rozměry a jakými funkcemi disponuje) a nastavíme parametry tisku (teploty, rychlosti, atd.). Výstupem je GCode soubor -- tisková data, která mohou být odeslána na tiskárnu.
+3D tisk má složitou historii plnou vývoje, inovací a nových nápadů. Komunita kolem 3D tisku se snaží tyto nápady a různá vylepšení sdílet a budovat na nich, což ale vedlo k složité "hierarchii" slicerů.
 
-Na cvičení budeme používat poslední verzi Slic3ru ≥ 1.3.0. V této verzi lze jednotlivé karty otevřít v nabídce __Settings__.
+==== Slic3r
 
-.Výchozí okno programu Slic3r (verze 1.3.0)
-image::slic3r.png[Okno Slic3ru, width=720, link=../images/slicing/slic3r.png]
+http://slic3r.org[Slic3r] byl od roku 2011 do roku 2018 vyvíjen komunitou okolo projektu RepRap. Je dostupný pro všechny populární operační systémy. Jednalo se o jeden z prvních slicerů, který měl dobré uživatelské rozhraní, mnoho nastavení pro tisk a (na tu dobu) dobrý výkon. Jeho vývoj ale byl ukončen a byl nahrazen dalšími slicery. V minulých letech byl tento program využíván ve výuce tohoto předmětu.
 
-==== Konfigurační soubor pro tiskárny
+==== PrusaSlicer
 
-.Položka __Load Config Bundle__
+https://github.com/prusa3d/PrusaSlicer[PrusaSlicer] je open-source slicer, který je založen na programu Slic3r. Na jeho vývoji se hlavně účastní společnost Prusa Research, ale mnoho dalších lidí přispívá. Je vhodný pro začátečníky, ale má mnoho funkcí, které umožní pokročilým uživatelům dosáhnout lepšich výsledků. Prusa Research se snaží PrusaSlicer upravovat tak, aby byl co nejvíce uživatelsky přívětivý, hlavně pro uživatele tiskáren Prusa.
+
+==== BambuStudio
+
+https://github.com/bambulab/BambuStudio[BambuStudio] je open-source slicer, který je založen na programu PrusaSlicer. Je vyvíjen společností BambuLab a jeho cílem je uživatelská přívětivost a snadná konfigurace pro uživatele tiskáren BambuLab. V dnešní době již podporuje i jiné tiskárny, ale vývoj je stále zaměřen na uživatele tiskáren BambuLab. Nabízí moderní uživatelské rozhraní, které je vhodné jak pro začátečníky, tak pro pokročilé uživatele, velmi dobrou podporu pro tiskárny s podporou tisku více barvami a další pokročilé funkce.
+
+==== OrcaSlicer
+
+https://orcaslicer.com[OrcaSlicer] je open-source slicer, který je založen na programu BambuStudio a sdílí jeho uživatelské rozhraní. Je vyvíjen komunitou a jeho cílem je být velmi otevřený a inovativní slicer. Jsou do něj pravidelně přidávány nové (často experimentální) funkce a možnosti, které umožňují dosáhnout lepší kvality a přesnosti výtisků.
+
+TIP: OrcaSlicer je https://github.com/softfever/OrcaSlicer/releases[ke stažení na stránce github.com/softfever/OrcaSlicer], případně dostupný jako balíček některých linuxových distribucí, https://github.com/softfever/OrcaSlicer[zdrojové kódy najdete na GitHubu]. Na školních počítačích je předinstalovaný.
+
+Na cvičení budeme používat právě program OrcaSlicer, a to verzi 2.3.0 nebo novější. 
+
+Do tohoto programu budeme importovat STL model, který chceme tisknout, dále nastavíme (respektive vybereme) správnou konfiguraci tiskárny (její rozměry a jakými funkcemi disponuje) a nastavíme parametry tisku (teploty, rychlosti, atd.). Výstupem je GCode soubor -- tisková data, která mohou být odeslána na tiskárnu.
+
+.Výchozí okno programu OrcaSlicer (verze 2.3.0)
+image::orcaslicer.png[Okno OrcaSliceru, width=720, link=../images/slicing/orcaslicer.png]
+
+=== Konfigurační soubory pro tiskárny
+
+.Položka __Import Configs__
 image::load-bundle.png[Nabídka file, width=320, float=right, link=../images/slicing/load-bundle.png]
 
-Stáhněte si konfigurační bundle pro tiskárny Hybrix, které používáme na tomto cvičení.
+Stáhněte si oba konfigurační soubory pro tiskárny, které používáme na tomto cvičení:
 
-*link:../configs/printing/slic3r_config_bundle.ini[slic3r_config_bundle.ini]*
+*link:../configs/printing/Voron\ 0.2.orca_printer[Voron 0.2 config]*
+*link:../configs/printing/ČVUT\ Hybrix\ 0.4\ nozzle.orca_printer[Hybrix config]*
 
-Tento soubor načtěte pomocí __File → Load Config Bundle__. Po načtení config bundlu je často nutné program restartovat. Úspěšné načtení config bundle poznáte podle nových položek vpravo nahoře (ve filamentu se objeví na výběr **PET** a v tiskárnách **Hybrix**).
+Oba soubory načtěte pomocí __File → Import → Import Configs__. Úspěšné načtení configů poznáte podle nových položek vlevo nahoře. Měli byste vidět v nabídce tiskáren Voron 0.2 a Hybrix.
 
-CAUTION: *Nastavit správný konfigurační soubor je důležité.* Nevhodně zvolená konfigurace může způsobit, že se v GCode objeví instrukce nevhodné pro danou tiskárnu (např. se může začít tisknout mimo tisknutelnou oblast) a takové instrukce mohou zapříčinit neúspěšný tisk, nebo v horším případě *poškodit tiskárnu*.
+CAUTION: *Nastavit správný konfigurační soubor je důležité.* Nevhodně zvolená konfigurace může způsobit, že se v GCode objeví instrukce nevhodné pro danou tiskárnu (např. se může začít tisknout moc rychle/na špatné místo) a takové instrukce mohou zapříčinit neúspěšný tisk, nebo v horším případě *poškodit tiskárnu*. Dnešní tiskárny mají obvykle některé ochranné funkce, které vás ochrání před jejich poškozením, ale je lepší se těmto problémům vyhnout.
+
+IMPORTANT: Před samotnou přípravou tiskových dat se ujistíme,
+že máme ve OrcaSliceru naimportované **správné konfigurační soubory**.
+Ty lze stáhnout xref:printing#config-file[na této stránce].
+Do OrcaSliceru je importujeme pomocí položky __File → Import → Import Configs__.
+
+Většinu těchto parametrů nastavují naše <<Konfigurační soubory pro tiskárny, konfigurační soubory>>. I přesto však doporučujeme zběžně tyto parametry projít, zájemce, kteří chtějí parametry podrobně zkoumat opět odkážeme na https://github.com/SoftFever/OrcaSlicer/wiki[OrcaSlicer wiki].
+
+=== Připojení tiskárny
+
+OrcaSlicer se umí připojit přímo k tiskárně a posílat do ní gcode k tisku po síti. Nejprve otevřete konfiguraci připojení k tiskárně pomocí kliknutí na ikonku "WiFi" vedle jména tiskárny.
+
+.Položka připojení tiskárny
+image::printer-connection-button.png[Tlačítko připojení tiskárny]
+
+V menu vyplňte url tiskárny (např. `voron-02-xx.local`) do pole Hostname a Device UI.
+
+.Dialog připojení tiskárny
+image::printer-connection-dialog.png[Dialog připojení tiskárny]
+
+Nakonec klikněte na tlačítko Test, měl by se zobrazit dialog, že připojení proběhlo v pořádku.
 
 == Podpůrné struktury
 
@@ -96,8 +138,9 @@ image::octo-infill.jpg[Vnitřek modelu, width=350, link=../images/slicing/octo-i
 
 V minulých cvičeních jste se dozvěděli, že meshí popisujeme pouze plášť objektu, nikoliv jeho vnitřek. Fyzicky na tiskárně však nelze vytisknout pouze tento plášť. Slicer se postará o vytvoření správné výplně objektu. Tato výplň se označuje slovem „infill“ (výplň).
 
-Předměty se běžně netisknou duté (vršek objektu by se neměl na co tisknout), ani plné (plýtvání filamentem a vzniká v předmětu pnutí, které narušuje integritu výtisku). Vyšší hustota infillu dělá předmět odolnější, těžší, ale také dražší a déle se tiskne. Nízká hustota naopak může zapříčinit nevzhledný výtisk (plášť objektu se může na některých místech propadat). V praxi se infill u obecného objektu nenastavuje na nižší hodnotu než 10 % ani na hodnotu vyšší než 50 %. Existují ale tvary, které se dají tisknout duté nebo s velmi malým infillem.
+Předměty se běžně netisknou duté (vršek objektu by se neměl na co tisknout), ani plné (plýtvání filamentem a vzniká v předmětu pnutí, které narušuje integritu výtisku). Vyšší hustota infillu dělá předmět odolnější, těžší, ale také dražší a déle se tiskne. Hustoty nad 70% většinou nepomáhají odolnosti výtisku a je lepší zvýšit počet stěn (perimeters/walls) a zmenšit infill na rozumnou hodnotu. Nízká hustota naopak může zapříčinit nevzhledný výtisk (plášť objektu se může na některých místech propadat). V praxi se infill u obecného objektu nenastavuje na nižší hodnotu než 10 % ani na hodnotu vyšší než 50 %. Existují ale tvary, které se dají tisknout duté nebo s velmi malým infillem.
 
+[[supports]]
 === Podpory (supports)
 
 .Naslicovaný držák s podporami (zelená barva)
@@ -105,7 +148,23 @@ image::supports.jpg[Supporty, width=350, float=right, link=../images/slicing/sup
 
 Často se stává, že potřebujeme vytisknout model s převisy. Ze zřejmých fyzikálních důvodů takový tisk u FDM tiskáren není možný (tiskárna by tiskla do vzduchu).
 
-Často lze tyto problémy řešit otočením modelu, nebo jeho rozdělením na více částí a následným ručním slepením po dokončení tisku. Někdy takové úpravy však nejsou možné nebo žádoucí a tak může slicer přidat k našemu modelu podpůrné struktury, které se po dokončení tisku odlomí, odřežou či jinak odstraní.
+Často lze tyto problémy řešit otočením modelu, nebo jeho rozdělením na více částí a následným ručním slepením po dokončení tisku. Někdy takové úpravy však nejsou možné nebo žádoucí a tak může slicer přidat k našemu modelu podpůrné struktury, které se po dokončení tisku odlomí, odřežou či jinak odstraní. Tyto podpory buď může vytvořit automaticky, nebo si může uživatel vybrat (namalovat), kde přesně je chce mít.
+
+Existují dva hlavní typy podpor:
+
+==== Standardní podpory
+
+.Naslicovaná socha želvy se standardními podporami
+image::turtle-standard-supports.png[Standardní podpory, width=350, float=right, link=../images/slicing/turtle-standard-supports.png]
+
+Standardní podpory jsou vhodné pro modely, které mají větší převisy s jednoduššími tvary. Jsou rychlejší na tisk než stromové podpory, ale využívají více materiálu a mohou být obtížnější na odstranění. Nejsou vhodné pro velmi detailní modely (jako ten na obrázku).
+
+==== Stromové podpory
+
+.Naslicovaná socha želvy se stromovými podporami
+image::turtle-tree-supports.png[Stromové podpory, width=350, float=right, link=../images/slicing/turtle-tree-supports.png]
+
+Stromové podpory jsou vhodné pro modely, které mají mnoho malých převisů, které by se jinak nevytiskly. Jsou efektivnější než standardní podpory, ale mohou být obtížnější a pomalejší na tisk. Dokáží podržet důležitá místa aniž by se zbytečně dotýkaly jiných míst modelu (díky čemuž nezanechávají takové vady tisku).
 
 [[structs]]
 === Rafts, skirts, brims
@@ -117,11 +176,11 @@ image::failed-print.jpg[width=80%, link=../images/slicing/failed-print.jpg]
 
 Problémové jsou především takové modely, které mají příliš malou styčnou plochu s tiskovou deskou a plocha, která předmět drží, je příliš malá (představte si např. model stolu který začínáme tisknout od nohou -- celý předmět drží pouze na čtyřech malých čtverečcích).
 
-Raft:: Struktura umístěná pod výtiskem vylepšující přilnavost k tiskové ploše. Rafty jsou určeny především pro ABS materiály, kterým se kraje výtisku při tisku zkroutí. Jsou užitečné i pro modely, které mají příliš malou styčnou plochu s tiskovou deskou. Vytvoří pro ně mnohem větší přilnavý základ. Raft vzniká posunutím objektu o několik málo vrstev vzhůru (do vzduchu) a podložením objektu podporou (supportem).
+Raft:: Struktura umístěná pod výtiskem vylepšující přilnavost k tiskové ploše. Rafty se v dnešní době používají málo často, protože moderní tiskové podložky mají dobrou přilnavost a tiskárny mají přesnější kalibraci. Jsou ale v ojedinělých případech stále potřeba, např. pro modely, které mají příliš malou styčnou plochu s tiskovou deskou. Vytvoří pro ně totiž mnohem větší přilnavý základ, který se nezkroutí, ani nebude mít tendenci se odlepit/nalepit na trysku během tisku. Raft vzniká posunutím objektu o několik málo vrstev vzhůru (do vzduchu) a podložením objektu podporou (supportem).
 
-Skirt:: Obrysová struktura zajišťující stabilní průtok plastu při prvních vrstvách tisku. Tiskne se dříve, než první vrstva předmětu a díky tomu jsou vytlačeny všechny vzduchové bubliny v trysce a stabilizuje se průtok plastu. Některé slicery k těmto účelům využívají jiných struktur (např. Prusa Slic3r dělá linku o šířce tiskové plochy na úplném kraji desky). Skirtu lze nastavit i vyšší počet vrstev a dá se tak využít i pro ochranu tisku před průvanem a následným popraskáním, ale v praxi se tento způsob příliš nepoužívá, neboť se tím zbytečně zvyšuje spotřeba materiálu a doba tisku, navíc jde o velmi nespolehlivou ochranu (lepší je dát tiskárnu do skříně).
+Skirt:: Obrysová struktura zajišťující stabilní průtok plastu při prvních vrstvách tisku. Tiskne se dříve, než první vrstva předmětu a díky tomu jsou vytlačeny všechny vzduchové bubliny v trysce a stabilizuje se průtok plastu. Některé slicery k těmto účelům využívají jiných struktur (např. PrusaSlicer, BambuSlicer i OrcaSlicer dělá linku na úplném kraji tiskové desky). Skirtu lze nastavit i vyšší počet vrstev a dá se tak využít i pro ochranu tisku před průvanem a následným popraskáním, ale v praxi se tento způsob příliš nepoužívá, neboť se tím zbytečně zvyšuje spotřeba materiálu a doba tisku, navíc jde o velmi nespolehlivou ochranu (lepší je dát tiskárnu do skříně).
 
-Brim:: Další ze struktur vylepšující přilnavost k tiskové ploše a redukující zkroucení krajů. Technicky jde o skirt s nulovou vzdáleností od modelu a s výškou jedné vrstvy. Nenachází se pod výtiskem, ale pouze rozšiřuje první vrstvu o zadanou velikost. Brim nenabídne takové vylepšení přilnavosti jako Raft, nicméně je mnohem rychlejší, jednodušší, narozdíl od Raftu nenechává na spodku modelu nerovnosti a pro většinu případů je dostačující.
+Brim:: Další ze struktur vylepšující přilnavost k tiskové ploše a redukující zkroucení krajů. Technicky jde o skirt s nulovou vzdáleností od modelu a s výškou jedné vrstvy. Nenachází se pod výtiskem, ale pouze rozšiřuje první vrstvu o zadanou velikost. Brim nenabídne takové vylepšení přilnavosti jako Raft, nicméně je mnohem rychlejší, jednodušší, narozdíl od Raftu nenechává na spodku modelu nerovnosti a pro většinu případů je dostačující. Existuje několik variant brimu, které se liší tvarem a pokrytím modelu (více informací najdete v jednotlivých úlohách).
 
 [cols=2, frame=none, grid=none]
 |===
@@ -138,65 +197,89 @@ image::skirt-brim.jpg[width=100%, link=../images/slicing/skirt-brim.jpg]
 |===
 
 
-== Konfigurace tisku v programu Slic3r
+== Uživatelské rozhraní programu OrcaSlicer
 
-Nyní přejdeme k tomu, co lze nastavit v programu Slic3r a k čemu je to dobré.
+Nyní přejdeme k tomu, co lze nastavit v programu OrcaSlicer a k čemu je to dobré.
 
-=== Karta __Plater__
+NOTE: OrcaSlicer již podporuje Češtinu, ale ne všechny překlady jsou přesné nebo dávají smysl, proto v tomto textu používáme anglickou verzi.
 
-Na kartě __Plater__ pracujete s objekty, které chcete tisknout. Tlačítkem __Add__ můžete přidat STL soubor. V 3D náhledu můžete objekty rozložit po tiskové ploše. Dalšími tlačítky ve vrchním panelu můžete vybraný objekt manipulovat (otáčet tlačítky __Rotate__, či měnit jeho velikost tlačítkem __Scale__).
+=== Karta __Prepare__
 
-Vpravo dole se zobrazují informace o vybraném objektu. Lze vidět jeho velikost v milimetrech (pro kontrolu) a další vlastnosti.
+Na kartě __Prepare__ pracujete s objekty, které chcete tisknout. Tlačítkem __Add__ můžete přidat STL soubor. V 3D náhledu můžete objekty rozložit po tiskové ploše. Dalšími tlačítky ve vrchním panelu můžete vybraný objekt manipulovat (otáčet tlačítky __Rotate__, či měnit jeho velikost tlačítkem __Scale__). Další možnosti jako zrcadlení modelu jsou k dispozici kliknutím na model pravým tlačítkem.
 
-Dole lze vybírat z několik pohledů, pro nás jsou především důležité pohledy __3D__ a __Preview__. V 3D pohledu lze pracovat s rozpoložením objektů, pohled __Preview__ vám ukáže, jak bude výsledný tisk vypadat, jaké struktury se vytisknou a lze vidět i náznak jednotlivých vrstev.
+Na levé straně můžete vybírat filamenty, tiskové profily a jednotlivá nastavení tisku.
 
-=== Karta __Print Settings__
+=== Nastavení tisku
 
-.Karta __Print Settings__
-image::print-settings.png[Print Settings, width=320, link=../images/slicing/print-settings.png, float=right]
+.Panel Process
+image::process-panel.png[Nastavení tisku, width=320, link=../images/slicing/process-panel.png, float=right]
 
-Kartě __Print Settings__ věnujte největší pozornost. Zatímco většinu důležitých hodnot v ostatních kartách za vás nastavil <<Konfigurační soubor pro tiskárny, konfigurační soubor>>, který jste si stáhli výše, nastavení tisku bude vaši hlavní úlohou při práci na cvičeních.
+Panelu Process (nastavení tisku) věnujte největší pozornost. Zatímco většinu důležitých hodnot v ostatních panelech a kartách za vás nastavil <<Konfigurační soubory pro tiskárny, konfigurační soubory>>, které jste si stáhli výše, nastavení tisku bude vaši hlavní úlohou při práci na cvičeních.
 
-Níže uvedeme všechny důležité parametry, které budete při tisku na cvičeních používat. Pokud se chcete něco dozvědět o parametrech, které neuvádíme, doporučujeme pro samostudium vybrat jeden klidný večer nad http://manual.slic3r.org[Slic3r manuálem].
+Níže uvedeme všechny důležité parametry, které budete při tisku na cvičeních používat. Tento list není úplný, ale pokud se chcete něco dozvědět o parametrech, které neuvádíme, doporučujeme pro samostudium vybrat jeden klidný večer nad https://github.com/SoftFever/OrcaSlicer/wiki[OrcaSlicer wiki]. Většina nastavení má i inline nápovědu, kterou můžete zobrazit najetím myši na název parametru (kliknutí otevře wiki).
 
-==== Stránka __Layers and perimeters__
+==== Stránka __Quality__
 
-Layer height:: Ovlivňuje výšku vrstvy -- přímo ovlivňuje kvalitu a dobu trvání tisku. Rozsah smysluplných hodnot ovlivňuje průměr trysky, která je nainstalována na tiskárně.
+Layer height:: Ovlivňuje výšku vrstvy -- přímo ovlivňuje kvalitu a dobu trvání tisku. Rozsah smysluplných hodnot ovlivňuje průměr trysky, která je nainstalována na tiskárně. Doporučuje se nepřekračovat 75% průměru trysky (ve většině případů 0.4mm, tudíž by maximum bylo 0.3mm).
 
-First layer height:: Ovlivní výšku první vrstvy. Nastavuje se na menší hodnotu než zbytek modelu pro lepší přilnutí k tiskové ploše.
+First layer height:: Ovlivní výšku první vrstvy. Lze nastavit na menší nebo větší hodnotu než zbytek modelu pro lepší přilnutí k tiskové ploše, ale většinou se nepoužívá. Dříve se používalo pro kompenzaci chyby kalibrace tiskárny.
 
 .Porovnání kvality tisku podle výšky vrstvy (https://www.flickr.com/photos/creative_tools/8616820648[Creative Tools, CC BY 2.0])
 image::layer-height-frogs.jpg[width=80%, link=../images/slicing/layer-height-frogs.jpg]
 
-Perimeters:: Počet perimetrů na krajích tisku (neovlivňuje rovné plochy na spodku a vršku předmětu).
-
-Solid layers:: Počet vrstev s plnou výplní na spodku a vršku. Čím více vrstev zvolíme, tím pevnější bude vrchní a spodní povrch a tím lépe se podaří zakrýt nastavený infill. Vysoká čísla však zvýší dobu tisku a spotřebu materiálu.
-
 .Jak ovlivňuje tisk nastavení perimetrů
 image::perimeters.jpg[width=80%, link=../images/slicing/perimeters.jpg]
 
-==== Stránka __Infill__
+==== Stránka __Strength__
 
 Na této stránce lze nastavit vlastnosti infillu, o kterém víme z kapitoly <<Vnitřek modelu>>.
 
-Fill density:: Určuje hustotu vnitřní výplně.
+Wall loops:: Počet perimetrů (stěn) na krajích tisku (neovlivňuje rovné plochy na spodku a vršku předmětu).
 
-Fill pattern:: Určuje vzorek výplně.
+Top shell layers a Bottom shell layers:: Počet vrstev s plnou výplní na spodku a vršku. Čím více vrstev zvolíme, tím pevnější bude vrchní a spodní povrch a tím lépe se podaří zakrýt nastavený infill. Vysoká čísla však zvýší dobu tisku a spotřebu materiálu.
 
-External infill pattern:: Určuje vzorek výplně na vrchních a spodních plochách zvenčí.
+Sparse infill density:: Určuje hustotu vnitřní výplně.
+
+Sparse infill pattern:: Určuje vzorek výplně.
+
+Top surface pattern:: Určuje vzorek výplně na vrchních a spodních plochách zvenčí.
 
 Solid infill every:: Zesílí odolnost předmětu vytisknutím plné výplně (100 %) každých __n__ vrstev.
 
-Fill angle:: Úhel vzorku výplně.
-
-Solid infill threshold area:: V malých částech předmětu (např. nějaké tenké trubičky či spojovník) slicer vyplňuje plnou výplní (100 %). Tato hodnota určuje práh plochy, při které se část předmětu považuje za malou.
+Sparse infill direction:: Úhel vzorku výplně.
 
 .Různé hustoty infillu
 image::infill.jpg[width=80%, link=../images/slicing/infill.jpg]
 
-==== Stránka __Skirt__
+==== Stránka __Speed__
 
-Na této stránce lze nastavit <<structs, Skirt či Brim>>.
+NOTE:: Hodnoty na této stránce hodně závisí na modelu a ladění tiskárny. Rychlejší tisk nemusí být lepší, v určitých příkladech to může mít negativní vliv na kvalitu, odolnost a spolehlivost tisku. Dobré pravidlo: je rychlejší výrobek vytisknout jednou pomaleji, než moc rychle a muset tisk opakovat kvůli problémům. Dosažitelná rychlost je navíc ovlivněna mnoha dalšími faktory (zrychlení, průtok trysky, chlazení), takže se nastavených rychlostí nemusí vždy dosáhnout.
+
+Outer wall:: Rychlost venkovního perimetru, má velký vliv na kvalitu. Rozumné hodnoty jsou mezi 60 a 150mm/s (u našich tiskáren Voron používáme 120mm/s, u Hybrix 60mm/s).
+
+Inner wall:: Rychlost vnitřních perimetrům, má menší vliv na kvalitu, ale může mít vliv na přesnost. Rozumné hodnoty jsou mezi 80 a 250mm/s (u našich Voronů používáme 200mm/s).
+
+Sparse infill:: Rychlost tisku infillu, neovlivňuje kvalitu, ale při příliš rychlém tisku může způsobit "hrudky", kde se infill nestíhá přichytávat a způsobí horší odolnost (nebo dokonce selhání tisku). Rozumné hodnoty jsou mezi 80 a 300mm/s.
+
+Top surface:: Rychlost tisku vrchních vrstev tisku, ovlivňuje kvalitu vodorovných povrchů výtisku. Rozumné hodnoty jsou mezi 80 a 200mm/s.
+
+Travel:: Rychlost přejezdů mezi částmi výtisku, může být nastaveno vysoko, neovlivňuje kvalitu tisku, ale může způsobit "kolizi" s výtiskem při příliš rychlém pohybu. Rozumné hodnoty jsou mezi 100 a 500mm/s (u našich Voronů 350mm/s, u Hybrix 200mm/s).
+
+==== Stránka __Support__
+
+Na této stránce lze nastavit <<Supports, supporty>>, nebo <<structs, raft>>.
+
+Enable support:: Zapne generování podpor.
+
+Type:: Určuje typ podpor (standardní nebo stromové, automatické nebo ruční).
+
+Threshold angle a Threshold overlap:: Určuje hranici, do jak příkrých převisů chcete podpory generovat. Dá se nastavit v stupních (náklon od podložky, čím vyšší úhel, tím více podpor) nebo v procentech (kolik procent perimetru ještě smí další vrstva přesahovat vrstvu pod ní).
+
+Raft layers:: Určuje kolik vrstev raftu chcete pod model vytisknout.
+
+==== Stránka __Other__
+
+Na této stránce lze nastavit <<structs, Skirt či Brim>> a další struktury/efekty, například Fuzzy skin (více v dalším cvičení).
 
 Loops:: Počet obrysů skirtu. Pro běžné použití k vyčištění trysky před tiskem první vrstvy stačí ve většině případů jeden až dva.
 
@@ -206,23 +289,13 @@ Skirt height:: Kolik vrstev bude skirt vysoký. Pro vyčištění trysky se vět
 
 Exterior brim width:: Nenulová hodnota vygeneruje brim kolem předmětu o zadané velikosti.
 
-==== Stránka __Support material__
+=== Ostatní panely
 
-Na této stránce lze nastavit <<Supports, supporty>>, nebo <<structs, raft>>.
+Panel __Filament__, jak název napovídá, skrývá nastavení vztahující se k filamentu. Ze jsou nejdůležitějšími položkami __Diameter__ (určující průměr struny, obvykle 1.75mm) a nastavení teplot, které se liší podle materiálu (jak se dozvíte v prvním cvičení věnující se tisku). Na stránce __Cooling__ pak lze definovat chování ventilátoru k dodatečnému chlazení výtisku.
 
-Generate support material:: Zapne generování podpor.
+Panel __Printer__ slouží k nastavení parametrů tiskárny (velikost a tvar tiskové plochy, počet extruderů, maximální rychlosti atd.). Zatímco položky na panelech __Process__ a __Filament__ měníte prakticky při každém tisku, položky na tomto panelu zůstávají povětšinou netknuté, dokud nezměníte konfiguraci tiskárny.
 
-Overhang threshold:: Určuje hranici, do jak příkrých převisů chcete podpory generovat. Dá se nastavit v procentech: o kolik procent perimetru ještě smí další vrstva přesahovat vrstvu pod ní (čím vyšší číslo, tím méně podpor); případně ve stupních (náklon od podložky, čím vyšší úhel, tím více podpor).
-
-Raft layers:: Určuje kolik vrstev raftu chcete pod model vytisknout.
-
-=== Ostatní karty
-
-Karta __Filament Settings__, jak název napovídá, skrývá nastavení vztahující se k filamentu. Ze jsou nejdůležitějšími položkami __Diameter__ (určující průměr struny) a nastavení teplot, které se liší podle materiálu (jak se dozvíte v prvním cvičení věnující se tisku). Na stránce __Cooling__ pak lze definovat chování ventilátoru k dodatečnému chlazení výtisku (některé materiály jej potřebují, ale naše tiskárny jím nedisponují).
-
-Karta __Printer Settings__ slouží k nastavení parametrů tiskárny (velikost a tvar tiskové plochy, počet extruderů atd.). Zatímco položky na kartách __Print Settings__ a __Filament Settings__ měníte prakticky při každém tisku, položky na tomto panelu zůstávají povětšinou netknuté, dokud nezměníte konfiguraci tiskárny.
-
-Většinu těchto parametrů nastavuje náš <<Konfigurační soubor pro tiskárny, konfigurační soubor>>. I přesto však doporučujeme zběžně tyto parametry projít, zájemce, kteří chtějí parametry podrobně zkoumat opět odkážeme na http://manual.slic3r.org[Slic3r manuál].
+Většinu těchto parametrů nastavují naše <<Konfigurační soubory pro tiskárny, konfigurační soubory>>. I přesto však doporučujeme zběžně tyto parametry projít, zájemce, kteří chtějí parametry podrobně zkoumat opět odkážeme na https://github.com/SoftFever/OrcaSlicer/wiki[OrcaSlicer wiki].
 
 == Slicing krok za krokem
 
@@ -243,37 +316,35 @@ Dále máme obavy, že se při tisku mohou nožičky odlepit od tiskové podlož
 takže přidáme struktury pro vylepšení přilnavosti.
 
 IMPORTANT: Před samotnou přípravou tiskových dat se ujistíme,
-že máme ve Slic3ru naimportovaný **správný config bundle**.
-Ten lze stáhnout xref:#config-file[na této stránce].
-Do Slic3ru jej importujeme pomocí položky __Load Config Bundle__, nikoliv pomocí __Load config__.
+že máme ve OrcaSliceru naimportovaný **správný config bundle**.
+Ten lze stáhnout xref:printing#config-file[na této stránce].
+Do OrcaSliceru jej importujeme pomocí položky __File → Import → Import Configs__.
 
 === Načtení modelu a jednoduché úpravy
 
 .Po první fázi by to mohlo vypadat nějak takto
 image::slicing-sbs-01.png[float=right, width=480]
 
-1. Na kartě __Plater__ pomocí tlačítka __Add__ ve vrchní nástrojové liště přidáme STL soubor na tiskovou desku.
-2. Tlačítkem __More__ v nástrojové liště zduplikujeme model do dvou kopií.
+1. Na kartě __Prepare__ pomocí tlačítka __Add__ ve vrchní nástrojové liště přidáme STL soubor na tiskovou desku.
+2. Klikneme pravým tlačítkem na model a zvolíme __Clone__ v kontextovém menu, což nám umožní vytvořit kopie modelu.
 3. Tlačítkem __Scale__ v nástrojové liště nastavíme velikost objektu na `25 %`. Jde o velikost objektu relativní k originální velikosti. Číslo je tedy udává danou velikost, pokud dvakrát nastavíme velikost na `50 %`, výsledná velikost nebude `25 %`, ale stále `50 %`.
 4. Levým tlačítkem v okénku s 3D náhledem rozložíme objekty podle potřeby. Tlačítkem __Arrange__ si můžeme nechat rozložit objekty automaticky.
-5. Škálování objektu ovlivňuje vždy všechny kopie vytvořené pomocí tlačítka __More__ (to platí obecně pro všechny úpravy objektu). Abychom mohli vložit dvě různé velikosti stejného objektu, musíme tlačítkem __Add__ nahrát STL soubor znovu a tím vytvořit nový objekt, který už bude mít samostatné nastavení velikosti. Tomu nastavíme velikost `50 %`.
-6. Jako poslední vložíme znovu další stejný objekt tlačítkem __Add__ a provedeme rozpůlení. K tomu slouží tlačítko __Cut__ v nástrojové liště. Otevře se dialog, ve kterém nastavíme požadovanou výšku, ve které se řez provede. Zaškrtneme obě zaškrtávátka __Upper part__ a __Lower part__, jelikož si po řezu chceme ponechat obě části.
-7. Výsledek by měl vypadat podobně jako na ukázkovém screenshotu. Pokud jsme s rozložením tisku spokojeni, můžeme přejít k nastavení parametrům tisku.
+5. Jako poslední si objekt zduplikujeme (__Clone__) a provedeme rozpůlení. K tomu slouží tlačítko __Cut__ v nástrojové liště. Objeví se dialog, ve kterém nastavíme požadovanou výšku, ve které se řez provede (můžeme rovinou řezu hýbat myší v náhledu objektu pomocí táhel). Zaškrtneme obě zaškrtávátka __Upper part__ a __Lower part__, jelikož si po řezu chceme ponechat obě části.
+6. Výsledek by měl vypadat podobně jako na ukázkovém screenshotu. Pokud jsme s rozložením tisku spokojeni, můžeme přejít k nastavení parametrům tisku.
 
 === Nastavení vlastností tisku
 
 .Výsledek slicingu
 image::slicing-sbs-02.png[float=right, width=480]
 
-1. Ve spodní části karty __Plater__ se nacházejí tlačítka pro výběr pohledu. Při nastavování parametrů tisku je užitečný pohled __Preview__, který nejen dává náhled, jak bude výsledný tisk vypadat, ale také zobrazí všechny přídavné struktury, které v parametrech tisku nastavíme. Sliderem umístěným napravo od náhledového okénka můžeme náhled blíže prozkoumat. Posouváním slideru zespoda nahoru simulujeme průběh tisku. Každou změnu v nastavení tisku tak můžeme na této kartě kontrolovat.
-2. Otevřeme kartu __Print settings__ v nabídce _Settings → Print Settings_.
-3. Na stránce __Layers and perimeters__ nastavíme počet perimetrů na `2` (položka __Perimeters__), plné vrstvy na spodku a vršku také na `2` (položka __Solid layers__).
-4. Na stránce __Infill__ nastavíme výplň na `15 %`. 
-5. Na stránce __Skirt and brim__ zařídíme, aby se tiskla struktura pro lepší přilnavost. Nastavíme __Exterior brim width__ na `2 mm`.
-6. Na stránce __Support material__ necháme tisknout podpory na místech, kde je velký převis. Zaškrtneme možnost __Generate support material__. Tiskárně víceméně důvěřujeme, a věříme, že zvládne převisy od 10° a více. Nastavíme položku __Overhand threshold__ na `10°`.
-7. Na stránce __Speed__ zrychlíme tisk na úkor kvality. Rychlost tisku perimetrů zvýšíme o `5 mm/s` a rychlost tisku infillu zvýšíme o `10 mm/s`. Nastavíme __Perimeters__ na `40 mm/s` a __Infill__ na `55 mm/s`.
+1. Pokud chcete zobrazit náhled připraveného tisku, můžete kliknout na tlačítko __Preview__ v horní části okna OrcaSlicer. Tato karta narozdíl od karty __Prepare__ zobrazuje přídavné struktury, které jsme nastavili v parametrech tisku. Můžeme si tak předem prohlédnout, jak bude výsledný tisk vypadat, dokonce ho po vrstvách procházet (posouváním slideru zespoda nahoru simulujeme průběh tisku). Panel nastavení tisku zůstává na levé straně a můžeme v něm nastavovat parametry tisku. Pokud nějaké nastavení změníme a tisk zešedne a zprůhlední, znamená to, že musíme stisknout tlačítko __Slice plate__ v horním pravém rohu okna.
+2. Zaměříme se na parametry tisku. Na panelu __Strength__ nastavíme počet perimetrů na `2` (položka __Wall Loops__), plné vrstvy na spodku a vršku také na `2` (položka __Top Shell Layers__ a __Bottom Shell Layers__). Položku __Sparse infill density__ nastavíme na `15 %`.
+3. Na stránce __Others__ zařídíme, aby se tiskla struktura pro lepší přilnavost. Nastavíme __Brim Type__ na `Outer brim only` a __Brim width__ na `2 mm`.
+4. Na stránce __Support__ necháme tisknout podpory na místech, kde je velký převis. Zaškrtneme možnost __Enable support__. Tiskárně víceméně důvěřujeme, a věříme, že zvládne převisy od 10° a více. Nastavíme položku __Threshold angle__ na `10°`.
+5. Na stránce __Speed__ zrychlíme tisk na úkor kvality. Rychlost tisku perimetrů zvýšíme o `5 mm/s` a rychlost tisku infillu zvýšíme o `10 mm/s`. Nastavíme __Perimeters__ na `40 mm/s` a __Infill__ na `55 mm/s`.
+6. Výsledek vyexportujeme pomocí tlačítka __Export G-code file__ v pravém horním rohu rozhraní. Pokud místo tlačítka __Export G-code file__ vidíte tlačítko __Print__, je potřeba kliknout na šipku dolů vedle tohoto tlačítka a vybrat __Export G-code file__.
 
-1. Výsledek vyexportujeme pomocí tlačítka __Export G-code...__ na pravé straně rozhraní.
+NOTE: Pro samotný tisk nebudeme manuálně exportovat G-code, ale použijeme funkci __Print__ v OrcaSliceru, který tento G-code automaticky nahraje do tiskárny a tisk spustí. Pro tuto úlohu však nejde o tisk, ale o přípravu tisku, takže je potřeba si výsledek uložit a nahrát na github.
 
 [discrete]
 == Credits
@@ -283,3 +354,4 @@ Na obrázcích se objevovaly modely:
 * https://www.thingiverse.com/thing:27053[Cute Octopus Says Hello] by MakerBot (CC BY 3.0)
 * https://www.thingiverse.com/thing:2120591[Phone Stand] by GoAftens (CC BY 3.0)
 * https://www.thingiverse.com/thing:15451[Eiffel Tower] by bmfinn (CC BY-SA 3.0)
+* https://www.printables.com/model/1251820-elegant-sea-turtle-sculpture[Elegant Sea Turtle Sculpture] by Oksus (CC BY-NC-ND 4.0)

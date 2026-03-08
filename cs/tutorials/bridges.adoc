@@ -8,7 +8,7 @@ a tak je potřeba mít pod aktuálně tištěnou částí tiskovou desku nebo ji
 Ukázali jsme si, jak přidat podpory pro části modelu,
 které by vyžadovaly tisk do prázdného místa.
 
-Ne všechny situace však vyžadují plýtvat materiálem na tisk podpor.
+Ne všechny situace však vyžadují plýtvat materiálem a časem na tisk podpor.
 Pokud jste zkoumali, jak vypadá infill a co se děje po vytištění infillu,
 pak jste si jistě všimli, že někdy přeci jen dochází k tisku do vzduchu.
 Pokud máme 15% infill a chceme jej z vrchu zakrýt,
@@ -38,21 +38,17 @@ Foukáním na některé druhy materiálů (PLA, PET) můžeme proces chladnutí 
 
 Logicky není žádoucí, aby byl most prověšený nebo měl přetrhaná vlákna.
 
-=== Nastavení mostu ve Slic3ru
+=== Nastavení mostu ve OrcaSliceru
 
-Pro kalibraci mostu se upravuje hodnota v aplikaci Slic3r v sekcích:
+Pro kalibraci mostu se upravuje hodnota v aplikaci OrcaSlicer v panelech:
 
-* _Print Settings → Speed → Bridges_
-* _Print Settings → Advanced → Flow_
-* _Filament Settings → Cooling_
+* Speed → Overhang speed → Bridge
+* Quality → Bridging → Bridge flow ratio
+* Filament Settings → Cooling
 
 NOTE: Nastavení lze měnit poklepáním na určitý objekt,
 můžete tedy najednou tisknout více mostů s různými nastaveními.
 Dejte si ale pozor, ať víte, který je který.
-
-IMPORTANT: Pro dnešní cvičení si stáhněte 
-link:../configs/bridges/slic3r_config_bundle_bridges.ini[config bundle určený pro tisk mostů]
-a použijte nastavení _Bridges_, _PET_Bridges_, _Hybrix_.
 
 == Úkol
 
@@ -71,18 +67,11 @@ Jako generátor mostu použijte soubor link:../stls/bridges/bridge.scad[bridge.s
 Jednotky jsou v milimetrech a jedná se pouze o velikost mostu bez velikosti pilířů.
 Pilíře se nesnažte podříznout, negativně by to ovlivnilo tiskové vlastnosti.
 
-Nezapomeňte použít link:../configs/bridges/slic3r_config_bundle_bridges.ini[config bundle určený pro tisk mostů] (pozor, jde o jiný config bundle, než jsme používali minule).
-
-Jinak postupujte podle návodu xref:printing.adoc#_tisk-krok-za-krokem[tisk krok za krokem].
-
 Ohodnocení mostu je vždy vidět na jeho horní straně.
 
 NOTE: Pilíře mostu se musí udržet na tiskové desce.
 Použijte vhodné techniky, které znáte z kapitoly xref:slicing.adoc#structs[slicing].
 
-WARNING: Zkontrolujte si, že pilíře nejsou plné, ale mají infill.
-V nastavení případně snižte hodnotu _Solid infill threshold area_.
-Dva perimetry budou stačit.
 
 === Hodnocení
 
