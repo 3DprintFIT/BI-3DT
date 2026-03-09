@@ -8,7 +8,7 @@ and thus it's necessary to have either the print bed or an already printed part 
 We showed how to add supports for parts of the model
 that would require printing into empty space.
 
-However, not all situations require wasting material on printing supports.
+However, not all situations require wasting material and time on printing supports.
 If you examined what the infill looks like and what happens after printing the infill,
 you surely noticed that sometimes printing into thin air does occur.
 If we have 15% infill and want to cover it from above,
@@ -38,21 +38,17 @@ By blowing on some types of materials (PLA, PET) we can speed up the cooling pro
 
 Logically, it's not desirable for the bridge to be sagging or have broken filaments.
 
-=== Bridge Settings in Slic3r
+=== Bridge Settings in OrcaSlicer
 
-For bridge calibration, values are adjusted in the Slic3r application in the sections:
+For bridge calibration, values are adjusted in the OrcaSlicer application in the sections:
 
-* _Print Settings → Speed → Bridges_
-* _Print Settings → Advanced → Flow_
-* _Filament Settings → Cooling_
+* Speed → Overhang speed → Bridge
+* Quality → Bridging → Bridge flow ratio
+* Filament Settings → Cooling
 
 NOTE: Settings can be changed by double-clicking on a specific object,
 so you can print multiple bridges with different settings at once.
 Just be careful so you know which is which.
-
-IMPORTANT: For today's exercise, download the
-link:../configs/bridges/slic3r_config_bundle_bridges.ini[config bundle designed for printing bridges]
-and use the settings _Bridges_, _PET_Bridges_, _Hybrix_.
 
 == Assignment
 
@@ -71,18 +67,11 @@ Use the file link:../stls/bridges/bridge.scad[bridge.scad] as a bridge generator
 Units are in millimeters and this is only the size of the bridge without the size of the pillars.
 Don't try to undercut the pillars, it would negatively affect printing properties.
 
-Don't forget to use the link:../configs/bridges/slic3r_config_bundle_bridges.ini[config bundle designed for printing bridges] (note, this is a different config bundle than we used last time).
-
-Otherwise, follow the instructions xref:printing.adoc#_tisk-krok-za-krokem[printing step by step].
-
 The bridge rating is always visible on its top side.
 
 NOTE: The bridge pillars must stay on the print bed.
 Use appropriate techniques that you know from the chapter xref:slicing.adoc#structs[slicing].
 
-WARNING: Check that the pillars are not solid, but have infill.
-In settings, possibly reduce the value of _Solid infill threshold area_.
-Two perimeters will be enough.
 
 === Grading
 

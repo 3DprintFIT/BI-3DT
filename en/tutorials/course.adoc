@@ -50,7 +50,7 @@ They follow the printing workflow.
 
 1.  *Model creation*: OpenSCAD program
 2.  *Optimization* and *repairs*: netfabb Basic program
-3.  *Slicing*: Slic3r program
+3.  *Slicing*: OrcaSlicer program
 4.  *Printing*: OctoPrint program
 5.  1 tutorial also *Programming*: ADMesh
 
@@ -92,7 +92,7 @@ For working from your own computers, we strongly recommend installing several
 necessary programs, see the xref:../apps#[Programs] page.
 
 CAUTION: Install the programs as soon as possible and verify their functionality!
-We have encountered situations where a student spent 45 minutes in the tutorial dealing with Slic3r installation
+We have encountered situations where a student spent 45 minutes in the tutorial dealing with slicer installation
 and did not have time to do the actual work. The student is responsible for such a situation
 themselves, unless they ask us for help well in advance (about a week beforehand).
 

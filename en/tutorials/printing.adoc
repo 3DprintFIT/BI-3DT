@@ -44,7 +44,8 @@ On each printer you can find a label stating the printer's address.
 Connect to your printer from the school computer using the address on the label.
 The address looks like this (where `XX` is a number from `01` to `14`):
 
-Printer address:: http://printer-XX.3dprintlab.in.fit.cvut.cz/
+Hybrix printer address:: http://printer-XX.3dprintlab.in.fit.cvut.cz/
+Voron 0.2 printer address:: http://voron-02-XX.3dprintlab.in.fit.cvut.cz/
 
 If you can't connect to the printer, try xref:../troubleshooting/printing.adoc#_na-tiskárnu-se-nelze-připojit[other options].
 
@@ -185,14 +186,24 @@ Preparing print data to GCode format was covered in the chapter xref:./slicing#[
 
 [[config-file]]
 
-Download the configuration bundle for the Hybrix printers we use in printing exercises.
+Download both configuration files for the printers we use in printing exercises:
 
-*link:../configs/printing/slic3r_config_bundle.ini[slic3r_config_bundle.ini]*
+*link:../configs/printing/Voron\ 0.2.orca_printer[Voron 0.2 config]*
+*link:../configs/printing/ČVUT\ Hybrix\ 0.4\ nozzle.orca_printer[Hybrix config]*
 
-CAUTION: *Setting the correct configuration file is important.* Improperly chosen configuration can cause GCode to contain instructions unsuitable for the given printer (e.g., it may start printing outside the printable area) and such instructions can cause unsuccessful printing, or in the worse case *damage the printer*.
+IMPORTANT: The instructors will tell you at the exercise which printer you will use.
+
+CAUTION: *Setting the correct configuration file is important.* Improperly chosen configuration can cause GCode to contain instructions unsuitable for the given printer (e.g., it may start printing too fast/in the wrong place) and such instructions can cause unsuccessful printing, or in the worse case *damage the printer*. Modern printers usually have some protective features that protect them from damage, but it's better to avoid these problems.
+
+==== For Voron 0.2 Printer
+
+Check that the loaded and selected printer setting is named *Voron 0.2* and material *Generic PETG*.
+
+==== For Hybrix Printer
+
 Check that the loaded and selected printer setting is named *Hybrix* and material *PET*.
 
-If you encounter any problem during printing, consult with the instructor, or try to find the problem in xref:../troubleshooting/index#[troubleshooting].
+NOTE: If you encounter any problem during printing, consult with the instructor, or try to find the problem in xref:../troubleshooting/index#[troubleshooting].
 
 
 === After Finishing Printing

@@ -10,16 +10,39 @@ But how to do it when it's not a bridge?
 One option is to print supporting structures under the object, supports,
 or more often in English *support*. Today's exercise is about that.
 
-To print with supports, this functionality needs to be explicitly enabled in Slic3r
-on the _Support material_ page.
+To print with supports, this functionality needs to be explicitly enabled in OrcaSlicer
+on the _Support_ page.
 
-Slic3r can detect where support is needed by itself, you just need to tell it
+OrcaSlicer can detect where support is needed by itself, you just need to tell it
 what our printer can still handle. This depends on various circumstances,
 such as print speed, printing material properties,
 ambient temperature, and active cooling.
 
-.Slic3r settings for supports
-image::slic3r.png[Slic3r, width=500]
+TIP: OrcaSlicer can often detect by itself that a model is not printable without supports and displays a warning during slicing. It's good not to ignore these warnings unless you are absolutely sure you know what you're doing.
+
+== Types of Supports
+
+_This information was already mentioned in xref:slicing.adoc#supports[slicing]._
+
+There are two main types of supports:
+
+=== Standard Supports
+
+.Sliced turtle sculpture with standard supports
+image::turtle-standard-supports.png[Standard supports, width=350, float=right, link=../images/supports/turtle-standard-supports.png]
+
+Standard supports are suitable for models that have larger overhangs with simpler shapes. They're faster to print than tree supports, but use more material and can be harder to remove. They're not suitable for very detailed models (like the one in the image).
+
+=== Tree Supports
+
+.Sliced turtle sculpture with tree supports
+image::turtle-tree-supports.png[Tree supports, width=350, float=right, link=../images/supports/turtle-tree-supports.png]
+
+Tree supports are suitable for models that have many small overhangs that wouldn't otherwise print. They're more efficient than standard supports, but can be harder and slower to print. They can hold important areas without unnecessarily touching other parts of the model (which means they leave fewer print defects).
+
+
+.OrcaSlicer settings for supports
+image::OrcaSlicer-support-settings.png[OrcaSlicer, width=300]
 
 NOTE: Generally, the more you blow on the object, the larger overhangs can be printed and less support is needed.
 Some materials (e.g., ABS) practically can't be blown on because too much stress would arise and the object would crack.
@@ -28,8 +51,7 @@ If you print from PET or PLA, it's often possible to relatively limit supports.
 .Bear model with highlighted overhangs -- support will be needed there
 image::bear.png[Bear, width=450]
 
-IMPORTANT: For today's exercise, download the general xref:printing#config-file[Config Bundle for Slic3r],
-so don't use the one from the bridges exercise.
+IMPORTANT: For today's exercise, download both general configuration files for OrcaSlicer (for Voron and Hybrix). If you have them downloaded from previous exercises, you don't need to import them again. Links can be found in the xref:printing#config-file[configuration section of the printing tutorial].
 
 WARNING: Follow all safety rules from xref:printing.adoc#[the printing exercise].
 Especially don't eat superglue and don't disassemble the printer power supply plastic cover.
@@ -42,7 +64,7 @@ Especially don't eat superglue and don't disassemble the printer power supply pl
 Your task for two points is to prepare or find a suitable test model on which you'll verify
 how large overhangs the printer prints without problems without support.
 
-You can use, for example, the https://www.thingiverse.com/search?q=overhang+test[Thingiverse.com] portal
+You can use, for example, the https://www.thingiverse.com/search?q=overhang+test[Thingiverse.com] or https://www.printables.com/search/models?q=overhang+test[Printables.com] portal
 and search for "overhang test".
 
 In case of Thingiverse.com portal outage, we have some models available here as well:
@@ -54,9 +76,11 @@ In case of Thingiverse.com portal outage, we have some models available here as 
 ==== Instructions
 
 1. Since you downloaded a model from the Internet, you should first check the mesh correctness.
-1. Scale the model appropriately so you have time to finish the task; know, however, that a too small model may affect the test.
-1. First print the model without support; if necessary, stop printing at an appropriate time.
-1. Then set the support angle so the model can be printed, but with as little support as possible; print the model again.
+2. Scale the model appropriately so you have time to finish the task; know, however, that a too small model may affect the test. Use the print time estimate in OrcaSlicer.
+3. First print the model without support; if necessary, stop printing at an appropriate time.
+_If a failed print caused plastic stuck to the nozzle, CAREFULLY clean the nozzle using pliers. You must not touch it with your fingers or any other part of your body, nor damage the nozzle in any way. If you're not sure, call an instructor._
+4. Decide whether standard or tree supports are more suitable for this model. Why? _(You must explain to the instructor why you decided so. No answer is wrong as long as you can justify it.)_
+5. Then set the support angle so the model can be printed, but with as little support as possible; print the model again. TIP: Use the layer-by-layer display in OrcaSlicer to check printability.
 
 NOTE: The test model must stay on the print bed.
 Use appropriate techniques that you know from the chapter xref:slicing.adoc#structs[slicing].
@@ -74,20 +98,25 @@ How will this affect the total print time and why?
 
 Your task for one point is to print link:../stls/supports/bear.stl[the bear] without supports.
 You must cut it appropriately, print it, and then (optionally) glue it with superglue.
-You can use Slic3r for cutting; before a longitudinal cut, you can rotate the object.
+For cutting you can use OrcaSlicer, which provides a powerful Cut tool.
 
 ==== Instructions
 
-- For a longitudinal cut through the object, use the _Cut_ button. You want to keep both parts (_Keep:_ _Upper part_, _Lower part_) and use the _Rotate lower part upwards_ option.
+- For a longitudinal cut through the object, use the _Cut_ button (rectangle icon with a dashed line) or the `C` key. You want to keep both parts (_Keep:_ _Upper part_, _Lower part_) and use the _Place on cut_ option. If you want to cut in a plane other than XY, use
 - To rotate the object along an axis other than Z, use the object's context menu (right-click on the object on the _3D_ tab).
 
-.Cutting the bear and cut options (cut height chosen randomly here so as not to give you a hint)
-image::slic3r_cut.png[Slic3r: Cut, width=500]
+.Cutting the bear and cut options (cut angle and position chosen randomly here so as not to give you a hint)
+video::OrcaSlicer-bear-cut.mp4[OrcaSlicer: Cut]
 
 IMPORTANT: Gluing is quite demanding; try to cut the bear into as few parts as possible.
 
 WARNING: When working with glue, exercise increased caution and don't damage classroom equipment.
 
+==== Bonus Task (1 point)
+
+Is it possible to print the bear without supports and without gluing? (Hint: what does the _Add connectors_ button in the _Cut_ dialog do?)
+
+Points will be awarded for a printed bear without supports and without gluing that still holds together in one piece.
 
 === Cleanup (mandatory)
 
@@ -99,3 +128,4 @@ Those who don't xref:printing.adoc#ukol-3[clean up after themselves] don't get a
 Models appeared in images and tasks:
 
 * https://www.thingiverse.com/thing:192392[Bear] by Christophe Caranchini (CC BY-NC 3.0)
+* https://www.printables.com/model/1251820-elegant-sea-turtle-sculpture[Elegant Sea Turtle Sculpture] by Oksus (CC BY-NC-ND 4.0)

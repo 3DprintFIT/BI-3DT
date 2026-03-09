@@ -21,7 +21,7 @@ image::octo-layers.jpg[Layers of sliced model, width=500, link=../images/slicing
 
 GCode is a text file, relatively human-readable (it describes points in space, though, which are hard to imagine from numbers), but primarily intended for machine processing.
 
-GCode existed before 3D printers (the first implementation appeared in the 1950s) and was used for https://en.wikipedia.org/wiki/Numerical_control[CNC machines] (a 3D printer is also by definition a CNC machine). For the purposes of 3D printing, https://reprap.org/wiki/G-code#M-commands[specific codes] are added to GCode (starting with `M`) that define control of functions intended for 3D printing (nozzle temperature, plastic extrusion).
+GCode existed before 3D printers (the first implementation appeared in the 1950s) and was used for https://en.wikipedia.org/wiki/Numerical_control[CNC machines] (a 3D printer is also by definition a CNC machine). For the purposes of 3D printing, https://reprap.org/wiki/G-code#M-commands[specific codes] are added to GCode (starting with `M`) that define control of functions intended for 3D printing (nozzle temperature, plastic extrusion). These commands may differ for each firmware the printer uses, but slicers can automatically choose the correct ones for the selected printer.
 
 Each line represents an instruction. It's described by a code stated first (e.g., `G1`) followed by named arguments by letter (some instructions have no arguments, some arguments are optional) separated by space (e.g., `E4.00000 F3000.00000`).
 
@@ -53,37 +53,79 @@ G1 X143.311 Y63.369 E0.05600
 
 == Tools for Creating GCode
 
-Generating the above-described GCode by hand would not only be impractical, but for more complex models, for the average mortal impossible. Programs called *slicers* help us create print data. Their name is derived from the word "slice" (in translation "slice"). Because printing is done in layers, the input to these programs is some 3D model and the output is a (sliced) 3D model intended for printing. This is why this process is called "slicing" ("slicing").
+Generating the above-described GCode by hand would not only be impractical, but for more complex models, for the average mortal impossible. Programs called *slicers* help us create print data. Their name is derived from the word "slice". Because printing is done in layers, the input to these programs is some 3D model and the output is a (sliced) 3D model intended for printing. This is why this process is called "slicing".
 
-There are many slicers; some are better, others worse, some have good UI but don't do such good work, others are excellent slicers but have terrible UI. You can also find those that have both. A slicer can be standalone software or integrated in some larger whole (e.g., in control software for a 3D printer).
+There are many slicers; some are better, others worse, some have good UI but don't do such good work, others are excellent slicers but have terrible UI. Almost all modern maintained slicers have both. A slicer can be standalone software or integrated in some larger whole (e.g., in control software for a 3D printer, a system for controlling a printer farm, a mobile application, or even a web service).
 
-In the BI-3DT course we'll use the program *Slic3r*. It ranks among the most commonly used, is open-source software, and the quality of output is sufficiently good.
+Previously, one of the most popular slicers was *Slic3r*. However, it stopped being developed and other slicers based on it emerged. The main successors of Slic3r are *PrusaSlicer*, *BambuStudio*, and *OrcaSlicer*. Another popular slicer is *Cura* by Ultimaker.
 
-=== Slic3r
+In the BI-3DT course we'll use the program *OrcaSlicer*. It ranks among the most commonly used, is open-source software, and has many features that allow the user to achieve good output quality even with difficult models. It supports a wide range of printers and is easily configurable.
 
-http://slic3r.org[Slic3r] has been developed since 2011 by the community around the RepRap project. It's available for all popular operating systems.
+NOTE: Although we'll be learning to use OrcaSlicer, you should realize that the vast majority of concepts we'll learn can be applied in other slicers as well (potentially under a different name).
 
-TIP: Slic3r can be http://slic3r.org/download[downloaded at slic3r.org] or is available as a package from decent Linux distributions; https://github.com/slic3r/Slic3r[source code can be found on GitHub].
+=== Slicer Overview and a Bit of History
 
-We'll import an STL model we want to print into this program, then set the correct printer configuration (its dimensions and what functions it has) and set print parameters (temperatures, speeds, etc.). The output is a GCode file -- print data that can be sent to the printer.
+3D printing has a complex history full of development, innovation, and new ideas. The community around 3D printing tries to share these ideas and various improvements and build on them, which has led to a complex "hierarchy" of slicers.
 
-In exercises we'll use the latest version of Slic3r ≥ 1.3.0. In this version, individual tabs can be opened in the __Settings__ menu.
+==== Slic3r
 
-.Default window of the Slic3r program (version 1.3.0)
-image::slic3r.png[Slic3r window, width=720, link=../images/slicing/slic3r.png]
+http://slic3r.org[Slic3r] was developed from 2011 to 2018 by the community around the RepRap project. It's available for all popular operating systems. It was one of the first slicers that had a good user interface, many print settings, and (for its time) good performance. However, its development was discontinued and it was replaced by other slicers. In previous years, this program was used in the teaching of this course.
 
-==== Configuration File for Printers
+==== PrusaSlicer
 
-.Item __Load Config Bundle__
+https://github.com/prusa3d/PrusaSlicer[PrusaSlicer] is an open-source slicer based on Slic3r. Its development is mainly driven by Prusa Research, but many other people contribute. It's suitable for beginners, but has many features that allow advanced users to achieve better results. Prusa Research tries to adapt PrusaSlicer to be as user-friendly as possible, mainly for users of Prusa printers.
+
+==== BambuStudio
+
+https://github.com/bambulab/BambuStudio[BambuStudio] is an open-source slicer based on PrusaSlicer. It's developed by BambuLab and its goal is user-friendliness and easy configuration for BambuLab printer users. Nowadays it supports other printers too, but development is still focused on BambuLab printer users. It offers a modern user interface suitable for both beginners and advanced users, very good support for printers with multi-color printing capabilities, and other advanced features.
+
+==== OrcaSlicer
+
+https://orcaslicer.com[OrcaSlicer] is an open-source slicer based on BambuStudio and shares its user interface. It's developed by the community and its goal is to be a very open and innovative slicer. New (often experimental) features and options are regularly added that allow for better print quality and accuracy.
+
+TIP: OrcaSlicer can be https://github.com/softfever/OrcaSlicer/releases[downloaded at github.com/softfever/OrcaSlicer], or is available as a package from some Linux distributions; https://github.com/softfever/OrcaSlicer[source code can be found on GitHub]. It's pre-installed on school computers.
+
+In exercises we'll use the OrcaSlicer program, version 2.3.0 or newer.
+
+We'll import an STL model we want to print into this program, then set (or select) the correct printer configuration (its dimensions and what functions it has) and set print parameters (temperatures, speeds, etc.). The output is a GCode file -- print data that can be sent to the printer.
+
+.Default window of the OrcaSlicer program (version 2.3.0)
+image::orcaslicer.png[OrcaSlicer window, width=720, link=../images/slicing/orcaslicer.png]
+
+=== Configuration Files for Printers
+
+.Item __Import Configs__
 image::load-bundle.png[File menu, width=320, float=right, link=../images/slicing/load-bundle.png]
 
-Download the configuration bundle for Hybrix printers that we use in this exercise.
+Download both configuration files for the printers we use in this exercise:
 
-*link:../configs/printing/slic3r_config_bundle.ini[slic3r_config_bundle.ini]*
+*link:../configs/printing/Voron\ 0.2.orca_printer[Voron 0.2 config]*
+*link:../configs/printing/ČVUT\ Hybrix\ 0.4\ nozzle.orca_printer[Hybrix config]*
 
-Load this file using __File → Load Config Bundle__. After loading the config bundle, it's often necessary to restart the program. You'll recognize successful loading of the config bundle by new items in the upper right (in filament, **PET** will appear as an option, and in printers **Hybrix**).
+Load both files using __File → Import → Import Configs__. You'll recognize successful loading by new items in the upper left. You should see Voron 0.2 and Hybrix in the printer selection.
 
-CAUTION: *Setting the correct configuration file is important.* Improperly chosen configuration can cause GCode to contain instructions unsuitable for the given printer (e.g., it may start printing outside the printable area) and such instructions can cause unsuccessful printing, or in the worse case *damage the printer*.
+CAUTION: *Setting the correct configuration file is important.* Improperly chosen configuration can cause GCode to contain instructions unsuitable for the given printer (e.g., it may start printing too fast/in the wrong place) and such instructions can cause unsuccessful printing, or in the worse case *damage the printer*. Modern printers usually have some protective features that protect them from damage, but it's better to avoid these problems.
+
+IMPORTANT: Before actually preparing print data, we'll make sure
+we have the **correct configuration files** imported in OrcaSlicer.
+They can be downloaded xref:printing#config-file[on this page].
+Import them into OrcaSlicer using __File → Import → Import Configs__.
+
+Most of these parameters are set by our <<Configuration Files for Printers, configuration files>>. Nevertheless, we recommend briefly going through these parameters; those interested in examining parameters in detail we'll refer to the https://github.com/SoftFever/OrcaSlicer/wiki[OrcaSlicer wiki].
+
+=== Printer Connection
+
+OrcaSlicer can connect directly to the printer and send gcode for printing over the network. First, open the printer connection configuration by clicking the "WiFi" icon next to the printer name.
+
+.Printer connection button
+image::printer-connection-button.png[Printer connection button]
+
+In the menu, fill in the printer URL (e.g., `voron-02-xx.local`) into the Hostname and Device UI fields.
+
+.Printer connection dialog
+image::printer-connection-dialog.png[Printer connection dialog]
+
+Finally, click the Test button; a dialog should appear confirming that the connection was successful.
 
 == Supporting Structures
 
@@ -94,10 +136,11 @@ Besides the 3D model itself that you provide to the slicer, the slicer can add o
 .Interior of sliced octopus model
 image::octo-infill.jpg[Model interior, width=350, link=../images/slicing/octo-infill.jpg, float=right]
 
-In previous exercises you learned that with mesh we describe only the object's shell, not its interior. Physically on the printer, however, you cannot print only this shell. The slicer takes care of creating the correct object fill. This fill is called "infill" (fill).
+In previous exercises you learned that with mesh we describe only the object's shell, not its interior. Physically on the printer, however, you cannot print only this shell. The slicer takes care of creating the correct object fill. This fill is called "infill".
 
-Objects are commonly not printed hollow (the top of the object would have nothing to print on) nor solid (wasting filament and stress arises in the object that disrupts print integrity). Higher infill density makes the object more resistant, heavier, but also more expensive and takes longer to print. Low density can conversely cause an unsightly print (the object's shell can sag in some places). In practice, infill is not set to a value lower than 10% nor higher than 50% for a general object. However, there are shapes that can be printed hollow or with very small infill.
+Objects are commonly not printed hollow (the top of the object would have nothing to print on) nor solid (wasting filament and stress arises in the object that disrupts print integrity). Higher infill density makes the object more resistant, heavier, but also more expensive and takes longer to print. Densities above 70% mostly don't help print resistance and it's better to increase the number of walls (perimeters/walls) and reduce infill to a reasonable value. Low density can conversely cause an unsightly print (the object's shell can sag in some places). In practice, infill is not set to a value lower than 10% nor higher than 50% for a general object. However, there are shapes that can be printed hollow or with very small infill.
 
+[[supports]]
 === Supports (supports)
 
 .Sliced holder with supports (green color)
@@ -105,7 +148,23 @@ image::supports.jpg[Supports, width=350, float=right, link=../images/slicing/sup
 
 It often happens that we need to print a model with overhangs. For obvious physical reasons, such printing on FDM printers is not possible (the printer would be printing into air).
 
-Often these problems can be solved by rotating the model or dividing it into multiple parts and subsequent manual gluing after finishing the print. Sometimes such modifications are not possible or desirable, and so the slicer can add supporting structures to our model that are broken off, cut off, or otherwise removed after finishing the print.
+Often these problems can be solved by rotating the model or dividing it into multiple parts and subsequent manual gluing after finishing the print. Sometimes such modifications are not possible or desirable, and so the slicer can add supporting structures to our model that are broken off, cut off, or otherwise removed after finishing the print. These supports can either be created automatically, or the user can choose (paint) where exactly they want them.
+
+There are two main types of supports:
+
+==== Standard Supports
+
+.Sliced turtle sculpture with standard supports
+image::turtle-standard-supports.png[Standard supports, width=350, float=right, link=../images/slicing/turtle-standard-supports.png]
+
+Standard supports are suitable for models that have larger overhangs with simpler shapes. They're faster to print than tree supports, but use more material and can be harder to remove. They're not suitable for very detailed models (like the one in the image).
+
+==== Tree Supports
+
+.Sliced turtle sculpture with tree supports
+image::turtle-tree-supports.png[Tree supports, width=350, float=right, link=../images/slicing/turtle-tree-supports.png]
+
+Tree supports are suitable for models that have many small overhangs that wouldn't otherwise print. They're more efficient than standard supports, but can be harder and slower to print. They can hold important areas without unnecessarily touching other parts of the model (which means they leave fewer print defects).
 
 [[structs]]
 === Rafts, skirts, brims
@@ -117,11 +176,11 @@ image::failed-print.jpg[width=80%, link=../images/slicing/failed-print.jpg]
 
 Problematic are primarily such models that have too small a contact area with the print bed and the area holding the object is too small (imagine for example a table model that we start printing from the legs -- the entire object is held only by four small squares).
 
-Raft:: A structure placed under the print improving adhesion to the print bed. Rafts are intended primarily for ABS materials, whose print edges curl during printing. They're also useful for models that have too small a contact area with the print bed. They create a much larger adhesive base for them. A raft is created by moving the object several layers upward (into air) and underpinning the object with support.
+Raft:: A structure placed under the print improving adhesion to the print bed. Rafts are rarely used nowadays because modern print beds have good adhesion and printers have more precise calibration. However, they're still needed in rare cases, e.g., for models that have too small a contact area with the print bed. They create a much larger adhesive base for them that won't warp or tend to detach/stick to the nozzle during printing. A raft is created by moving the object several layers upward (into air) and underpinning the object with support.
 
-Skirt:: An outline structure ensuring stable plastic flow during the first layers of printing. It's printed before the first layer of the object and thanks to this, all air bubbles are extruded from the nozzle and plastic flow stabilizes. Some slicers use other structures for these purposes (e.g., Prusa Slic3r makes a line the width of the print bed at the very edge of the bed). You can also set a higher number of skirt layers and thus also use it for protecting the print from drafts and subsequent cracking, but in practice this method is rarely used, as it unnecessarily increases material consumption and print time; moreover, it's very unreliable protection (it's better to put the printer in a cabinet).
+Skirt:: An outline structure ensuring stable plastic flow during the first layers of printing. It's printed before the first layer of the object and thanks to this, all air bubbles are extruded from the nozzle and plastic flow stabilizes. Some slicers use other structures for these purposes (e.g., PrusaSlicer, BambuSlicer, and OrcaSlicer make a line at the very edge of the print bed). You can also set a higher number of skirt layers and thus also use it for protecting the print from drafts and subsequent cracking, but in practice this method is rarely used, as it unnecessarily increases material consumption and print time; moreover, it's very unreliable protection (it's better to put the printer in a cabinet).
 
-Brim:: Another structure improving adhesion to the print bed and reducing edge curling. Technically it's a skirt with zero distance from the model and a height of one layer. It's not located under the print, but only extends the first layer by a specified size. Brim doesn't offer as much adhesion improvement as Raft, however, it's much faster, simpler, unlike Raft doesn't leave unevenness on the bottom of the model, and for most cases is sufficient.
+Brim:: Another structure improving adhesion to the print bed and reducing edge curling. Technically it's a skirt with zero distance from the model and a height of one layer. It's not located under the print, but only extends the first layer by a specified size. Brim doesn't offer as much adhesion improvement as Raft, however, it's much faster, simpler, unlike Raft doesn't leave unevenness on the bottom of the model, and for most cases is sufficient. There are several brim variants that differ in shape and model coverage (more information can be found in individual assignments).
 
 [cols=2, frame=none, grid=none]
 |===
@@ -138,65 +197,89 @@ image::skirt-brim.jpg[width=100%, link=../images/slicing/skirt-brim.jpg]
 |===
 
 
-== Print Configuration in Slic3r Program
+== OrcaSlicer User Interface
 
-Now we'll move on to what can be set in the Slic3r program and what it's good for.
+Now we'll move on to what can be set in the OrcaSlicer program and what it's good for.
 
-=== Tab __Plater__
+NOTE: OrcaSlicer already supports Czech, but not all translations are accurate or make sense, so we use the English version in this text.
 
-On the __Plater__ tab, you work with objects you want to print. With the __Add__ button you can add an STL file. In the 3D preview you can arrange objects across the print bed. With other buttons in the top panel you can manipulate the selected object (rotate with __Rotate__ buttons, or change its size with the __Scale__ button).
+=== __Prepare__ Tab
 
-On the lower right, information about the selected object is displayed. You can see its size in millimeters (for checking) and other properties.
+On the __Prepare__ tab, you work with objects you want to print. With the __Add__ button you can add an STL file. In the 3D preview you can arrange objects across the print bed. With other buttons in the top panel you can manipulate the selected object (rotate with __Rotate__ buttons, or change its size with the __Scale__ button). Additional options like model mirroring are available by right-clicking the model.
 
-At the bottom you can select from several views; primarily important for us are __3D__ and __Preview__ views. In 3D view you can work with object arrangement; __Preview__ view shows you how the final print will look, what structures will be printed, and you can even see a hint of individual layers.
+On the left side you can select filaments, print profiles, and individual print settings.
 
-=== Tab __Print Settings__
+=== Print Settings
 
-.Tab __Print Settings__
-image::print-settings.png[Print Settings, width=320, link=../images/slicing/print-settings.png, float=right]
+.Process panel
+image::process-panel.png[Print settings, width=320, link=../images/slicing/process-panel.png, float=right]
 
-Pay the most attention to the __Print Settings__ tab. While most important values in other tabs were set for you by the <<Configuration File for Printers, configuration file>> you downloaded above, print settings will be your main task when working in exercises.
+Pay the most attention to the Process panel (print settings). While most important values in other panels and tabs were set for you by the <<Configuration Files for Printers, configuration files>> you downloaded above, print settings will be your main task when working in exercises.
 
-Below we'll list all important parameters you'll use when printing in exercises. If you want to learn something about parameters we don't mention, we recommend choosing one quiet evening over the http://manual.slic3r.org[Slic3r manual] for self-study.
+Below we'll list all important parameters you'll use when printing in exercises. This list is not complete, but if you want to learn something about parameters we don't mention, we recommend choosing one quiet evening over the https://github.com/SoftFever/OrcaSlicer/wiki[OrcaSlicer wiki]. Most settings also have inline help that you can display by hovering the mouse over the parameter name (clicking opens the wiki).
 
-==== Page __Layers and perimeters__
+==== __Quality__ Page
 
-Layer height:: Affects layer height -- directly affects quality and print duration. The range of sensible values is affected by the nozzle diameter installed on the printer.
+Layer height:: Affects layer height -- directly affects quality and print duration. The range of sensible values is affected by the nozzle diameter installed on the printer. It's recommended not to exceed 75% of the nozzle diameter (in most cases 0.4mm, so the maximum would be 0.3mm).
 
-First layer height:: Affects the first layer height. Set to a smaller value than the rest of the model for better adhesion to the print bed.
+First layer height:: Affects the first layer height. Can be set to a smaller or larger value than the rest of the model for better adhesion to the print bed, but is mostly not used. It was previously used to compensate for printer calibration errors.
 
 .Comparison of print quality by layer height (https://www.flickr.com/photos/creative_tools/8616820648[Creative Tools, CC BY 2.0])
 image::layer-height-frogs.jpg[width=80%, link=../images/slicing/layer-height-frogs.jpg]
 
-Perimeters:: Number of perimeters on print edges (doesn't affect flat surfaces on the bottom and top of the object).
-
-Solid layers:: Number of layers with full fill on bottom and top. The more layers we choose, the stronger the top and bottom surface will be and the better we'll manage to cover the set infill. High numbers, however, increase print time and material consumption.
-
 .How perimeter settings affect printing
 image::perimeters.jpg[width=80%, link=../images/slicing/perimeters.jpg]
 
-==== Page __Infill__
+==== __Strength__ Page
 
 On this page you can set infill properties, which we know from the chapter <<Model Interior>>.
 
-Fill density:: Determines internal fill density.
+Wall loops:: Number of perimeters (walls) on print edges (doesn't affect flat surfaces on the bottom and top of the object).
 
-Fill pattern:: Determines fill pattern.
+Top shell layers and Bottom shell layers:: Number of layers with full fill on bottom and top. The more layers we choose, the stronger the top and bottom surface will be and the better we'll manage to cover the set infill. High numbers, however, increase print time and material consumption.
 
-External infill pattern:: Determines fill pattern on top and bottom external surfaces.
+Sparse infill density:: Determines internal fill density.
+
+Sparse infill pattern:: Determines fill pattern.
+
+Top surface pattern:: Determines fill pattern on top and bottom external surfaces.
 
 Solid infill every:: Strengthens object resistance by printing full fill (100%) every __n__ layers.
 
-Fill angle:: Fill pattern angle.
-
-Solid infill threshold area:: In small parts of the object (e.g., some thin tubes or connector), the slicer fills with full fill (100%). This value determines the area threshold at which a part of the object is considered small.
+Sparse infill direction:: Fill pattern angle.
 
 .Various infill densities
 image::infill.jpg[width=80%, link=../images/slicing/infill.jpg]
 
-==== Page __Skirt__
+==== __Speed__ Page
 
-On this page you can set <<structs, Skirt or Brim>>.
+NOTE:: Values on this page depend heavily on the model and printer tuning. Faster printing isn't necessarily better; in certain cases it can negatively affect quality, durability, and reliability of the print. A good rule: it's faster to print an item once slowly than too fast and having to repeat the print due to problems. Achievable speed is also affected by many other factors (acceleration, nozzle flow rate, cooling), so the set speeds may not always be reached.
+
+Outer wall:: Outer perimeter speed, has a big effect on quality. Reasonable values are between 60 and 150mm/s (on our Voron printers we use 120mm/s, on Hybrix 60mm/s).
+
+Inner wall:: Inner perimeter speed, has less effect on quality but can affect accuracy. Reasonable values are between 80 and 250mm/s (on our Vorons we use 200mm/s).
+
+Sparse infill:: Infill print speed, doesn't affect quality, but when printing too fast it can cause "lumps" where infill doesn't adhere in time and causes worse durability (or even print failure). Reasonable values are between 80 and 300mm/s.
+
+Top surface:: Top layer print speed, affects quality of horizontal print surfaces. Reasonable values are between 80 and 200mm/s.
+
+Travel:: Speed of travel moves between print parts, can be set high, doesn't affect print quality, but can cause "collision" with the print at too high speed. Reasonable values are between 100 and 500mm/s (on our Vorons 350mm/s, on Hybrix 200mm/s).
+
+==== __Support__ Page
+
+On this page you can set <<Supports, supports>> or <<structs, raft>>.
+
+Enable support:: Turns on support generation.
+
+Type:: Determines the type of supports (standard or tree, automatic or manual).
+
+Threshold angle and Threshold overlap:: Determines the threshold for how steep overhangs you want to generate supports. Can be set in degrees (incline from base, the higher the angle, the more supports) or in percentages (how many percent of the perimeter can the next layer still overhang the layer below it).
+
+Raft layers:: Determines how many raft layers you want to print under the model.
+
+==== __Other__ Page
+
+On this page you can set <<structs, Skirt or Brim>> and other structures/effects, for example Fuzzy skin (more in the next exercise).
 
 Loops:: Number of skirt outlines. For common use for cleaning the nozzle before printing the first layer, in most cases one or two suffice.
 
@@ -206,23 +289,13 @@ Skirt height:: How many layers the skirt will be high. For cleaning the nozzle, 
 
 Exterior brim width:: Non-zero value will generate a brim around the object of specified size.
 
-==== Page __Support material__
+=== Other Panels
 
-On this page you can set <<Supports, supports>> or <<structs, raft>>.
+The __Filament__ panel, as the name suggests, hides settings related to filament. The most important items are __Diameter__ (determining string diameter, usually 1.75mm) and temperature settings, which differ by material (as you'll learn in the first printing exercise). On the __Cooling__ page you can then define fan behavior for additional print cooling.
 
-Generate support material:: Turns on support generation.
+The __Printer__ panel serves for setting printer parameters (size and shape of print bed, number of extruders, maximum speeds, etc.). While items on the __Process__ and __Filament__ panels you change practically with every print, items on this panel mostly remain untouched until you change printer configuration.
 
-Overhang threshold:: Determines the threshold for how steep overhangs you want to generate supports. Can be set in percentages: how many percent of the perimeter can the next layer still overhang the layer below it (the higher the number, the fewer supports); or in degrees (incline from base, the higher the angle, the more supports).
-
-Raft layers:: Determines how many raft layers you want to print under the model.
-
-=== Other Tabs
-
-The __Filament Settings__ tab, as the name suggests, hides settings related to filament. The most important items are __Diameter__ (determining string diameter) and temperature settings, which differ by material (as you'll learn in the first printing exercise). On the __Cooling__ page you can then define fan behavior for additional print cooling (some materials need it, but our printers don't have it).
-
-The __Printer Settings__ tab serves for setting printer parameters (size and shape of print bed, number of extruders, etc.). While items on the __Print Settings__ and __Filament Settings__ tabs you change practically with every print, items on this panel mostly remain untouched until you change printer configuration.
-
-The <<Configuration File for Printers, configuration file>> sets most of these parameters. Nevertheless, we recommend briefly going through these parameters; those interested in examining parameters in detail we'll again refer to the http://manual.slic3r.org[Slic3r manual].
+Most of these parameters are set by our <<Configuration Files for Printers, configuration files>>. Nevertheless, we recommend briefly going through these parameters; those interested in examining parameters in detail we'll again refer to the https://github.com/SoftFever/OrcaSlicer/wiki[OrcaSlicer wiki].
 
 == Slicing Step by Step
 
@@ -243,37 +316,35 @@ We also have concerns that during printing the legs might detach from the print 
 so we'll add structures for improving adhesion.
 
 IMPORTANT: Before actually preparing print data, we'll make sure
-we have the **correct config bundle** imported in Slic3r.
-It can be downloaded xref:#config-file[on this page].
-Import it into Slic3r using __Load Config Bundle__, not using __Load config__.
+we have the **correct configuration files** imported in OrcaSlicer.
+They can be downloaded xref:printing#config-file[on this page].
+Import them into OrcaSlicer using __File → Import → Import Configs__.
 
 === Loading Model and Simple Modifications
 
 .After the first phase it might look something like this
 image::slicing-sbs-01.png[float=right, width=480]
 
-1. On the __Plater__ tab, using the __Add__ button in the top toolbar, add the STL file to the print bed.
-2. With the __More__ button in the toolbar, duplicate the model to two copies.
+1. On the __Prepare__ tab, using the __Add__ button in the top toolbar, add the STL file to the print bed.
+2. Right-click on the model and choose __Clone__ from the context menu, which allows you to create copies of the model.
 3. With the __Scale__ button in the toolbar, set object size to `25 %`. This is the object size relative to the original size. So the number states the given size; if we set size to `50 %` twice, the resulting size won't be `25 %`, but still `50 %`.
 4. With the left button in the 3D preview window, arrange objects as needed. With the __Arrange__ button we can have objects automatically arranged.
-5. Object scaling always affects all copies created using the __More__ button (this generally applies to all object modifications). To be able to insert two different sizes of the same object, we must use the __Add__ button to upload the STL file again, thus creating a new object that will already have independent size settings. Set its size to `50 %`.
-6. As the last one, insert the same object again using the __Add__ button and perform bisection. The __Cut__ button in the toolbar serves for this. A dialog opens where we set the desired height at which the cut is performed. Check both checkboxes __Upper part__ and __Lower part__, since we want to keep both parts after the cut.
-7. The result should look similar to the sample screenshot. If we're satisfied with the print layout, we can move on to setting print parameters.
+5. As the last one, duplicate the object (__Clone__) and perform bisection. The __Cut__ button in the toolbar serves for this. A dialog opens where we set the desired height at which the cut is performed (you can move the cutting plane with the mouse in the object preview using handles). Check both checkboxes __Upper part__ and __Lower part__, since we want to keep both parts after the cut.
+6. The result should look similar to the sample screenshot. If we're satisfied with the print layout, we can move on to setting print parameters.
 
 === Setting Print Properties
 
 .Slicing result
 image::slicing-sbs-02.png[float=right, width=480]
 
-1. In the lower part of the __Plater__ tab there are buttons for selecting the view. When setting print parameters, the __Preview__ view is useful, which not only gives a preview of how the final print will look, but also displays all additional structures we set in print parameters. With the slider located to the right of the preview window, we can examine the preview more closely. By moving the slider from bottom to top, we simulate the print progress. We can thus check each change in settings on this tab.
-2. Open the __Print settings__ tab in the menu _Settings → Print Settings_.
-3. On the __Layers and perimeters__ page, set the number of perimeters to `2` (item __Perimeters__), full layers on bottom and top also to `2` (item __Solid layers__).
-4. On the __Infill__ page, set fill to `15 %`.
-5. On the __Skirt and brim__ page, arrange for a structure for better adhesion to be printed. Set __Exterior brim width__ to `2 mm`.
-6. On the __Support material__ page, have supports printed in places where there's a large overhang. Check the __Generate support material__ option. We more or less trust the printer and believe it can handle overhangs from 10° and more. Set __Overhand threshold__ to `10°`.
-7. On the __Speed__ page, speed up printing at the expense of quality. Increase perimeter print speed by `5 mm/s` and infill print speed by `10 mm/s`. Set __Perimeters__ to `40 mm/s` and __Infill__ to `55 mm/s`.
+1. If you want to display a preview of the prepared print, you can click the __Preview__ button at the top of the OrcaSlicer window. This tab, unlike the __Prepare__ tab, displays additional structures we set in print parameters. We can preview what the final print will look like, even go through it layer by layer (by moving the slider from bottom to top we simulate the print progress). The print settings panel remains on the left side and we can adjust print parameters in it. If we change a setting and the print turns gray and transparent, it means we need to press the __Slice plate__ button in the upper right corner of the window.
+2. We'll focus on print parameters. On the __Strength__ panel, set the number of perimeters to `2` (item __Wall Loops__), full layers on bottom and top also to `2` (items __Top Shell Layers__ and __Bottom Shell Layers__). Set __Sparse infill density__ to `15 %`.
+3. On the __Others__ page, arrange for a structure for better adhesion to be printed. Set __Brim Type__ to `Outer brim only` and __Brim width__ to `2 mm`.
+4. On the __Support__ page, have supports printed in places where there's a large overhang. Check the __Enable support__ option. We more or less trust the printer and believe it can handle overhangs from 10° and more. Set __Threshold angle__ to `10°`.
+5. On the __Speed__ page, speed up printing at the expense of quality. Increase perimeter print speed by `5 mm/s` and infill print speed by `10 mm/s`. Set __Perimeters__ to `40 mm/s` and __Infill__ to `55 mm/s`.
+6. Export the result using the __Export G-code file__ button in the upper right corner of the interface. If instead of the __Export G-code file__ button you see the __Print__ button, you need to click the down arrow next to this button and select __Export G-code file__.
 
-1. Export the result using the __Export G-code...__ button on the right side of the interface.
+NOTE: For actual printing we won't manually export G-code, but will use the __Print__ function in OrcaSlicer, which automatically uploads this G-code to the printer and starts printing. For this assignment, however, it's not about printing but about print preparation, so you need to save the result and upload it to GitHub.
 
 [discrete]
 == Credits
@@ -283,3 +354,4 @@ Models appeared in images:
 * https://www.thingiverse.com/thing:27053[Cute Octopus Says Hello] by MakerBot (CC BY 3.0)
 * https://www.thingiverse.com/thing:2120591[Phone Stand] by GoAftens (CC BY 3.0)
 * https://www.thingiverse.com/thing:15451[Eiffel Tower] by bmfinn (CC BY-SA 3.0)
+* https://www.printables.com/model/1251820-elegant-sea-turtle-sculpture[Elegant Sea Turtle Sculpture] by Oksus (CC BY-NC-ND 4.0)

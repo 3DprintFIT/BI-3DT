@@ -15,7 +15,7 @@
 
 == Quick links
 
-* xref:tutorials/printing#config-file[Configuration file for Slic3r, Hybrix printer]
+* xref:tutorials/printing#config-file[Configuration file for OrcaSlicer for our printers]
 
 All materials, unless otherwise stated, are available under the free license https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 International].
 
