@@ -1,1 +1,45 @@
-index.adoc
+= Cvičení
+
+Změna programu vyhrazena.
+
+[cols="s,2,4,",options="header",]
+|=======================================================================
+|Cvičení |Datum |Téma |Body
+|1. |16.02.2026 |xref:course#[Principy předmětu],
+xref:reprap#[RepRap], xref:git#[Git], xref:openscad#[OpenSCAD: Lehký úvod]
+|https://github.com/3DprintFIT/B252A-Username-Assignment[0]
+
+|2. |23.02.2026 |xref:openscad#[OpenSCAD: Základy]
+|https://github.com/3DprintFIT/B252A-OpenSCAD1-Assignment[3]
+
+|3. |02.03.2026 |xref:openscad#[OpenSCAD: Pokročilé]
+|https://github.com/3DprintFIT/B252A-OpenSCAD2-Assignment[3]
+
+|4. |09.03.2026 |xref:fusion#[Fusion 360] – 🖱️  s sebou
+|3
+
+|5. |16.03.2026 |xref:mesh#[Mesh] – 🖱️  s sebou
+|https://github.com/3DprintFIT/B252A-Mesh-Assignment[3]
+
+|6. |23.03.2026 |xref:admesh#[ADMesh] – Programová manipulace s meshí
+|https://github.com/3DprintFIT/B252A-ADMesh-Assignment[3]
+
+|7. |30.03.2026 |xref:slicing#[Slicing]
+|https://github.com/3DprintFIT/B252A-Slicing-Assignment[3]
+
+|8. |13.04.2026 |xref:printing#[Tisk: Základy] |3
+
+|9. |20.04.2026 |xref:bridges#[Tisk: Mosty] |3
+
+|10. |27.04.2026 |xref:supports#[Tisk: Podpory] |3
+
+|11. |04.05.2026 |xref:multicolor#[Tisk: Vícebarevný tisk] |3
+
+|12. |11.05.2026 |Tisk - co si přejete vyzkoušet ohledně semestrální práce |0
+
+2+d|Domácí příprava vhodná k semestrálce
+|xref:meshmixer#[MeshMixer a řezání STL souborů] |0
+
+2+d|Nezařazené cvičení
+|xref:scan#[Skenování] |0
+|=======================================================================

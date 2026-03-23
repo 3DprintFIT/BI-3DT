@@ -152,12 +152,12 @@ triangulární mesh.
 
 ==== Rekonstrukce modelu nohy
 
-Potřebné modely jsou link:../stls/scan/foot_scan.bin[foot_scan.bin] a
-link:../stls/scan/foot_reference.stl[foot_reference.stl].
+Potřebné modely jsou link:../../stls/scan/foot_scan.bin[foot_scan.bin] a
+link:../../stls/scan/foot_reference.stl[foot_reference.stl].
 Model nohy je z portálu
 https://www.thingiverse.com/thing:1615359[Thingiverse, CC BY-NC 3.0 Voodoo Manufacturing].
 
-V souboru link:../stls/scan/foot_scan.bin[foot_scan.bin] je mračno bodů vzniklé
+V souboru link:../../stls/scan/foot_scan.bin[foot_scan.bin] je mračno bodů vzniklé
 naskenováním modelu nohy. Otevřete jej v aplikaci CloudCompare.
 
 .Model skenu nohy jako mračno bodů v programu CloudCompare
@@ -235,7 +235,7 @@ Je možné ji „podle chuti“ zjemnit pomocí _Edit → Mesh → Smooth (Lapla
 image::cc_smooth_mesh.png[]
 
 Do programu je možné načíst i hotovou mesh ze souboru
-link:../stls/scan/foot_reference.stl[foot_reference.stl] (stačí soubor otevřít).
+link:../../stls/scan/foot_reference.stl[foot_reference.stl] (stačí soubor otevřít).
 
 .Načtená mesh není moc dobře vidět
 image::cc_foot_reference.png[]
@@ -257,8 +257,8 @@ image::cc_foot_reference_distances.png[]
 
 ==== Model zahrady: Registrace dvou skenů
 
-Potřebné modely jsou link:../stls/scan/garden1.bin[garden1.bin] a
-link:../stls/scan/garden2.bin[garden2.bin],
+Potřebné modely jsou link:../../stls/scan/garden1.bin[garden1.bin] a
+link:../../stls/scan/garden2.bin[garden2.bin],
 stažené přímo z projektu
 http://www.cloudcompare.org/samples/CloudCompareGardenData.7z[CloudCompare,
 GPL 2+].
@@ -303,8 +303,8 @@ image::cc_garden1.png[width=600]
 ==== Model zahrady: Segmentace, vyrovnání podle referenčních bodů
 
 Potřebné modely jsou stejné jako výše:
-link:../stls/scan/garden1.bin[garden1.bin] a
-link:../stls/scan/garden2.bin[garden2.bin].
+link:../../stls/scan/garden1.bin[garden1.bin] a
+link:../../stls/scan/garden2.bin[garden2.bin].
 
 .Ukázka na cvičení víceméně dle https://www.youtube.com/watch?v=2mySiAS0Tfw[videotutoriálu]
 video::2mySiAS0Tfw[youtube]

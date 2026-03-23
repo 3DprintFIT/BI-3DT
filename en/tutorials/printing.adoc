@@ -85,7 +85,7 @@ Your first task is to *verify that the printer actually prints the same dimensio
 
 image::20mm-box.png[width=160, float=right]
 
-As a test object you chose the link:../stls/printing/20mm-box.stl[model of a cube with precise dimensions of 20×20×10 mm].
+As a test object you chose the link:../../stls/printing/20mm-box.stl[model of a cube with precise dimensions of 20×20×10 mm].
 You received a print profile for the printer that has been used on it so far.
 Let's assume it doesn't need to be adjusted from a calibration standpoint (values like nozzle size and material data are correct).
 
@@ -98,7 +98,7 @@ Next you want to *verify how small an object the printer can handle*.
 
 image::CuteOcto.png[width=160, float=right]
 
-As a test object you chose https://www.thingiverse.com/thing:27053[Cute Octopus Says Hello] (CC BY 3.0) from MakerBot on Thingiverse.com (link:../stls/printing/CuteOcto.stl[mirror here]). To save material, you'll start at half the object's size (scale 50%) and will try smaller sizes, depending on how much time you have left (then try for example 33%, 25%, 15%, etc.).
+As a test object you chose https://www.thingiverse.com/thing:27053[Cute Octopus Says Hello] (CC BY 3.0) from MakerBot on Thingiverse.com (link:../../stls/printing/CuteOcto.stl[mirror here]). To save material, you'll start at half the object's size (scale 50%) and will try smaller sizes, depending on how much time you have left (then try for example 33%, 25%, 15%, etc.).
 
 You'll submit one half size (scale 50%) and another arbitrarily smaller (scale <50%), but successful. You can submit additional smaller sizes voluntarily, but they won't affect the final number of points.
 
@@ -187,7 +187,7 @@ Preparing print data to GCode format was covered in the chapter xref:./slicing#[
 
 Download the configuration bundle for the Hybrix printers we use in printing exercises.
 
-*link:../configs/printing/slic3r_config_bundle.ini[slic3r_config_bundle.ini]*
+*link:../../configs/printing/slic3r_config_bundle.ini[slic3r_config_bundle.ini]*
 
 CAUTION: *Setting the correct configuration file is important.* Improperly chosen configuration can cause GCode to contain instructions unsuitable for the given printer (e.g., it may start printing outside the printable area) and such instructions can cause unsuccessful printing, or in the worse case *damage the printer*.
 Check that the loaded and selected printer setting is named *Hybrix* and material *PET*.

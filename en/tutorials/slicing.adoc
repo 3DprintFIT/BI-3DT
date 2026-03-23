@@ -79,7 +79,7 @@ image::load-bundle.png[File menu, width=320, float=right, link=../images/slicing
 
 Download the configuration bundle for Hybrix printers that we use in this exercise.
 
-*link:../configs/printing/slic3r_config_bundle.ini[slic3r_config_bundle.ini]*
+*link:../../configs/printing/slic3r_config_bundle.ini[slic3r_config_bundle.ini]*
 
 Load this file using __File → Load Config Bundle__. After loading the config bundle, it's often necessary to restart the program. You'll recognize successful loading of the config bundle by new items in the upper right (in filament, **PET** will appear as an option, and in printers **Hybrix**).
 

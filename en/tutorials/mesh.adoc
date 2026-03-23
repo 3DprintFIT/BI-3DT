@@ -246,15 +246,15 @@ video::bl1AIYqPvcE[youtube]
 
 == Files
 
-* link:../stls/mesh/cube_bad.stl[cube_bad.stl] – cube from the video with
+* link:../../stls/mesh/cube_bad.stl[cube_bad.stl] – cube from the video with
 errors
-* link:../stls/mesh/cube_correct.stl[cube_correct.stl] – cube from the video
+* link:../../stls/mesh/cube_correct.stl[cube_correct.stl] – cube from the video
 without errors
-* link:../stls/mesh/aligator_mini_bad.stl[aligator_mini_bad.stl] –
+* link:../../stls/mesh/aligator_mini_bad.stl[aligator_mini_bad.stl] –
 alligator from the video (https://www.thingiverse.com/thing:21724[original CC
 BY-SA Joseph Larson])
-* link:../stls/mesh/bunny_trouble_piece.stl[bunny_trouble_piece.stl] –
+* link:../../stls/mesh/bunny_trouble_piece.stl[bunny_trouble_piece.stl] –
 rabbit from the video (https://www.thingiverse.com/thing:7578[CC BY-NC mrbug])
-* link:../stls/mesh/tajmahal.stl[tajmahal.stl] – ungraded task for
+* link:../../stls/mesh/tajmahal.stl[tajmahal.stl] – ungraded task for
 practice (https://www.thingiverse.com/thing:11183[CC BY-SA Nicholas
 Wilson])
