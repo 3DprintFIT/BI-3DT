@@ -79,7 +79,7 @@ image::load-bundle.png[Nabídka file, width=320, float=right, link=../images/sli
 
 Stáhněte si konfigurační bundle pro tiskárny Hybrix, které používáme na tomto cvičení.
 
-*link:../configs/printing/slic3r_config_bundle.ini[slic3r_config_bundle.ini]*
+*link:../../configs/printing/slic3r_config_bundle.ini[slic3r_config_bundle.ini]*
 
 Tento soubor načtěte pomocí __File → Load Config Bundle__. Po načtení config bundlu je často nutné program restartovat. Úspěšné načtení config bundle poznáte podle nových položek vpravo nahoře (ve filamentu se objeví na výběr **PET** a v tiskárnách **Hybrix**).
 

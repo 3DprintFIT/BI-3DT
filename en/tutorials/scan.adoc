@@ -152,12 +152,12 @@ triangular mesh.
 
 ==== Reconstructing Foot Model
 
-Required models are link:../stls/scan/foot_scan.bin[foot_scan.bin] and
-link:../stls/scan/foot_reference.stl[foot_reference.stl].
+Required models are link:../../stls/scan/foot_scan.bin[foot_scan.bin] and
+link:../../stls/scan/foot_reference.stl[foot_reference.stl].
 The foot model is from the portal
 https://www.thingiverse.com/thing:1615359[Thingiverse, CC BY-NC 3.0 Voodoo Manufacturing].
 
-In the file link:../stls/scan/foot_scan.bin[foot_scan.bin] there's a point cloud created by
+In the file link:../../stls/scan/foot_scan.bin[foot_scan.bin] there's a point cloud created by
 scanning the foot model. Open it in the CloudCompare application.
 
 .Foot scan model as point cloud in CloudCompare program
@@ -235,7 +235,7 @@ It's possible to "to taste" smooth it using _Edit → Mesh → Smooth (Laplacian
 image::cc_smooth_mesh.png[]
 
 You can also load a finished mesh into the program from the file
-link:../stls/scan/foot_reference.stl[foot_reference.stl] (just open the file).
+link:../../stls/scan/foot_reference.stl[foot_reference.stl] (just open the file).
 
 .The loaded mesh isn't very visible
 image::cc_foot_reference.png[]
@@ -257,8 +257,8 @@ image::cc_foot_reference_distances.png[]
 
 ==== Garden Model: Registration of Two Scans
 
-Required models are link:../stls/scan/garden1.bin[garden1.bin] and
-link:../stls/scan/garden2.bin[garden2.bin],
+Required models are link:../../stls/scan/garden1.bin[garden1.bin] and
+link:../../stls/scan/garden2.bin[garden2.bin],
 downloaded directly from the project
 http://www.cloudcompare.org/samples/CloudCompareGardenData.7z[CloudCompare,
 GPL 2+].
@@ -303,8 +303,8 @@ image::cc_garden1.png[width=600]
 ==== Garden Model: Segmentation, Alignment by Reference Points
 
 Required models are the same as above:
-link:../stls/scan/garden1.bin[garden1.bin] and
-link:../stls/scan/garden2.bin[garden2.bin].
+link:../../stls/scan/garden1.bin[garden1.bin] and
+link:../../stls/scan/garden2.bin[garden2.bin].
 
 .Example in exercise more or less according to https://www.youtube.com/watch?v=2mySiAS0Tfw[video tutorial]
 video::2mySiAS0Tfw[youtube]

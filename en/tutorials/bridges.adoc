@@ -51,7 +51,7 @@ so you can print multiple bridges with different settings at once.
 Just be careful so you know which is which.
 
 IMPORTANT: For today's exercise, download the
-link:../configs/bridges/slic3r_config_bundle_bridges.ini[config bundle designed for printing bridges]
+link:../../configs/bridges/slic3r_config_bundle_bridges.ini[config bundle designed for printing bridges]
 and use the settings _Bridges_, _PET_Bridges_, _Hybrix_.
 
 == Assignment
@@ -67,11 +67,11 @@ However, the bridge rating is not equally distributed in terms of its height/wid
 A bridge 20 wide and 30 long is not rated the same as a bridge 30 wide and 20 long.
 Longer bridges are more valuable. In other words, for points it pays to make bridges longer rather than wider.
 
-Use the file link:../stls/bridges/bridge.scad[bridge.scad] as a bridge generator and generate bridges in OpenSCAD (modifying the module implementation to get more points is considered cheating).
+Use the file link:../../stls/bridges/bridge.scad[bridge.scad] as a bridge generator and generate bridges in OpenSCAD (modifying the module implementation to get more points is considered cheating).
 Units are in millimeters and this is only the size of the bridge without the size of the pillars.
 Don't try to undercut the pillars, it would negatively affect printing properties.
 
-Don't forget to use the link:../configs/bridges/slic3r_config_bundle_bridges.ini[config bundle designed for printing bridges] (note, this is a different config bundle than we used last time).
+Don't forget to use the link:../../configs/bridges/slic3r_config_bundle_bridges.ini[config bundle designed for printing bridges] (note, this is a different config bundle than we used last time).
 
 Otherwise, follow the instructions xref:printing.adoc#_tisk-krok-za-krokem[printing step by step].
 

@@ -47,9 +47,9 @@ a vyhledat „overhang test“.
 
 Pro případ výpadku portálu Thingiverse.com máme některé modely k dispozici i zde:
 
- * https://www.thingiverse.com/thing:2298057[Overhang Test] by Gregori Max (CC BY 3.0): link:../stls/supports/RR_Uberhangtest.stl[RR_Uberhangtest.stl]
- * https://www.thingiverse.com/thing:2442722[Overhang Test] by Knickohr (CC BY 3.0): link:../stls/supports/Overhang_Test.stl[Overhang_Test.stl]
- * https://www.thingiverse.com/thing:2972495[Remixed Mini Overhang test] by Adam Gibson (CC BY 3.0): link:../stls/supports/mini_overhang_test.stl[mini_overhang_test.stl]
+ * https://www.thingiverse.com/thing:2298057[Overhang Test] by Gregori Max (CC BY 3.0): link:../../stls/supports/RR_Uberhangtest.stl[RR_Uberhangtest.stl]
+ * https://www.thingiverse.com/thing:2442722[Overhang Test] by Knickohr (CC BY 3.0): link:../../stls/supports/Overhang_Test.stl[Overhang_Test.stl]
+ * https://www.thingiverse.com/thing:2972495[Remixed Mini Overhang test] by Adam Gibson (CC BY 3.0): link:../../stls/supports/mini_overhang_test.stl[mini_overhang_test.stl]
 
 ==== Návod
 
@@ -72,7 +72,7 @@ Jak to ovlivní celkovou dobu tisku a proč?
 
 === Jak se podporám vyhnout? (1 bod)
 
-Vaším úkolem za jeden bod je vytisknout link:../stls/supports/bear.stl[medvěda] bez podpor.
+Vaším úkolem za jeden bod je vytisknout link:../../stls/supports/bear.stl[medvěda] bez podpor.
 Musíte ho vhodně nařezat, vytisknout a poté (nepovinně) slepit vteřinovým lepidlem.
 Pro nařezání můžete použít Slic3r, před podélným řezem můžete objektem otáčet.
 

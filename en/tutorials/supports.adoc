@@ -47,9 +47,9 @@ and search for "overhang test".
 
 In case of Thingiverse.com portal outage, we have some models available here as well:
 
- * https://www.thingiverse.com/thing:2298057[Overhang Test] by Gregori Max (CC BY 3.0): link:../stls/supports/RR_Uberhangtest.stl[RR_Uberhangtest.stl]
- * https://www.thingiverse.com/thing:2442722[Overhang Test] by Knickohr (CC BY 3.0): link:../stls/supports/Overhang_Test.stl[Overhang_Test.stl]
- * https://www.thingiverse.com/thing:2972495[Remixed Mini Overhang test] by Adam Gibson (CC BY 3.0): link:../stls/supports/mini_overhang_test.stl[mini_overhang_test.stl]
+ * https://www.thingiverse.com/thing:2298057[Overhang Test] by Gregori Max (CC BY 3.0): link:../../stls/supports/RR_Uberhangtest.stl[RR_Uberhangtest.stl]
+ * https://www.thingiverse.com/thing:2442722[Overhang Test] by Knickohr (CC BY 3.0): link:../../stls/supports/Overhang_Test.stl[Overhang_Test.stl]
+ * https://www.thingiverse.com/thing:2972495[Remixed Mini Overhang test] by Adam Gibson (CC BY 3.0): link:../../stls/supports/mini_overhang_test.stl[mini_overhang_test.stl]
 
 ==== Instructions
 
@@ -72,7 +72,7 @@ How will this affect the total print time and why?
 
 === How to Avoid Supports? (1 point)
 
-Your task for one point is to print link:../stls/supports/bear.stl[the bear] without supports.
+Your task for one point is to print link:../../stls/supports/bear.stl[the bear] without supports.
 You must cut it appropriately, print it, and then (optionally) glue it with superglue.
 You can use Slic3r for cutting; before a longitudinal cut, you can rotate the object.
 
