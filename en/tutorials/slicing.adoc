@@ -99,7 +99,7 @@ image::load-bundle.png[File menu, width=320, float=right, link=../images/slicing
 
 Download configuration bundle for the printers we use in this exercise:
 
-https://github.com/3DprintFIT/OrcaSlicer/releases/latest[*Konfigurační bundle*]
+https://github.com/3DprintFIT/OrcaSlicer/releases/latest[*Config bundle*]
 
 Load both files using __File → Import → Import Configs__. You'll recognize successful loading by new items in the upper left. You should see Voron 0.2 and Hybrix in the printer selection.
 
