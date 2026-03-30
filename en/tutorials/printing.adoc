@@ -186,10 +186,9 @@ Preparing print data to GCode format was covered in the chapter xref:./slicing#[
 
 [[config-file]]
 
-Download both configuration files for the printers we use in printing exercises:
+Download configuration bundle for the printers we use in this exercise:
 
-*link:../configs/printing/Voron\ 0.2.orca_printer[Voron 0.2 config]*
-*link:../configs/printing/ČVUT\ Hybrix\ 0.4\ nozzle.orca_printer[Hybrix config]*
+https://github.com/3DprintFIT/OrcaSlicer/releases/latest[*Konfigurační bundle*]
 
 IMPORTANT: The instructors will tell you at the exercise which printer you will use.
 

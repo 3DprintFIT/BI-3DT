@@ -97,10 +97,9 @@ image::orcaslicer.png[OrcaSlicer window, width=720, link=../images/slicing/orcas
 .Item __Import Configs__
 image::load-bundle.png[File menu, width=320, float=right, link=../images/slicing/load-bundle.png]
 
-Download both configuration files for the printers we use in this exercise:
+Download configuration bundle for the printers we use in this exercise:
 
-*link:../configs/printing/Voron\ 0.2.orca_printer[Voron 0.2 config]*
-*link:../configs/printing/ČVUT\ Hybrix\ 0.4\ nozzle.orca_printer[Hybrix config]*
+https://github.com/3DprintFIT/OrcaSlicer/releases/latest[*Konfigurační bundle*]
 
 Load both files using __File → Import → Import Configs__. You'll recognize successful loading by new items in the upper left. You should see Voron 0.2 and Hybrix in the printer selection.
 
