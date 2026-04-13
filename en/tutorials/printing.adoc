@@ -86,7 +86,7 @@ Your first task is to *verify that the printer actually prints the same dimensio
 
 image::20mm-box.png[width=160, float=right]
 
-As a test object you chose the link:../stls/printing/20mm-box.stl[model of a cube with precise dimensions of 20×20×10 mm].
+As a test object you chose the link:../../stls/printing/20mm-box.stl[model of a cube with precise dimensions of 20×20×10 mm].
 You received a print profile for the printer that has been used on it so far.
 Let's assume it doesn't need to be adjusted from a calibration standpoint (values like nozzle size and material data are correct).
 
