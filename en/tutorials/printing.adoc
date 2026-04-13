@@ -74,57 +74,7 @@ Printing instructions are described in the chapter <<Printing Step by Step>>.
 Read the task assignments now so you know what's expected of you, and then continue with the step-by-step printing instructions.
 
 
-== Assignment of Tasks
 
-For today's set of tasks, assume the role of a hardworking employee in the QC department of the fictional company "Pepa Prča Research", checking the output quality of 3D printers.
-Your task will be to verify whether the printer prints correctly and how well.
-
-[[ukol-1]]
-=== Task 1 (1 point)
-
-Your first task is to *verify that the printer actually prints the same dimensions that are in the model*.
-
-image::20mm-box.png[width=160, float=right]
-
-As a test object you chose the link:../../stls/printing/20mm-box.stl[model of a cube with precise dimensions of 20×20×10 mm].
-You received a print profile for the printer that has been used on it so far.
-Let's assume it doesn't need to be adjusted from a calibration standpoint (values like nozzle size and material data are correct).
-
-To save material, set up printing so that 4 cubes are printed and each of them is hollow, has one perimeter layer and no top layer (you should get 4 square cups as a result).
-
-[[ukol-2]]
-=== Task 2 (2 points)
-
-Next you want to *verify how small an object the printer can handle*.
-
-image::CuteOcto.png[width=160, float=right]
-
-As a test object you chose https://www.thingiverse.com/thing:27053[Cute Octopus Says Hello] (CC BY 3.0) from MakerBot on Thingiverse.com (link:../stls/printing/CuteOcto.stl[mirror here]). To save material, you'll start at half the object's size (scale 50%) and will try smaller sizes, depending on how much time you have left (then try for example 33%, 25%, 15%, etc.).
-
-You'll submit one half size (scale 50%) and another arbitrarily smaller (scale <50%), but successful. You can submit additional smaller sizes voluntarily, but they won't affect the final number of points.
-
-TIP: If the print is too "messy", it means the material doesn't have time to cool.
-Some materials can be actively cooled, others (e.g., ABS) must not be cooled.
-A workaround is often used as a solution to this problem:
-print multiple small things at once.
-
-[[ukol-3]]
-=== Task 3 (0 points, but mandatory)
-
-*Clean up your workspace.* Those who don't clean up won't get any points.
-
-If no other exercise follows this one, put the printer away in the cabinet.
-First make sure the nozzle has less than 100° C. Then disconnect the printer and take it to its shelf.
-Each printer has its place (places for printers > 12 will be communicated by instructors if necessary).
-
-[options="header", cols="^,^,^"]
-|========
-3+|Printer placement in cabinet
-|1 |5 |9
-|2 |6 |10
-|3 |7 |11
-|4 |8 |12
-|========
 
 == Printing Step by Step
 
@@ -204,6 +154,58 @@ Check that the loaded and selected printer setting is named *Hybrix* and materia
 
 NOTE: If you encounter any problem during printing, consult with the instructor, or try to find the problem in xref:../troubleshooting/index#[troubleshooting].
 
+
+== Assignment of Tasks
+
+For today's set of tasks, assume the role of a hardworking employee in the QC department of the fictional company "Pepa Prča Research", checking the output quality of 3D printers.
+Your task will be to verify whether the printer prints correctly and how well.
+
+[[ukol-1]]
+=== Task 1 (1 point)
+
+Your first task is to *verify that the printer actually prints the same dimensions that are in the model*.
+
+image::20mm-box.png[width=160, float=right]
+
+As a test object you chose the link:../../stls/printing/20mm-box.stl[model of a cube with precise dimensions of 20×20×10 mm].
+You received a print profile for the printer that has been used on it so far.
+Let's assume it doesn't need to be adjusted from a calibration standpoint (values like nozzle size and material data are correct).
+
+To save material, set up printing so that 4 cubes are printed and each of them is hollow, has one perimeter layer and no top layer (you should get 4 square cups as a result).
+
+[[ukol-2]]
+=== Task 2 (2 points)
+
+Next you want to *verify how small an object the printer can handle*.
+
+image::CuteOcto.png[width=160, float=right]
+
+As a test object you chose https://www.thingiverse.com/thing:27053[Cute Octopus Says Hello] (CC BY 3.0) from MakerBot on Thingiverse.com (link:../stls/printing/CuteOcto.stl[mirror here]). To save material, you'll start at half the object's size (scale 50%) and will try smaller sizes, depending on how much time you have left (then try for example 33%, 25%, 15%, etc.).
+
+You'll submit one half size (scale 50%) and another arbitrarily smaller (scale <50%), but successful. You can submit additional smaller sizes voluntarily, but they won't affect the final number of points.
+
+TIP: If the print is too "messy", it means the material doesn't have time to cool.
+Some materials can be actively cooled, others (e.g., ABS) must not be cooled.
+A workaround is often used as a solution to this problem:
+print multiple small things at once.
+
+[[ukol-3]]
+=== Task 3 (0 points, but mandatory)
+
+*Clean up your workspace.* Those who don't clean up won't get any points.
+
+If no other exercise follows this one, put the printer away in the cabinet.
+First make sure the nozzle has less than 100° C. Then disconnect the printer and take it to its shelf.
+Each printer has its place (places for printers > 12 will be communicated by instructors if necessary).
+
+[options="header", cols="^,^,^"]
+|========
+3+|Printer placement in cabinet
+|1 |5 |9
+|2 |6 |10
+|3 |7 |11
+|4 |8 |12
+|========
 
 === After Finishing Printing
 

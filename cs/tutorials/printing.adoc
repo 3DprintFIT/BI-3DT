@@ -74,57 +74,7 @@ Návod k tisku popisuje kapitola <<Tisk krok za krokem>>.
 Přečtěte si nyní zadání úkolů, abyste věděli, co se od vás očekává, a pak pokračujte návodem jak tisknout krok za krokem.
 
 
-== Zadání úkolů
 
-Pro dnešní sadu úkolů se vtělte do pracovitého zaměstnance QC oddělení fiktivní firmy „Pepa Prča Research“, kontrolující výstupní kvalitu 3D tiskáren.
-Vaším úkolem bude ověřit, zda tiskárna tiskne správně a jak dobře.
-
-[[ukol-1]]
-=== Úkol 1 (1 bod)
-
-Vašim prvním úkolem je *ověřit, zda tiskárna skutečně vytiskne stejné rozměry, které jsou v modelu*.
-
-image::20mm-box.png[width=160, float=right]
-
-Jako testovací objekt jste si vybrali link:../../stls/printing/20mm-box.stl[model kostky o přesných rozměrech 20×20×10 mm].
-K tiskárně jste dostali tiskový profil, který na ní byl doteď používán.
-Předpokládejme, že není potřeba ho upravovat po kalibrační stránce (hodnoty jako velikost trysky a údaje o materiálu jsou správné).
-
-Abyste ušetřili materiál, nastavte tisk tak, aby se vytiskly kostky 4 a každá z nich byla dutá, měla jednu obvodovou vrstvu a žádnou vrchní vrstvu (ve výsledku byste měli dostat 4 hranaté kalíšky).
-
-[[ukol-2]]
-=== Úkol 2 (2 body)
-
-Dále chcete *ověřit, jak moc malý předmět tiskárna zvládne vytisknout*.
-
-image::CuteOcto.png[width=160, float=right]
-
-Jako testovací objekt jste si vybrali https://www.thingiverse.com/thing:27053[Cute Octopus Says Hello] (CC BY 3.0) od firmy MakerBot ze serveru Thingiverse.com (link:../stls/printing/CuteOcto.stl[mirror zde]). Abyste ušetřili materiál, začnete na poloviční velikosti předmětu (scale 50%) a budete dále zkoušet menší velikosti, podle toho, kolik vám zbyde času (zkuste pak např. 33%, 25%, 15% atd.).
-
-Odevzdávat budete jednu poloviční velikost (scale 50%) a druhou libovolně menší (scale <50%), ale povedenou. Další menší velikosti můžete odevzdat dobrovolně, ale neovlivní výsledný počet bodů.
-
-TIP: Jestliže je výtisk příliš „rozplizlý“, znamená to, že materiál nestíhá chladnout.
-Některé materiály lze aktivně chladit, jiné (např. ABS) se chladit nesmějí.
-Jako řešení tohoto problému se často používá workaround:
-vytiskněte více malých věcí najednou.
-
-[[ukol-3]]
-=== Úkol 3 (0 bodů, ale povinný)
-
-*Ukliďte po sobě své pracoviště.* Kdo po sobě neuklidí, nedostane žádné body.
-
-Pokud po tomto cvičení již nenásleduje další, tiskárnu ukliďte do skříně.
-Nejprve se ujistěte, že tryska má méně než 100° C. Poté tiskárnu odpojte a zaneste do její police.
-Každá tiskárna má svoje místo (místa pro tiskárny > 12 vám případně sdělí cvičící).
-
-[options="header", cols="^,^,^"]
-|========
-3+|Umístění tiskáren ve skříni
-|1 |5 |9
-|2 |6 |10
-|3 |7 |11
-|4 |8 |12
-|========
 
 == Tisk krok za krokem
 
@@ -207,6 +157,58 @@ Zkontrolujte, že načtené a zvolené nastavení pro tiskárnu je pojmenované 
 
 NOTE: Pokud při tisku narazíte na jakýkoliv problém, konzultujte se cvičícím, nebo zkuste problém najít v xref:../troubleshooting/index#[troubleshootingu].
 
+
+== Zadání úkolů
+
+Pro dnešní sadu úkolů se vtělte do pracovitého zaměstnance QC oddělení fiktivní firmy „Pepa Prča Research“, kontrolující výstupní kvalitu 3D tiskáren.
+Vaším úkolem bude ověřit, zda tiskárna tiskne správně a jak dobře.
+
+[[ukol-1]]
+=== Úkol 1 (1 bod)
+
+Vašim prvním úkolem je *ověřit, zda tiskárna skutečně vytiskne stejné rozměry, které jsou v modelu*.
+
+image::20mm-box.png[width=160, float=right]
+
+Jako testovací objekt jste si vybrali link:../../stls/printing/20mm-box.stl[model kostky o přesných rozměrech 20×20×10 mm].
+K tiskárně jste dostali tiskový profil, který na ní byl doteď používán.
+Předpokládejme, že není potřeba ho upravovat po kalibrační stránce (hodnoty jako velikost trysky a údaje o materiálu jsou správné).
+
+Abyste ušetřili materiál, nastavte tisk tak, aby se vytiskly kostky 4 a každá z nich byla dutá, měla jednu obvodovou vrstvu a žádnou vrchní vrstvu (ve výsledku byste měli dostat 4 hranaté kalíšky).
+
+[[ukol-2]]
+=== Úkol 2 (2 body)
+
+Dále chcete *ověřit, jak moc malý předmět tiskárna zvládne vytisknout*.
+
+image::CuteOcto.png[width=160, float=right]
+
+Jako testovací objekt jste si vybrali https://www.thingiverse.com/thing:27053[Cute Octopus Says Hello] (CC BY 3.0) od firmy MakerBot ze serveru Thingiverse.com (link:../stls/printing/CuteOcto.stl[mirror zde]). Abyste ušetřili materiál, začnete na poloviční velikosti předmětu (scale 50%) a budete dále zkoušet menší velikosti, podle toho, kolik vám zbyde času (zkuste pak např. 33%, 25%, 15% atd.).
+
+Odevzdávat budete jednu poloviční velikost (scale 50%) a druhou libovolně menší (scale <50%), ale povedenou. Další menší velikosti můžete odevzdat dobrovolně, ale neovlivní výsledný počet bodů.
+
+TIP: Jestliže je výtisk příliš „rozplizlý“, znamená to, že materiál nestíhá chladnout.
+Některé materiály lze aktivně chladit, jiné (např. ABS) se chladit nesmějí.
+Jako řešení tohoto problému se často používá workaround:
+vytiskněte více malých věcí najednou.
+
+[[ukol-3]]
+=== Úkol 3 (0 bodů, ale povinný)
+
+*Ukliďte po sobě své pracoviště.* Kdo po sobě neuklidí, nedostane žádné body.
+
+Pokud po tomto cvičení již nenásleduje další, tiskárnu ukliďte do skříně.
+Nejprve se ujistěte, že tryska má méně než 100° C. Poté tiskárnu odpojte a zaneste do její police.
+Každá tiskárna má svoje místo (místa pro tiskárny > 12 vám případně sdělí cvičící).
+
+[options="header", cols="^,^,^"]
+|========
+3+|Umístění tiskáren ve skříni
+|1 |5 |9
+|2 |6 |10
+|3 |7 |11
+|4 |8 |12
+|========
 
 === Po dokončení tisku
 
