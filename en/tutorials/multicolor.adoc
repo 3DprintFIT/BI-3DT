@@ -172,7 +172,7 @@ Instead of splitting the file into two, it's enough to add one extra line to the
 == Assignment
 
 Print any number (but at least one) of two-color
-link:../stls/multicolor/3dprintlab-logo.stl[laboratory logos]. Choose
+link:../../stls/multicolor/3dprintlab-logo.stl[laboratory logos]. Choose
 printing settings as needed, but base them on the _0.2 NORMAL_ print profile.
 Arrange filament color exchange with classmates in the classroom,
 or ask instructors for an alternative color.

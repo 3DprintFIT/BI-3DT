@@ -172,7 +172,7 @@ Místo rozdělení souboru na dva pak stačí do Gcodu přidat jeden řádek nav
 == Úkol
 
 Vytiskněte libovolné množství (nejméně však jeden) dvoubarevného
-link:../stls/multicolor/3dprintlab-logo.stl[loga laboratoře]. Nastavení
+link:../../stls/multicolor/3dprintlab-logo.stl[loga laboratoře]. Nastavení
 tisku zvolte dle potřeby, vycházejte však z tiskového profilu _0.2 NORMAL_.
 Domluvte se s kolegy v učebně na výměně barvy filamentu,
 případně požádejte cvičící o náhradní barvu.

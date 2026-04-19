@@ -180,7 +180,7 @@ Next you want to *verify how small an object the printer can handle*.
 
 image::CuteOcto.png[width=160, float=right]
 
-As a test object you chose https://www.thingiverse.com/thing:27053[Cute Octopus Says Hello] (CC BY 3.0) from MakerBot on Thingiverse.com (link:../stls/printing/CuteOcto.stl[mirror here]). To save material, you'll start at half the object's size (scale 50%) and will try smaller sizes, depending on how much time you have left (then try for example 33%, 25%, 15%, etc.).
+As a test object you chose https://www.thingiverse.com/thing:27053[Cute Octopus Says Hello] (CC BY 3.0) from MakerBot on Thingiverse.com (link:../../stls/printing/CuteOcto.stl[mirror here]). To save material, you'll start at half the object's size (scale 50%) and will try smaller sizes, depending on how much time you have left (then try for example 33%, 25%, 15%, etc.).
 
 You'll submit one half size (scale 50%) and another arbitrarily smaller (scale <50%), but successful. You can submit additional smaller sizes voluntarily, but they won't affect the final number of points.
 

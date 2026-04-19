@@ -63,7 +63,7 @@ Ohodnocení mostu ale není stejně rovnoměrné co se týče jeho výšky/ší�
 Most široký 20 a dlouhý 30 není stejně ohodnocený jako most široký 30 a dlouhý 20.
 Hodnotnější je delší most. Jinak řečeno, pro zisk bodů se vyplatí dělat mosty spíše delší než širší.
 
-Jako generátor mostu použijte soubor link:../stls/bridges/bridge.scad[bridge.scad] a mosty generujte v OpenSCADu (úprava implementace modulu za účelem získání více bodů je považována za podvod).
+Jako generátor mostu použijte soubor link:../../stls/bridges/bridge.scad[bridge.scad] a mosty generujte v OpenSCADu (úprava implementace modulu za účelem získání více bodů je považována za podvod).
 Jednotky jsou v milimetrech a jedná se pouze o velikost mostu bez velikosti pilířů.
 Pilíře se nesnažte podříznout, negativně by to ovlivnilo tiskové vlastnosti.
 
