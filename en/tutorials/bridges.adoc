@@ -56,18 +56,14 @@ During the terraforming of Mars, mission command has assigned you the task of pr
 At our base we have a scaled-down copy of a 3D printer,
 which will later print real bridges on Mars.
 
-Each bridge has its own rating.
-The more valuable the bridge you manage to print,
-the faster we can terraform Mars.
-However, the bridge rating is not equally distributed in terms of its height/width.
-A bridge 20 wide and 30 long is not rated the same as a bridge 30 wide and 20 long.
-Longer bridges are more valuable. In other words, for points it pays to make bridges longer rather than wider.
+Use the file link:../../stls/bridges/bridge.scad[bridge.scad] to generate the bridge STL in OpenSCAD.
+You may change the bridge dimensions for testing purposes,
+but only bridges with the *default dimensions* (12.5 mm wide, 141 mm long) are graded.
+The default bridge must be placed *diagonally* (rotated 45°) on the print bed to fit.
 
-Use the file link:../../stls/bridges/bridge.scad[bridge.scad] as a bridge generator and generate bridges in OpenSCAD (modifying the module implementation to get more points is considered cheating).
-Units are in millimeters and this is only the size of the bridge without the size of the pillars.
-Don't try to undercut the pillars, it would negatively affect printing properties.
-
-The bridge rating is always visible on its top side.
+Your task is to calibrate the bridge settings in OrcaSlicer
+and print a bridge that is as clean and nice-looking as possible.
+The bottom of the bridge should not sag and the filament strands should not be broken.
 
 NOTE: The bridge pillars must stay on the print bed.
 Use appropriate techniques that you know from the chapter xref:slicing.adoc#structs[slicing].
@@ -81,24 +77,10 @@ Use appropriate techniques that you know from the chapter xref:slicing.adoc#stru
 
 The above points are not cumulative.
 Those who don't xref:printing.adoc#ukol-3[clean up after themselves] don't get any points.
-Graded bridges must be at least 30 mm long and have a rating of at least 300.
-
-=== Bonus
-
-The student pair
-that manages to print the most valuable bridge
-will be awarded 3 bonus points.
-The second best pair gets 2 points and the third best pair gets 1 point.
-
-This competition runs across all parallel sessions.
-Intermediate results *are not communicated to competitors*.
-Only bridges for which you received points above enter the competition.
-So it's not possible to, for example, submit a nice short bridge for 3 points
-and at the same time compete with a really ugly sagging bridge.
 
 === Bridges from ABS
 
-If you want, you can also try printing bridges from ABS non-competitively.
+If you want, you can also try printing bridges from ABS.
 ABS has greater thermal expansion and is harder to blow on.
 The bridge pillars have a greater tendency to detach from the bed during printing.
 If you're otherwise done and want to print from ABS, ask the instructors for details.

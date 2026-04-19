@@ -56,18 +56,14 @@ Během teraformace Marsu vás velitelství mise pověřilo úkolem vytisknout na
 V naší základně máme zmenšenou kopii 3D tiskárny,
 která bude poté na Marsu tisknout skutečné mosty.
 
-Každý most má svoje ohodnocení.
-Čím hodnotnější most se vám podaří vytisknout,
-tím rychleji můžeme teraformovat Mars.
-Ohodnocení mostu ale není stejně rovnoměrné co se týče jeho výšky/šířky.
-Most široký 20 a dlouhý 30 není stejně ohodnocený jako most široký 30 a dlouhý 20.
-Hodnotnější je delší most. Jinak řečeno, pro zisk bodů se vyplatí dělat mosty spíše delší než širší.
+Jako generátor mostu použijte soubor link:../../stls/bridges/bridge.scad[bridge.scad] a most vygenerujte v OpenSCADu.
+Pro testování můžete měnit rozměry mostu,
+ale body se udělují pouze za mosty s *výchozími rozměry* (12,5 mm široký, 141 mm dlouhý).
+Výchozí most je nutné na tiskovou desku umístit *diagonálně* (otočený o 45°), aby se vešel.
 
-Jako generátor mostu použijte soubor link:../../stls/bridges/bridge.scad[bridge.scad] a mosty generujte v OpenSCADu (úprava implementace modulu za účelem získání více bodů je považována za podvod).
-Jednotky jsou v milimetrech a jedná se pouze o velikost mostu bez velikosti pilířů.
-Pilíře se nesnažte podříznout, negativně by to ovlivnilo tiskové vlastnosti.
-
-Ohodnocení mostu je vždy vidět na jeho horní straně.
+Vaším úkolem je kalibrovat nastavení mostu v OrcaSliceru
+a vytisknout co nejhezčí most.
+Spodní strana mostu by neměla být prověšená a vlákna by neměla být přetrhaná.
 
 NOTE: Pilíře mostu se musí udržet na tiskové desce.
 Použijte vhodné techniky, které znáte z kapitoly xref:slicing.adoc#structs[slicing].
@@ -75,30 +71,16 @@ Použijte vhodné techniky, které znáte z kapitoly xref:slicing.adoc#structs[s
 
 === Hodnocení
 
-- 1. bod za vytištění opravdu ošklivého propadlého mostu
-- 2. bod za vytištění ošklivého mostu
-- 3. bod za vytištění hezkého mostu
+- 1 bod za vytištění opravdu ošklivého propadlého mostu
+- 2 body za vytištění ošklivého mostu
+- 3 body za vytištění hezkého mostu
 
 Výše uvedené body se nesčítají.
 Kdo po sobě xref:printing.adoc#ukol-3[neuklidí], nemá na body nárok.
-Bodované mosty musí být aspoň 30 mm dlouhé a mít ohodnocení alespoň 300.
-
-=== Bonus
-
-Studentské dvojici,
-které se podaří vytisknout nejhodnotnější most,
-budou započítány 3 bonusové body.
-Druhé nejlepší dvojici 2 body a třetí nejlepší dvojici 1 bod.
-
-Tato soutěž probíhá napříč všemi paralelkami.
-Průběžné výsledky *nejsou sdělovány soutěžícím*.
-Do soutěže vstupují pouze mosty, za které jste dostali body výše.
-Není tedy možné např. odevzdat hezký krátký most za 3 body
-a zároveň soutěžit s opravdu ošklivým propadlým mostem.
 
 === Mosty z ABS
 
-Pokud chcete, můžete si nesoutěžně vyzkoušet i tisk mostů z ABS.
+Pokud chcete, můžete si vyzkoušet i tisk mostů z ABS.
 ABS má větší tepelnou roztažnost a hůře se na něj fouká.
 Pilíře mostu mají větší tendenci se odtrhnout během tisku od desky.
 Pokud máte jinak hotovo a chcete tisknout z ABS, zeptejte se cvičících na detaily.
