@@ -51,7 +51,7 @@ If you print from PET or PLA, it's often possible to relatively limit supports.
 .Bear model with highlighted overhangs -- support will be needed there
 image::bear.png[Bear, width=450]
 
-IMPORTANT: For today's exercise, download both general configuration files for OrcaSlicer (for Voron and Hybrix). If you have them downloaded from previous exercises, you don't need to import them again. Links can be found in the xref:printing#config-file[configuration section of the printing tutorial].
+IMPORTANT: For today's exercise, download both general configuration files for OrcaSlicer (for Voron and Hybrix). If you have them downloaded from previous exercises, you need to download an updated version and import them again. Links can be found in the xref:printing#config-file[configuration section of the printing tutorial].
 
 WARNING: Follow all safety rules from xref:printing.adoc#[the printing exercise].
 Especially don't eat superglue and don't disassemble the printer power supply plastic cover.
