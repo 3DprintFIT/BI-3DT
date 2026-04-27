@@ -58,8 +58,8 @@ která bude poté na Marsu tisknout skutečné mosty.
 
 Jako generátor mostu použijte soubor link:../../stls/bridges/bridge.scad[bridge.scad] a most vygenerujte v OpenSCADu.
 Pro testování můžete měnit rozměry mostu,
-ale body se udělují pouze za mosty s *výchozími rozměry* (12,5 mm široký, 138 mm dlouhý).
-Výchozí most je nutné na tiskovou desku umístit *diagonálně* (otočený o 45°), aby se vešel.
+ale body se udělují pouze za mosty s *výchozími rozměry* (12,5 mm široký, 100 mm dlouhý, 10 mm vysoký) nebo za větší.
+Výchozí most možná budete muset na tiskovou desku umístit *diagonálně* (otočený o 45°), aby se vešel.
 
 Vaším úkolem je kalibrovat nastavení mostu v OrcaSliceru
 a vytisknout co nejhezčí most.

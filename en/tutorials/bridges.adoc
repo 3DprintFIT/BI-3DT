@@ -58,8 +58,8 @@ which will later print real bridges on Mars.
 
 Use the file link:../../stls/bridges/bridge.scad[bridge.scad] to generate the bridge STL in OpenSCAD.
 You may change the bridge dimensions for testing purposes,
-but only bridges with the *default dimensions* (12.5 mm wide, 138 mm long) are graded.
-The default bridge must be placed *diagonally* (rotated 45°) on the print bed to fit.
+but only bridges with the *default dimensions* (12.5 mm wide, 100 mm long, 10 mm high) or bigger are graded.
+The default bridge might need to be placed *diagonally* (rotated 45°) on the print bed to fit.
 
 Your task is to calibrate the bridge settings in OrcaSlicer
 and print a bridge that is as clean and nice-looking as possible.
