@@ -1,5 +1,5 @@
 module bridge(width = 12.5,
-              length = 141,
+              length = 138,
               height = 10) {
     base = 8;
     bridge_thick = 1;
