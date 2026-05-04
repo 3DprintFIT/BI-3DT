@@ -163,10 +163,9 @@ Místo rozdělení souboru na dva pak stačí do Gcodu přidat jeden řádek nav
 
 1. Připravte si model k tisku a nastavení
 2. V náhledu si najděte vrstvu, kde chcete vyměnit filament
-3. Klikněte pravým tlačítkem na ikonu + a vyberte `Add Custom GCode`
-4. __Pokud používáte tiskárnu Hybrix, vložte do políčka `Custom GCode` následující příkaz:__ `M226`
-5. __Pokud používáte tiskárnu Voron, vložte do políčka `Custom GCode` následující příkaz:__ `M600`
-6. Vyexportujte GCode a model vytiskněte.
+3. Klikněte pravým tlačítkem na ikonu + a vyberte `Add Pause`
+4. Vyexportujte GCode a model vytiskněte.
+5. Tiskarna se zastaví na požadované vyšce, vyměntě filament manualně a pokračujte v tisku.
 
 
 == Úkol

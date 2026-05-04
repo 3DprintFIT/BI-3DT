@@ -163,10 +163,9 @@ Instead of splitting the file into two, it's enough to add one extra line to the
 
 1. Prepare your model for printing and settings
 2. In the preview, find the layer where you want to change the filament
-3. Right-click on the + icon and select `Add Custom GCode`
-4. __If you are using a Hybrix printer, enter the following command in the `Custom GCode` field:__ `M226`
-5. __If you are using a Voron printer, enter the following command in the `Custom GCode` field:__ `M600`
-6. Export the GCode and print the model.
+3. Right-click on the + icon and select `Add Pause`
+4. Export the GCode and print the model.
+5. The printer will stop at desire height change the filament manually and resume the print.
 
 
 == Assignment
